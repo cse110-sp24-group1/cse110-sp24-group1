@@ -6,10 +6,10 @@
 
 ## Agenda
 
-1. Introductions & Ice-Breaker
+1. Introductions & Ice-Breaker (10 minutes)
 2. Management
    1. Define Roles
-   2. Set Up Rules of Decelopment
+   2. Set Up Rules of Development
    3. Develop Team Contract
    4. Define Meeting Structure
 3. Team Branding Discussion
@@ -31,8 +31,10 @@
     1. 
   - ***Absent:***
     1. 
-- **Agenda:**
+- **Notes:**
   - *Introductions & Ice-Breaker*
+      - Skribbl.io
+      - Add other ideas
   - *Management*
     - Define Roles - people can have multiple roles?
       - Leader
@@ -82,6 +84,7 @@
 - [ ] Place your team video at /admin/videos/teamintro.mp4
 - [ ] Theres a lot of documents/rules, are we missing anything? Does everyone know what they need to finish/work on before our next meeting on Friday?
 - [ ] Update GitHub /admin/meetings with the notes from today
+- [ ] Set a specific regular meeting time for each week, will send out a when2meet this weekend for that!
 
 ## Next Meeting
 
