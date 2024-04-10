@@ -9,14 +9,22 @@
 1. Welcome and Introductions
 2. Management
    1. Define Roles
+      1. Leader
+      2. Designer
+      3. Developer
+      4. Planning  
+         1. Notetaker for meetings
+         2. Makes sure group is aware of deadlines for all assignments
+      5. Project Manager 
+         1. Using project board, issues tracker, etc on Github
    2. Set Up Rules of Development
    3. Develop Team Contract
    4. Define Meeting Structure
-4. Team Branding Discussion
-5. Team Page
-6. Intro Video Ideas
-7. Assign Action Items
-8. Next Steps and Conclusion
+3. Team Branding Discussion
+4. Team Page
+5. Intro Video Ideas
+6. Assign Action Items
+7. Next Steps and Conclusion
 
 ## Meeting Notes
 
