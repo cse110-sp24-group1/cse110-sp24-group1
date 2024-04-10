@@ -9,14 +9,6 @@
 1. Welcome and Introductions
 2. Management
    1. Define Roles
-      1. Leader
-      2. Designer
-      3. Developer
-      4. Planning  
-         1. Notetaker for meetings
-         2. Makes sure group is aware of deadlines for all assignments
-      5. Project Manager 
-         1. Using project board, issues tracker, etc on Github
    2. Set Up Rules of Development
    3. Develop Team Contract
    4. Define Meeting Structure
@@ -38,6 +30,14 @@
   - *Welcome and Introductions*
   - *Management*
     - Define Roles
+      - Leader
+      - Designer
+      - Developer
+      - Planning  
+        - Notetaker for meetings
+        - Makes sure group is aware of deadlines for all assignments
+      - Project Manager 
+        - Using project board, issues tracker, etc on Github
     - Set Up Rules of Development
     - Develop Team Contract
     - Define Meeting Structure
