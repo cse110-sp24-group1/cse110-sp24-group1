@@ -76,5 +76,5 @@
 - **Time:** 4-5:30pm
 - **Location:** Tables outside of the CSE Building
 - **Goals** 
-  - Ice-Breaker Activity
   - Finish Team Video
+  - Ice-Breaker Activity
