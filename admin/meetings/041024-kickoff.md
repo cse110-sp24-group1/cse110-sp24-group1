@@ -8,6 +8,10 @@
 
 1. Welcome and Introductions
 2. Management
+   1. Define Roles
+   2. Set Up Rules of Decelopment
+   3. Decelop Team Contract
+   4. Define Meeting Structure
 3. Team Branding Discussion
 4. Work on Team Page
 5. Intro Video Ideas
