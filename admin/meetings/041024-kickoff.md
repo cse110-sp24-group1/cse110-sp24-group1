@@ -9,7 +9,7 @@
 1. Welcome and Introductions
 2. Management
 3. Team Branding Discussion
-4. Team Page
+4. Work on Team Page
 5. Intro Video Ideas
 6. Assign Action Items
 7. Next Steps and Conclusion
@@ -47,7 +47,7 @@
       - Power Point Themes
     - Create/find an icon to an image that represents your brand and also incorporates your team number prominently (set Slack workspace icon to this)
       - Who can design it?
-  - *Team Page*
+  - *Work on Team Page*
     - Who can take notes on the team.md file?
     - Team Name
     - Brand
