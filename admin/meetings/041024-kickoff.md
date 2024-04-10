@@ -6,11 +6,11 @@
 
 ## Agenda
 
-1. Welcome and Introductions
+1. Introductions & Ice-Breaker
 2. Management
    1. Define Roles
    2. Set Up Rules of Decelopment
-   3. Decelop Team Contract
+   3. Develop Team Contract
    4. Define Meeting Structure
 3. Team Branding Discussion
 4. Work on Team Page
@@ -18,24 +18,29 @@
 6. Assign Action Items
 7. Next Steps and Conclusion
 
+## To-Do
+
+- [ ] Does everyone have access to the GitHub organization/repository? If not, list your GitHub username below.
+- 
+
 ## Meeting Notes
 
 - **Type:** Kickoff Meeting
 - **Attendance:**
   - ***Present:***
-    - 
+    1. 
   - ***Absent:***
-    - 
+    1. 
 - **Agenda:**
-  - *Welcome and Introductions*
+  - *Introductions & Ice-Breaker*
   - *Management*
-    - Define Roles
+    - Define Roles - people can have multiple roles?
       - Leader
       - Designer
       - Developer
       - Planning  
         - Notetaker for meetings
-        - Makes sure group is aware of deadlines for all assignments
+        - Makes sure group is aware/on track for all deadlines
       - Project Manager 
         - Using project board, issues tracker, etc on Github
     - Set Up Rules of Development
@@ -71,12 +76,12 @@
 
 ## Action Items
 
-- [ ] Does everyone have access to the GitHub organization/repository?
 - [ ] Keep your team branding materials in your repo at /admin/branding
 - [ ] Set your slack workspace icon to represent your brand and team number
 - [ ] Place your team page at /admin/team.md and link to it from your README
 - [ ] Place your team video at /admin/videos/teamintro.mp4
 - [ ] Theres a lot of documents/rules, are we missing anything? Does everyone know what they need to finish/work on before our next meeting on Friday?
+- [ ] Update GitHub /admin/meetings with the notes from today
 
 ## Next Meeting
 
@@ -84,5 +89,4 @@
 - **Time:** 4-5:30pm
 - **Location:** Tables outside of the CSE Building
 - **Goals** 
-  - Finish Team Video
-  - Ice-Breaker Activity
+  - Finish Team Video 
