@@ -24,6 +24,9 @@ We are all aspiring software engineers!
 - **Pussakorn (Moss) Chanpanichravee (Designer)** - [Github](https://github.com/PussakornCH)
   - Overview: 
 
+- **Vedant Mohan (Designer)** - [Placeholder for Github]
+  - Overview:
+
 - **Gwendolyn Wong (Project Manager / Developer)** - [Github](https://github.com/gewnwong)
   - Overview: 
 
@@ -44,6 +47,8 @@ We are all aspiring software engineers!
 
 - **Theodore Van Berlo (Developer)** - [Github](https://github.com/TheodoreVB)
   - Overview:
+
+
  
 ## Team Contract:
 1. **Attendance:** Inform the team if unable to attend a meeting.
@@ -51,4 +56,4 @@ We are all aspiring software engineers!
 3. **Respect:** Respect all ideas and contributions.
 4. **Communication:** Keep communication open and clear.
 5. **Teamwork:** Help all team members regardless of role.
-6. **Conflict Resolution:** Group project conflicts should be resolved by group vote. Personal conflicts should be resolved privately, with the leader as mediator if needed.
+6. **Conflict Resolution:** Group project conflicts should be resolved by group vote. Personal conflicts should be resolved privately, with a leader as a mediator if needed.
