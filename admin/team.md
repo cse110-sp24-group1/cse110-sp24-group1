@@ -24,7 +24,7 @@ We are all aspiring software engineers!
 - **Pussakorn (Moss) Chanpanichravee (Designer)** - [Github](https://github.com/PussakornCH)
   - Overview: 
 
-- **Vedant Mohan (Designer)** - [Placeholder for Github]
+- **Vedant Mohan (Designer)** - [Github](https://github.com/VedantMohann)
   - Overview:
 
 - **Gwendolyn Wong (Project Manager / Developer)** - [Github](https://github.com/gewnwong)
