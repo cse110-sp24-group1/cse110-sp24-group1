@@ -44,7 +44,7 @@ We are all aspiring software engineers!
 - **Theodore Van Berlo (Developer)** - [Github](https://github.com/TheodoreVB)
   - Overview:
  
-## Rules of Development:
+## Team Contract:
 1. **Attendance:** Inform the team if unable to attend a meeting.
 2. **Deadlines:** Notify the team in advance if unable to meet a deadline, propose a new deadline.
 3. **Respect:** Respect all ideas and contributions.
