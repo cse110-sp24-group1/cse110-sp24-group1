@@ -1,1 +1,3 @@
-# cse110-sp24-group1
+# Team 1
+
+## [Team Documentation](admin/team.md)
