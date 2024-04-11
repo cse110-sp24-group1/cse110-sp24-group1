@@ -1,3 +1,3 @@
 # Team 1
 
-## [Team Documentation](admin/team.md)
+## [Team Page](admin/team.md)
