@@ -15,8 +15,9 @@
 7. Jeffrey
 8. Nam
 9. Jeremy
-10. Team Goals
-11. Action Items
+10. Theodore
+11. Team Goals
+12. Action Items
 13. Conclusion
 
 ## To-Do
@@ -65,6 +66,10 @@
       - What our goals are for the current week?
       - Questions/Comments/Ideas/Concerns?
   - Jeremy
+      - What we did the past week?
+      - What our goals are for the current week?
+      - Questions/Comments/Ideas/Concerns?
+  - Theodore
       - What we did the past week?
       - What our goals are for the current week?
       - Questions/Comments/Ideas/Concerns?
