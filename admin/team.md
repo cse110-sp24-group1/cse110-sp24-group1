@@ -19,7 +19,7 @@ We are all aspiring software engineers!
   - Overview: .
 
 - **Anshi Singh (Leader/Developer)** - [Github](https://anshisinghh.github.io/Personal-Portfolio/)
-  - Overview: Hi! I'm a third-year computer science major. I am interested in both full-stack and back-end development, with experience in mobile app development as well.
+  - Hi! I'm a third-year computer science major. I am interested in both full-stack and back-end development, with experience in mobile app development as well.
 
 - **Pussakorn (Moss) Chanpanichravee (Designer)** - [Github](https://github.com/PussakornCH)
   - Overview: 
