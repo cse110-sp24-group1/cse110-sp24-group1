@@ -9,8 +9,9 @@ We are all aspiring software engineers!
 - **Communication:** Open and clear communication is vital.
 
 ## Team Brand:
-- **Color Palette:** [Insert Image]
 - **Logo:** [Placeholder for Logo]
+- **Color Palette:** [Insert Image]
+- **Vision** [Insert Image of Colors in Web App]
 - **Theme:** Modern and Innovative
 
 ## Team Members:
