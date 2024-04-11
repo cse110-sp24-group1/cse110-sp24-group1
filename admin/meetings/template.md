@@ -19,9 +19,6 @@
 11. Action Items
 13. Conclusion
 
-Overview:
-Theodore
-
 ## To-Do
 
 - [ ] 
