@@ -1,4 +1,4 @@
-# One and Done Team
+# One and Done
 We are all aspiring software engineers!
 
 ## Values:
@@ -18,7 +18,7 @@ We are all aspiring software engineers!
   - Overview: .
 
 - **Anshi Singh (Leader/Developer)** - [Github](https://anshisinghh.github.io/Personal-Portfolio/)
-  - Overview: Hi! I'm a third-year computer science major. I am interested in both full-stack and back-end development, and I have experiences in mobile app development as well.
+  - Overview: Hi! I'm a third-year computer science major. I am interested in both full-stack and back-end development, with experience in mobile app development as well.
 
 - **Pussakorn (Moss) Chanpanichravee (Designer)** - [Github](https://github.com/PussakornCH)
   - Overview: 
@@ -36,10 +36,18 @@ We are all aspiring software engineers!
   - Overview: 
 
 - **Nam Nguyen (Developer)** - [Github](https://github.com/afacade)
-  - Overview: 
+  - Overview:
 
 - **Jeremy Abondano (Developer)** - [Github](https://github.com/Jabo10)
   - Overview: 
 
 - **Theodore Van Berlo (Developer)** - [Github](https://github.com/TheodoreVB)
-  - Overview: 
+  - Overview:
+ 
+## Rules of Development:
+1. **Attendance:** Inform the team if unable to attend a meeting.
+2. **Deadlines:** Notify the team in advance if unable to meet a deadline, propose a new deadline.
+3. **Respect:** Respect all ideas and contributions.
+4. **Communication:** Keep communication open and clear.
+5. **Teamwork:** Help all team members regardless of role.
+6. **Conflict Resolution:** Group project conflicts should be resolved by group vote. Personal conflicts should be resolved privately, with the leader as mediator if needed.
