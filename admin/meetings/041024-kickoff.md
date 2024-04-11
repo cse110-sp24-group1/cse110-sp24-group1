@@ -19,7 +19,7 @@
 
 ## To-Do
 
-- [ ] Does everyone have access to the GitHub organization/repository? If not, list your GitHub username below.
+- [x] Does everyone have access to the GitHub organization/repository? If not, list your GitHub username below.
 - kabir-vats
 - PussakornCH
 - afacade
@@ -174,8 +174,8 @@
 - [ ] Set your slack workspace icon to represent your brand and team number
 - [ ] Place your team page at /admin/team.md and link to it from your README
 - [ ] Place your team video at /admin/videos/teamintro.mp4
-- [ ] Theres a lot of documents/rules, are we missing anything? Does everyone know what they need to finish/work on before our next meeting on Friday?
-- [ ] Update GitHub /admin/meetings with the notes from today
+- [x] Theres a lot of documents/rules, are we missing anything? Does everyone know what they need to finish/work on before our next meeting on Friday?
+- [x] Update GitHub /admin/meetings with the notes from today
 - [ ] Set a specific regular meeting time for each week, will send out a when2meet this weekend for that!
 
 ## Next Meeting
