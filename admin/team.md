@@ -9,7 +9,7 @@ We are all aspiring software engineers!
 - **Communication:** Open and clear communication is important.
 
 ## Team Brand:
-- **Icon:** ![Icon](branding/icon.png)
+- **Icon:** <img src="branding/icon.png" width="100" height="100">
 - **Color Palette:** ![Color Palette](branding/colorpalette.png)
   ![Color Palette](branding/colorpalette1.png)
 - **Vision** ![Vision](branding/vision.png)
@@ -30,7 +30,7 @@ We are all aspiring software engineers!
   - Overview: 
 
 - **[Gwendolyn Wong](https://github.com/gewnwong) - Project Manager / Developer** 
-  - Overview: 
+  - Overview: Hi! I'm a second year computer science, cognitive science (specialized machine learning and neural computation), and math (applied science) triple major. I enjoy struggling to bake and building Lego sets.
 
 - **[Kabir Vats](https://github.com/kabir-vats) - Developer** 
   - I am a second year computer engineering major. I like to walk around the empty office buildings near UTC on the weekends. 
