@@ -2,11 +2,11 @@
 We are all aspiring software engineers!
 
 ## Values:
-- **Collaboration:** Together, we achieve more.
-- **Honesty:** Transparency is key to our success.
+- **Collaboration:** We will learn and grow so much more as SWE by working together.
+- **Honesty:** Builds trust.
 - **Respect:** We value everyone's contributions and perspectives.
 - **Inclusivity:** Diversity makes us stronger.
-- **Communication:** Open and clear communication is vital.
+- **Communication:** Open and clear communication is important.
 
 ## Team Brand:
 - **Icon:** ![Icon](branding/icon.png)
