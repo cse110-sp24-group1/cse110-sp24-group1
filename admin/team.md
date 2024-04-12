@@ -13,7 +13,7 @@ We are all aspiring software engineers!
 <img src="branding/icon.png" width="150" height="150">
 - **Color Palette:**
 <img src="branding/colorpalette.png" width="275" height="125">
-- **Vision**:
+- **Vision:**
 <img src="branding/vision.png" width="275" height="170">
 - **Theme:** Modern and Innovative
 
