@@ -9,14 +9,14 @@ We are all aspiring software engineers!
 - **Communication:** Open and clear communication is important.
 
 ## Team Brand:
-- **Icon:** ![Icon](branding/icon.png)
-- **Color Palette:** ![Color Palette](branding/colorpalette.png)
-- **Vision** ![Vision](branding/vision.png)
+- **Icon:** <img src="branding/icon.png" width="150" height="150">
+- **Color Palette:** <img src="branding/colorpalette.png" width="275" height="125">
+- **Vision**: <img src="branding/vision.png" width="275" height="170">
 - **Theme:** Modern and Innovative
 
 ## Team Members:
 - **[Purich Viwatkurkul](https://github.com/pviwatkurkul) - Leader/Developer**
-  - Overview: .
+  - I'm a third year Math-CS major and my main focus is in front-end development. On my free time, I like watching movies and cooking!
 
 - **[Anshi Singh](https://anshisinghh.github.io/Personal-Portfolio/) - Leader/Developer**
   - Hi! I'm a third-year computer science major. I am interested in both full-stack and back-end development, with experience in mobile app development as well.
@@ -28,7 +28,7 @@ We are all aspiring software engineers!
   - Overview: 
 
 - **[Gwendolyn Wong](https://github.com/gewnwong) - Project Manager / Developer** 
-  - Overview: 
+  - Hi! I'm a second year computer science, cognitive science (specialized machine learning and neural computation), and math (applied science) triple major. I enjoy struggling to bake and building Lego sets.
 
 - **[Kabir Vats](https://github.com/kabir-vats) - Developer** 
   - I am a second year computer engineering major. I like to walk around the empty office buildings near UTC on the weekends. 
@@ -46,7 +46,7 @@ We are all aspiring software engineers!
   - Overview: 
 
 - **[Theodore Van Berlo](https://github.com/TheodoreVB) - Developer**
-  - Overview:
+  - Overview: I am a third year (first year transfer) computer engineering major. I like embedded/assembly coding, but also like trying other styles. My hobbies include video games, motorcycle riding, and watching TV shows.
  
 ## Team Contract:
 1. **Attendance:** Inform the team if unable to attend a meeting.
