@@ -18,7 +18,7 @@ We are all aspiring software engineers!
 
 ## Team Members:
 - **[Purich Viwatkurkul](https://github.com/pviwatkurkul) - Leader/Developer**
-  - Overview: .
+  - I'm a third year Math-CS major and my main focus is in front-end development. On my free time, I like watching movies and cooking!
 
 - **[Anshi Singh](https://anshisinghh.github.io/Personal-Portfolio/) - Leader/Developer**
   - Hi! I'm a third-year computer science major. I am interested in both full-stack and back-end development, with experience in mobile app development as well.
