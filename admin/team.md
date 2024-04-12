@@ -22,7 +22,7 @@ We are all aspiring software engineers!
   - Hi! I'm a third-year computer science major. I am interested in both full-stack and back-end development, with experience in mobile app development as well.
 
 - **[Vedant Mohan](https://github.com/VedantMohann) - Designer**
-  - Overview:
+  - Overview:I'm a second year computer engineering & applied math double major. In my free time I weight lift and play soccer.
 
 - **[Pussakorn (Moss) Chanpanichravee](https://github.com/PussakornCH) - Designer** 
   - Overview: 
