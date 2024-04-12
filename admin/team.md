@@ -9,9 +9,9 @@ We are all aspiring software engineers!
 - **Communication:** Open and clear communication is important.
 
 ## Team Brand:
-- **Icon:** <img src="branding/icon.png" width="200" height="150">
-- **Color Palette:** <img src="branding/colorpalette.png" width="325" height="125">
-- **Vision:** <img src="branding/vision.png" width="325" height="170">
+- **Icon:** <img src="branding/icon.png" width="200">
+- **Color Palette:** <img src="branding/colorpalette.png" width="325">
+- **Vision:** <img src="branding/vision.png" width="325">
 - **Theme:** Modern and Innovative
 
 ## Team Members:
