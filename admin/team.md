@@ -19,7 +19,7 @@ We are all aspiring software engineers!
   - I'm a third year Math-CS major and my main focus is in front-end development. On my free time, I like watching movies and cooking!
 
 - **[Anshi Singh](https://anshisinghh.github.io/Personal-Portfolio/) - Leader/Developer**
-  - Hi! I'm a third-year computer science major. I am interested in both full-stack and back-end development, with experience in mobile app development as well.
+  - Hi! I'm a third-year computer science major. I am interested in both full-stack and back-end development, with experience in mobile app development as well. I like to listen to music in my free time.
 
 - **[Vedant Mohan](https://github.com/VedantMohann) - Designer**
   - I'm a second year computer engineering & applied math double major. In my free time I weight lift and play soccer.
