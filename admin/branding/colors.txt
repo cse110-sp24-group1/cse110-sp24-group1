@@ -1,0 +1,8 @@
+https://coolors.co/000814-001d3d-003566-ffc300-ffd60a
+
+/* CSS HEX */
+--rich-black: #000814ff;
+--oxford-blue: #001d3dff;
+--yale-blue: #003566ff;
+--mikado-yellow: #ffc300ff;
+--gold: #ffd60aff;
