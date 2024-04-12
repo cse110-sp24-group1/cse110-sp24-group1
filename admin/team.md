@@ -25,7 +25,7 @@ We are all aspiring software engineers!
   - I'm a second year computer engineering & applied math double major. In my free time I weight lift and play soccer.
 
 - **[Pussakorn (Moss) Chanpanichravee](https://github.com/PussakornCH) - Designer** 
-  - I 
+  - I'm a third-year in computer engineering. I'm excited to try web development and I enjoy reading action & drama manhwa in my free time.
 
 - **[Gwendolyn Wong](https://github.com/gewnwong) - Project Manager / Developer** 
   - Hi! I'm a second year computer science, cognitive science (specialized machine learning and neural computation), and math (applied science) triple major. I enjoy struggling to bake and building Lego sets.
