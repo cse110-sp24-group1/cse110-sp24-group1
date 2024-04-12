@@ -22,10 +22,10 @@ We are all aspiring software engineers!
   - Hi! I'm a third-year computer science major. I am interested in both full-stack and back-end development, with experience in mobile app development as well.
 
 - **[Vedant Mohan](https://github.com/VedantMohann) - Designer**
-  - Overview:I'm a second year computer engineering & applied math double major. In my free time I weight lift and play soccer.
+  - I'm a second year computer engineering & applied math double major. In my free time I weight lift and play soccer.
 
 - **[Pussakorn (Moss) Chanpanichravee](https://github.com/PussakornCH) - Designer** 
-  - Overview: 
+  - 
 
 - **[Gwendolyn Wong](https://github.com/gewnwong) - Project Manager / Developer** 
   - Hi! I'm a second year computer science, cognitive science (specialized machine learning and neural computation), and math (applied science) triple major. I enjoy struggling to bake and building Lego sets.
@@ -37,16 +37,16 @@ We are all aspiring software engineers!
   - I’m a third year math-cs major, and I like watching modern family or true crime documentaries at 2x speed.
 
 - **[Jeffrey Do](https://github.com/Doughster) - Developer** 
-  - Overview: 
+  - 
 
 - **[Nam Nguyen](https://github.com/afacade) - Developer**
-  - Overview:
+  - 
 
 - **[Jeremy Abondano](https://github.com/Jabo10) - Developer** 
   - Currently a senior computer science major who wants nothing to do with computer science, if I could go back in time I would major in film. Imagine just watching movies as an assignment instead of proving why my adversary runs in $O(2^k)$. 
 
 - **[Theodore Van Berlo](https://github.com/TheodoreVB) - Developer**
-  - Overview: I am a third year (first year transfer) computer engineering major. I like embedded/assembly coding, but also like trying other styles. My hobbies include video games, motorcycle riding, and watching TV shows.
+  - I am a third year (first year transfer) computer engineering major. I like embedded/assembly coding, but also like trying other styles. My hobbies include video games, motorcycle riding, and watching TV shows.
  
 ## Team Contract:
 1. **Attendance:** Inform the team if unable to attend a meeting.
