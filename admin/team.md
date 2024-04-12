@@ -37,7 +37,7 @@ We are all aspiring software engineers!
   - I’m a third year math-cs major, and I like watching modern family or true crime documentaries at 2x speed.
 
 - **[Jeffrey Do](https://github.com/Doughster) - Developer** 
-  - I 
+  - I'm a third year CS major and I like to gym at RIMAC so you might see me there! I've reached masters in League of Legends once but I've been clean from it for a while now.  
 
 - **[Nam Nguyen](https://github.com/afacade) - Developer**
   - I 
