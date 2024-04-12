@@ -11,7 +11,7 @@ We are all aspiring software engineers!
 ## Team Brand:
 - **Icon:** <img src="branding/icon.png" width="200">
 - **Color Palette:** <img src="branding/colorpalette.png" width="325">
-- **Vision:** <img src="branding/vision.png" width="325">
+- **Vision:** <img src="branding/vision.png" width="375">
 - **Theme:** Modern and Innovative
 
 ## Team Members:
