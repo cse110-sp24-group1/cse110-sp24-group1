@@ -34,7 +34,7 @@ We are all aspiring software engineers!
   - I am a second year computer engineering major. I like to walk around the empty office buildings near UTC on the weekends. 
 
 - **Katie Kim (Developer)** - [Github](https://github.com/katieki)
-  - Overview: 
+  - I’m a third year math-cs major, and I like watching modern family or true crime documentaries at 2x speed.
 
 - **Jeffrey Do (Developer)** - [Github](https://github.com/Doughster)
   - Overview: 
