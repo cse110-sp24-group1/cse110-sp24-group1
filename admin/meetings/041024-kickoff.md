@@ -6,7 +6,7 @@
 
 ## Agenda
 
-1. Introductions & Ice-Breaker (10 minutes)
+1. Introductions
 2. Management
    1. Define Roles
    2. Team Contract & Rules of Development
@@ -42,9 +42,7 @@
   - ***Absent:***
     1. Vedant Mohan
 - **Notes:**
-  - *Introductions & Ice-Breaker*
-      - Skribbl.io
-      - Add other ideas
+  - *Introductions*
   - *Management*
     - Define Roles - people can have multiple roles?
       - Leader
