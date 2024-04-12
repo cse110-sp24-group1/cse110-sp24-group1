@@ -15,37 +15,37 @@ We are all aspiring software engineers!
 - **Theme:** Modern and Innovative
 
 ## Team Members:
-- **[Purich Viwatkurkul](https://github.com/pviwatkurkul) (Leader/Developer)**
+- **[Purich Viwatkurkul](https://github.com/pviwatkurkul) - Leader/Developer**
   - Overview: .
 
-- **[Anshi Singh](https://anshisinghh.github.io/Personal-Portfolio/) (Leader/Developer)**
+- **[Anshi Singh](https://anshisinghh.github.io/Personal-Portfolio/) - Leader/Developer**
   - Hi! I'm a third-year computer science major. I am interested in both full-stack and back-end development, with experience in mobile app development as well.
 
-- **[Vedant Mohan](https://github.com/VedantMohann) (Designer)**
+- **[Vedant Mohan](https://github.com/VedantMohann) - Designer**
   - Overview:
 
-- **[Pussakorn (Moss) Chanpanichravee](https://github.com/PussakornCH) (Designer)** 
+- **[Pussakorn (Moss) Chanpanichravee](https://github.com/PussakornCH) - Designer** 
   - Overview: 
 
-- **[Gwendolyn Wong](https://github.com/gewnwong) (Project Manager / Developer)** 
+- **[Gwendolyn Wong](https://github.com/gewnwong) - Project Manager / Developer** 
   - Overview: 
 
-- **[Kabir Vats](https://github.com/kabir-vats) (Developer)** 
+- **[Kabir Vats](https://github.com/kabir-vats) - Developer** 
   - I am a second year computer engineering major. I like to walk around the empty office buildings near UTC on the weekends. 
 
-- **[Katie Kim](https://github.com/katieki) (Developer)** 
+- **[Katie Kim](https://github.com/katieki) - Developer** 
   - I’m a third year math-cs major, and I like watching modern family or true crime documentaries at 2x speed.
 
-- **[Jeffrey Do](https://github.com/Doughster) (Developer)** 
+- **[Jeffrey Do](https://github.com/Doughster) - Developer** 
   - Overview: 
 
-- **[Nam Nguyen](https://github.com/afacade) (Developer)**
+- **[Nam Nguyen](https://github.com/afacade) - Developer**
   - Overview:
 
-- **[Jeremy Abondano](https://github.com/Jabo10) (Developer)** 
+- **[Jeremy Abondano](https://github.com/Jabo10) - Developer** 
   - Overview: 
 
-- **[Theodore Van Berlo](https://github.com/TheodoreVB) (Developer)**
+- **[Theodore Van Berlo](https://github.com/TheodoreVB) - Developer**
   - Overview:
  
 ## Team Contract:
