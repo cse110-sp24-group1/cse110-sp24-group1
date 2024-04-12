@@ -34,7 +34,7 @@ We are all aspiring software engineers!
   - Overview: 
 
 - **[Gwendolyn Wong](https://github.com/gewnwong) - Project Manager / Developer** 
-  - Overview: Hi! I'm a second year computer science, cognitive science (specialized machine learning and neural computation), and math (applied science) triple major. I enjoy struggling to bake and building Lego sets.
+  - Hi! I'm a second year computer science, cognitive science (specialized machine learning and neural computation), and math (applied science) triple major. I enjoy struggling to bake and building Lego sets.
 
 - **[Kabir Vats](https://github.com/kabir-vats) - Developer** 
   - I am a second year computer engineering major. I like to walk around the empty office buildings near UTC on the weekends. 
