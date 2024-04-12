@@ -31,7 +31,7 @@ We are all aspiring software engineers!
   - Overview: 
 
 - **Kabir Vats (Developer)** - [Github](https://github.com/kabir-vats)
-  - Overview: 
+  - I am a second year computer engineering major. I like to walk around the empty office buildings near UTC on the weekends. 
 
 - **Katie Kim (Developer)** - [Github](https://github.com/katieki)
   - Overview: 
@@ -47,8 +47,6 @@ We are all aspiring software engineers!
 
 - **Theodore Van Berlo (Developer)** - [Github](https://github.com/TheodoreVB)
   - Overview:
-
-
  
 ## Team Contract:
 1. **Attendance:** Inform the team if unable to attend a meeting.
