@@ -43,7 +43,7 @@ We are all aspiring software engineers!
   - Overview:
 
 - **[Jeremy Abondano](https://github.com/Jabo10) - Developer** 
-  - Overview: Currently a senior computer science major who wants nothing to do with computer science, if I could go back in time I would major in film. Imagine just watching movies as an assignment instead of proving why my adversary runs in $O(2^k)$. 
+  - Currently a senior computer science major who wants nothing to do with computer science, if I could go back in time I would major in film. Imagine just watching movies as an assignment instead of proving why my adversary runs in $O(2^k)$. 
 
 - **[Theodore Van Berlo](https://github.com/TheodoreVB) - Developer**
   - Overview: I am a third year (first year transfer) computer engineering major. I like embedded/assembly coding, but also like trying other styles. My hobbies include video games, motorcycle riding, and watching TV shows.
