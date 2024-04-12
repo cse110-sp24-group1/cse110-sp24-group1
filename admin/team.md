@@ -15,37 +15,37 @@ We are all aspiring software engineers!
 - **Theme:** Modern and Innovative
 
 ## Team Members:
-- **Purich Viwatkurkul (Leader/Developer)** - [Github](https://github.com/pviwatkurkul)
+- **[Purich Viwatkurkul](https://github.com/pviwatkurkul) (Leader/Developer)**
   - Overview: .
 
-- **Anshi Singh (Leader/Developer)** - [Github](https://anshisinghh.github.io/Personal-Portfolio/)
+- **[Anshi Singh](https://anshisinghh.github.io/Personal-Portfolio/) (Leader/Developer)**
   - Hi! I'm a third-year computer science major. I am interested in both full-stack and back-end development, with experience in mobile app development as well.
 
-- **Pussakorn (Moss) Chanpanichravee (Designer)** - [Github](https://github.com/PussakornCH)
-  - Overview: 
-
-- **Vedant Mohan (Designer)** - [Github](https://github.com/VedantMohann)
+- **[Vedant Mohan](https://github.com/VedantMohann) (Designer)**
   - Overview:
 
-- **Gwendolyn Wong (Project Manager / Developer)** - [Github](https://github.com/gewnwong)
+- **[Pussakorn (Moss) Chanpanichravee](https://github.com/PussakornCH) (Designer)** 
   - Overview: 
 
-- **Kabir Vats (Developer)** - [Github](https://github.com/kabir-vats)
+- **[Gwendolyn Wong](https://github.com/gewnwong) (Project Manager / Developer)** 
+  - Overview: 
+
+- **[Kabir Vats](https://github.com/kabir-vats) (Developer)** 
   - I am a second year computer engineering major. I like to walk around the empty office buildings near UTC on the weekends. 
 
-- **Katie Kim (Developer)** - [Github](https://github.com/katieki)
+- **[Katie Kim](https://github.com/katieki) (Developer)** 
   - I’m a third year math-cs major, and I like watching modern family or true crime documentaries at 2x speed.
 
-- **Jeffrey Do (Developer)** - [Github](https://github.com/Doughster)
+- **[Jeffrey Do](https://github.com/Doughster) (Developer)** 
   - Overview: 
 
-- **Nam Nguyen (Developer)** - [Github](https://github.com/afacade)
+- **[Nam Nguyen](https://github.com/afacade) (Developer)**
   - Overview:
 
-- **Jeremy Abondano (Developer)** - [Github](https://github.com/Jabo10)
+- **[Jeremy Abondano](https://github.com/Jabo10) (Developer)** 
   - Overview: 
 
-- **Theodore Van Berlo (Developer)** - [Github](https://github.com/TheodoreVB)
+- **[Theodore Van Berlo](https://github.com/TheodoreVB) (Developer)**
   - Overview:
  
 ## Team Contract:
