@@ -170,9 +170,9 @@
 
 ## Action Items
 
-- [ ] Keep your team branding materials in your repo at /admin/branding
-- [ ] Set your slack workspace icon to represent your brand and team number
-- [ ] Place your team page at /admin/team.md and link to it from your README
+- [x] Keep your team branding materials in your repo at /admin/branding
+- [x] Set your slack workspace icon to represent your brand and team number
+- [x] Place your team page at /admin/team.md and link to it from your README
 - [ ] Place your team video at /admin/videos/teamintro.mp4
 - [x] Theres a lot of documents/rules, are we missing anything? Does everyone know what they need to finish/work on before our next meeting on Friday?
 - [x] Update GitHub /admin/meetings with the notes from today
