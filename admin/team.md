@@ -25,7 +25,7 @@ We are all aspiring software engineers!
   - I'm a second year computer engineering & applied math double major. In my free time I weight lift and play soccer.
 
 - **[Pussakorn (Moss) Chanpanichravee](https://github.com/PussakornCH) - Designer** 
-  - 
+  - I 
 
 - **[Gwendolyn Wong](https://github.com/gewnwong) - Project Manager / Developer** 
   - Hi! I'm a second year computer science, cognitive science (specialized machine learning and neural computation), and math (applied science) triple major. I enjoy struggling to bake and building Lego sets.
@@ -37,10 +37,10 @@ We are all aspiring software engineers!
   - I’m a third year math-cs major, and I like watching modern family or true crime documentaries at 2x speed.
 
 - **[Jeffrey Do](https://github.com/Doughster) - Developer** 
-  - 
+  - I 
 
 - **[Nam Nguyen](https://github.com/afacade) - Developer**
-  - 
+  - I 
 
 - **[Jeremy Abondano](https://github.com/Jabo10) - Developer** 
   - Currently a senior computer science major who wants nothing to do with computer science, if I could go back in time I would major in film. Imagine just watching movies as an assignment instead of proving why my adversary runs in $O(2^k)$. 
