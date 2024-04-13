@@ -9,19 +9,19 @@
    - **Team Name:** One and Done
 
    **Team Member Info:**
-   | Name         | Email           | Phone        | Slack         |
-   |--------------|-----------------|--------------|---------------|
-   | Anshi Singh  | ans071@ucsd.edu | 9493524274   | @Anshi Singh  |
-   | Teammate 2   |                 |              |               |
-   | Teammate 3   |                 |              |               |
-   | Teammate 4   |                 |              |               |
-   | Teammate 5   |                 |              |               |
-   | Teammate 6   |                 |              |               |
-   | Teammate 7   |                 |              |               |
-   | Teammate 8   |                 |              |               |
-   | Teammate 9   |                 |              |               |
-   | Teammate 10  |                 |              |               |
-   | Teammate 11  |                 |              |               |
+   | Name         | Email           | Slack        |
+   |--------------|-----------------|--------------|
+   | Anshi Singh  | ans071@ucsd.edu | @Anshi Singh | 
+   | Teammate 2   |                 |              |              
+   | Teammate 3   |                 |              |               
+   | Teammate 4   |                 |              |               
+   | Teammate 5   |                 |              |               
+   | Teammate 6   |                 |              |               
+   | Teammate 7   |                 |              |               
+   | Teammate 8   |                 |              |               
+   | Teammate 9   |                 |              |               
+   | Teammate 10  |                 |              |               
+   | Teammate 11  |                 |              |               
 
 2. **Primary Means of Communication and Expectations**  
    - We will use our Slack channel for communication.
