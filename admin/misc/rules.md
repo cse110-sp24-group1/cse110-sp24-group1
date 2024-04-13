@@ -1,4 +1,4 @@
-# Team Contract
+# Team Working Agreement
 **Term:** Spring 2024  
 **Creation Date:** 04/13/2024; **Revised:** XX/XX/XXXX
 
