@@ -47,11 +47,3 @@ We are all aspiring software engineers!
 
 - **[Theodore Van Berlo](https://github.com/TheodoreVB) - Developer**
   - I am a third year (first year transfer) computer engineering major. I like embedded/assembly coding, but also like trying other styles. My hobbies include video games, motorcycle riding, and watching TV shows.
- 
-## Team Contract:
-1. **Attendance:** Inform the team if unable to attend a meeting.
-2. **Deadlines:** Notify the team in advance if unable to meet a deadline, propose a new deadline.
-3. **Respect:** Respect all ideas and contributions.
-4. **Communication:** Keep communication open and clear.
-5. **Teamwork:** Help all team members regardless of role.
-6. **Conflict Resolution:** Group project conflicts should be resolved by group vote. Personal conflicts should be resolved privately, with a leader as a mediator if needed.
