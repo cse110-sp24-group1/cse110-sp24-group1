@@ -71,6 +71,7 @@
 
 6. **Conflict Resolution**  
    - Group project conflicts should be resolved by group vote. Personal conflicts should be resolved privately, with a leader as a mediator if needed.
+   - If conflicts reach a point where they cannot be resolved with the team leads, a meeting should be setup with the TA.
 
 **Signatures:**  
 
