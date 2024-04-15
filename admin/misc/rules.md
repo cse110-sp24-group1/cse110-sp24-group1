@@ -1,6 +1,6 @@
 # Team Working Agreement
 **Term:** Spring 2024  
-**Creation Date:** 04/13/2024; **Revised:** XX/XX/XXXX
+**Creation Date:** 04/13/2024
 
 1. **Group Identification**  
    - **Instructor:** Thomas Powell  
@@ -9,27 +9,27 @@
    - **Team Name:** One and Done
 
    **Team Member Info:**
-   | Name         | Email           | Slack        |
-   |--------------|-----------------|--------------|
-   | Anshi Singh  | ans071@ucsd.edu | @Anshi Singh | 
-   | Teammate 2   |                 |              |              
-   | Teammate 3   |                 |              |               
-   | Teammate 4   |                 |              |               
-   | Teammate 5   |                 |              |               
-   | Teammate 6   |                 |              |               
-   | Teammate 7   |                 |              |               
-   | Teammate 8   |                 |              |               
-   | Teammate 9   |                 |              |               
-   | Teammate 10  |                 |              |               
-   | Teammate 11  |                 |              |               
+   | Name              | Email                          | Role                    |
+   |-------------------|--------------------------------|-------------------------|
+   | Anshi Singh       | ans071@ucsd.edu                | Leader/Developer        |
+   | Purich Viwatkurkul| pviwatkurkul@ucsd.edu          | Leader/Developer        |
+   | Vedant Mohan      | vemohan@ucsd.edu                | Designer               |
+   | Pussakorn Chanpannichravee | pchanpanichravee@ucsd.edu | Designer            |
+   | Gwendolyn Wong    | g5wong@ucsd.edu                 | Project Manager/Developer |
+   | Nam Nguyen        | nhn007@ucsd.edu                 | Developer              |
+   | Jeremy Abondano   | jabondano@ucsd.edu              | Developer              |
+   | Jeffrey Do        | jtdo@ucsd.edu                   | Developer              |
+   | Kabir Vats        | kvats@ucsd.edu                  | Developer              |
+   | Theodore Van Berlo| tvanberlo@ucsd.edu              | Developer              |
+   | Katie Kim         | kak010@ucsd.edu                 | Developer              |
 
-2. **Primary Means of Communication and Expectations**  
+3. **Primary Means of Communication and Expectations**  
    - We will use our Slack channel for communication.
    - All members are expected to read messages daily and respond within 12 hours.
    - At least a reaction must be added to any announcements to indicate it has been read.
 
-3. **Scheduling Meetings**  
-   - Weekly meetings will be scheduled at [TIME/DAY OF THE WEEK TBD].
+4. **Scheduling Meetings**  
+   - Weekly meetings will be scheduled at Wednesdays 4-5pm, but meetings are subject to change.
    - Team members must inform the group if unable to attend and update meeting notes beforehand.
    - The project manager will send out meeting notes at least a day in advance for updates.
    - Active participation in meetings is required.
@@ -45,13 +45,13 @@
        - Backlogged issues.
        - Upcoming deadlines.
 
-4. **General Responsibilities for All Team Members**  
+5. **General Responsibilities for All Team Members**  
    - **Deadlines:** Notify the team in advance if unable to meet a deadline and propose a new one.
    - **Respect:** Respect all ideas and contributions.
    - **Communication:** Keep communication open and clear.
    - **Teamwork:** Help all team members regardless of role.
 
-5. **Specific Team Member Responsibilities**  
+6. **Specific Team Member Responsibilities**  
    - **Leader:**
      - Leads meetings.
      - Coordinates with TA.
@@ -69,7 +69,7 @@
      - Manages project timeline and tasks.
      - Updates project board and issue tracker.
 
-6. **Conflict Resolution**  
+7. **Conflict Resolution**  
    - Group project conflicts should be resolved by group vote. Personal conflicts should be resolved privately, with a leader as a mediator if needed.
    - If conflicts reach a point where they cannot be resolved with the team leads, a meeting should be setup with the TA.
 
