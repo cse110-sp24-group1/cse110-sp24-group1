@@ -64,7 +64,7 @@
         - worked on adding animations and styling to delete feature
     - Nam
         - worked on backend features such as local storage
-        - wowrked on improving javascript skills and wants to work on more backend stuff in the future
+        - worked on improving javascript skills and wants to work on more backend stuff in the future
     - Theo
         - worked on the backend features such as storing
         - learned a lot on how javascript works 
