@@ -63,11 +63,13 @@
     - If you want to add a feature, notify the group about it so it can be talked about
 
 - Pictures
-    ![Screenshot_1](https://hackmd.io/_uploads/H1SekdhW0.png)
-    ![Screenshot_2](https://hackmd.io/_uploads/ByIgk_h-R.png)
-    ![Screenshot_3](https://hackmd.io/_uploads/B1UgydnWR.png)
-    ![Screenshot_4](https://hackmd.io/_uploads/HJSxyuhZR.png)
-    ![Screenshot_5](https://hackmd.io/_uploads/HySly_hbR.png)
+    [Screenshot_1](admin/meetings/meeting-files/042824-retrospective1.png)
+
+    [Screenshot_2](admin/meetings/meeting-files/042824-retrospective2.png)
+
+    [Screenshot_3](admin/meetings/meeting-files/042824-retrospective3.png)
+    
+    [Screenshot_4](admin/meetings/meeting-files/042824-retrospective4.png)
 
 ## Conclusion
 Listed on our action plan!
