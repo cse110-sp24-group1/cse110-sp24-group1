@@ -70,7 +70,7 @@
 
     [Screenshot_3](meeting-files/042824-retrospective3.png)
 
-    [Screenshot_4](ameeting-files/042824-retrospective4.png)
+    [Screenshot_4](meeting-files/042824-retrospective4.png)
 
 ## Conclusion
 Listed on our action plan!
