@@ -63,13 +63,14 @@
     - If you want to add a feature, notify the group about it so it can be talked about
 
 - Pictures
-    [Screenshot_1](admin/meetings/meeting-files/042824-retrospective1.png)
 
-    [Screenshot_2](admin/meetings/meeting-files/042824-retrospective2.png)
+    [Screenshot_1](meeting-files/042824-retrospective1.png)
 
-    [Screenshot_3](admin/meetings/meeting-files/042824-retrospective3.png)
-    
-    [Screenshot_4](admin/meetings/meeting-files/042824-retrospective4.png)
+    [Screenshot_2](meeting-files/042824-retrospective2.png)
+
+    [Screenshot_3](meeting-files/042824-retrospective3.png)
+
+    [Screenshot_4](ameeting-files/042824-retrospective4.png)
 
 ## Conclusion
 Listed on our action plan!

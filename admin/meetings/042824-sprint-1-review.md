@@ -70,7 +70,7 @@
         - learned a lot on how javascript works 
         - feels that this was helpful for the actual project
 
-[Video](042824-sprint-1-review.mp4)
+[Video](meeting-files/042824-sprint-1-review.mp4)
 
 ## Conclusion
 The sprint review meeting was successful in showcasing the team's accomplishments. The team is now prepared to incorporate feedback into the next sprint planning. Addressing how many felt about how much work they did in the project, the team leads plan on improved management of the distribution of work on the final assignment. 
