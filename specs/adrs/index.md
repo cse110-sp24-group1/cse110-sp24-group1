@@ -5,6 +5,12 @@
 
 What is the status, such as proposed, accepted, rejected, deprecated, superseded, etc.?
 
+- [ ] Propose
+- [ ] Accepted
+- [ ] Rejected
+- [ ] Deprecated
+- [ ] Superseded
+
 ## Context
 
 What is the issue that we're seeing that is motivating this decision or change?
