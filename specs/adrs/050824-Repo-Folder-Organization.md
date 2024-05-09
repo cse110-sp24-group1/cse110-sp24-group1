@@ -3,8 +3,6 @@
 
 ## Status
 
-What is the status, such as proposed, accepted, rejected, deprecated, superseded, etc.?
-
 - [ ] Propose
 - [X] Accepted
 - [ ] Rejected
