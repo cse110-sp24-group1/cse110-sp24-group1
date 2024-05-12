@@ -6,3 +6,4 @@
 function hi(value){
     return value + 2;
 }
+//test
