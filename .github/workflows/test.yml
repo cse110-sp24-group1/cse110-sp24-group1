@@ -4,7 +4,7 @@ on: push
 
 jobs:
   deploy:
-    runs-on: windows-latest
+    runs-on: self-hosted
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -15,7 +15,6 @@ jobs:
           source_dir: ./src
           recurse: true
           output_dir: ./out
-          node-version: '20'
 
       # - name: Deploy
       #   uses: peaceiris/actions-gh-pages@v3
