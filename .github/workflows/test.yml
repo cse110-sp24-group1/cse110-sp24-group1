@@ -15,8 +15,6 @@ jobs:
         with:
           source_dir: ./src
           output_dir: ./out
-          config_file: conf.json
-          template: minami
           front_page: test.md
 
       - name: Deploy
