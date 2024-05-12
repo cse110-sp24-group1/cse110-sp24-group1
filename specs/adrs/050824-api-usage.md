@@ -10,13 +10,11 @@
 - [ ] Superseded
 
 ## Context
-
-This was originally placed as one of our "no-go" items, but after some group consideration on how we would implement the project, it seemed as though not using APIs would pose some additional difficulty.
-
+What different workflows we can use that are fair and efficient.
 ## Decision
 
-We can use APIs in the constructing of our final project. 
+We decided to establish JSDocs to use for Github Actions as well as stricting Linting workflows that span across HTML/CSS/JS
 
 ## Consequences
 
-This should make general implementation of our website more simple. However, there is a potential for a disparity of knowledge to occur between team members that have worked with APIs more, and those that have not.
+Lots of times merge requests will be delayed a lot longer because we have to reformat the entire code to adhere to linting requirements for each PR.
