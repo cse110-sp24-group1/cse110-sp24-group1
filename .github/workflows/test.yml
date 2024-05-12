@@ -1,10 +1,10 @@
-name: GitHub pages
+name: Generate JSDoc
 
 on: push
 
 jobs:
   deploy:
-    runs-on: windows-latest
+    runs-on: [windows-latest, macos-latest]
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
