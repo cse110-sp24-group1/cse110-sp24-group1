@@ -1,7 +1,8 @@
 name: GitHub pages
 
 on: push
-
+runs:
+  using:'node20'
 jobs:
   deploy:
     runs-on: windows-latest
