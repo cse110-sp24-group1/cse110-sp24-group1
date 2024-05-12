@@ -1,7 +1,6 @@
 name: GitHub pages
 
-on:
-  push:
+on: push
 
 jobs:
   deploy:
@@ -11,7 +10,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build
-        uses: andstor/jsdoc-action@v1
+        uses: andstor/jsdoc-action@v1.2.1
         with:
           source_dir: ./src
           output_dir: ./out
