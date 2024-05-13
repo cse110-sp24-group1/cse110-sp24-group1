@@ -51,7 +51,6 @@
         - [ ] Display: Flex 
         - [ ] Have a mix of folders and entries 
         - [ ] Create New folder and New Note button
-        - [ ] Leave room for navbar to be implemented, define how much percentage of page is to be used, using relative units
     - [ ] Functionality to adjust alignment for new folders / notes (if you do display flex and document add new note element in the beginning of the list, it should readjust automatically so just make sure to add the new note/folder in the begining)
 - [ ] Create basic HTML and CSS page for New Note page form -- **KATIE & MOSS**
     - [ ] When clicking the new page button a popup modal form should be created
