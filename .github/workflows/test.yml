@@ -4,7 +4,7 @@ on: push
 
 jobs:
   deploy:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -12,7 +12,7 @@ jobs:
       - name: Build
         uses: andstor/jsdoc-action@v1.2.1
         with:
-          source_dir: .\src
+          source_dir: ./src
           recurse: true
-          output_dir: .\src\out
+          output_dir: ./src/out
           
