@@ -1,6 +1,6 @@
 /**
  * 
- * @param {number} num to add
+ * @param {number} number to add
  * @returns {number} number + 2;
  */
 function hi(value){
