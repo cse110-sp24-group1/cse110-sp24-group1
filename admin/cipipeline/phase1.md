@@ -15,3 +15,5 @@ Fifth and last, we have a simple notication workflow that will keep track of fil
 In terms of functionality of these workflows, are all working and have been heavily tested for all types of purposes. Many of these workflows do not require npm packages, keeping the repo clean and resistant to package failures. There are plans to add more workflows as needed during the development phase, but for now, all of the tests are in stable and working condition and easily adaptable and maintainable. Planning for possible AI integration using CHATGPT to review PRS will be in discussion and considered as it may prove potential fruitful rewards.  
 
 In terms of integral important plans for the pipeline, we hope to add unit testing through Jest/Puppeteer, this will be integrated within a week or so as we begin to code our project and have to conduct simple testing methods to ensure that core features are working. The system diagram will be updated as well. This will continue to grow and will become quickly ingrained to a certain extent across all files, not just respective to the front-end/back-end source files.
+
+![img](admin/cipipeline/phase1.drawio.png)
