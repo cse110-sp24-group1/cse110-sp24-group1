@@ -14,5 +14,5 @@ jobs:
         with:
           source_dir: ./src
           recurse: true
-          output_dir: ./src/out
+          output_dir: ./out
           
