@@ -26,9 +26,3 @@ jobs:
           source_dir: ./src
           recurse: true
           output_dir: ./docs
-
-      - name: Commit JSDOCS
-        uses: EndBug/add-and-commit@v9
-        with:
-          message: "Generated JSDocs"
-          add: "./docs"
