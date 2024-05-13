@@ -1,0 +1,34 @@
+name: Generate JSDoc
+
+on: push
+
+jobs:
+  build-docs:
+    permissions:
+      contents: write
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: "v20.12.2"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build
+        uses: andstor/jsdoc-action@v1
+        with:
+          source_dir: ./src
+          recurse: true
+          output_dir: ./docs
+
+      - name: Commit JSDOCS
+        uses: EndBug/add-and-commit@v9
+        with:
+          message: "Generated JSDocs"
+          add: "./docs"
