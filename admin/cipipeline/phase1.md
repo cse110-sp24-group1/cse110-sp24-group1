@@ -16,4 +16,4 @@ In terms of functionality of these workflows, are all working and have been heav
 
 In terms of integral important plans for the pipeline, we hope to add unit testing through Jest/Puppeteer, this will be integrated within a week or so as we begin to code our project and have to conduct simple testing methods to ensure that core features are working. The system diagram will be updated as well. This will continue to grow and will become quickly ingrained to a certain extent across all files, not just respective to the front-end/back-end source files.
 
-![img](admin/cipipeline/phase1.drawio.png)
+![img](phase1.drawio.png)
