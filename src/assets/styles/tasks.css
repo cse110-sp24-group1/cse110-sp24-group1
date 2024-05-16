@@ -1,0 +1,20 @@
+.top-right-buttons {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.top-right-buttons button {
+    width: 50px; /* Set a fixed width */
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 50%; /* Fully circular */
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.top-right-buttons button:hover {
+    background-color: #0056b3;
+}
