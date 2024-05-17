@@ -5,11 +5,9 @@
    <title>Task List</title>
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <!-- Include global CSS styles -->
-   <link rel="stylesheet" type="text/css" href="./styles/global.css" media="screen">
+   <link rel="stylesheet" type="text/css" href="./assets/styles/global.css" media="screen">
    <!-- Include task-specific CSS styles -->
-   <link rel="stylesheet" type="text/css" href="./styles/tasks.css" media="screen">
-   <!-- Include scripts for task modal form and task list -->
-   <script src="./scripts/tasks.js"></script>
+   <link rel="stylesheet" type="text/css" href="./assets/styles/tasks.css" media="screen">
 </head>
 <body>
    <header>
@@ -71,12 +69,17 @@
                <button class="sub-button" type="submit">Submit</button>
            </form>
        </div>
+       <!-- Include scripts for task modal form and task list -->
+       <script src="./assets/scripts/tasks.js"></script>
        <!-- Container for displaying tasks -->
-       <section class="task-container"></section>
+       <section class="task-container">
+            <task-list></task-list>
+       </section>
        <!-- Message for users with JavaScript disabled -->
        <noscript>
            <style>
-               .search-container, #taskForm {
+               .search-container, 
+               #taskForm {
                    display: none;
                }
            </style>

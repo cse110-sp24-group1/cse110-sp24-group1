@@ -82,7 +82,8 @@
 }
 
 
-.task-item .task-desc, .task-item .task-label {
+.task-item .task-desc, 
+.task-item .task-label {
    margin-left: 27px;
 }
 
@@ -124,7 +125,9 @@
 }
 
 
-.task-item .edit-btn, .task-item .delete-btn, .task-item .save-btn{
+.task-item .edit-btn, 
+.task-item .delete-btn, 
+.task-item .save-btn{
    background: none;
    border: none;
    cursor: pointer;
@@ -235,7 +238,10 @@
 }
 
 
-#modalForm textarea:focus, #modalForm input[type="date"]:focus, #taskLabel:focus, #modalForm input[type="color"]:focus {
+#modalForm textarea:focus, 
+#modalForm input[type="date"]:focus, 
+#taskLabel:focus, 
+#modalForm input[type="color"]:focus {
    outline: none;
    border-color: var(--light-border-color-hover);
 }
