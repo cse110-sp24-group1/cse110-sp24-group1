@@ -41,7 +41,7 @@ class TaskList extends HTMLElement {
     const newTaskText = taskDescriptionInput.value.trim();
     const taskDueDate = modalForm.querySelector('#taskDueDate').value;
     const newTaskName = document.getElementById('newTaskInput').value;
-    const taskLabel = modalForm.querySelector('#taskLabel').value;
+    let taskLabel = modalForm.querySelector('#taskLabel').value;
     const taskColor = modalForm.querySelector('#taskColor').value;
  
     // Validate the new task text
@@ -54,7 +54,7 @@ class TaskList extends HTMLElement {
  
       // Validate the new label text
       if (newLabel === '') return;
-    //   const taskLabel = newLabel;
+      taskLabel = newLabel;
     }
  
     // Generate a unique task ID
@@ -65,31 +65,33 @@ class TaskList extends HTMLElement {
     newTask.dataset.label = taskLabel;
     // Populate the task element with the new task data which incluudees checkbox, task name, desscription, due date, label, and label color using HTML content
     newTask.innerHTML = `
-      <div class="task-main">
+        <div class="task-main">
         <input type="checkbox" id="${taskId}">
         <label for="${taskId}">${newTaskName}</label>
         <button class="edit-btn">✏️</button>
-      </div>
-      <label class="task-desc">${newTaskText}</label>
-      <div class="task-footer">
+        </div>
+        <label class="task-desc">${newTaskText}</label>
+        <div class="task-footer">
         <div class="date-label">
-          <div class="task-label" style="background-color: ${taskColor}; ${this.calculateTextColor(taskColor)}">
+            <div class="task-label" style="background-color: ${taskColor}; ${this.calculateTextColor(taskColor)}">
             ${taskLabel}
-          </div>
-          ${
-            taskDueDate 
-            ? `
-            <div class="task-date">
-              <label>🗓️ ${taskDueDate}</label>
             </div>
-          ` : '<div class="task-date no-date"><label></label></div>'}
+            ${
+            taskDueDate 
+                ? `
+            <div class="task-date">
+                <label>🗓️ ${taskDueDate}</label>
+            </div>
+            ` 
+                : '<div class="task-date no-date"><label></label></div>'
+            }
         </div>
         <div class="task-buttons">
-          <button class="delete-btn">🗑️</button>
+            <button class="delete-btn">🗑️</button>
         </div>
-      </div>
+        </div>
     `;
- 
+
     // Add event listeners for the edit and delete buttons
     const editBtn = newTask.querySelector('.edit-btn');
     const deleteBtn = newTask.querySelector('.delete-btn');
