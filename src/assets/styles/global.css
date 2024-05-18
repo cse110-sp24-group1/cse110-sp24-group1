@@ -1,0 +1,193 @@
+/* --------------------------------------------
+Styling for Navigation Bar. */
+header {
+    padding:0;
+    margin:0;
+}
+
+body{
+    margin:0;
+    padding:0;
+}
+
+/*navbar*/
+nav { 
+    /*Nav background color*/
+    background-color: #eaeef2;
+
+    /*fixed position on page*/
+    position:fixed;
+
+    min-height: 100vh;
+    width: 10vw;
+
+    margin:0;
+    padding:0;
+
+    display:flex;
+}
+
+.dark-mode nav {
+    background-color: #21262d;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display:flex;
+    flex-direction:column;
+}
+
+nav a {
+    /* Set button height*/
+    /*padding-top:1em;
+    padding-bottom:1em;
+
+    /* Space between buttons*/
+    margin:1.5vw;
+
+    /*Ensure square*/
+    width:7vw;
+    height:7vw;
+
+    /*Center text*/
+    text-align: center;
+
+    
+    /*remove underline*/
+    text-decoration: none;
+
+    /* make sure it is box*/
+    display: flex;
+
+    /*center everything*/
+    align-items: center;
+    justify-content: center;
+
+    /*background color for link*/
+    background-color: #d0d7de;
+}
+
+nav a:hover {
+    background-color: #afb8c1;
+}
+
+
+.dark-mode nav a {
+    background-color: #30363d;
+    color: white;
+}
+
+.dark-mode nav a:hover {
+    background-color: #484f58;
+}
+
+.current-page {
+    background-color:  #90E0EF !important;
+    color:black !important;
+}
+
+/*mobile*/
+@media (max-width: 575.98px) {
+    nav {
+        bottom:0;
+
+        /*Navbar sizing*/
+        min-width: 100vw !important;
+        height: 20vw !important;
+        min-height:0 !important;
+    }
+
+    nav ul {
+        flex-direction:row;
+    }
+
+    nav a {    
+        /* Space between buttons*/
+        margin:3vw;
+    
+        /*Ensure square*/
+        width:14vw;
+        height:14vw;
+
+    }
+
+    .switch {
+        right:5vw;
+    }
+}
+
+/*
+.toggle {
+    margin:0;
+    padding:0;
+
+    height: 10vw;
+    width: 10vw;
+
+    display:flex;
+    
+    position:absolute;
+    bottom:0;
+}
+*/
+
+
+/*Toggle code modified from https://www.w3schools.com/howto/howto_css_switch.asp*/
+/* The switch - the box around the slider */
+.switch {
+    position:absolute;
+    bottom:1vw;
+    left: 2.5vw;
+    display: flex;
+    width: 5vw;
+    height: 2.5vw;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 2vw;
+    width: 2vw;
+    left: 0.4vw;
+    bottom: 0.25vw;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(2vw);
+    -ms-transform: translateX(2vw);
+    transform: translateX(2vw);
+  }
+
