@@ -4,6 +4,8 @@ class HomeScript {
         this.newNoteButton = document.getElementById('new-note-button');
         // Selects the top right buttons: new note and new folder
         this.topRightButtons = document.querySelector('.top-right-buttons');
+        // Selects the navigation bar
+        this.navBar = document.querySelector('nav');
 
         // Add event listener to open the modal on click of the new note button
         this.newNoteButton.addEventListener('click', this.openModal.bind(this));
@@ -11,11 +13,14 @@ class HomeScript {
     }
     // Opens the modal to the new note button
     openModal() {
-        // create modal element for 'div' of home html
+        // Add blur class to navigation bar
+        this.navBar.classList.add('blur');
+        // Create modal element for 'div' of home html
         const modal = document.createElement('div');
+        // Modal class for css design 
         modal.classList.add('modal');
 
-        // modal content
+        // Modal content
         modal.innerHTML = `
             <div class='note-modal'>
                 <span class='close-modal'>&times;</span>
@@ -49,6 +54,8 @@ class HomeScript {
             document.body.removeChild(modal);
             // Show the top right buttons again
             this.topRightButtons.style.display = 'flex';
+            // Remove the blur class from the navigation bar
+            this.navBar.classList.remove('blur');
         });
         const createButton = modal.querySelector('#saveNoteButton');
 
