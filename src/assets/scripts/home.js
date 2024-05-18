@@ -16,14 +16,15 @@ class HomeScript {
         this.existNoteButton.addEventListener('click', this.editModal.bind(this));
         
     }
+
     // Opens the modal to the new note button
-    openModal() {
+    openModal () {
         // Add blur class to navigation bar
-        this.navBar.classList.add('blur');
+        this.navBar.classList.add('blur')
         // Create modal element for 'div' of home html
-        const modal = document.createElement('div');
-        // Modal class for css design 
-        modal.classList.add('modal');
+        const modal = document.createElement('div')
+        // Modal class for css design
+        modal.classList.add('modal')
 
         // Modal content
         modal.innerHTML = `
@@ -105,9 +106,9 @@ class HomeScript {
             this.navBar.classList.remove('blur');
         });
         //const createButton = modal.querySelector('#saveNoteButton');
-
     }
 }
+
 document.addEventListener('DOMContentLoaded', () => {
-    new HomeScript();
-});
+    new HomeScript()
+})
