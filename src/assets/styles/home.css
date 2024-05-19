@@ -21,8 +21,12 @@
 }
 
 /* NEW NOTE MODAL */
+/* Hide the display of notes from the home page */
+.hide-notes {
+    display: none;
+}
 /* Blur nav bar when opening the new note modal */
-.blur{
+.blur {
     opacity: 0.3;
 }
 .modal {
@@ -52,7 +56,6 @@
     font-weight: bold;
     cursor: pointer;
 }
-/* New Note */
 .modal-title {
     text-align: center;
     margin-bottom: 1rem;
@@ -79,19 +82,41 @@
 .modal-input textarea {
     height: calc(100vh / 2);  /* Adjust height based on viewport height (vh), 2.5 is just the scale */
     width: 100%;
+    padding: 0.6rem;   
+    border: 0.07rem solid #ccc; 
+    border-radius: 0.25rem; 
+    box-sizing: border-box;
+    resize: none;
+    overflow-y: auto;
+    max-height: calc(100vh - 20rem);
+}
+
+/* EDIT MODAL */
+/*Hover over the note title to notify that it is clickable to edit */
+.edit-modal-title {
+    text-align: center;
+    margin-bottom: 1rem;
+
+}
+/* Adjust the body of edit note modal */
+#edit-note-body {
+    height: calc(100vh / 2);  /* Adjust height based on viewport height (vh), 2.5 is just the scale */
+    width: 100%;
     padding: 0.6rem; 
     border: 0.07rem solid #ccc; 
     border-radius: 0.25rem; 
     box-sizing: border-box;
     resize: none;
     overflow-y: auto;
-    max-height: calc(100vh - 20rem); /* Determine the limit by max-height */
+    max-height: calc(100vh - 10px);
+    margin-bottom: 10px;
 }
-
-.create-button, .save-button {
+/* Both create button from new note modal and save button from edit modal */
+.create-button, 
+.save-button {
     background-color: #ffffff;
     color: #707070;
-    padding: 0.625rem; 
+    padding: 0.6rem; 
     border: 0.07rem solid #ccc;
     border-radius: 0.25rem; 
     cursor: pointer;
@@ -99,25 +124,21 @@
     bottom: 1rem;
     right: 1rem;
 }
-
-.create-button:hover, .save-button:hover, .back-button:hover {
+/* All buttons hover functions */
+.create-button:hover, 
+.save-button:hover, 
+.back-button:hover {
     background-color: #dbdbdb;
 }
 
 .back-button {
     background-color: #ffffff;
     color: #707070;
-    padding: 0.625rem; 
+    padding: 0.6rem; 
     border: 0.07rem solid #ccc;
     border-radius: 0.25rem; 
     cursor: pointer;
     position: absolute;
     top: 1rem;
     left: 1rem;
-}
-
-.exist-note {
-    position: absolute;
-    top: 50%;
-    left: 50%;
 }
