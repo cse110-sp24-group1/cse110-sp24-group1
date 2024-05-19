@@ -1,6 +1,5 @@
 @import url("vars.css");
 
-
 /* Task List */
 .confetti{
    position: absolute;
@@ -11,7 +10,6 @@
    opacity: 0
 }
 
-
 @keyframes bang {
    from{
        transform: translate3d(0,0,0);
@@ -19,11 +17,9 @@
    }
 }
 
-
 .task-container {
    margin-top: 1em;
 }
-
 
 .task-item {
    margin-left: 3em;
@@ -39,11 +35,9 @@
    border: 1px solid var(--light-border-color);
 }
 
-
 .task-item:hover {
    border: 2px solid var(--light-border-color-hover);
 }
-
 
 .task-item input[type="checkbox"] {
    margin-right: 10px;
