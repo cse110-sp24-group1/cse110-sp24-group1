@@ -8,8 +8,8 @@ class TaskList extends HTMLElement {
     
     // Set up the initial HTML structure for the task list
     this.shadowRoot.innerHTML = `
-      <link rel="stylesheet" type="text/css" href="./assets/styles/global.css" media="screen">
-      <link rel="stylesheet" type="text/css" href="./assets/styles/tasks.css" media="screen">
+      <link rel="stylesheet" type="text/css" href="./styles/global.css" media="screen">
+      <link rel="stylesheet" type="text/css" href="./styles/tasks.css" media="screen">
       <section class="task-container"></section>
     `;
  
