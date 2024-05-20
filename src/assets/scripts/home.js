@@ -79,7 +79,14 @@ class HomeScript {
                         </select>
                     </div>
                     <div class='modal-input'>
+                      <div class='textarea-container'>
                         <textarea id='note-body' name='note-body'></textarea>
+                        <!-- #TODO 3 buttons for input Text, Image, and Markdown -->
+                        <div class='modal-buttons'>
+                          <button type='button' class='input-button' name='input-Text'>Text</button>
+                          <button type='button' class='input-button' name='input-Image'>Image</button>
+                          <button type='button' class='input-button' name='input-Markdown'>Markdown</button>
+                      </div>
                     </div>
                     <button class='create-button' type='submit'>Create</button>
                 </form>
@@ -145,6 +152,12 @@ class HomeScript {
                     <button class='back-button' type='submit'>Back</button>
                     <div>
                         <textarea id='edit-note-body' name='note-body'>${body}</textarea>
+                        <!-- #TODO 3 buttons for input Text, Image, and Markdown -->
+                        <div class='exist-modal-buttons'>
+                          <button type='button' class='exist-input-button' name='exist-input-Text'>Text</button>
+                          <button type='button' class='exist-input-button' name='exist-input-Image'>Image</button>
+                          <button type='button' class='exist-input-button' name='exist-input-Markdown'>Markdown</button>
+                        </div>
                     </div>
                     <button class='save-button' type='submit'>Save</button>
                 </form>

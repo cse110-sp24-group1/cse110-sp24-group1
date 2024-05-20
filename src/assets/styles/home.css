@@ -91,6 +91,36 @@
     max-height: calc(100vh - 20rem);
 }
 
+/* Adding Container so that the input button can be inside the textarea */
+.textarea-container {
+    position: relative; /* Using relative so that the element can be move around inside */
+}
+/* Input buttons model inside the textarea */
+/* The position of the input model */
+.modal-buttons {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+}
+/* The input button model itself */
+.input-button {
+    background-color: #ffffff;
+    color: #707070;
+    padding: 0.6rem; 
+    border: 0.07rem solid #ccc;
+    border-radius: 50rem;
+    width: 4.5rem;
+    height: 4.5rem;
+    margin: 0 0.5rem;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    cursor: pointer;
+}
+
 /* EDIT MODAL */
 /*Hover over the note title to notify that it is clickable to edit */
 .edit-modal-title {
@@ -127,7 +157,9 @@
 /* All buttons hover functions */
 .create-button:hover, 
 .save-button:hover, 
-.back-button:hover {
+.back-button:hover,
+.input-button:hover,
+.exist-input-button:hover {
     background-color: #dbdbdb;
 }
 
@@ -141,4 +173,30 @@
     position: absolute;
     top: 1rem;
     left: 1rem;
+}
+
+/* Input buttons model at top-right of the exist note */
+/* The position of the exist note input model */
+.exist-modal-buttons {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    justify-content: center;
+}
+/* The exist note input button model itself */
+.exist-input-button {
+    background-color: #ffffff;
+    color: #707070;
+    padding: 0.6rem; 
+    border: 0.07rem solid #ccc;
+    border-radius: 50rem; 
+    cursor: pointer;
+    width: 4.5rem;
+    height: 4.5rem;
+    margin: 0 0.5rem;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    cursor: pointer;
 }
