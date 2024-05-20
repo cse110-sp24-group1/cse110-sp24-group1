@@ -1,0 +1,64 @@
+@import url("vars.css");
+
+/* Main Page for Home and Task List */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--light-background-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-width: 320px;
+}
+
+header {
+    text-align: center;
+    color: var(--light-text-color);
+    margin-left: 7vw;
+}
+
+main {
+    flex: 1;
+    margin: 10px;
+    margin-left: 7vw;
+}
+
+p {
+    text-align: center;
+    margin-left: 7vw;
+}
+
+/* Search Bar for Home Page and Task List */
+.search-container {
+    display: flex;
+    align-items: center;
+    margin-top: 1em;
+}
+
+.search-container button {
+    margin-left: 10px;
+    background-color: var(--light-button-color);
+    color: var(--light-text-color);
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-container button:hover {
+    background-color: var(--light-button-color-hover);
+}
+
+.search-container input[type="text"] {
+    padding: 5px 10px;
+    border: 1px solid var(--light-border-color);
+    border-radius: 5px;
+    background: white;
+    margin-left: 3em;
+}
+
+.search-container input[type="text"]:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}

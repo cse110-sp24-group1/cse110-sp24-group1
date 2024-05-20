@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Notes</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Include global CSS styles for nav bar -->
+        <link rel="stylesheet" type="text/css" href="./assets/styles/global.css" media="screen">
+        <!-- Include CSS styles for search bar and main page for Home and Task List-->
+        <link rel="stylesheet" type="text/css" href="./assets/styles/landing.css" media="screen">
+        <!-- Include task-specific CSS styles -->
+        <link rel="stylesheet" type="text/css" href="./assets/styles/home.css" media="screen">
+    </head>
+    <body>
+        <header>
+            <!-- Search bar for filtering notes -->
+            <div class="search-container">
+                <input type="text" id="searchBar" placeholder="Search tasks...">
+                <button id="searchBtn" type="submit">Search</button>
+            </div>
+            <!-- Title of the notes page -->
+            <h1>My Notes</h1>
+            <nav>
+                <!--Navigation Buttons-->
+                <ul>
+                    <li><a href="index.html" class="current-page">My Notes</a></li>
+                    <li><a href="tasks.html">My Tasks</a></li>
+                    <!--Dark/Light Toggle-->
+                    <li>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                    </li>
+                </ul>  
+            </nav>
+        </header>
+        <main>
+            <script src="assets/scripts/home.js" type="module"></script>
+        </main>
+    </body>
+</html>
