@@ -1,1 +1,8 @@
-{ "extends": ["stylelint-config-standard"] }
+{ "extends": "stylelint-config-standard",
+    "rules":{
+        "selector-id-pattern": ["^[a-z][a-zA-Z0-9]+$",
+        {
+                "message": "Expected class selector \"%s\" to be camelCase"
+        }]
+    } 
+}

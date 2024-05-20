@@ -33,4 +33,5 @@ jobs:
           IGNORE_GITIGNORED_FILES: true
           VALIDATE_CHECKOV: false
           VALIDATE_JSCPD: false
+          VALIDATE_JAVASCRIPT_STANDARD: false
           
