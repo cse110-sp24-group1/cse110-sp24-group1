@@ -1,8 +1,17 @@
-https://coolors.co/000814-001d3d-003566-ffc300-ffd60a
-
 /* CSS HEX */
---rich-black: #000814ff;
---oxford-blue: #001d3dff;
---yale-blue: #003566ff;
---mikado-yellow: #ffc300ff;
---gold: #ffd60aff;
+
+--accent-color: #90e0ef;
+
+--light-text-color: #24292f;
+--light-background-color: #f6f8fa;
+--light-button-color: #d0d7de;
+--light-button-color-hover: #afb8c1;
+--light-border-color: #24292f;
+--light-nav-bar-color: #eaeef2;
+
+--dark-text-color: #f0f6fc;
+--dark-background-color: #161b22;
+--dark-button-color: #30363d;
+--dark-button-color-hover: #484f58;
+--dark-border-color: #f0f6fc;
+--dark-nav-bar-color: #21262d;
