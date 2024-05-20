@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test</title>
+  <script src="../data-storage.js"></script>
+  <script>
+    //Uses global window object in order expose the functions test currently dont work without this script
+    window.getMainFolder = getMainFolder;
+    window.saveMainFolder = saveMainFolder;
+    window.getFolder = getFolder;
+    window.saveFolder = saveFolder;
+    window.getTaskList = getTaskList;
+    window.saveTaskList = saveTaskList;
+    window.getNote = getNote;
+    window.saveNote = saveNote;
+  </script>
+</head>
+<body>
+</body>
+</html>
