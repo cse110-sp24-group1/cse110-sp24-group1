@@ -5,7 +5,7 @@ class HomeScript {
     // Selects the top right buttons: new note and new folder
     this.topRightButtons = document.querySelector('.top-right-buttons')
     // Selects the navigation bar
-    //this.navBar = document.querySelector('nav')
+    // this.navBar = document.querySelector('nav')
     // Select the main element of the html file where the notes will be displayed
     this.mainElement = document.querySelector('main')
     // A list of all of the notes
@@ -54,7 +54,7 @@ class HomeScript {
   // Opens the modal to the new note button
   openModal () {
     // Add blur class to navigation bar
-    //this.navBar.classList.add('blur')
+    // this.navBar.classList.add('blur')
     // Remove the display of notes with the open modal
     this.mainElement.classList.add('hide-notes')
     // Create modal element for 'div' of home html
@@ -104,7 +104,7 @@ class HomeScript {
       // Show the top right buttons again
       this.topRightButtons.style.display = 'flex'
       // Remove the blur class from the navigation bar
-      //this.navBar.classList.remove('blur')
+      // this.navBar.classList.remove('blur')
       // Unhide the notes from display
       this.mainElement.classList.remove('hide-notes')
     })
@@ -125,7 +125,7 @@ class HomeScript {
       // Show the top right buttons again
       this.topRightButtons.style.display = 'flex'
       // Remove the blur class from the navigation bar
-      //this.navBar.classList.remove('blur')
+      // this.navBar.classList.remove('blur')
       // Unhide the notes from display
       this.mainElement.classList.remove('hide-notes')
     })
@@ -134,7 +134,7 @@ class HomeScript {
   // Opens the modal to the existing note
   editModal (index, title, body) {
     // Add blur class to navigation bar
-    //this.navBar.classList.add('blur')
+    // this.navBar.classList.add('blur')
     // Remove the display of notes with the open modal
     this.mainElement.classList.add('hide-notes')
     // Create modal element for 'div' of home html
@@ -175,7 +175,7 @@ class HomeScript {
       // Show the top right buttons again
       this.topRightButtons.style.display = 'flex'
       // Remove the blur class from the navigation bar
-      //this.navBar.classList.remove('blur')
+      // this.navBar.classList.remove('blur')
       // Unhide the notes from display
       this.mainElement.classList.remove('hide-notes')
     })
@@ -198,7 +198,7 @@ class HomeScript {
       // Show the top right buttons again
       this.topRightButtons.style.display = 'flex'
       // Remove the blur class from the navigation bar
-      //this.navBar.classList.remove('blur')
+      // this.navBar.classList.remove('blur')
       // Unhide the notes from display
       this.mainElement.classList.remove('hide-notes')
     })
