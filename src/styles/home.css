@@ -1,1 +1,71 @@
 @import url("vars.css");
+
+body {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+main #head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0em 2em 0em;
+}
+
+main #head #new-but {
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+    align-items: center;
+}
+
+main #head #new-but button {
+    width: 5em;
+    /*border: 2px solid var(--l-text);*/
+    border: none;
+    border-radius: 50%; 
+    margin: 1em;
+    padding: 1em;
+    background-color: var(--l-but);
+}
+
+main #head #new-but button:hover {
+    background-color: var(--l-but-hov);
+    cursor: pointer;
+}
+
+main #head form input {
+    border-radius: 1.5em;
+    border: 2px solid var(--l-text); 
+    padding: 0.5em 1em 0.5em;
+    width: 15em;
+}
+
+main #notes-folders {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 4em 4em;
+}
+
+.note {
+    width: 20em;
+    height: 12em;
+    border-radius: 1.5em;
+    border: 2px solid var(--l-text);
+}
+
+.folder {
+    width: 20em;
+    height: 12em;
+    background-color: var(--default);
+    border-radius: 1.5em;
+    border: 2px solid var(--l-text);
+    text-align: center;
+}
