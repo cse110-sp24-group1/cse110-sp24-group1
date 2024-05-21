@@ -1,7 +1,10 @@
-import globals from "globals";
-
 
 export default [
-  {files: ["**/*.js"], languageOptions: {sourceType: "script"}},
-  {languageOptions: { globals: globals.browser }},
+  {
+    files: ["src/**/*.js"], 
+    rules: 
+    {
+      semi : ["error", "always"]
+    }
+  }
 ];
