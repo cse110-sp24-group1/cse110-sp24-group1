@@ -11,7 +11,7 @@ body {
     min-width: 320px;
 }
 
-.dark-mode body {
+body.dark-mode  {
     background-color: var(--dark-background-color);
 }   
 
