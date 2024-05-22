@@ -13,7 +13,7 @@
 #### Gwen, Katie, Anshi
 
 - [ ] Create style guidelines
-    - [ ] Have a meeting about establishing exact measuremnts but all basic HTML should be done and merged into frontend branch before e.g.(Header 1, Header 2, body, Button Padding, Button- Border Roundness)
+    - [ ] Have a meeting about establishing exact measuremnts but all basic HTML should be done and merged into frontend branch before (e.g. Header 1 - 48px , Header 2 - 36px , body - 12px, Button Padding - 4px , Button Border Roundness - 3px)
         - Create expectations for every HTML element that will be used for the project for consistency
 - [ ] Create web-components for the Folder submission, Note submission (Gwen, Katie, Anshi)
     - [ ] Needs to have set styling(following design guidelines) for each component (e.g. colors, fonts, entry size)
