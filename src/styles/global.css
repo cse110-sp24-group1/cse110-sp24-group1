@@ -7,7 +7,7 @@ nav {
     top: 0;
     left: 0;
     height: 100vh; 
-    width: 7vw;
+    width: 6rem;
     display:flex;
     flex-direction: column;
     align-items: center;
@@ -17,6 +17,7 @@ nav {
 
 .dark-mode nav {
     background-color: var(--dark-nav-bar-color);
+    box-shadow: 2px 0 5px rgb(0 0 0 / 10%);
 }
 
 nav ul {
@@ -30,6 +31,10 @@ nav ul {
     flex-grow: 1;
 }
 
+.dark-mode nav ul {
+    color: var(--dark-text-color);
+}
+
 nav a {
     text-align: center;
     text-decoration: none;
@@ -41,6 +46,10 @@ nav a {
     transition: background-color 0.3s, transform 0.3s;
 }
 
+.dark-mode nav a {
+    color: var(--dark-text-color);
+}
+
 nav li {
     /* Space Between Buttons */
     margin: 0.75em;
@@ -48,12 +57,10 @@ nav li {
 }
 
 nav a:hover {
-    /* background-color: #afb8c1; */
     transform: scale(1.05);
 }
 
 .current-page {
-    /* background-color: var(--accent-color); */
     text-decoration: underline;
 }
 
@@ -98,4 +105,9 @@ input:checked + .slider {
 
 input:checked + .slider::before {
     transform: translateX(20px);
+}
+
+.toggle-container {
+    margin-top: auto; /* Pushes the toggle to the bottom */
+    padding-bottom: 1em; /* Optional: add some padding at the bottom */
 }

@@ -1,77 +1,44 @@
 @import url("vars.css");
 
-body {
+main {
     display: flex;
-    justify-content: flex-start;
-    flex-direction: row;
+    flex-wrap: wrap;
 }
 
-main {
+.notes-container {
     display: flex;
     flex-direction: column;
 }
 
-main #head {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0em 2em 0em;
-}
-
-main #head #new-but {
-    display: flex;
-    text-align: center;
-    justify-content: space-around;
-    align-items: center;
-}
-
-main #head #new-but button {
-    width: 5em;
-    /*border: 2px solid var(--l-text);*/
-    border: none;
-    border-radius: 50%; 
-    margin: 1em;
-    padding: 1em;
-    background-color: var(--l-but);
-}
-
-main #head #new-but button:hover {
-    background-color: var(--l-but-hov);
-    cursor: pointer;
-}
-
-main #head form input {
-    border-radius: 1.5em;
-    border: 2px solid var(--l-text); 
-    padding: 0.5em 1em 0.5em;
-    width: 15em;
-}
-
-main #notes-folders {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 4em 4em;
-}
-
-.note {
-    width: 20em;
-    height: 12em;
-    border-radius: 1.5em;
-    border: 2px solid var(--l-text);
-}
-
+.note,
 .folder {
-    width: 20em;
-    height: 12em;
-    background-color: var(--default);
-    border-radius: 1.5em;
-    border: 2px solid var(--l-text);
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 16em;
+    margin-left: 3em;
 }
 
+.note-content {
+    width: 16em;
+    height: 9em;
+    background-color: var(--accent-color);
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
 
-/* ------------------- */
+.note-content p {
+    display: none;
+}
+
+.note-title {
+    color: var(--light-text-color);
+}
+
+.dark-mode .note-title {
+    color: var(--dark-text-color);
+}
 
 /* HOME PAGE */
 .top-right-buttons {
@@ -81,29 +48,38 @@ main #notes-folders {
 }
 
 .top-right-buttons button {
-    width: 50px; /* Set a fixed width */
     padding: 10px 20px;
-    background-color: #007BFF;
-    color: white;
+    background-color: var(--light-button-color);
+    color: var(--light-text-color);
     border: none;
-    border-radius: 50%; /* Fully circular */
+    border-radius: 50%;
     cursor: pointer;
     margin-left: 10px;
 }
 
+.dark-mode .top-right-buttons button {
+    background-color: var(--dark-button-color);
+    color: var(--dark-text-color);
+}
+
 .top-right-buttons button:hover {
-    background-color: #0056b3;
+    background-color: var(--light-button-color-hover);
+}
+
+.dark-mode .top-right-buttons button:hover {
+    background-color: var(--dark-button-color-hover);
 }
 
 /* NEW NOTE MODAL */
-/* Hide the display of notes from the home page */
+
 .hide-notes {
     display: none;
 }
-/* Blur nav bar when opening the new note modal */
+
 .blur {
     opacity: 0.3;
 }
+
 .modal {
     display: flex;
     align-items: center;
@@ -114,64 +90,97 @@ main #notes-folders {
 }
 
 .note-modal {
-    background-color: white;
+    background-color: var(--light-background-color);
+    color: var(--light-text-color);
     padding: 2rem;
     border-radius: 1.4rem;
-    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.3); /*if we want a shadow*/
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.3);
     width: 90%;
     height: 80%;
     max-width: 65%;
     overflow-y: auto;
     position: relative;
 }
-/* Close button on top right for better usability(?) */
+
+.dark-mode .note-modal {
+    background-color: var(--dark-background-color);
+    color: var(--dark-text-color);
+}
+
 .close-modal {
     float: right;
     font-size: 1.75rem;
     font-weight: bold;
     cursor: pointer;
 }
+
 .modal-title {
     text-align: center;
     margin-bottom: 1rem;
 }
-/* Add bottom margins to input blocks: note title and note body */
+
 .modal-input {
     margin-bottom: 1rem;
 }
 
-/* Adjust dropdown selection of select folder to look like the input blocks */
-.modal-input select {
-    color: #707070;
+.modal-input input[type="text"]:focus {
+    outline: none;
+    border-color: var(--accent-color);
 }
-/* Adjust input blocks */
+
+
+.modal-input select {
+    color: var(--light-button-color-hover);
+}
+
+.modal-input select:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+.dark-mode .modal-input select {
+    color: var(--dark-button-color-hover);
+}
+
 .modal-input input, 
 .modal-input select {
     width: 100%;
-    padding: 0.6rem; 
-    border: 0.07rem solid #ccc; 
-    border-radius: 0.25rem; 
+    padding: 5px 10px; 
+    border: 1px solid var(--light-border-color); 
+    border-radius: 5px; 
     box-sizing: border-box;
 }
-/* Make textarea overflow-y auto to scroll when there is more than one line */
+
+.dark-mode .modal-input input,
+.dark-mode .modal-input select {
+    border: 1px solid var(--dark-border-color);
+}
+
 .modal-input textarea {
-    height: calc(100vh / 2);  /* Adjust height based on viewport height (vh), 2.5 is just the scale */
+    height: calc(100vh / 2);  
     width: 100%;
-    padding: 0.6rem;   
-    border: 0.07rem solid #ccc; 
-    border-radius: 0.25rem; 
+    padding: 5px 10px;   
+    border: 1px solid var(--light-border-color); 
+    border-radius: 5px; 
     box-sizing: border-box;
     resize: none;
     overflow-y: auto;
     max-height: calc(100vh - 20rem);
 }
 
-/* Adding Container so that the input button can be inside the textarea */
-.textarea-container {
-    position: relative; /* Using relative so that the element can be move around inside */
+.dark-mode .modal-input textarea {
+    border: 1px solid var(--dark-border-color);
 }
-/* Input buttons model inside the textarea */
-/* The position of the input model */
+
+.modal-input textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+.textarea-container {
+    position: relative;
+}
+
 .modal-buttons {
     position: absolute;
     bottom: 1rem;
@@ -179,36 +188,40 @@ main #notes-folders {
     transform: translateX(-50%);
     display: flex;
     justify-content: center;
+    padding: 5px 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
 }
-/* The input button model itself */
+
 .input-button {
-    background-color: #ffffff;
-    color: #707070;
-    padding: 0.6rem; 
-    border: 0.07rem solid #ccc;
-    border-radius: 50rem;
-    width: 4.5rem;
-    height: 4.5rem;
+    background-color: var(--light-button-color);
+    color: var(--light-text-color);
     margin: 0 0.5rem;
     align-items: center;
     justify-content: center;
-    font-size: 12px;
+    padding: 15px 30px;
     cursor: pointer;
+    border: none;
+    border-radius: 50%;
+}
+
+.dark-mode .input-button {
+    background-color: var(--dark-button-color);
+    color: var(--dark-text-color);
 }
 
 /* EDIT MODAL */
-/*Hover over the note title to notify that it is clickable to edit */
 .edit-modal-title {
     text-align: center;
     margin-bottom: 1rem;
-
 }
-/* Adjust the body of edit note modal */
+
 #edit-note-body {
-    height: calc(100vh / 2);  /* Adjust height based on viewport height (vh), 2.5 is just the scale */
+    height: calc(100vh / 2);  
     width: 100%;
     padding: 0.6rem; 
-    border: 0.07rem solid #ccc; 
+    border: 1px solid  var(--light-border-color); 
     border-radius: 0.25rem; 
     box-sizing: border-box;
     resize: none;
@@ -216,42 +229,63 @@ main #notes-folders {
     max-height: calc(100vh - 10px);
     margin-bottom: 10px;
 }
-/* Both create button from new note modal and save button from edit modal */
+
+.dark-mode #edit-note-body {
+    border: 1px solid var(--dark-border-color);
+}
+
 .create-button, 
 .save-button {
-    background-color: #ffffff;
-    color: #707070;
-    padding: 0.6rem; 
-    border: 0.07rem solid #ccc;
-    border-radius: 0.25rem; 
-    cursor: pointer;
+    background-color: var(--light-button-color);
+    color: var(--light-text-color);
     position: absolute;
     bottom: 1rem;
     right: 1rem;
+    padding: 5px 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
 }
-/* All buttons hover functions */
+
+.dark-mode .create-button,
+.dark-mode .save-button {
+    background-color: var(--dark-button-color);
+    color: var(--dark-text-color);
+}
+
 .create-button:hover, 
 .save-button:hover, 
 .back-button:hover,
 .input-button:hover,
 .exist-input-button:hover {
-    background-color: #dbdbdb;
+    background-color: var(--light-button-color-hover);
+}
+
+.dark-mode .create-button:hover, 
+.dark-mode .save-button:hover, 
+.dark-mode .back-button:hover,
+.dark-mode .input-button:hover,
+.dark-mode .exist-input-button:hover {
+    background-color: var(--dark-button-color-hover);
 }
 
 .back-button {
-    background-color: #ffffff;
-    color: #707070;
-    padding: 0.6rem; 
-    border: 0.07rem solid #ccc;
-    border-radius: 0.25rem; 
-    cursor: pointer;
+    background-color: var(--light-button-color);
+    color: var(--light-text-color);
     position: absolute;
     top: 1rem;
     left: 1rem;
+    padding: 5px 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
 }
 
-/* Input buttons model at top-right of the exist note */
-/* The position of the exist note input model */
+.dark-mode .back-button {
+    background-color: var(--dark-button-color);
+    color: var(--dark-text-color);
+}
+
 .exist-modal-buttons {
     position: absolute;
     top: 1rem;
@@ -259,19 +293,21 @@ main #notes-folders {
     display: flex;
     justify-content: center;
 }
-/* The exist note input button model itself */
+
 .exist-input-button {
-    background-color: #ffffff;
-    color: #707070;
-    padding: 0.6rem; 
-    border: 0.07rem solid #ccc;
-    border-radius: 50rem; 
-    cursor: pointer;
-    width: 4.5rem;
-    height: 4.5rem;
-    margin: 0 0.5rem;
+    background-color: var(--light-button-color);
+    color: var(--light-text-color);
     align-items: center;
     justify-content: center;
-    font-size: 12px;
+    margin: 0 0.5rem;
+    padding: 15px 30px;
     cursor: pointer;
+    border: none;
+    border-radius: 50%;
+}
+
+.dark-mode .exist-input-button {
+    background-color: var(--dark-button-color);
+    color: var(--dark-text-color);
+    border: 1px solid var(--dark-border-color);
 }
