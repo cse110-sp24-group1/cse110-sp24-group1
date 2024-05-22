@@ -147,6 +147,14 @@
    cursor: pointer;
 }
 
+.modal-label-input label {
+   color: var(--light-text-color);
+}
+
+.dark-mode .modal-label-input label {
+   color: var(--dark-text-color);
+}
+
 /* Add a Task Form */
 #taskForm {
    display: flex;
@@ -309,6 +317,11 @@
    right: 4%;
    font-size: 2.5em;
    cursor: pointer;
+   color: var(--light-text-color);
+}
+
+.dark-mode .close-modal {
+   color: var(--dark-text-color);
 }
 
 .sub-button {

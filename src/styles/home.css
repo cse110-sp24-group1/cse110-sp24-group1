@@ -32,6 +32,14 @@ main {
     display: none;
 }
 
+.note-title {
+    color: var(--light-text-color);
+}
+
+.dark-mode .note-title {
+    color: var(--dark-text-color);
+}
+
 /* HOME PAGE */
 .top-right-buttons {
     position: absolute;
@@ -82,7 +90,8 @@ main {
 }
 
 .note-modal {
-    background-color: white;
+    background-color: var(--light-background-color);
+    color: var(--light-text-color);
     padding: 2rem;
     border-radius: 1.4rem;
     box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.3);
@@ -91,6 +100,11 @@ main {
     max-width: 65%;
     overflow-y: auto;
     position: relative;
+}
+
+.dark-mode .note-modal {
+    background-color: var(--dark-background-color);
+    color: var(--dark-text-color);
 }
 
 .close-modal {
