@@ -23,12 +23,12 @@
             <nav>
                     <!--Navigation Buttons-->
                     <ul>
-                        <li><a href="index.html">My Notes</a></li>
+                        <li><a href="index.html">My Journal</a></li>
                         <li><a href="tasks.html" class="current-page">My Tasks</a></li>
                         <!--Dark/Light Toggle-->
-                        <li>
+                        <li class="toggle-container">
                             <label class="switch">
-                                <input type="checkbox">
+                                <input type="checkbox" id="darkModeToggle">
                                 <span class="slider"></span>
                             </label>
                         </li>
@@ -86,6 +86,8 @@
             <section class="task-container"></section>
             <!-- Include scripts for task modal form and task list -->
             <script src="./scripts/tasks.js"></script>
+            <!-- Include scripts for dark/light mode -->
+            <script src="./scripts/global.js" type="module"></script>
             <!-- Message for users with JavaScript disabled -->
             <noscript>
                 <style>

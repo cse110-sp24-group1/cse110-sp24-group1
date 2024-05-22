@@ -19,16 +19,16 @@
                 <button id="searchBtn" type="submit">Search</button>
             </div>
             <!-- Title of the notes page -->
-            <h1>My Notes</h1>
+            <h1 class="journal-header">My Journal</h1>
             <nav>
                 <!--Navigation Buttons-->
                 <ul>
-                    <li><a href="index.html" class="current-page">My Notes</a></li>
+                    <li><a href="index.html" class="current-page">My Journal</a></li>
                     <li><a href="tasks.html">My Tasks</a></li>
                     <!--Dark/Light Toggle-->
-                    <li>
+                    <li class="toggle-container">
                         <label class="switch">
-                            <input type="checkbox">
+                            <input type="checkbox" id="darkModeToggle">
                             <span class="slider"></span>
                         </label>
                     </li>
@@ -36,11 +36,13 @@
             </nav>            
             <div class="top-right-buttons">
                 <button id="new-note-button">+</button>
-                <button id="newFolderButton">+</button>
+                <button id="new-folder-button">+</button>
             </div>
         </header>
         <main>
             <script src="./scripts/home.js" type="module"></script>
+            <!-- Include scripts for dark/light mode -->
+            <script src="./scripts/global.js" type="module"></script>
         </main>
     </body>
 </html>
