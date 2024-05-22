@@ -1,5 +1,19 @@
 # Code Style Guidelines
 
+## File Linting Locally
+
+### FOR JS LOCAL LINTING (ESLINT)
+- npx eslint "src/**/*.js" (ALL JS FILES IN SRC)
+- npx eslint "src/**/file1.js" (INDIVIDUAL FILE IN SRC)
+
+### FOR HTML LOCAL LINTING
+- npx htmlhint "src/**/*.html" (ALL HTML FILES IN SRC)
+- npx htmlhint "src/**/file1.html" (INDIVIDUAL FILE IN SRC
+  
+### FOR CSS LOCAL LINTING:
+- npx stylelint "src/**/*.css" (ALL CSS FILES IN SRC)
+- npx stylelint "src/**/file1.css" (INDIVIDUAL FILE IN SRC)
+
 ## File Naming
 
 ### HTML Files
