@@ -24,7 +24,7 @@ main {
     height: 9em;
     background-color: var(--accent-color);
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
     margin-bottom: 10px;
 }
 
@@ -93,7 +93,7 @@ main {
     color: var(--light-text-color);
     padding: 2rem;
     border-radius: 1.4rem;
-    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.3);
+    box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 30%);
     width: 90%;
     height: 80%;
     max-width: 65%;
@@ -132,10 +132,6 @@ main {
     color: var(--light-button-color-hover);
 }
 
-.dark-mode .modal-input select {
-    color: var(--dark-button-color-hover);
-}
-
 .modal-input input, 
 .modal-input select {
     width: 100%;
@@ -143,6 +139,10 @@ main {
     border: 1px solid var(--light-border-color); 
     border-radius: 5px; 
     box-sizing: border-box;
+}
+
+.dark-mode .modal-input select {
+    color: var(--dark-button-color-hover);
 }
 
 .dark-mode .modal-input input,

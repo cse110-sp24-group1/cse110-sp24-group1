@@ -69,6 +69,15 @@
    align-items: center;
 }
 
+.modal-label-input label {
+   color: var(--light-text-color);
+}
+
+.dark-mode .modal-label-input label {
+   color: var(--dark-text-color);
+}
+
+
 .task-item .task-main label {
    flex-grow: 1;
    font-size: 18px;
@@ -147,14 +156,6 @@
    cursor: pointer;
 }
 
-.modal-label-input label {
-   color: var(--light-text-color);
-}
-
-.dark-mode .modal-label-input label {
-   color: var(--dark-text-color);
-}
-
 /* Add a Task Form */
 #taskForm {
    display: flex;
@@ -203,11 +204,6 @@
 .dark-mode #taskForm input[type="text"] {
    border: 1px solid var(--dark-border-color);
 }  
-
-#taskForm input[type="text"]:focus {
-   outline: none;
-   border-color: var(--accent-color);
-}
 
 /* Modal Form */
 #modal {
