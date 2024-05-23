@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Notes</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Include global CSS styles for nav bar -->
+        <link rel="stylesheet" type="text/css" href="./styles/global.css" media="screen">
+        <!-- Include task-specific CSS styles -->
+        <link rel="stylesheet" type="text/css" href="./styles/home.css" media="screen">
+    </head>
+    <body>
+        <header>
+            <!-- Search bar for filtering notes -->
+            <div class="search-container">
+                <input type="text" id="search-bar" placeholder="Search tasks...">
+                <button id="search-btn" type="submit">Search</button>
+            </div>
+            <!-- Title of the notes page -->
+            <h1 class="journal-header">My Journal</h1>
+            <nav>
+                <!--Navigation Buttons-->
+                <ul>
+                    <li><a href="index.html" class="current-page">My Journal</a></li>
+                    <li><a href="tasks.html">My Tasks</a></li>
+                    <!--Dark/Light Toggle-->
+                    <li class="toggle-container">
+                        <label class="switch">
+                            <input type="checkbox" id="dark-mode-toggle">
+                            <span class="slider"></span>
+                        </label>
+                    </li>
+                </ul>  
+            </nav>            
+            <div class="top-right-buttons">
+                <button id="new-note-button">+</button>
+                <button id="new-folder-button">+</button>
+            </div>
+        </header>
+        <main>
+            <script src="./scripts/home.js" type="module"></script>
+            <!-- Include scripts for dark/light mode -->
+            <script src="./scripts/global.js" type="module"></script>
+        </main>
+    </body>
+</html>

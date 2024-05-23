@@ -1,27 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <!--TODO: Write description-->
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--Title subject to change-->
-    <title>Task List</title>
-    <!--Stylesheets-->
-    <link rel="stylesheet" type="text/css" href="assets/styles/global.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="assets/styles/tasks.css" media="screen">
-    <script src="assets/scripts/tasks.js" type="module"></script>
-</head>
-
-<body>
-    <header>
-        <nav>
-            <!--TODO (Kabir)-->
-        </nav>
-    </header>
-    <main>
-    </main>
-</body>
-
+    <head>
+        <meta charset="utf-8">
+        <title>Task List</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Include global CSS styles for nav bar -->
+        <link rel="stylesheet" type="text/css" href="./styles/global.css" media="screen">
+        <!-- Include task-specific CSS styles -->
+        <link rel="stylesheet" type="text/css" href="./styles/tasks.css" media="screen">
+    </head>
+    <body>
+        <header>
+            <!-- Search bar for filtering tasks -->
+            <div class="search-container">
+                <input type="text" id="search-bar" placeholder="Search tasks...">
+                <button id="search-btn" type="submit">Search</button>
+            </div>
+            <!-- Title of the task list -->
+            <h1>Task List</h1>
+            <nav>
+                    <!--Navigation Buttons-->
+                    <ul>
+                        <li><a href="index.html">My Journal</a></li>
+                        <li><a href="tasks.html" class="current-page">My Tasks</a></li>
+                        <!--Dark/Light Toggle-->
+                        <li class="toggle-container">
+                            <label class="switch">
+                                <input type="checkbox" id="dark-mode-toggle">
+                                <span class="slider"></span>
+                            </label>
+                        </li>
+                    </ul>  
+            </nav>
+        </header>
+        <main>
+            <!-- Form to add a new task -->
+            <form id="task-form" action="https://httpbin.org/post" method="POST">
+                <input type="text" id="new-task-input" placeholder="Add a new task...">
+                <button type="submit">Add Task</button>
+            </form>
+            <!-- Modal for adding tasks with description, label, label color, and due date -->
+            <div id="modal" class="modal-content">
+                <!-- Close button for the modal -->
+                <span class="close-modal">&times;</span>
+                <!-- Title of the modal which is filled with task name -->
+                <h2 class="modal-title"></h2>
+                <form id="modal-form">
+                    <!-- Input fields for task description, due date, label, and label color -->
+                    <div class="modal-label-input">
+                        <label for="task-description">Description:</label>
+                        <textarea id="task-description" name="task-description"></textarea>
+                    </div>
+                    <div class="modal-label-input">
+                        <label for="task-due-date">Due Date:</label>
+                        <input type="date" id="task-due-date">
+                    </div>
+                    <div class="modal-label-input">
+                        <label for="task-label">Label:</label>
+                        <select id="task-label" name="task-label">
+                            <!-- Dropdown options for task labels -->
+                            <option value="Default">Select Label</option>
+                            <option value="Work">Work</option>
+                            <option value="Personal">Personal</option>
+                            <option value="Health and Fitness">Health and Fitness</option>
+                            <option value="Finance">Finance</option>
+                            <option value="Social">Social</option>
+                            <option value="Travel">Travel</option>
+                            <option value="School">School</option>
+                            <option value="createNew">Create New Label</option>
+                        </select>
+                        <!-- Input field for creating a new label -->
+                        <input type="text" id="new-label-input" placeholder="New Label" style="display: none;">
+                    </div>
+                    <div class="modal-label-input">
+                        <label for="task-color">Color Label:</label>
+                        <input type="color" id="task-color" name="task-color">
+                    </div>
+                    <!-- Submit button for the modal form -->
+                    <button class="sub-button" type="submit">Submit</button>
+                </form>
+            </div>
+            <!-- Container for displaying tasks -->
+            <section class="task-container"></section>
+            <!-- Include scripts for task modal form and task list -->
+            <script src="./scripts/tasks.js"></script>
+            <!-- Include scripts for dark/light mode -->
+            <script src="./scripts/global.js" type="module"></script>
+            <!-- Message for users with JavaScript disabled -->
+            <noscript>
+                <style>
+                    .search-container, 
+                    #task-form {
+                        display: none;
+                    }
+                </style>
+                <p>JavaScript is disabled in your browser. Please enable it to use this application.</p>
+            </noscript>
+        </main>
+    </body>
 </html>
+
+
+
