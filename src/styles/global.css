@@ -1,0 +1,113 @@
+@import url("vars.css");
+
+/* Nav Bar */
+nav { 
+    background-color: var(--light-nav-bar-color);
+    position:fixed;
+    top: 0;
+    left: 0;
+    height: 100vh; 
+    width: 6rem;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em 0;
+    box-shadow: 2px 0 5px rgb(0 0 0 / 10%);
+}
+
+.dark-mode nav {
+    background-color: var(--dark-nav-bar-color);
+    box-shadow: 2px 0 5px rgb(0 0 0 / 10%);
+}
+
+nav ul {
+    list-style: none;
+    margin: 1em;
+    padding: 1em;
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.dark-mode nav ul {
+    color: var(--dark-text-color);
+}
+
+nav a {
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    color: var(--light-text-color);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.dark-mode nav a {
+    color: var(--dark-text-color);
+}
+
+nav li {
+    /* Space Between Buttons */
+    margin: 0.75em;
+    padding: 0.75em;
+}
+
+nav a:hover {
+    transform: scale(1.05);
+}
+
+.current-page {
+    text-decoration: underline;
+}
+
+/* Toggle Switch For Dark/Light Mode (code from https://www.w3schools.com/howto/howto_css_switch.asp) */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    inset: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 20px;
+}
+
+.slider::before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: black;
+}
+
+input:checked + .slider::before {
+    transform: translateX(20px);
+}
+
+.toggle-container {
+    margin-top: auto; /* Pushes the toggle to the bottom */
+    padding-bottom: 1em; /* Optional: add some padding at the bottom */
+}

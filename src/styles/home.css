@@ -1,0 +1,313 @@
+@import url("vars.css");
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.notes-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.note,
+.folder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 16em;
+    margin-left: 3em;
+}
+
+.note-content {
+    width: 16em;
+    height: 9em;
+    background-color: var(--accent-color);
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+
+.note-content p {
+    display: none;
+}
+
+.note-title {
+    color: var(--light-text-color);
+}
+
+.dark-mode .note-title {
+    color: var(--dark-text-color);
+}
+
+/* HOME PAGE */
+.top-right-buttons {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.top-right-buttons button {
+    padding: 10px 20px;
+    background-color: var(--light-button-color);
+    color: var(--light-text-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.dark-mode .top-right-buttons button {
+    background-color: var(--dark-button-color);
+    color: var(--dark-text-color);
+}
+
+.top-right-buttons button:hover {
+    background-color: var(--light-button-color-hover);
+}
+
+.dark-mode .top-right-buttons button:hover {
+    background-color: var(--dark-button-color-hover);
+}
+
+/* NEW NOTE MODAL */
+
+.hide-notes {
+    display: none;
+}
+
+.blur {
+    filter: blur(2px);
+}
+
+.modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+.note-modal {
+    background-color: var(--light-background-color);
+    color: var(--light-text-color);
+    padding: 2rem;
+    border-radius: 1.4rem;
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.3);
+    width: 90%;
+    height: 80%;
+    max-width: 65%;
+    overflow-y: auto;
+    position: relative;
+}
+
+.dark-mode .note-modal {
+    background-color: var(--dark-background-color);
+    color: var(--dark-text-color);
+}
+
+.close-modal {
+    float: right;
+    font-size: 1.75rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modal-title {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.modal-input {
+    margin-bottom: 1rem;
+}
+
+.modal-input input[type="text"]:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+
+.modal-input select {
+    color: var(--light-button-color-hover);
+}
+
+.modal-input select:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+.dark-mode .modal-input select {
+    color: var(--dark-button-color-hover);
+}
+
+.modal-input input, 
+.modal-input select {
+    width: 100%;
+    padding: 5px 10px; 
+    border: 1px solid var(--light-border-color); 
+    border-radius: 5px; 
+    box-sizing: border-box;
+}
+
+.dark-mode .modal-input input,
+.dark-mode .modal-input select {
+    border: 1px solid var(--dark-border-color);
+}
+
+.modal-input textarea {
+    height: calc(100vh / 2);  
+    width: 100%;
+    padding: 5px 10px;   
+    border: 1px solid var(--light-border-color); 
+    border-radius: 5px; 
+    box-sizing: border-box;
+    resize: none;
+    overflow-y: auto;
+    max-height: calc(100vh - 20rem);
+}
+
+.dark-mode .modal-input textarea {
+    border: 1px solid var(--dark-border-color);
+}
+
+.modal-input textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+.textarea-container {
+    position: relative;
+}
+
+.modal-buttons {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    padding: 5px 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
+
+.input-button {
+    background-color: var(--light-button-color);
+    color: var(--light-text-color);
+    margin: 0 0.5rem;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 30px;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+}
+
+.dark-mode .input-button {
+    background-color: var(--dark-button-color);
+    color: var(--dark-text-color);
+}
+
+/* EDIT MODAL */
+.edit-modal-title {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+#edit-note-body {
+    height: calc(100vh / 2);  
+    width: 100%;
+    padding: 0.6rem; 
+    border: 1px solid  var(--light-border-color); 
+    border-radius: 0.25rem; 
+    box-sizing: border-box;
+    resize: none;
+    overflow-y: auto;
+    max-height: calc(100vh - 10px);
+    margin-bottom: 10px;
+}
+
+.dark-mode #edit-note-body {
+    border: 1px solid var(--dark-border-color);
+}
+
+.create-button, 
+.save-button {
+    background-color: var(--light-button-color);
+    color: var(--light-text-color);
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    padding: 5px 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
+
+.dark-mode .create-button,
+.dark-mode .save-button {
+    background-color: var(--dark-button-color);
+    color: var(--dark-text-color);
+}
+
+.create-button:hover, 
+.save-button:hover, 
+.back-button:hover,
+.input-button:hover,
+.exist-input-button:hover {
+    background-color: var(--light-button-color-hover);
+}
+
+.dark-mode .create-button:hover, 
+.dark-mode .save-button:hover, 
+.dark-mode .back-button:hover,
+.dark-mode .input-button:hover,
+.dark-mode .exist-input-button:hover {
+    background-color: var(--dark-button-color-hover);
+}
+
+.back-button {
+    background-color: var(--light-button-color);
+    color: var(--light-text-color);
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    padding: 5px 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
+
+.dark-mode .back-button {
+    background-color: var(--dark-button-color);
+    color: var(--dark-text-color);
+}
+
+.exist-modal-buttons {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.exist-input-button {
+    background-color: var(--light-button-color);
+    color: var(--light-text-color);
+    align-items: center;
+    justify-content: center;
+    margin: 0 0.5rem;
+    padding: 15px 30px;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+}
+
+.dark-mode .exist-input-button {
+    background-color: var(--dark-button-color);
+    color: var(--dark-text-color);
+    border: 1px solid var(--dark-border-color);
+}
