@@ -160,6 +160,8 @@ class HomeScript {
       document.body.removeChild(modal)
       // Show the top right buttons again
       this.topRightButtons.style.display = 'flex'
+      // Show the search bar again
+      this.searchBar.style.display = 'flex'
       // Remove the blur class from the navigation bar
       this.navBar.classList.remove('blur')
       // Unhide the notes from display

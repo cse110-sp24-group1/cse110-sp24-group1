@@ -112,8 +112,6 @@ input:checked + .slider::before {
     padding-bottom: 1em; /* Optional: add some padding at the bottom */
 }
 
-@import url("vars.css");
-
 /* Main Page for Home and Task List */
 body {
     margin: 0;
