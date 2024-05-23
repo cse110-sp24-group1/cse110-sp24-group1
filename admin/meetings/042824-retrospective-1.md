@@ -64,13 +64,13 @@
 
 - Pictures
 
-    [Screenshot_1](meeting-files/042824-retrospective1.png)
+    [Screenshot_1](./meeting-files/042824-retrospective1.png)
 
-    [Screenshot_2](meeting-files/042824-retrospective2.png)
+    [Screenshot_2](./meeting-files/042824-retrospective2.png)
 
-    [Screenshot_3](meeting-files/042824-retrospective3.png)
+    [Screenshot_3](./meeting-files/042824-retrospective3.png)
 
-    [Screenshot_4](meeting-files/042824-retrospective4.png)
+    [Screenshot_4](./meeting-files/042824-retrospective4.png)
 
 ## Conclusion
 Listed on our action plan!

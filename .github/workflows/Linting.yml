@@ -1,7 +1,6 @@
 name: Super-Linter
 
 on:  # yamllint disable-line rule:truthy
-  push: null
   pull_request: null
 
 permissions: { }
@@ -34,4 +33,8 @@ jobs:
           IGNORE_GITIGNORED_FILES: true
           VALIDATE_CHECKOV: false
           VALIDATE_JSCPD: false
+          VALIDATE_JAVASCRIPT_STANDARD: false
+          LINTER_RULES_PATH: /
+          VALIDATE_JAVASCRIPT_ES: false
+          JAVASCRIPT_ES_CONFIG_FILE: .eslintrc.json
           
