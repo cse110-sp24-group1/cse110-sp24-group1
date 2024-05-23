@@ -15,8 +15,8 @@
         <header>
             <!-- Search bar for filtering tasks -->
             <div class="search-container">
-                <input type="text" id="searchBar" placeholder="Search tasks...">
-                <button id="searchBtn" type="submit">Search</button>
+                <input type="text" id="search-bar" placeholder="Search tasks...">
+                <button id="search-btn" type="submit">Search</button>
             </div>
             <!-- Title of the task list -->
             <h1>Task List</h1>
@@ -28,7 +28,7 @@
                         <!--Dark/Light Toggle-->
                         <li class="toggle-container">
                             <label class="switch">
-                                <input type="checkbox" id="darkModeToggle">
+                                <input type="checkbox" id="dark-mode-toggle">
                                 <span class="slider"></span>
                             </label>
                         </li>
@@ -37,8 +37,8 @@
         </header>
         <main>
             <!-- Form to add a new task -->
-            <form id="taskForm" action="https://httpbin.org/post" method="POST">
-                <input type="text" id="newTaskInput" placeholder="Add a new task...">
+            <form id="task-form" action="https://httpbin.org/post" method="POST">
+                <input type="text" id="new-task-input" placeholder="Add a new task...">
                 <button type="submit">Add Task</button>
             </form>
             <!-- Modal for adding tasks with description, label, label color, and due date -->
@@ -47,11 +47,11 @@
                 <span class="close-modal">&times;</span>
                 <!-- Title of the modal which is filled with task name -->
                 <h2 class="modal-title"></h2>
-                <form id="modalForm">
+                <form id="modal-form">
                     <!-- Input fields for task description, due date, label, and label color -->
                     <div class="modal-label-input">
-                        <label for="taskDescription">Description:</label>
-                        <textarea id="taskDescription" name="taskDescription"></textarea>
+                        <label for="task-description">Description:</label>
+                        <textarea id="task-description" name="task-description"></textarea>
                     </div>
                     <div class="modal-label-input">
                         <label for="taskDueDate">Due Date:</label>
