@@ -77,7 +77,7 @@ main {
 }
 
 .blur {
-    opacity: 0.3;
+    filter: blur(2px);
 }
 
 .modal {
