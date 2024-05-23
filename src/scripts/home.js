@@ -226,7 +226,7 @@ class HomeScript {
                 <form id='note-modal-form'>
                     <button class='back-button' type='submit'>Back</button>
                     <div>
-                        <textarea id='editNoteBody' name='note-body'>${body}</textarea>
+                        <textarea id='edit-note-body' name='note-body'>${body}</textarea>
                         <div class='exist-modal-buttons'>
                           <button type='button' class='exist-input-button' name='exist-input-Text'>Textt</button>
                           <button type='button' class='exist-input-button' name='exist-input-Image'>Image</button>
@@ -265,7 +265,7 @@ class HomeScript {
       event.preventDefault();
       // Take the values inputted from the modal form
       const newTitle = modal.querySelector('.edit-modal-title h2').innerText;
-      const newBody = modal.querySelector('#editNoteBody').value;
+      const newBody = modal.querySelector('.edit-note-body').value;
 
       // Edit the note with updated title and body
       this.notes[index].title = newTitle;
