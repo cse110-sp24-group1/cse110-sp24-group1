@@ -36,20 +36,20 @@ class TaskList extends HTMLElement {
   // Method to add a new task to the task list from the modal form
   addTaskFromModal () {
     // Get the necessary elements from the modal form
-    const modalForm = document.getElementById('modalForm');
-    const taskDescriptionInput = modalForm.querySelector('#taskDescription');
+    const modalForm = document.querySelector('#modal-form');
+    const taskDescriptionInput = modalForm.querySelector('#task-description');
     const newTaskText = taskDescriptionInput.value.trim();
-    const taskDueDate = modalForm.querySelector('#taskDueDate').value;
-    const newTaskName = document.getElementById('newTaskInput').value;
-    let taskLabel = modalForm.querySelector('#taskLabel').value;
-    const taskColor = modalForm.querySelector('#taskColor').value;
+    const taskDueDate = modalForm.querySelector('#task-due-date').value;
+    const newTaskName = document.querySelector('#new-task-input').value;
+    let taskLabel = modalForm.querySelector('#task-label').value;
+    const taskColor = modalForm.querySelector('#task-color').value;
  
     // Validate the new task text
     if (newTaskText === '') return;
  
     // Handle the case where a new label is created
     if (taskLabel === 'createNew') {
-      const newLabelInput = modalForm.querySelector('#newLabelInput');
+      const newLabelInput = modalForm.querySelector('#new-label-input');
       const newLabel = newLabelInput.value.trim();
  
       // Validate the new label text
@@ -101,7 +101,7 @@ class TaskList extends HTMLElement {
     // Append the new task to the task container
     this.taskContainer.appendChild(newTask);
     // Reset the new task input and modal form
-    document.getElementById('newTaskInput').value = '';
+    document.querySelector('#new-task-input').value = '';
     modalForm.reset();
   }
  
@@ -131,8 +131,8 @@ class TaskList extends HTMLElement {
  
     // Create a select element for task label
     const taskLabelSelect = document.createElement('select');
-    taskLabelSelect.id = 'taskLabel';
-    taskLabelSelect.name = 'taskLabel';
+    taskLabelSelect.id = 'task-label';
+    taskLabelSelect.name = 'task-label';
     const labels = ['Default', 'Work', 'Personal', 'Health and Fitness', 'Finance', 'Social', 'Travel', 'School', 'Create New Label'];
     for (const label of labels) {
       const option = document.createElement('option');
@@ -241,16 +241,16 @@ customElements.define('task-list', TaskList);
 // Wait for the DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', () => {
   // Get the necessary elements from the DOM
-  const taskForm = document.getElementById('taskForm');
-  const newTaskInput = document.getElementById('newTaskInput');
+  const taskForm = document.getElementById('task-form');
+  const newTaskInput = document.getElementById('new-task-input');
   const modal = document.getElementById('modal');
-  const modalForm = document.getElementById('modalForm');
+  const modalForm = document.getElementById('modal-form');
   const closeModalBtn = document.querySelector('.close-modal');
-  const taskLabelSelect = document.getElementById('taskLabel');
-  const newLabelInput = document.getElementById('newLabelInput');
+  const taskLabelSelect = document.getElementById('task-label');
+  const newLabelInput = document.getElementById('new-label-input');
   const taskContainer = document.querySelector('.task-container');
-  const searchBtn = document.getElementById('searchBtn');
-  const searchInput = document.getElementById('searchBar');
+  const searchBtn = document.getElementById('search-btn');
+  const searchInput = document.getElementById('search-bar');
  
   // Open the modal when the task form is submitted
   taskForm.addEventListener('submit', (event) => {

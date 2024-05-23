@@ -157,13 +157,13 @@
 }
 
 /* Add a Task Form */
-#taskForm {
+#task-form {
    display: flex;
    justify-content: center;
    font-size: 14px;
 }
 
-#taskForm button {
+#task-form button {
    margin-left: 10px;
    background-color: var(--light-button-color);
    color: var(--light-text-color);
@@ -174,34 +174,34 @@
    transition: background-color 0.3s;
 }
 
-.dark-mode #taskForm button {
+.dark-mode #task-form button {
    background-color: var(--dark-button-color);
    color: var(--dark-text-color);
 }
 
 
-#taskForm button:hover {
+#task-form button:hover {
    background-color: var(--light-button-color-hover);
    cursor: pointer;
 }
 
-.dark-mode #taskForm button:hover {
+.dark-mode #task-form button:hover {
    background-color: var(--dark-button-color-hover);
 }
 
-#taskForm input[type="text"] {
+#task-form input[type="text"] {
    padding: 5px 10px;
    border-radius: 5px;
    background: white;
    border: 1px solid var(--light-border-color);
 }
 
-#taskForm input[type="text"]:focus {
+#task-form input[type="text"]:focus {
    outline: none;
    border-color: var(--accent-color);
 }
 
-.dark-mode #taskForm input[type="text"] {
+.dark-mode #task-form input[type="text"] {
    border: 1px solid var(--dark-border-color);
 }  
 
@@ -235,7 +235,7 @@
    }
 }
 
-#modalForm {
+#modal-form {
    display: flex;
    flex-direction: column;
    row-gap: 1em;
@@ -244,7 +244,7 @@
    margin: 5%;
 }
 
-#modalForm textarea {
+#modal-form textarea {
    width: 93%;
    padding: 5px 10px;
    border: 1px solid var(--light-border-color);
@@ -253,25 +253,25 @@
    font-size: 12px;
 }
 
-.dark-mode #modalForm textarea {
+.dark-mode #modal-form textarea {
    border: 1px solid var(--dark-border-color);
 }
 
-#modalForm input[type="date"] {
+#modal-form input[type="date"] {
    padding: 5px 10px;
    border-radius: 5px;
    background: white;
    border: 1px solid var(--light-border-color);
 }
 
-.dark-mode  #modalForm input[type="date"] {
+.dark-mode #modal-form input[type="date"] {
    border: 1px solid var(--dark-border-color);
 }
 
-#modalForm textarea:focus, 
-#modalForm input[type="date"]:focus, 
-#taskLabel:focus, 
-#modalForm input[type="color"]:focus {
+#modal-form textarea:focus, 
+#modal-form input[type="date"]:focus, 
+#task-label:focus, 
+#modal-form input[type="color"]:focus {
    outline: none;
    border-color: var(--accent-color);
 }

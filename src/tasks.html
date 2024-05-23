@@ -6,8 +6,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Include global CSS styles for nav bar -->
         <link rel="stylesheet" type="text/css" href="./styles/global.css" media="screen">
-        <!-- Include CSS styles for search bar and main page for Home and Task List-->
-        <link rel="stylesheet" type="text/css" href="./styles/landing.css" media="screen">
         <!-- Include task-specific CSS styles -->
         <link rel="stylesheet" type="text/css" href="./styles/tasks.css" media="screen">
     </head>
@@ -54,12 +52,12 @@
                         <textarea id="task-description" name="task-description"></textarea>
                     </div>
                     <div class="modal-label-input">
-                        <label for="taskDueDate">Due Date:</label>
-                        <input type="date" id="taskDueDate">
+                        <label for="task-due-date">Due Date:</label>
+                        <input type="date" id="task-due-date">
                     </div>
                     <div class="modal-label-input">
-                        <label for="taskLabel">Label:</label>
-                        <select id="taskLabel" name="taskLabel">
+                        <label for="task-label">Label:</label>
+                        <select id="task-label" name="task-label">
                             <!-- Dropdown options for task labels -->
                             <option value="Default">Select Label</option>
                             <option value="Work">Work</option>
@@ -72,11 +70,11 @@
                             <option value="createNew">Create New Label</option>
                         </select>
                         <!-- Input field for creating a new label -->
-                        <input type="text" id="newLabelInput" placeholder="New Label" style="display: none;">
+                        <input type="text" id="new-label-input" placeholder="New Label" style="display: none;">
                     </div>
                     <div class="modal-label-input">
-                        <label for="taskColor">Color Label:</label>
-                        <input type="color" id="taskColor" name="taskColor">
+                        <label for="task-color">Color Label:</label>
+                        <input type="color" id="task-color" name="task-color">
                     </div>
                     <!-- Submit button for the modal form -->
                     <button class="sub-button" type="submit">Submit</button>
@@ -92,7 +90,7 @@
             <noscript>
                 <style>
                     .search-container, 
-                    #taskForm {
+                    #task-form {
                         display: none;
                     }
                 </style>

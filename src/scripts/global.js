@@ -1,4 +1,4 @@
-const darkModeToggle = document.getElementById("darkModeToggle");
+const darkModeToggle = document.getElementById("dark-mode-toggle");
 
 // Check the user's preferred color scheme
 const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
