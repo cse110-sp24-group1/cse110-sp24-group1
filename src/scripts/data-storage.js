@@ -37,6 +37,8 @@ function getFoldersByID(folderID) {
 
 /*
 * Saves the folder to the folder array in localStorage
+* If the folder already exists in the folders array, it is updated
+* instead of added.
 * @param {Object} folder: The folder to save
 * Data format: [{
 *     currFolderID: string,
@@ -53,7 +55,19 @@ function saveFolder(folder) {
         folders = [];
     }
 
-    // Add the folder to the folders array
+    // Check if the folder already exists in the folders array
+    for(let i = 0; i < folders.length; i++) {
+        if(folders[i].currFolderID === folder.currFolderID) {
+            // If the folder already exists, update it in the folders array
+            folders[i] = folder;
+            // Save the updated folders array to localStorage
+            localStorage.setItem('folders', JSON.stringify(folders));
+            return;
+        }
+    }
+
+    // If the folder does not already exist in the folders array,
+    // add it to the folders array
     folders.push(folder);
     // Save the updated folders array to localStorage
     localStorage.setItem('folders', JSON.stringify(folders));
@@ -100,6 +114,8 @@ function getNotesByFolderID(folderID) {
 
 /*
 * Saves the note to the notes array in localStorage
+* If the note already exists in the notes array, it is updated
+* instead of added.
 * @param {Object} note: The note to save
 * Data format: [{
 *    "id": "string", // This is a unique identifier for the note
@@ -118,7 +134,19 @@ function saveNote(note) {
         notes = [];
     }
 
-    // Add the note to the notes array
+    // Check if the note already exists in the notes array
+    for(let i = 0; i < notes.length; i++) {
+        if(notes[i].id === note.id) {
+            // If the note already exists, update it in the notes array
+            notes[i] = note;
+            // Save the updated notes array to localStorage
+            localStorage.setItem('notes', JSON.stringify(notes));
+            return;
+        }
+    }
+
+    // If the note does not already exist in the notes array,
+    // add it to the notes array
     notes.push(note);
     // Save the updated notes array to localStorage
     localStorage.setItem('notes', JSON.stringify(notes));
