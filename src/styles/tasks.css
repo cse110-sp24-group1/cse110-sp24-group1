@@ -55,7 +55,7 @@
    background: white;
 }
 
-.task-item input[type="checkbox"]::focus {
+.task-item input[type="checkbox"]:focus {
    outline: none;
    border-color: var(--accent-color);
 }
@@ -195,7 +195,7 @@
    border: 1px solid var(--light-border-color);
 }
 
-#taskForm input[type="text"]::focus {
+#taskForm input[type="text"]:focus {
    outline: none;
    border-color: var(--accent-color);
 }
