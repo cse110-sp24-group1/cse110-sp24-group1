@@ -70,6 +70,30 @@ main {
     background-color: var(--dark-button-color-hover);
 }
 
+
+#folder-back-button {
+    padding: 10px 20px;
+    background-color: var(--light-button-color);
+    color: var(--light-text-color);
+    border: none;
+    border-radius: 300%;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.dark-mode #folder-back-button {
+    background-color: var(--dark-button-color);
+    color: var(--dark-text-color);
+}
+
+#folder-back-button:hover {
+    background-color: var(--light-button-color-hover);
+}
+
+.dark-mode #folder-back-button:hover {
+    background-color: var(--dark-button-color-hover);
+}
+
 /* NEW NOTE MODAL */
 .hide-notes {
     display: none;

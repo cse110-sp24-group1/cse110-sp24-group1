@@ -11,6 +11,8 @@ class HomeScript {
     this.topRightButtons = document.querySelector('.top-right-buttons');
     // Selects the search bar
     this.searchBar = document.querySelector('.search-container');
+    // Selects the previous folder button
+    this.folderBackButton = document.getElementById('folder-back-button');
     // Selects the journal header
     this.journalHeader = document.querySelector('.journal-header');
     // Selects the navigation bar
@@ -30,7 +32,17 @@ class HomeScript {
     this.newNoteButton.addEventListener('click', this.openModal.bind(this));
     // Add event listener to create a new folder on click of the new folder button
     this.newFolderButton.addEventListener('click', this.createFolder.bind(this));
-
+    // Add event listener to return to parent folder on click of back button
+    this.folderBackButton.addEventListener('click', () => {this.visitFolder(this.parentFolderID);});
+    
+    // Within main folder hide back button, otherwise show it
+    if(this.currentFolderID === MAIN_ID) {
+      this.folderBackButton.classList.add('hide-notes');
+    }
+    else {
+      this.folderBackButton.classList.remove('hide-notes');
+    }
+    
     // Render everything on main page
     this.render();
   }
@@ -69,6 +81,7 @@ class HomeScript {
   }
 
   render () {
+    console.log(this.currentFolderID + ' ' + this.parentFolderID);
     // Clear main element
     this.mainElement.innerHTML = '';
 
@@ -83,7 +96,7 @@ class HomeScript {
 
       // Click to open folder
       folderElement.addEventListener('click', () => {
-        this.visitFolder(this.folders.indexOf(folder));
+        this.visitFolder(folder.id);
       });
 
       this.mainElement.appendChild(folderElement);
@@ -315,15 +328,65 @@ class HomeScript {
     };
   }
   
-  // Navigating to folder
-  visitFolder(folderIndex) {
-    const newFolder = this.folders[folderIndex];
-    this.currentFolderID = newFolder.id;
-    this.parentFolderID = newFolder.parentFolderID;
+  //backend method, temporarily in frontend for testing
+  getFolderByID(id) {
+    // Create empty string to store the folders with the folderID as their parentFolderID
+    let folderWithID = null;
+    // Get the folders from localStorage
+    let folders = JSON.parse(localStorage.getItem('folders'));
+
+    // If there are no folders in localStorage, return an empty array
+    if(!folders) {
+        return null;
+    }
+
+    // Otherwise, search through the folders array in localStorage
+    // and add any folders with the folderID as their parentFolderID
+    for(let i = 0; i < folders.length; i++) {
+        if(folders[i].id === id) {
+            folderWithID = folders[i];
+        }
+    }
+
+    // Return the array of folders with the folderID as their parentFolderID
+    return folderWithID;
+  }
+
+  visitFolder(newFolderId) {
+    //calling temp method
+    let newFolder = this.getFolderByID(newFolderId);
+
+    // if folder not found, must be main
+    if(!newFolder) {
+      this.currentFolderID = MAIN_ID;
+      this.parentFolderID = null;
+      console.log('hi');
+    }
+    else {
+      this.currentFolderID = newFolderId;
+      this.parentFolderID = newFolder.parentFolderID;
+    }
+
+    // Set folders / notes list
     this.folders = getFoldersByID(this.currentFolderID);
     this.notes = getNotesByFolderID(this.currentFolderID);
+
+    // If within main folder hide back button, otherwise show it
+    if(this.currentFolderID === MAIN_ID) {
+      this.folderBackButton.classList.add('hide-notes');
+      this.journalHeader.innerText = 'My Journal';
+    }
+    else {
+      this.folderBackButton.classList.remove('hide-notes');
+      this.journalHeader.innerText = 'My Journal (' + newFolder.name + ')';
+    }
+
+    //render folders / notes
     this.render();
   }
+
+
+
 }
 
 document.addEventListener('DOMContentLoaded', () => {
