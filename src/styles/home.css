@@ -216,7 +216,7 @@ main {
     margin-bottom: 1rem;
 }
 
-#editNoteBody {
+.edit-note-body {
     height: calc(100vh / 2);  
     width: 100%;
     padding: 0.6rem; 
@@ -229,7 +229,7 @@ main {
     margin-bottom: 10px;
 }
 
-.dark-mode #editNoteNody {
+.dark-mode .edit-note-body {
     border: 1px solid var(--dark-border-color);
 }
 
