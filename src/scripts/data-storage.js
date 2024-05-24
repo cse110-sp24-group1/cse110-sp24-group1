@@ -172,14 +172,39 @@ function getTaskList() {
 }
 
 /*
-* Takes in an array of taskList and converts it to a string, and then
-* saves that string to 'taskList' in localStorage
-* @param {Array<data>} taskList: An array of tasks
+* Saves the task to the taskList array in localStorage
+* If the task already exists in the taskList array, it is updated
+* @param {string} task: The task to save
 * Data format: {
-*    "tasks[]": "array[string]",
+*    id: taskId,
+*    name: newTaskName,
+*    description: newTaskText,
+*    dueDate: taskDueDate,
+*    label: taskLabel,
+*    color: taskColor
 * }
 */
-function saveTaskList(taskList) {
-    // Save the taskList to localStorage
+function saveTask(task) {
+    // Get the taskList from localStorage
+    let taskList = JSON.parse(localStorage.getItem('taskList'));
+    // If there is no taskList in localStorage, create a new array
+    if(!taskList) {
+        taskList = [];
+    }
+
+    // Check if the task already exists in the taskList array
+    for(let i = 0; i < taskList.length; i++) {
+        if(taskList[i].id === task.id) {
+            // If the task already exists, update it in the taskList array
+            taskList[i] = task;
+            // Save the updated taskList array to localStorage
+            localStorage.setItem('taskList', JSON.stringify(taskList));
+            return;
+        }
+    }
+
+    // Add the task to the taskList array
+    taskList.push(task);
+    // Save the updated taskList array to localStorage
     localStorage.setItem('taskList', JSON.stringify(taskList));
 }

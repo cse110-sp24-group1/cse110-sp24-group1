@@ -33,7 +33,65 @@ class TaskList extends HTMLElement {
     });
   }
  
-  // Method to add a new task to the task list from the modal form
+  // Method to add a new task to the task list
+  addTaskToList (task) {
+    
+    // Create a new task element
+    const newTask = document.createElement('section');
+    newTask.classList.add('task-item');
+    newTask.dataset.label = task.label;
+    // Populate the task element with the new task data which incluudees checkbox, task name, desscription, due date, label, and label color using HTML content
+    newTask.innerHTML = `
+        <div class="task-main">
+        <input type="checkbox" id="${task.id}">
+        <label for="${task.id}">${task.name}</label>
+        <button class="edit-btn">✏️</button>
+        </div>
+        <label class="task-desc">${task.description}</label>
+        <div class="task-footer">
+        <div class="date-label">
+            <div class="task-label" style="background-color: ${task.color}; ${this.calculateTextColor(task.color)}">
+            ${task.label}
+            </div>
+            ${
+            task.dueDate
+                ? `
+            <div class="task-date">
+                <label>🗓️ ${task.dueDate}</label>
+            </div>
+            ` 
+                : '<div class="task-date no-date"><label></label></div>'
+            }
+        </div>
+        <div class="task-buttons">
+            <button class="delete-btn">🗑️</button>
+        </div>
+        </div>
+    `;
+
+    // Add event listeners for the edit and delete buttons
+    const editBtn = newTask.querySelector('.edit-btn');
+    const deleteBtn = newTask.querySelector('.delete-btn');
+    editBtn.addEventListener('click', () => this.editTask(newTask));
+    deleteBtn.addEventListener('click', () => this.deleteTask(newTask));
+    
+    // Save the task to local storage using backend API
+    saveTask(task);
+
+    // Append the new task to the task container
+    this.taskContainer.appendChild(newTask);
+  }
+
+  // Load the tasks from storage and add them to the task list
+  loadTasks () {
+    // Get the tasks from local storage
+    const tasks = getTaskList();
+    // Add each task to the task list
+    for (const task of tasks) {
+      this.addTaskToList(task);
+    }
+  }
+
   addTaskFromModal () {
     // Get the necessary elements from the modal form
     const modalForm = document.querySelector('#modal-form');
@@ -56,50 +114,21 @@ class TaskList extends HTMLElement {
       if (newLabel === '') return;
       taskLabel = newLabel;
     }
- 
     // Generate a unique task ID
-    const taskId = `task${this.taskContainer.children.length + 1}`;
-    // Create a new task element
-    const newTask = document.createElement('section');
-    newTask.classList.add('task-item');
-    newTask.dataset.label = taskLabel;
-    // Populate the task element with the new task data which incluudees checkbox, task name, desscription, due date, label, and label color using HTML content
-    newTask.innerHTML = `
-        <div class="task-main">
-        <input type="checkbox" id="${taskId}">
-        <label for="${taskId}">${newTaskName}</label>
-        <button class="edit-btn">✏️</button>
-        </div>
-        <label class="task-desc">${newTaskText}</label>
-        <div class="task-footer">
-        <div class="date-label">
-            <div class="task-label" style="background-color: ${taskColor}; ${this.calculateTextColor(taskColor)}">
-            ${taskLabel}
-            </div>
-            ${
-            taskDueDate 
-                ? `
-            <div class="task-date">
-                <label>🗓️ ${taskDueDate}</label>
-            </div>
-            ` 
-                : '<div class="task-date no-date"><label></label></div>'
-            }
-        </div>
-        <div class="task-buttons">
-            <button class="delete-btn">🗑️</button>
-        </div>
-        </div>
-    `;
+    const taskId = `task-${Date.now()}`;
 
-    // Add event listeners for the edit and delete buttons
-    const editBtn = newTask.querySelector('.edit-btn');
-    const deleteBtn = newTask.querySelector('.delete-btn');
-    editBtn.addEventListener('click', () => this.editTask(newTask));
-    deleteBtn.addEventListener('click', () => this.deleteTask(newTask));
- 
-    // Append the new task to the task container
-    this.taskContainer.appendChild(newTask);
+    // Create a new task object
+    const task = {
+      id: taskId,
+      name: newTaskName,
+      description: newTaskText,
+      dueDate: taskDueDate,
+      label: taskLabel,
+      color: taskColor
+    };
+
+    // Add the new task to the task list
+    this.addTaskToList(task);
     // Reset the new task input and modal form
     document.querySelector('#new-task-input').value = '';
     modalForm.reset();
@@ -187,6 +216,19 @@ class TaskList extends HTMLElement {
       taskDateInput.replaceWith(taskDate);
       taskNameInput.replaceWith(taskName);
       saveBtn.replaceWith(editBtn);
+
+      // Create a new task object
+      const task = {
+        id: taskElement.querySelector('input').id,
+        name: taskName.textContent,
+        description: taskDesc.textContent,
+        dueDate: taskDate.textContent.substring(2),
+        label: taskLabel.textContent,
+        color: taskLabel.style.backgroundColor
+      };
+
+      // Save the updated task to local storage using backend API
+      saveTask(task);
     });
   }
  
@@ -304,4 +346,9 @@ document.addEventListener('DOMContentLoaded', () => {
     modal.style.display = 'none';
     document.body.classList.remove('modal-open');
   }
+
+  // Load the tasks from storage
+  const taskList = document.createElement('task-list');
+  taskContainer.appendChild(taskList);
+  taskList.loadTasks();
 });
