@@ -311,3 +311,29 @@ main {
     background-color: var(--dark-button-color-hover);
 }
 
+@media (max-width: 500px) {
+
+    /*Add note and add folder button under header*/ 
+    header {
+        position: relative;
+        height: 11em;
+    }
+
+    .top-right-buttons {
+        display: flex;
+        margin-left: 20%;
+        margin-right: 25%;
+        padding-top: 6em;
+    }
+
+    /*Change size of note display*/
+    .note-content {
+        width: 16em;
+        height: 9em;
+        background-color: var(--accent-color);
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+        margin-bottom: 10px;
+    }
+    
+}
