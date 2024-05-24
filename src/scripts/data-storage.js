@@ -41,11 +41,10 @@ function getFoldersByID(folderID) {
 * instead of added.
 * @param {Object} folder: The folder to save
 * Data format: [{
-*     currFolderID: string,
-*     currFolderName: string,
+*     id: string,
+*     name: string,
 *     parentFolderID: string,
-*     parentFolderName: string,
-* }]
+    * }]
 */
 function saveFolder(folder) {
     // Get the folders from localStorage
@@ -57,7 +56,7 @@ function saveFolder(folder) {
 
     // Check if the folder already exists in the folders array
     for(let i = 0; i < folders.length; i++) {
-        if(folders[i].currFolderID === folder.currFolderID) {
+        if(folders[i].id === folder.id) {
             // If the folder already exists, update it in the folders array
             folders[i] = folder;
             // Save the updated folders array to localStorage
