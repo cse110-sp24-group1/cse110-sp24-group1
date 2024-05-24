@@ -328,33 +328,11 @@ class HomeScript {
     };
   }
   
-  //backend method, temporarily in frontend for testing
-  getFolderByID(id) {
-    // Create empty string to store the folders with the folderID as their parentFolderID
-    let folderWithID = null;
-    // Get the folders from localStorage
-    let folders = JSON.parse(localStorage.getItem('folders'));
-
-    // If there are no folders in localStorage, return an empty array
-    if(!folders) {
-        return null;
-    }
-
-    // Otherwise, search through the folders array in localStorage
-    // and add any folders with the folderID as their parentFolderID
-    for(let i = 0; i < folders.length; i++) {
-        if(folders[i].id === id) {
-            folderWithID = folders[i];
-        }
-    }
-
-    // Return the array of folders with the folderID as their parentFolderID
-    return folderWithID;
-  }
+  
 
   visitFolder(newFolderId) {
     //calling temp method
-    let newFolder = this.getFolderByID(newFolderId);
+    let newFolder = getFolderByID(newFolderId);
 
     // if folder not found, must be main
     if(!newFolder) {
