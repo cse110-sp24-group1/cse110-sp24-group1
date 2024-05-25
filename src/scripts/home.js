@@ -288,7 +288,7 @@ class HomeScript {
       event.preventDefault();
       // Take the values inputted from the modal form
       const newTitle = modal.querySelector('.edit-modal-title h2').innerText;
-      const newBody = modal.querySelector('.edit-note-body').value;
+      const newBody = modal.querySelector('#edit-note-body').value;
 
       // Edit the note with updated title and body
       this.notes[index].title = newTitle;

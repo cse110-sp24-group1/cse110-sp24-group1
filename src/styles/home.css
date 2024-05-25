@@ -27,10 +27,12 @@ main {
     box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
     margin-bottom: 10px;
 }
+
 .note-content p {
     display: none;
 }
-/** Change the colors of each entry to its respective label*/
+
+/** Change the colors of each entry to its respective label */
 #code-snippets{
     background-color: var(--code-snippets-color);
 }
