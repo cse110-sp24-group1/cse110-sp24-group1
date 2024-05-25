@@ -1,0 +1,20 @@
+/* Color Palette */
+:root {
+    --accent-color: #90e0ef;
+    --light-text-color: #24292f;
+    --light-background-color: #f6f8fa;
+    --light-button-color: #d0d7de;
+    --light-button-color-hover: #afb8c1;
+    --light-border-color: #24292f;
+    --light-border-color-hover: #282929;
+    --light-nav-bar-color: #eaeef2;
+    --dark-text-color: #f0f6fc;
+    --dark-background-color: #161b22;
+    --dark-button-color: #30363d;
+    --dark-button-color-hover: #484f58;
+    --dark-border-color: #f0f6fc;
+    --dark-border-color-hover: #fafafa;
+    --dark-nav-bar-color: #21262d; 
+}
+ 
+ 
