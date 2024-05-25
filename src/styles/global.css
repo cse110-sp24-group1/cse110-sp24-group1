@@ -184,7 +184,7 @@ p {
     border: 1px solid var(--light-border-color);
     border-radius: 5px;
     background: white;
-    margin-left: 3em;
+    margin-left: 1em;
 }
 
 .dark-mode .search-container input[type="text"] {

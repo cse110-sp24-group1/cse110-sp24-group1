@@ -1,5 +1,41 @@
 /*
 * Searches through the folder array in localStorage and returns
+* the folder with id as their id.
+* If nothing is found in localStorage for the folder, an empty array
+* is returned.
+* @param {string} id: The ID of the folder to get
+* @returns {Array<Object>} An array of folders found in localStorage
+* Data format: {
+*     id: string,
+*     name: string,
+*     parentFolderID: string
+* }
+*/
+function getFolderByID(id) {
+    // Create empty string to store the folders with the folderID as their parentFolderID
+    let folderWithID = null;
+    // Get the folders from localStorage
+    let folders = JSON.parse(localStorage.getItem('folders'));
+
+    // If there are no folders in localStorage, return an empty array
+    if(!folders) {
+        return null;
+    }
+
+    // Otherwise, search through the folders array in localStorage
+    // and add any folders with the folderID as their parentFolderID
+    for(let i = 0; i < folders.length; i++) {
+        if(folders[i].id === id) {
+            folderWithID = folders[i];
+        }
+    }
+
+    // Return the array of folders with the folderID as their parentFolderID
+    return folderWithID;
+  }
+
+/*
+* Searches through the folder array in localStorage and returns
 * an array of folders that have the folderID as their parentFolderID.
 * If nothing is found in localStorage for the folder, an empty array
 * is returned.
@@ -41,11 +77,10 @@ function getFoldersByID(folderID) {
 * instead of added.
 * @param {Object} folder: The folder to save
 * Data format: [{
-*     currFolderID: string,
-*     currFolderName: string,
+*     id: string,
+*     name: string,
 *     parentFolderID: string,
-*     parentFolderName: string,
-* }]
+    * }]
 */
 function saveFolder(folder) {
     // Get the folders from localStorage
@@ -57,7 +92,7 @@ function saveFolder(folder) {
 
     // Check if the folder already exists in the folders array
     for(let i = 0; i < folders.length; i++) {
-        if(folders[i].currFolderID === folder.currFolderID) {
+        if(folders[i].id === folder.id) {
             // If the folder already exists, update it in the folders array
             folders[i] = folder;
             // Save the updated folders array to localStorage

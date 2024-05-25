@@ -1,3 +1,6 @@
+// Main page folder 
+const MAIN_ID = '0';
+
 class HomeScript {
   constructor () {
     // Selects the new note button
@@ -8,21 +11,40 @@ class HomeScript {
     this.topRightButtons = document.querySelector('.top-right-buttons');
     // Selects the search bar
     this.searchBar = document.querySelector('.search-container');
+    // Selects the previous folder button
+    this.folderBackButton = document.getElementById('folder-back-button');
     // Selects the journal header
     this.journalHeader = document.querySelector('.journal-header');
     // Selects the navigation bar
     this.navBar = document.querySelector('nav');
     // Select the main element of the html file where the notes will be displayed
     this.mainElement = document.querySelector('main');
-    // A list of all of the notes
-    this.notes = [];
-    // A list of all of the folders
-    this.folders = [];
+    // A list of all of the notes in main home
+    this.notes = getNotesByFolderID(MAIN_ID); 
+    // A list of all of the folders in main home
+    this.folders = getFoldersByID(MAIN_ID);
+    // A const representing the current folder
+    this.currentFolderID = MAIN_ID;
+    // A const representing the parent folder
+    this.parentFolderID = null;
 
     // Add event listener to open the modal on click of the new note button
     this.newNoteButton.addEventListener('click', this.openModal.bind(this));
     // Add event listener to create a new folder on click of the new folder button
     this.newFolderButton.addEventListener('click', this.createFolder.bind(this));
+    // Add event listener to return to parent folder on click of back button
+    this.folderBackButton.addEventListener('click', () => {this.visitFolder(this.parentFolderID);});
+    
+    // Within main folder hide back button, otherwise show it
+    if(this.currentFolderID === MAIN_ID) {
+      this.folderBackButton.classList.add('hide-notes');
+    }
+    else {
+      this.folderBackButton.classList.remove('hide-notes');
+    }
+    
+    // Render everything on main page
+    this.render();
   }
 
   createNote (title, body) {
@@ -30,13 +52,14 @@ class HomeScript {
       title,
       body,
       id: `note-${Date.now()}`, // unique id for the note
-      folderId: null // initially not assigned to any folder
+      folderID: this.currentFolderID, // assign to current folder
+      label: null // initially add no label
     };
     // Add note to the notes array
     this.notes.push(note);
 
     // Render the notes to the homepage
-    this.renderNotes();
+    this.render();
   }
 
   createFolder () {
@@ -44,21 +67,25 @@ class HomeScript {
     if (folderName) {
       const folder = {
         name: folderName,
-        id: `folder-${Date.now()}` // unique id for the folder
+        id: `folder-${Date.now()}`, // unique id for the folder
+        parentFolderID: this.currentFolderID
       };
       // Add folder to the folders array
       this.folders.push(folder);
 
+      saveFolder(folder);
+
       // Render the folders to the homepage
-      this.renderFolders();
+      this.render();
     };
   }
 
-  renderNotes () {
-    // Clear existing notes
+  render () {
+    console.log(this.currentFolderID + ' ' + this.parentFolderID);
+    // Clear main element
     this.mainElement.innerHTML = '';
 
-    // Loop through each folder and render its notes
+    // Render all folders in current folder
     this.folders.forEach(folder => {
       const folderElement = document.createElement('div');
       folderElement.classList.add('folder');
@@ -66,44 +93,36 @@ class HomeScript {
       folderElement.innerHTML = `<h3>${folder.name}</h3>`;
       folderElement.addEventListener('dragover', this.onDragOver.bind(this));
       folderElement.addEventListener('drop', this.onDrop.bind(this));
-      this.mainElement.appendChild(folderElement);
 
-      const notesInFolder = this.notes.filter(note => note.folderId === folder.id);
-      notesInFolder.forEach(note => {
-        this.appendNoteToFolder(note, folderElement);
+      // Click to open folder
+      folderElement.addEventListener('click', () => {
+        this.visitFolder(folder.id);
       });
+
+      this.mainElement.appendChild(folderElement);
     });
 
-    // Render notes not in any folder
-    const unassignedNotes = this.notes.filter(note => note.folderId === null);
-    unassignedNotes.forEach(note => {
-      this.appendNoteToFolder(note, this.mainElement);
-    });
-  }
+    // Render all notes in current folder
+    this.notes.forEach(note => {
+      const noteElement = document.createElement('div');
+      noteElement.classList.add('note');
+      noteElement.setAttribute('draggable', 'true');
+      noteElement.setAttribute('data-note-id', note.id);
+      noteElement.innerHTML = `
+        <div class='note-content'>
+            <p>${note.body}</p>
+        </div>
+        <div class='note-title'>
+            <h3>${note.title}</h3>
+        </div>`;
+      noteElement.addEventListener('dragstart', this.onDragStart.bind(this));
 
-  renderFolders () {
-    // Clear existing notes to re-render them with folders
-    this.mainElement.innerHTML = '';
-    this.renderNotes();
-  }
-
-  appendNoteToFolder (note, container) {
-    const noteElement = document.createElement('div');
-    noteElement.classList.add('note');
-    noteElement.setAttribute('draggable', 'true');
-    noteElement.setAttribute('data-note-id', note.id);
-    noteElement.innerHTML = `
-      <div class='note-content'>
-          <p>${note.body}</p>
-      </div>
-      <div class='note-title'>
-          <h3>${note.title}</h3>
-      </div>`;
-    noteElement.addEventListener('dragstart', this.onDragStart.bind(this));
-    noteElement.addEventListener('click', () => {
-      this.editModal(this.notes.indexOf(note), note.title, note.body);
+      // Click to open edit modal
+      noteElement.addEventListener('click', () => {
+        this.editModal(this.notes.indexOf(note), note.title, note.body);
+      });
+      this.mainElement.appendChild(noteElement);
     });
-    container.appendChild(noteElement);
   }
 
   openModal () {
@@ -131,9 +150,9 @@ class HomeScript {
                         <input type='text' id='note-title' name='note-title' placeholder='Page Title'>
                     </div>
                     <div class='modal-input'>
-                        <select id='note-folder' name='note-folder'>
-                            <option value='' disabled selected>Select Folder</option>
-                            ${this.folders.map(folder => `<option value='${folder.id}'>${folder.name}</option>`).join('')}
+                        <select id='note-label' name='note-label'>
+                            <option value='' disabled selected>Select Label</option>
+                            <!-- Need to add labels -->
                         </select>
                     </div>
                     <div class='modal-input'>
@@ -178,15 +197,18 @@ class HomeScript {
       // Take the values inputted from the modal form
       const title = modal.querySelector('#note-title').value;
       const body = modal.querySelector('#note-body').value;
-      const folderId = modal.querySelector('#note-folder').value;
+      const labelId = modal.querySelector('#note-label').value;
 
       // Create a new note
       this.createNote(title, body);
 
-      // Assign note to folder if selected
-      if (folderId) {
-        this.notes[this.notes.length - 1].folderId = folderId;
+      // Assign note to label if selected
+      if (labelId) {
+        this.notes[this.notes.length - 1].labelId = labelId;
       }
+
+      //save to local storage
+      saveNote(this.notes[this.notes.length - 1]);
 
       document.body.removeChild(modal);
       // Show the top right buttons again
@@ -270,7 +292,7 @@ class HomeScript {
       // Edit the note with updated title and body
       this.notes[index].title = newTitle;
       this.notes[index].body = newBody;
-      this.renderNotes();
+      this.render();
 
       document.body.removeChild(modal);
       // Show the top right buttons again
@@ -302,9 +324,47 @@ class HomeScript {
     const note = this.notes.find(note => note.id === noteId);
     if (note) {
       note.folderId = folderId;
-      this.renderNotes();
+      this.render();
     };
   }
+  
+  
+
+  visitFolder(newFolderId) {
+    //calling temp method
+    let newFolder = getFolderByID(newFolderId);
+
+    // if folder not found, must be main
+    if(!newFolder) {
+      this.currentFolderID = MAIN_ID;
+      this.parentFolderID = null;
+      console.log('hi');
+    }
+    else {
+      this.currentFolderID = newFolderId;
+      this.parentFolderID = newFolder.parentFolderID;
+    }
+
+    // Set folders / notes list
+    this.folders = getFoldersByID(this.currentFolderID);
+    this.notes = getNotesByFolderID(this.currentFolderID);
+
+    // If within main folder hide back button, otherwise show it
+    if(this.currentFolderID === MAIN_ID) {
+      this.folderBackButton.classList.add('hide-notes');
+      this.journalHeader.innerText = 'My Journal';
+    }
+    else {
+      this.folderBackButton.classList.remove('hide-notes');
+      this.journalHeader.innerText = 'My Journal (' + newFolder.name + ')';
+    }
+
+    //render folders / notes
+    this.render();
+  }
+
+
+
 }
 
 document.addEventListener('DOMContentLoaded', () => {
