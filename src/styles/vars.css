@@ -15,6 +15,13 @@
     --dark-border-color: #f0f6fc;
     --dark-border-color-hover: #fafafa;
     --dark-nav-bar-color: #21262d; 
+    --code-snippets-color: #E83DF4;
+    --stand-up-labelcolor: #3919F5;
+    --bug-reports-labelcolor: #376AED;
+    --learning-notes-labelcolor: #EF824C;
+    --newsletter-labelcolor: #EDE537;
+    --performance-labelcolor: #FF1318;
+    --feature-ideas-labelcolor: #357960;
 }
  
  

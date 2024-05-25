@@ -47,13 +47,13 @@ class HomeScript {
     this.render();
   }
 
-  createNote (title, body) {
+  createNote (title, body,labelId) {
     const note = {
       title,
       body,
       id: `note-${Date.now()}`, // unique id for the note
       folderID: this.currentFolderID, // assign to current folder
-      label: null // initially add no label
+      label: labelId
     };
     // Add note to the notes array
     this.notes.push(note);
@@ -109,7 +109,7 @@ class HomeScript {
       noteElement.setAttribute('draggable', 'true');
       noteElement.setAttribute('data-note-id', note.id);
       noteElement.innerHTML = `
-        <div class='note-content'>
+        <div class='note-content' id=${note.label}>
             <p>${note.body}</p>
         </div>
         <div class='note-title'>
@@ -121,7 +121,7 @@ class HomeScript {
       noteElement.addEventListener('click', () => {
         this.editModal(this.notes.indexOf(note), note.title, note.body);
       });
-      this.mainElement.appendChild(noteElement);
+      this.mainElement.prepend(noteElement);
     });
   }
 
@@ -152,7 +152,13 @@ class HomeScript {
                     <div class='modal-input'>
                         <select id='note-label' name='note-label'>
                             <option value='' disabled selected>Select Label</option>
-                            <!-- Need to add labels -->
+                            <option value='code-snippets'>Code Snippets</option>
+                            <option value='stand-up'>Stand-Up Notes</option>
+                            <option value='bug-reports'>Bug Reports</option>
+                            <option value='learning-notes'>Learning Notes</option>
+                            <option value='newsletter'>Newsletters</option>
+                            <option value='performance'>Performance Metrics</option>
+                            <option value='feature-ideas'>Feature Ideas</option>
                         </select>
                     </div>
                     <div class='modal-input'>
@@ -189,7 +195,7 @@ class HomeScript {
       this.journalHeader.classList.remove('hide-notes');
     });
 
-    // Close modal when clicking the create new note button
+    // Create modal when clicking the create new note button
     const createButton = modal.querySelector('.create-button');
     createButton.addEventListener('click', (event) => {
       // Prevent default form submission
@@ -198,14 +204,9 @@ class HomeScript {
       const title = modal.querySelector('#note-title').value;
       const body = modal.querySelector('#note-body').value;
       const labelId = modal.querySelector('#note-label').value;
-
+      console.log(labelId);
       // Create a new note
-      this.createNote(title, body);
-
-      // Assign note to label if selected
-      if (labelId) {
-        this.notes[this.notes.length - 1].labelId = labelId;
-      }
+      this.createNote(title, body,labelId);
 
       //save to local storage
       saveNote(this.notes[this.notes.length - 1]);

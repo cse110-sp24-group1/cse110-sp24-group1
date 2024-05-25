@@ -27,9 +27,36 @@ main {
     box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
     margin-bottom: 10px;
 }
-
 .note-content p {
     display: none;
+}
+/** Change the colors of each entry to its respective label*/
+#code-snippets{
+    background-color: var(--code-snippets-color);
+}
+
+#stand-up{
+    background-color: var(--stand-up-labelcolor);
+}
+
+#bug-reports{
+    background-color: var(--bug-reports-labelcolor);
+}
+
+#learning-notes{
+    background-color: var(--learning-notes-labelcolor);
+}
+
+#newsletter{
+    background-color: var(--newsletter-labelcolor);
+}
+
+#performance{
+    background-color: var(--performance-labelcolor);
+}
+
+#feature-ideas{
+    background-color: var(--feature-ideas-labelcolor);
 }
 
 .note-title {
@@ -152,9 +179,9 @@ main {
 }
 
 
-.modal-input select {
+/* .modal-input select {
     color: var(--light-button-color-hover);
-}
+} */
 
 .modal-input input, 
 .modal-input select {
@@ -163,6 +190,34 @@ main {
     border: 1px solid var(--light-border-color); 
     border-radius: 5px; 
     box-sizing: border-box;
+
+    option[value="code-snippets"]{
+        color: var(--code-snippets-color);
+    }
+
+    option[value="stand-up"]{
+        color: var(--stand-up-labelcolor);
+    }
+
+    option[value="bug-reports"]{
+        color: var(--bug-reports-labelcolor);
+    }
+
+    option[value="learning-notes"]{
+        color: var(--learning-notes-labelcolor);
+    }
+
+    option[value="newsletter"]{
+        color: var(--newsletter-labelcolor);
+    }
+
+    option[value="performance"]{
+        color: var(--performance-labelcolor);
+    }
+
+    option[value="feature-ideas"]{
+        color: var(--feature-ideas-labelcolor);
+    }
 }
 
 .dark-mode .modal-input select {
