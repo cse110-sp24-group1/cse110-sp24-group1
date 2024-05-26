@@ -122,7 +122,9 @@ class TaskList extends HTMLElement {
     const taskDate = taskElement.querySelector('.task-date');
     const taskName = taskElement.querySelector('label[for]');
     const editBtn = taskElement.querySelector('.edit-btn');
- 
+
+    taskElement.classList.toggle("editing-task");
+
     // Create an input element for task description
     const taskDescInput = document.createElement('input');
     taskDescInput.type = 'text';
@@ -187,6 +189,8 @@ class TaskList extends HTMLElement {
       taskDateInput.replaceWith(taskDate);
       taskNameInput.replaceWith(taskName);
       saveBtn.replaceWith(editBtn);
+
+      taskElement.classList.toggle("editing-task");
     });
   }
  
