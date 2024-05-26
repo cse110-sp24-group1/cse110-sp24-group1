@@ -352,12 +352,6 @@ select {
    border: 1px solid var(--light-border-color);
 }
 
-.dark-mode input[type="text"],
-.dark-mode input[type="date"],
-.dark-mode select {
-   border: 1px solid var(--dark-border-color);
-}
-
 input[type="text"]:focus,
 input[type="date"]:focus,
 select:focus {
@@ -377,16 +371,6 @@ select:focus {
    margin-left: auto;
 }
 
-.dark-mode .save-btn {
-   background-color: var(--dark-button-color);
-   color: var(--dark-text-color);
-}
-
-/* Hover effect for button */
 .save-btn:hover {
    background-color: var(--light-button-color-hover);
-}
-
-.dark-mode .save-btn:hover {
-   background-color: var(--dark-button-color-hover);
 }
