@@ -38,27 +38,27 @@ main {
 }
 
 #stand-up{
-    background-color: var(--stand-up-labelcolor);
+    background-color: var(--stand-up-label-color);
 }
 
 #bug-reports{
-    background-color: var(--bug-reports-labelcolor);
+    background-color: var(--bug-reports-label-color);
 }
 
 #learning-notes{
-    background-color: var(--learning-notes-labelcolor);
+    background-color: var(--learning-notes-label-color);
 }
 
 #newsletter{
-    background-color: var(--newsletter-labelcolor);
+    background-color: var(--newsletter-label-color);
 }
 
 #performance{
-    background-color: var(--performance-labelcolor);
+    background-color: var(--performance-label-color);
 }
 
 #feature-ideas{
-    background-color: var(--feature-ideas-labelcolor);
+    background-color: var(--feature-ideas-label-color);
 }
 
 .note-title {
@@ -198,27 +198,27 @@ main {
     }
 
     option[value="stand-up"]{
-        color: var(--stand-up-labelcolor);
+        color: var(--stand-up-label-color);
     }
 
     option[value="bug-reports"]{
-        color: var(--bug-reports-labelcolor);
+        color: var(--bug-reports-label-color);
     }
 
     option[value="learning-notes"]{
-        color: var(--learning-notes-labelcolor);
+        color: var(--learning-notes-label-color);
     }
 
     option[value="newsletter"]{
-        color: var(--newsletter-labelcolor);
+        color: var(--newsletter-label-color);
     }
 
     option[value="performance"]{
-        color: var(--performance-labelcolor);
+        color: var(--performance-label-color);
     }
 
     option[value="feature-ideas"]{
-        color: var(--feature-ideas-labelcolor);
+        color: var(--feature-ideas-label-color);
     }
 }
 
