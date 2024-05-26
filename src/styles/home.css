@@ -75,9 +75,10 @@ main {
     top: 20px;
     right: 20px;
 }
+
 /* Default Icon for New Note Button Light Mode */
 .top-right-buttons #new-note-button {
-    padding: 20px 20px;
+    padding: 20px;
     background-image: url('../assets/icons/newnote-light.png');
     background-repeat: no-repeat;
     background-size:contain;
@@ -88,7 +89,7 @@ main {
 
 /* Default Icon for New Folder Button Light Mode */
 .top-right-buttons #new-folder-button {
-    padding:20px 20px;
+    padding: 20px;
     background-image: url('../assets/icons/newfolder-light.png');
     background-repeat: no-repeat;
     background-size:contain;
@@ -97,9 +98,10 @@ main {
     margin-left: 10px;
 
 }
+
 /* Hover Icon for New Note Button Light Mode */
 .top-right-buttons #new-note-button:hover{
-    padding: 20px 20px;
+    padding: 20px;
     background-image: url('../assets/icons/newnote-hover-light.png');
     background-repeat: no-repeat;
     background-size:contain;
@@ -110,7 +112,7 @@ main {
 
 /* Hover Icon for New Folder Button Light Mode */
 .top-right-buttons #new-folder-button:hover{
-    padding:20px 20px;
+    padding: 20px;
     background-image: url('../assets/icons/newfolder-hover-light.png');
     background-repeat: no-repeat;
     background-size:contain;
@@ -121,7 +123,7 @@ main {
 }
 
 .dark-mode .top-right-buttons #new-note-button{
-    padding:20px 20px;
+    padding: 20px;
     background-image: url('../assets/icons/newnote-dark.png');
     background-repeat: no-repeat;
     background-size:contain;
@@ -131,7 +133,7 @@ main {
 }
 
 .dark-mode .top-right-buttons #new-folder-button{
-    padding:20px 20px;
+    padding: 20px;
     background-image: url('../assets/icons/newfolder-dark.png');
     background-repeat: no-repeat;
     background-size:contain;
@@ -142,7 +144,7 @@ main {
 
 /* Hover Icon for New Note Button Dark Mode */
 .dark-mode .top-right-buttons #new-note-button:hover{
-    padding: 20px 20px;
+    padding: 20px;
     background-image: url('../assets/icons/newnote-hover-dark.png');
     background-repeat: no-repeat;
     background-size:contain;
@@ -153,7 +155,7 @@ main {
 
 /* Hover Icon for New Folder Button Dark Mode */
 .dark-mode .top-right-buttons #new-folder-button:hover{
-    padding:20px 20px;
+    padding: 20px;
     background-image: url('../assets/icons/newfolder-hover-dark.png');
     background-repeat: no-repeat;
     background-size:contain;
@@ -337,13 +339,54 @@ main {
     border-radius: 5px;
 }
 
-.input-button {
+
+/* .input-button{
     background-color: var(--light-button-color);
     color: var(--light-text-color);
     margin: 0 0.5rem;
     align-items: center;
     justify-content: center;
-    padding: 15px 30px;
+    padding: 20px 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+} */
+
+
+.modal-buttons #input-text{
+    background-image: url('../assets/icons/text-light.png');
+    background-repeat: no-repeat;
+    background-size:contain;
+    margin: 0 0.5rem;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+}
+
+.modal-buttons #input-image{
+    background-image: url('../assets/icons/image-light.png');
+    background-repeat: no-repeat;
+    background-size:contain;
+    margin: 0 0.5rem;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+}
+
+.modal-buttons #input-markdown{
+    background-image: url('../assets/icons/markdown-light.png');
+    background-repeat: no-repeat;
+    background-size:contain;
+    margin: 0 0.5rem;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 20px;
     cursor: pointer;
     border: none;
     border-radius: 50%;

@@ -165,9 +165,9 @@ class HomeScript {
                       <div class='textarea-container'>
                         <textarea id='note-body' name='note-body'></textarea>
                         <div class='modal-buttons'>
-                          <button type='button' class='input-button' name='input-Text'>Textt</button>
-                          <button type='button' class='input-button' name='input-Image'>Image</button>
-                          <button type='button' class='input-button' name='input-Markdown'>MDown</button>
+                          <button type='button' class='input-button' name='input-Text' id='input-text'></button>
+                          <button type='button' class='input-button' name='input-Image' id='input-image'></button>
+                          <button type='button' class='input-button' name='input-Markdown' id='input-markdown'></button>
                       </div>
                     </div>
                     <button class='create-button' type='submit'>Create</button>
@@ -251,7 +251,7 @@ class HomeScript {
                     <div>
                         <textarea id='edit-note-body' name='note-body'>${body}</textarea>
                         <div class='exist-modal-buttons'>
-                          <button type='button' class='exist-input-button' name='exist-input-Text'>Textt</button>
+                          <button type='button' class='exist-input-button' name='exist-input-Text'>Text</button>
                           <button type='button' class='exist-input-button' name='exist-input-Image'>Image</button>
                           <button type='button' class='exist-input-button' name='exist-input-Markdown'>MDown</button>
                         </div>
