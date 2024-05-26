@@ -196,9 +196,8 @@ p {
     border-color: var(--accent-color);
 }
 
-/* Edits for smaller screens (mobile)*/
-@media (max-width: 500px) {
-
+/* Edits for smaller screens (mobile) */
+@media (width <= 500px) {
     nav {
         width: 4rem;
     }
@@ -216,7 +215,7 @@ p {
     }
 
     .search-container input[type="text"] {
-        margin-left: 0em;
+        margin-left: 0.1em;
     }
 
     .toggle-container {
