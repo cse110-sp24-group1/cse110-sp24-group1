@@ -392,9 +392,121 @@ main {
     border-radius: 50%;
 }
 
-.dark-mode .input-button {
-    background-color: var(--dark-button-color);
-    color: var(--dark-text-color);
+.modal-buttons #input-text:hover{
+    background-image: url('../assets/icons/text-hover-light.png');
+    background-repeat: no-repeat;
+    background-size:contain;
+    margin: 0 0.5rem;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+}
+
+.modal-buttons #input-image:hover{
+    background-image: url('../assets/icons/image-hover-light.png');
+    background-repeat: no-repeat;
+    background-size:contain;
+    margin: 0 0.5rem;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+}
+
+.modal-buttons #input-markdown:hover{
+    background-image: url('../assets/icons/markdown-hover-light.png');
+    background-repeat: no-repeat;
+    background-size:contain;
+    margin: 0 0.5rem;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+}
+
+.dark-mode .modal-buttons #input-text{
+    background-image: url('../assets/icons/text-dark.png');
+    background-repeat: no-repeat;
+    background-size:contain;
+    margin: 0 0.5rem;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+}
+
+.dark-mode .modal-buttons #input-image{
+    background-image: url('../assets/icons/image-dark.png');
+    background-repeat: no-repeat;
+    background-size:contain;
+    margin: 0 0.5rem;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+}
+
+.dark-mode .modal-buttons #input-markdown{
+    background-image: url('../assets/icons/markdown-dark.png');
+    background-repeat: no-repeat;
+    background-size:contain;
+    margin: 0 0.5rem;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+}
+
+.dark-mode .modal-buttons #input-text:hover{
+    background-image: url('../assets/icons/text-hover-dark.png');
+    background-repeat: no-repeat;
+    background-size:contain;
+    margin: 0 0.5rem;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+}
+
+.dark-mode .modal-buttons #input-image:hover{
+    background-image: url('../assets/icons/image-hover-dark.png');
+    background-repeat: no-repeat;
+    background-size:contain;
+    margin: 0 0.5rem;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+}
+
+.dark-mode .modal-buttons #input-markdown:hover{
+    background-image: url('../assets/icons/markdown-hover-dark.png');
+    background-repeat: no-repeat;
+    background-size:contain;
+    margin: 0 0.5rem;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
 }
 
 /* EDIT MODAL */
