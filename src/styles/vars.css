@@ -14,7 +14,14 @@
     --dark-button-color-hover: #484f58;
     --dark-border-color: #f0f6fc;
     --dark-border-color-hover: #fafafa;
-    --dark-nav-bar-color: #21262d; 
+    --dark-nav-bar-color: #21262d;
+    --code-snippets-color: #e83df4;
+    --stand-up-label-color: #3919f5;
+    --bug-reports-label-color: #376aed;
+    --learning-notes-label-color: #ef824c;
+    --newsletter-label-color: #ede537;
+    --performance-label-color: #ff1318;
+    --feature-ideas-label-color: #357960;
 }
  
  
