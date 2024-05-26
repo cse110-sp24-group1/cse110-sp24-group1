@@ -23,6 +23,12 @@ class HomeScript {
     this.newNoteButton.addEventListener('click', this.openModal.bind(this));
     // Add event listener to create a new folder on click of the new folder button
     this.newFolderButton.addEventListener('click', this.createFolder.bind(this));
+
+    // For search bar
+    // Selects the search bar input
+    this.searchInput = document.getElementById('search-bar');
+    // Add event listener to the search bar
+    this.searchInput.addEventListener('input', this.searchNotes.bind(this));
   }
 
   createNote (title, body) {
@@ -54,7 +60,7 @@ class HomeScript {
     };
   }
 
-  renderNotes () {
+  renderNotes (filteredNotes = this.notes) { // filteredNotes to render a specific subset of notes  
     // Clear existing notes
     this.mainElement.innerHTML = '';
 
@@ -68,14 +74,14 @@ class HomeScript {
       folderElement.addEventListener('drop', this.onDrop.bind(this));
       this.mainElement.appendChild(folderElement);
 
-      const notesInFolder = this.notes.filter(note => note.folderId === folder.id);
+      const notesInFolder = filteredNotes.filter(note => note.folderId === folder.id);
       notesInFolder.forEach(note => {
         this.appendNoteToFolder(note, folderElement);
       });
     });
 
     // Render notes not in any folder
-    const unassignedNotes = this.notes.filter(note => note.folderId === null);
+    const unassignedNotes = filteredNotes.filter(note => note.folderId === null);
     unassignedNotes.forEach(note => {
       this.appendNoteToFolder(note, this.mainElement);
     });
@@ -304,6 +310,14 @@ class HomeScript {
       note.folderId = folderId;
       this.renderNotes();
     };
+  }
+
+  // TODO Implement the search-note function
+  // Filter the exist note with title of the note
+  searchNotes(event) {
+    const searchQuery = event.target.value.toLowerCase(); // check the lower character
+    const filteredNotes = this.notes.filter(note => note.title.toLowerCase().includes(searchQuery));
+    this.renderNotes(filteredNotes);
   }
 }
 
