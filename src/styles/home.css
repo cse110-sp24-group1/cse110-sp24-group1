@@ -85,6 +85,7 @@ main {
     border: none;
     cursor: pointer;
     margin-left: 10px;
+    border-radius: 20px;
 }
 
 /* Default Icon for New Folder Button Light Mode */
@@ -96,7 +97,7 @@ main {
     border: none;
     cursor: pointer;
     margin-left: 10px;
-
+    border-radius: 20px;
 }
 
 /* Hover Icon for New Note Button Light Mode */
@@ -108,6 +109,7 @@ main {
     border: none;
     cursor: pointer;
     margin-left: 10px;
+    border-radius: 20px;
 }
 
 /* Hover Icon for New Folder Button Light Mode */
@@ -119,7 +121,7 @@ main {
     border: none;
     cursor: pointer;
     margin-left: 10px;
-
+    border-radius: 20px;
 }
 
 .dark-mode .top-right-buttons #new-note-button{
@@ -130,6 +132,7 @@ main {
     border: none;
     cursor: pointer;
     margin-left: 10px;
+    border-radius: 20px;
 }
 
 .dark-mode .top-right-buttons #new-folder-button{
@@ -140,6 +143,7 @@ main {
     border: none;
     cursor: pointer;
     margin-left: 10px;
+    border-radius: 20px;
 }
 
 /* Hover Icon for New Note Button Dark Mode */
@@ -151,6 +155,7 @@ main {
     border: none;
     cursor: pointer;
     margin-left: 10px;
+    border-radius: 20px;
 }
 
 /* Hover Icon for New Folder Button Dark Mode */
@@ -162,7 +167,7 @@ main {
     border: none;
     cursor: pointer;
     margin-left: 10px;
-
+    border-radius: 20px;
 }
 
 #folder-back-button {
@@ -173,6 +178,7 @@ main {
     border-radius: 300%;
     cursor: pointer;
     margin-left: 10px;
+    border-radius: 20px;
 }
 
 .dark-mode #folder-back-button {
@@ -339,20 +345,6 @@ main {
     border-radius: 5px;
 }
 
-
-/* .input-button{
-    background-color: var(--light-button-color);
-    color: var(--light-text-color);
-    margin: 0 0.5rem;
-    align-items: center;
-    justify-content: center;
-    padding: 20px 20px;
-    cursor: pointer;
-    border: none;
-    border-radius: 50%;
-} */
-
-
 .modal-buttons #input-text{
     background-image: url('../assets/icons/text-light.png');
     background-repeat: no-repeat;
@@ -360,7 +352,7 @@ main {
     margin: 0 0.5rem;
     align-items: center;
     justify-content: center;
-    padding: 20px 20px;
+    padding: 20px;
     cursor: pointer;
     border: none;
     border-radius: 50%;
@@ -373,7 +365,7 @@ main {
     margin: 0 0.5rem;
     align-items: center;
     justify-content: center;
-    padding: 20px 20px;
+    padding: 20px;
     cursor: pointer;
     border: none;
     border-radius: 50%;
@@ -386,7 +378,7 @@ main {
     margin: 0 0.5rem;
     align-items: center;
     justify-content: center;
-    padding: 20px 20px;
+    padding: 20px;
     cursor: pointer;
     border: none;
     border-radius: 50%;
@@ -399,7 +391,7 @@ main {
     margin: 0 0.5rem;
     align-items: center;
     justify-content: center;
-    padding: 20px 20px;
+    padding: 20px;
     cursor: pointer;
     border: none;
     border-radius: 50%;
@@ -412,7 +404,7 @@ main {
     margin: 0 0.5rem;
     align-items: center;
     justify-content: center;
-    padding: 20px 20px;
+    padding: 20px;
     cursor: pointer;
     border: none;
     border-radius: 50%;
@@ -425,7 +417,7 @@ main {
     margin: 0 0.5rem;
     align-items: center;
     justify-content: center;
-    padding: 20px 20px;
+    padding: 20px;
     cursor: pointer;
     border: none;
     border-radius: 50%;
@@ -438,7 +430,7 @@ main {
     margin: 0 0.5rem;
     align-items: center;
     justify-content: center;
-    padding: 20px 20px;
+    padding: 20px;
     cursor: pointer;
     border: none;
     border-radius: 50%;
@@ -451,7 +443,7 @@ main {
     margin: 0 0.5rem;
     align-items: center;
     justify-content: center;
-    padding: 20px 20px;
+    padding: 20px;
     cursor: pointer;
     border: none;
     border-radius: 50%;
@@ -464,7 +456,7 @@ main {
     margin: 0 0.5rem;
     align-items: center;
     justify-content: center;
-    padding: 20px 20px;
+    padding: 20px;
     cursor: pointer;
     border: none;
     border-radius: 50%;
@@ -477,7 +469,7 @@ main {
     margin: 0 0.5rem;
     align-items: center;
     justify-content: center;
-    padding: 20px 20px;
+    padding: 20px;
     cursor: pointer;
     border: none;
     border-radius: 50%;
@@ -490,7 +482,7 @@ main {
     margin: 0 0.5rem;
     align-items: center;
     justify-content: center;
-    padding: 20px 20px;
+    padding: 20px;
     cursor: pointer;
     border: none;
     border-radius: 50%;
@@ -503,7 +495,7 @@ main {
     margin: 0 0.5rem;
     align-items: center;
     justify-content: center;
-    padding: 20px 20px;
+    padding: 20px;
     cursor: pointer;
     border: none;
     border-radius: 50%;

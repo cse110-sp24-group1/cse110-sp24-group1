@@ -165,9 +165,9 @@ class HomeScript {
                       <div class='textarea-container'>
                         <textarea id='note-body' name='note-body'></textarea>
                         <div class='modal-buttons'>
-                          <button type='button' class='input-button' name='input-Text' id='input-text'></button>
-                          <button type='button' class='input-button' name='input-Image' id='input-image'></button>
-                          <button type='button' class='input-button' name='input-Markdown' id='input-markdown'></button>
+                          <button type='button' name='input-Text' id='input-text'></button>
+                          <button type='button' name='input-Image' id='input-image'></button>
+                          <button type='button' name='input-Markdown' id='input-markdown'></button>
                       </div>
                     </div>
                     <button class='create-button' type='submit'>Create</button>
