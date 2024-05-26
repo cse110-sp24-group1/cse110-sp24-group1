@@ -22,7 +22,7 @@ We will use Jest Puppeteer, a combination of Jest and Puppeteer, for our end-to-
   - Jest Puppeteer offers a familiar testing environment for developers already using Jest.
   - Puppeteer's ability to interact with a headless browser allows for comprehensive testing of user flows and interactions.
   - Jest's built-in assertions and test runners streamline the testing process.
-  - Given that we had a lab on this topic, our team is familiar with this technology.
+  - Our team is familiar with this technology.
 
 - **Cons:**
   - Setting up and configuring Jest Puppeteer may require some initial effort.
