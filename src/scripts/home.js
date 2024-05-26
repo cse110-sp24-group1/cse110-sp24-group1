@@ -25,10 +25,9 @@ class HomeScript {
     this.newFolderButton.addEventListener('click', this.createFolder.bind(this))
   }
 
-  createNote (title, category, body) {
+  createNote (title, body) {
     const note = {
       title,
-      category,
       body,
       id: `note-${Date.now()}`, // unique id for the note
       folderId: null // initially not assigned to any folder
@@ -132,18 +131,6 @@ class HomeScript {
                         <input type='text' id='note-title' name='note-title' placeholder='Page Title'>
                     </div>
                     <div class='modal-input'>
-                        <select id="note-category" name="note-category">
-                            <option value="Default">Select Category</option>
-                            <option value="Work">Work</option>
-                            <option value="Personal">Personal</option>
-                            <option value="Health and Fitness">Health and Fitness</option>
-                            <option value="Finance">Finance</option>
-                            <option value="Social">Social</option>
-                            <option value="Travel">Travel</option>
-                            <option value="School">School</option>
-                            <option value="createNew">Create New Category</option>
-                        </select>
-                        <input type="text" id="newCategoryInput" placeholder="New Category" style="display: none;">
                         <select id='note-folder' name='note-folder'>
                             <option value='' disabled selected>Select Folder</option>
                             ${this.folders.map(folder => `<option value='${folder.id}'>${folder.name}</option>`).join('')}
@@ -166,14 +153,6 @@ class HomeScript {
     document.body.appendChild(modal)
     // Hide the top right buttons
     this.topRightButtons.style.display = 'none'
-    // Show new category input when clicking on "Create New Category" from dropdown
-    const noteCategory = modal.querySelector('#note-category')
-    const newCategoryInput = modal.querySelector('#newCategoryInput');
-    noteCategory.addEventListener('change', () => {
-        if (noteCategory.value === 'createNew') {
-            newCategoryInput.style.display = 'block'
-        }
-    })
 
     // Close modal when clicking the close button
     const closeButton = modal.querySelector('.close-modal')
@@ -200,19 +179,9 @@ class HomeScript {
       const title = modal.querySelector('#note-title').value
       const body = modal.querySelector('#note-body').value
       const folderId = modal.querySelector('#note-folder').value
-      // Create category variable from dropdown seleciton or the new created
-      let category = noteCategory.value
-      if (category === 'createNew') {
-        category = category.value
-
-        // Reset the input and hide it
-        category.value = ''
-        category.style.display = 'none'
-        noteCategory.value = 'Default'
-      }
 
       // Create a new note
-      this.createNote(title, category, body)
+      this.createNote(title, body)
 
       // Assign note to folder if selected
       if (folderId) {
@@ -234,7 +203,7 @@ class HomeScript {
   }
 
   // Opens the modal to the existing note
-  editModal (index, title, category, body) {
+  editModal (index, title, body) {
     // Add blur class to navigation bar
     this.navBar.classList.add('blur')
     // Remove the display of notes with the open modal
@@ -253,20 +222,6 @@ class HomeScript {
             <div class='note-modal'>
                 <div class='edit-modal-title'>
                     <h2 contenteditable='true'>${title}</h2>
-                    <div class="modal-input"> 
-                        <select id="edit-note-category" name="edit-note-category">
-                            <option value="Default">${category}</option>
-                            <option value="Work">Work</option>
-                            <option value="Personal">Personal</option>
-                            <option value="Health and Fitness">Health and Fitness</option>
-                            <option value="Finance">Finance</option>
-                            <option value="Social">Social</option>
-                            <option value="Travel">Travel</option>
-                            <option value="School">School</option>
-                            <option value="createNew">Create New Category</option>
-                        </select>
-                        <input type="text" id="edit-new-category" placeholder="New Category" style="display: none;">
-                    </div>
                 </div>
                 <form id='note-modal-form'>
                     <button class='back-button' type='submit'>Back</button>
@@ -286,14 +241,6 @@ class HomeScript {
     document.body.appendChild(modal)
     // Hide the top right buttons
     this.topRightButtons.style.display = 'none'
-    // Show new category input when clicking on "Create New Category" from dropdown
-    const editnoteCategory = modal.querySelector('#edit-note-category')
-    const editNewCategoryInput = modal.querySelector('#edit-new-category');
-    editnoteCategory.addEventListener('change', () => {
-        if (editnoteCategory.value === 'createNew') {
-            editNewCategoryInput.style.display = 'block'
-        }
-    })
 
     // Close modal when clicking the back button
     const backButton = modal.querySelector('.back-button')
@@ -319,15 +266,9 @@ class HomeScript {
       // Take the values inputted from the modal form
       const newTitle = modal.querySelector('.edit-modal-title h2').innerText
       const newBody = modal.querySelector('#editNoteBody').value
-      // Create category variable from dropdown selection or the new category inputted
-      let newCategory = editnoteCategory.value
-      if (newCategory === 'createNew') {
-        newCategory = editNewCategoryInput.value
-      }
 
       // Edit the note with updated title and body
       this.notes[index].title = newTitle
-      this.notes[index].category = newCategory
       this.notes[index].body = newBody
       this.renderNotes()
 
