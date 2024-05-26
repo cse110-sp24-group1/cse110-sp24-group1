@@ -75,30 +75,93 @@ main {
     top: 20px;
     right: 20px;
 }
-
-.top-right-buttons button {
-    padding: 10px 20px;
-    background-color: var(--light-button-color);
-    color: var(--light-text-color);
+/* Default Icon for New Note Button Light Mode */
+.top-right-buttons #new-note-button {
+    padding: 20px 20px;
+    background-image: url('../assets/icons/newnote-light.png');
+    background-repeat: no-repeat;
+    background-size:contain;
     border: none;
-    border-radius: 50%;
     cursor: pointer;
     margin-left: 10px;
 }
 
-.dark-mode .top-right-buttons button {
-    background-color: var(--dark-button-color);
-    color: var(--dark-text-color);
+/* Default Icon for New Folder Button Light Mode */
+.top-right-buttons #new-folder-button {
+    padding:20px 20px;
+    background-image: url('../assets/icons/newfolder-light.png');
+    background-repeat: no-repeat;
+    background-size:contain;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+
+}
+/* Hover Icon for New Note Button Light Mode */
+.top-right-buttons #new-note-button:hover{
+    padding: 20px 20px;
+    background-image: url('../assets/icons/newnote-hover-light.png');
+    background-repeat: no-repeat;
+    background-size:contain;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
 }
 
-.top-right-buttons button:hover {
-    background-color: var(--light-button-color-hover);
+/* Hover Icon for New Folder Button Light Mode */
+.top-right-buttons #new-folder-button:hover{
+    padding:20px 20px;
+    background-image: url('../assets/icons/newfolder-hover-light.png');
+    background-repeat: no-repeat;
+    background-size:contain;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+
 }
 
-.dark-mode .top-right-buttons button:hover {
-    background-color: var(--dark-button-color-hover);
+.dark-mode .top-right-buttons #new-note-button{
+    padding:20px 20px;
+    background-image: url('../assets/icons/newnote-dark.png');
+    background-repeat: no-repeat;
+    background-size:contain;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
 }
 
+.dark-mode .top-right-buttons #new-folder-button{
+    padding:20px 20px;
+    background-image: url('../assets/icons/newfolder-dark.png');
+    background-repeat: no-repeat;
+    background-size:contain;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+/* Hover Icon for New Note Button Dark Mode */
+.dark-mode .top-right-buttons #new-note-button:hover{
+    padding: 20px 20px;
+    background-image: url('../assets/icons/newnote-hover-dark.png');
+    background-repeat: no-repeat;
+    background-size:contain;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+/* Hover Icon for New Folder Button Dark Mode */
+.dark-mode .top-right-buttons #new-folder-button:hover{
+    padding:20px 20px;
+    background-image: url('../assets/icons/newfolder-hover-dark.png');
+    background-repeat: no-repeat;
+    background-size:contain;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+
+}
 
 #folder-back-button {
     padding: 10px 20px;
