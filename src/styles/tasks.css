@@ -386,4 +386,10 @@
    #task-form {
       margin-left: 1em;
    }
+
+   .task-item.editing-task .task-footer .date-label {
+      flex-direction: column;
+      row-gap: 10px;
+      column-gap: 20px;
+   }
 }
