@@ -159,7 +159,11 @@ class HomeScript {
                             <option value='newsletter'>Newsletters</option>
                             <option value='performance'>Performance Metrics</option>
                             <option value='feature-ideas'>Feature Ideas</option>
+                            <option value='create-new-label'>Create A New Label</option>
                         </select>
+                    </div>
+                    <div class='modal-input new-label-input' style='display: none;'>
+                      <input type='text' id='new-label' placeholder='Create New Label'>
                     </div>
                     <div class='modal-input'>
                       <div class='textarea-container'>
@@ -178,6 +182,21 @@ class HomeScript {
     document.body.appendChild(modal);
     // Hide the top right buttons
     this.topRightButtons.style.display = 'none';
+
+    // When clicking 'Create New Label' in select dropdown, make the input
+    // for creating a new label appear and when clicking something else
+    // make the create new label input disappear
+    let labelSelect = modal.querySelector('#note-label');
+    let createNewLabel = modal.querySelector('.new-label-input');
+    labelSelect.addEventListener('change', () => {
+      if (labelSelect.value === 'create-new-label') {
+        createNewLabel.style.display = 'flex';
+      }
+      else {
+        createNewLabel.style.display = 'none';
+      }
+    });
+
 
     // Close modal when clicking the close button
     const closeButton = modal.querySelector('.close-modal');
@@ -203,7 +222,10 @@ class HomeScript {
       // Take the values inputted from the modal form
       const title = modal.querySelector('#note-title').value;
       const body = modal.querySelector('#note-body').value;
-      const labelId = modal.querySelector('#note-label').value;
+      let labelId = labelSelect.value;
+      if (labelId === 'create-new-label') {
+        labelId = modal.querySelector('#new-label').value;
+      }
       console.log(labelId);
       // Create a new note
       this.createNote(title, body,labelId);
