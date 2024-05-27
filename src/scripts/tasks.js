@@ -159,6 +159,7 @@ class TaskList extends HTMLElement {
  
     // Create a save button
     const saveBtn = document.createElement('button');
+    saveBtn.classList.add('save-btn');
     saveBtn.textContent = 'Save';
  
     // Replace the task content with the input elements

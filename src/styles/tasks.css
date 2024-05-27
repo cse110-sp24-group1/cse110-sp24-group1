@@ -1,5 +1,38 @@
 @import url("vars.css");
 
+/* Edit Task Input Form */
+input[type="text"],
+input[type="date"],
+select {
+   padding: 5px 10px;
+   border-radius: 5px;
+   background: white;
+   border: 1px solid var(--light-border-color);
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+select:focus {
+   outline: none;
+   border-color: var(--accent-color);
+}
+
+/* Styling for button */
+.save-btn {
+   padding: 5px 10px;
+   cursor: pointer;
+   background-color: var(--light-button-color);
+   color: var(--light-text-color);
+   border: none;
+   border-radius: 5px;
+   transition: background-color 0.3s;
+   margin-left: auto;
+}
+
+.save-btn:hover {
+   background-color: var(--light-button-color-hover);
+}
+
 /* Task List */
 .confetti{
    position: absolute;
@@ -142,8 +175,7 @@
 }
 
 .task-item .edit-btn, 
-.task-item .delete-btn, 
-.task-item .save-btn{
+.task-item .delete-btn{
    background: none;
    border: none;
    cursor: pointer;
