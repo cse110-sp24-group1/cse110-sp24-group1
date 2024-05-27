@@ -215,6 +215,7 @@ main {
     background-color: var(--light-background-color);
     color: var(--light-text-color);
     padding: 2rem;
+    padding-bottom: 0.1rem;
     border-radius: 1.4rem;
     box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 30%);
     width: 90%;
@@ -242,7 +243,7 @@ main {
 }
 
 .modal-input {
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 .modal-input input[type="text"]:focus {
@@ -601,3 +602,32 @@ main {
     background-color: var(--dark-button-color-hover);
 }
 
+@media (width <= 500px) {
+    /* Add note and add folder button under header */ 
+    header {
+        position: relative;
+        height: 11em;
+    }
+
+    .top-right-buttons {
+        display: flex;
+        margin-left: 20%;
+        margin-right: 25%;
+        padding-top: 6em;
+    }
+    
+    /* Change size of note display */
+    .note-content {
+        width: 16em;
+        height: 9em;
+        background-color: var(--accent-color);
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+        margin-bottom: 10px;
+    }
+
+    .note-modal {
+        padding-bottom: 4rem;
+    }
+    
+}

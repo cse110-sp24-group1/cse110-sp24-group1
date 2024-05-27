@@ -122,7 +122,6 @@ class TaskList extends HTMLElement {
     const taskDate = taskElement.querySelector('.task-date');
     const taskName = taskElement.querySelector('label[for]');
     const editBtn = taskElement.querySelector('.edit-btn');
- 
     // Create an input element for task description
     const taskDescInput = document.createElement('input');
     taskDescInput.type = 'text';

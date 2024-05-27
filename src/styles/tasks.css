@@ -373,3 +373,10 @@ select:focus {
 .dark-mode .sub-button:hover {
    background-color: var(--dark-button-color-hover);
 }
+
+/* Edits for smaller screens (mobile) */
+@media (width <= 500px) { 
+   #task-form {
+      margin-left: 1em;
+   }
+}
