@@ -1,4 +1,5 @@
 class HomeScript {
+  
   constructor () {
     // Selects the new note button
     this.newNoteButton = document.getElementById('new-note-button');
@@ -24,18 +25,77 @@ class HomeScript {
     // Add event listener to create a new folder on click of the new folder button
     this.newFolderButton.addEventListener('click', this.createFolder.bind(this));
   }
+  
+  async openDatabase() {
+    return new Promise((resolve, reject) => {
+      const request = indexedDB.open('imageDatabase', 1);
+      request.onupgradeneeded = function(event) {
+        var db = event.target.result;
+        db.createObjectStore('images', { keyPath: 'id', autoIncrement: true });
+      };
+      request.onsuccess = function(event) {
+        resolve(event.target.result);
+      };
+      request.onerror = function(event) {
+        reject('Error opening database: ' + event.target.errorCode);
+      };
+    });
+  }
 
-  createNote (title, body) {
+  async storeImageInIndexedDB(imageBase64) {
+    return new Promise(async (resolve, reject) => {
+      try {
+        const db = await this.openDatabase();
+        const transaction = db.transaction('images', 'readwrite');
+        const store = transaction.objectStore('images');
+        const request = await store.add({ image: imageBase64 });
+        request.onsuccess = function(event) {
+          console.log('Image stored successfully!');
+          resolve(event.target.result);
+        };
+        request.onerror = function(event) {
+          console.log('Error storing image: ' + event.target.errorCode);
+          reject(event.target.errorCode);
+        };
+      } catch (error) {
+        console.error('Error: ', error);
+        reject(error);
+      }
+    });
+  }
+
+  async getImageFromIndexedDB(id, imgElement) {
+    try {
+      const db = await this.openDatabase();
+      const transaction = db.transaction('images', 'readonly');
+      const store = transaction.objectStore('images');
+      const request = store.get(id);
+      request.onsuccess = function(event) {
+        const record = event.target.result;
+        if (record) {
+          imgElement.src = record.image;
+        } else {
+          console.log('Image not found');
+        }
+      };
+      request.onerror = function(event) {
+        console.log('Error retrieving image: ' + event.target.errorCode);
+      };
+    } catch (error) {
+      console.error('Error: ', error);
+    }
+  }
+
+  createNote (title, body, imageId) {
     const note = {
       title,
       body,
       id: `note-${Date.now()}`, // unique id for the note
       folderId: null, // initially not assigned to any folder
-      image // construct img var to store img string
+      imageId // initially empty
     };
     // Add note to the notes array
     this.notes.push(note);
-
     // Render the notes to the homepage
     this.renderNotes();
   }
@@ -102,7 +162,7 @@ class HomeScript {
       </div>`;
     noteElement.addEventListener('dragstart', this.onDragStart.bind(this));
     noteElement.addEventListener('click', () => {
-      this.editModal(this.notes.indexOf(note), note.title, note.body);
+      this.editModal(this.notes.indexOf(note), note.title, note.body, note.imageId);
     });
     container.appendChild(noteElement);
   }
@@ -142,9 +202,15 @@ class HomeScript {
                         <textarea id='note-body' name='note-body'></textarea>
                         <div class='modal-buttons'>
                           <button type='button' class='input-button' name='input-Text'>Textt</button>
+
                           <button type='button' class='input-button' name='input-Image'>Image</button>
+                          <input type="file" id="fileInput" style="display:none;" accept="image/*" ">
+                          
                           <button type='button' class='input-button' name='input-Markdown'>MDown</button>
                       </div>
+                    </div>
+                    <div class='image-container'>
+                      <img src="">
                     </div>
                     <button class='create-button' type='submit'>Create</button>
                 </form>
@@ -154,6 +220,32 @@ class HomeScript {
     document.body.appendChild(modal);
     // Hide the top right buttons
     this.topRightButtons.style.display = 'none';
+    
+    // upload image when clicking the image button
+    const imageButton = modal.querySelector("button[name='input-Image']");
+    const uploadFileInput = modal.querySelector("#fileInput");
+    var imageSrc = modal.querySelector("img");
+
+
+    // fileinput is hidden so clicking imagebutton will click fileinput
+    imageButton.addEventListener('click', () => {
+      uploadFileInput.click();
+    });
+
+    uploadFileInput.addEventListener('change', async (event) => {
+      // assume that only one image is uploaded, change img source to 
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = async function(event) {
+          const imageBase64 = event.target.result;
+          const imageId = await this.storeImageInIndexedDB(imageBase64);
+          imageSrc.src = imageBase64;
+          imageSrc.setAttribute('data-image-id', imageId);
+        }.bind(this);
+        reader.readAsDataURL(file);
+      }
+    });
 
     // Close modal when clicking the close button
     const closeButton = modal.querySelector('.close-modal');
@@ -180,9 +272,11 @@ class HomeScript {
       const title = modal.querySelector('#note-title').value;
       const body = modal.querySelector('#note-body').value;
       const folderId = modal.querySelector('#note-folder').value;
+      const imageId = imageSrc.getAttribute('data-image-id');
 
       // Create a new note
-      this.createNote(title, body);
+      // assets not /assets
+      this.createNote(title, body, imageId);
 
       // Assign note to folder if selected
       if (folderId) {
@@ -204,7 +298,8 @@ class HomeScript {
   }
 
   // Opens the modal to the existing note
-  editModal (index, title, body) {
+  async editModal (index, title, body, imageId) {
+
     // Add blur class to navigation bar
     this.navBar.classList.add('blur');
     // Remove the display of notes with the open modal
@@ -217,7 +312,7 @@ class HomeScript {
     const modal = document.createElement('div');
     // Modal class for css design
     modal.classList.add('modal');
-
+    
     // Modal content
     modal.innerHTML = `
             <div class='note-modal'>
@@ -234,6 +329,9 @@ class HomeScript {
                           <button type='button' class='exist-input-button' name='exist-input-Markdown'>MDown</button>
                         </div>
                     </div>
+                    <div class='image-container'>
+                      <img src="">
+                    </div>
                     <button class='save-button' type='submit'>Save</button>
                 </form>
             </div>
@@ -242,6 +340,8 @@ class HomeScript {
     document.body.appendChild(modal);
     // Hide the top right buttons
     this.topRightButtons.style.display = 'none';
+
+    await this.getImageFromIndexedDB(imageId, modal.querySelector('img'));
 
     // Close modal when clicking the back button
     const backButton = modal.querySelector('.back-button');
@@ -306,7 +406,25 @@ class HomeScript {
       this.renderNotes();
     };
   }
+
+//     openDatabase() {
+//       return new Promise((resolve, reject) => {
+//           const request = indexedDB.open('imageDatabase', 1);
+//           request.onupgradeneeded = function(event) {
+//               const db = event.target.result;
+//               db.createObjectStore('images', { keyPath: 'id', autoIncrement: true });
+//           };
+//           request.onsuccess = function(event) {
+//               resolve(event.target.result);
+//           };
+//           request.onerror = function(event) {
+//               reject('Error opening database: ' + event.target.errorCode);
+//           };
+//       });
+// }
+
 }
+
 
 document.addEventListener('DOMContentLoaded', () => {
   new HomeScript();

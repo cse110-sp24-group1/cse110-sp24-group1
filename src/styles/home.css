@@ -15,6 +15,11 @@ main {
     flex-direction: column;
 }
 
+/* hides img tag if no empty source */
+img[src=""] {
+    display: none;
+}
+
 .note,
 .folder {
     display: flex;
