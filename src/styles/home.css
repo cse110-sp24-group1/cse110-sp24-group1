@@ -10,6 +10,11 @@ main {
     flex-direction: column;
 }
 
+.image-container {
+    display: flex;
+    flex-direction: column;
+}
+
 .note,
 .folder {
     display: flex;

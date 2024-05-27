@@ -30,7 +30,8 @@ class HomeScript {
       title,
       body,
       id: `note-${Date.now()}`, // unique id for the note
-      folderId: null // initially not assigned to any folder
+      folderId: null, // initially not assigned to any folder
+      image // construct img var to store img string
     };
     // Add note to the notes array
     this.notes.push(note);
