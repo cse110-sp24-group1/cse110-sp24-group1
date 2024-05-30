@@ -8,6 +8,8 @@ class HomeScript {
     this.topRightButtons = document.querySelector('.top-right-buttons');
     // Selects the search bar
     this.searchBar = document.querySelector('.search-container');
+    // Selects the search bar input
+    this.searchInput = document.getElementById('search-bar');
     // Selects the journal header
     this.journalHeader = document.querySelector('.journal-header');
     // Selects the navigation bar
@@ -23,11 +25,7 @@ class HomeScript {
     this.newNoteButton.addEventListener('click', this.openModal.bind(this));
     // Add event listener to create a new folder on click of the new folder button
     this.newFolderButton.addEventListener('click', this.createFolder.bind(this));
-
-    // For search bar
-    // Selects the search bar input
-    this.searchInput = document.getElementById('search-bar');
-    // Add event listener to the search bar
+    // Add event listener to search the note and folder from the text input
     this.searchInput.addEventListener('input', this.searchNotes.bind(this));
   }
 
@@ -312,12 +310,13 @@ class HomeScript {
     };
   }
 
-  // TODO Implement the search-note function
   // Filter the exist note with title of the note
   searchNotes(event) {
     const searchQuery = event.target.value.toLowerCase(); // check the lower character
     const filteredNotes = this.notes.filter(note => note.title.toLowerCase().includes(searchQuery));
+    // const filteredFolder = this.folders.filter(folder => folder.title.toLowerCase().includes(searchQuery));
     this.renderNotes(filteredNotes);
+    // this.renderNotes(filteredFolder);
   }
 }
 
