@@ -94,7 +94,7 @@ function saveFolder(folder) {
 
     // Check if the folder already exists in the folders array
     for(let i = 0; i < folders.length; i++) {
-        if(folders[i].currFolderID === folder.currFolderID) {
+        if(folders[i].id === folder.id) {
             // If the folder already exists, update it in the folders array
             folders[i] = folder;
             // Save the updated folders array to localStorage
