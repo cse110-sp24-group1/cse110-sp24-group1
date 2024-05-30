@@ -7,7 +7,7 @@
 
 ## Front-End 
 
-(Gwen Kabir Moss Jeff Katie Anshi Vedant)
+(Gwen Kabir Moss Jeff Katie Anshi Vedant Purich)
 
 - [ ] Search for entries functionality  -- Jeff, Vedant
     -  if matches search condition:
@@ -19,15 +19,11 @@
            Display: block
        else:
            Display: none
-- [ ] Filter button by category labels for entry list -- Jeff, Vedant
-    - [ ] Should be a drop down for each label
-- [ ] Filter button by category labels for task list -- Jeff, Vedant
-    - [ ] Should be a drop down for each label
 - [ ] Make Icons (finish ASAP) -- Vedant
     - [ ] Back Button
     - [ ] Edit and Delete for Task List Page
     - [ ] Search 
-    - [ ] Filter
+    - [ ] There is nothing here 
 - [ ] Make Hi-fis (wait for big changes to ui to be done) -- Vedant, Jeff, Moss
     - [ ] Make Hi-fis (colored) for the pages we have
     - [ ] Wait for most features to be done to start adapting as big changes to the UI are still being made
@@ -50,14 +46,15 @@
     - [ ] Wait for guidelines to be finished before you add different styles of fonts in
 
 
+- [ ] Add cursor: pointer, etc animations for pressing on a note/folder -- Gwen, Katie
 - [ ] Add animations to buttons, make it more fluid -- Katie, Gwen
-    - [ ] Make buttons slightly bigger on hover
+    - [x] Make buttons slightly bigger on hover
     - [ ] Play around with some animations for fluidity
-- [ ] Opening a note display (textarea is really small) -- Katie, Gwen
-    - [ ] Make the text area fit exactly the same way the new-note modal looks
+- [x] Opening a note display (textarea is really small) -- Katie, Gwen
+    - [x] Make the text area fit exactly the same way the new-note modal looks
 - [ ] Fix any other UI issues -- Gwen, Katie
     - [ ] Small screen for editing a task
-    - [ ] Once all icons are added make sure it scales properly
+    - [x] Once all icons are added make sure it scales properly
 - [ ] Test media queries -- Gwen, Katie
     - [ ] Make sure phone, tablet, desktop work good enough
 - [ ] Delete note and folder with hover (have a prompt saying are you sure you want to delete) -- Katie, Gwen
@@ -66,12 +63,13 @@
 - [ ] Edit task, create a new label, doesn't create a new label -- Katie, Gwen
     - [ ] If that doesn't work just remove the option to create a new label for editing a task
 - [ ] Reduce size between rows of entries/folders (vertically) -- Gwen, Katie
-- [ ] Add ADR on fonts -- Gwen
+- [x] Add ADR on fonts -- Gwen
 
 
 - [ ] Remove draggable component for journal entry since we are not using that anymore -- Anshi
 - [ ] Test User flow of task list -- Anshi, Jeremy
 - [ ] Test User flow of journal entry -- Anshi, Jeremy
+- [ ] Add testing automation -- Jeremy
 - [ ] All Javascript functions don't have proper comments -- Anshi
 - [ ] Implement Markdown Integration -- Purich, Anshi
     - [ ] Update buttons on new note/note to work
@@ -85,15 +83,14 @@
 - [ ] Change opacity of blur -- Purich
 - [ ] Add ADRs -- Purich
 
-
 ## Back-End 
 
-(Purich Teddy Jeremy Nam)
+(Teddy Jeremy Nam)
 
 - [ ] Create Wiki for testing guidelines and how to run code -- Teddy
 - [ ] Implement search functionality with Front End
     - Need to discuss what information needs to be sent and recieved
-- [ ] Implement image storage -- Nam
+- [x] Implement image storage -- Nam
 - [ ] Test image storage -- Nam
 - [ ] Add delete functions for folders and notes -- Teddy
     - Deleting a folder with contents still inside of it is a particular issue
