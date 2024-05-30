@@ -230,6 +230,25 @@ main {
     color: var(--dark-text-color);
 }
 
+.folder-modal {
+    background-color: var(--light-background-color);
+    color: var(--light-text-color);
+    padding: 2rem;
+    padding-bottom: 0.1rem;
+    border-radius: 1.4rem;
+    box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 30%);
+    width: 40%;
+    height: 20%;
+    max-width: 65%;
+    overflow-y: auto;
+    position: relative;
+}
+
+.dark-mode .folder-modal {
+    background-color: var(--dark-background-color);
+    color: var(--dark-text-color);
+}
+
 .close-modal {
     float: right;
     font-size: 1.75rem;
