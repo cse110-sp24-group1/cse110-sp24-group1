@@ -32,6 +32,35 @@ main {
     display: none;
 }
 
+/** Change the colors of each entry to its respective label */
+#code-snippets{
+    background-color: var(--code-snippets-color);
+}
+
+#stand-up{
+    background-color: var(--stand-up-label-color);
+}
+
+#bug-reports{
+    background-color: var(--bug-reports-label-color);
+}
+
+#learning-notes{
+    background-color: var(--learning-notes-label-color);
+}
+
+#newsletter{
+    background-color: var(--newsletter-label-color);
+}
+
+#performance{
+    background-color: var(--performance-label-color);
+}
+
+#feature-ideas{
+    background-color: var(--feature-ideas-label-color);
+}
+
 .note-title {
     color: var(--light-text-color);
 }
@@ -47,26 +76,120 @@ main {
     right: 20px;
 }
 
-.top-right-buttons button {
+/* Default Icon for New Note Button Light Mode */
+.top-right-buttons #new-note-button {
+    padding: 20px;
+    background-image: url('../assets/icons/newnote-light.png');
+    background-repeat: no-repeat;
+    background-size:contain;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+    border-radius: 20px;
+}
+
+/* Default Icon for New Folder Button Light Mode */
+.top-right-buttons #new-folder-button {
+    padding: 20px;
+    background-image: url('../assets/icons/newfolder-light.png');
+    background-repeat: no-repeat;
+    background-size:contain;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+    border-radius: 20px;
+}
+
+/* Hover Icon for New Note Button Light Mode */
+.top-right-buttons #new-note-button:hover{
+    padding: 20px;
+    background-image: url('../assets/icons/newnote-hover-light.png');
+    background-repeat: no-repeat;
+    background-size:contain;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+    border-radius: 20px;
+}
+
+/* Hover Icon for New Folder Button Light Mode */
+.top-right-buttons #new-folder-button:hover{
+    padding: 20px;
+    background-image: url('../assets/icons/newfolder-hover-light.png');
+    background-repeat: no-repeat;
+    background-size:contain;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+    border-radius: 20px;
+}
+
+.dark-mode .top-right-buttons #new-note-button{
+    padding: 20px;
+    background-image: url('../assets/icons/newnote-dark.png');
+    background-repeat: no-repeat;
+    background-size:contain;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+    border-radius: 20px;
+}
+
+.dark-mode .top-right-buttons #new-folder-button{
+    padding: 20px;
+    background-image: url('../assets/icons/newfolder-dark.png');
+    background-repeat: no-repeat;
+    background-size:contain;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+    border-radius: 20px;
+}
+
+/* Hover Icon for New Note Button Dark Mode */
+.dark-mode .top-right-buttons #new-note-button:hover{
+    padding: 20px;
+    background-image: url('../assets/icons/newnote-hover-dark.png');
+    background-repeat: no-repeat;
+    background-size:contain;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+    border-radius: 20px;
+}
+
+/* Hover Icon for New Folder Button Dark Mode */
+.dark-mode .top-right-buttons #new-folder-button:hover{
+    padding: 20px;
+    background-image: url('../assets/icons/newfolder-hover-dark.png');
+    background-repeat: no-repeat;
+    background-size:contain;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+    border-radius: 20px;
+}
+
+#folder-back-button {
     padding: 10px 20px;
     background-color: var(--light-button-color);
     color: var(--light-text-color);
     border: none;
-    border-radius: 50%;
+    border-radius: 300%;
     cursor: pointer;
     margin-left: 10px;
 }
 
-.dark-mode .top-right-buttons button {
+.dark-mode #folder-back-button {
     background-color: var(--dark-button-color);
     color: var(--dark-text-color);
 }
 
-.top-right-buttons button:hover {
+#folder-back-button:hover {
     background-color: var(--light-button-color-hover);
 }
 
-.dark-mode .top-right-buttons button:hover {
+.dark-mode #folder-back-button:hover {
     background-color: var(--dark-button-color-hover);
 }
 
@@ -92,6 +215,7 @@ main {
     background-color: var(--light-background-color);
     color: var(--light-text-color);
     padding: 2rem;
+    padding-bottom: 0.1rem;
     border-radius: 1.4rem;
     box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 30%);
     width: 90%;
@@ -119,7 +243,7 @@ main {
 }
 
 .modal-input {
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 .modal-input input[type="text"]:focus {
@@ -128,9 +252,9 @@ main {
 }
 
 
-.modal-input select {
+/* .modal-input select {
     color: var(--light-button-color-hover);
-}
+} */
 
 .modal-input input, 
 .modal-input select {
@@ -139,6 +263,34 @@ main {
     border: 1px solid var(--light-border-color); 
     border-radius: 5px; 
     box-sizing: border-box;
+
+    option[value="code-snippets"]{
+        color: var(--code-snippets-color);
+    }
+
+    option[value="stand-up"]{
+        color: var(--stand-up-label-color);
+    }
+
+    option[value="bug-reports"]{
+        color: var(--bug-reports-label-color);
+    }
+
+    option[value="learning-notes"]{
+        color: var(--learning-notes-label-color);
+    }
+
+    option[value="newsletter"]{
+        color: var(--newsletter-label-color);
+    }
+
+    option[value="performance"]{
+        color: var(--performance-label-color);
+    }
+
+    option[value="feature-ideas"]{
+        color: var(--feature-ideas-label-color);
+    }
 }
 
 .dark-mode .modal-input select {
@@ -193,21 +345,160 @@ main {
     border-radius: 5px;
 }
 
-.input-button {
-    background-color: var(--light-button-color);
-    color: var(--light-text-color);
+.modal-buttons #input-text{
+    background-image: url('../assets/icons/text-light.png');
+    background-repeat: no-repeat;
+    background-size:contain;
     margin: 0 0.5rem;
     align-items: center;
     justify-content: center;
-    padding: 15px 30px;
+    padding: 20px;
     cursor: pointer;
     border: none;
     border-radius: 50%;
 }
 
-.dark-mode .input-button {
-    background-color: var(--dark-button-color);
-    color: var(--dark-text-color);
+.modal-buttons #input-image{
+    background-image: url('../assets/icons/image-light.png');
+    background-repeat: no-repeat;
+    background-size:contain;
+    margin: 0 0.5rem;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+}
+
+.modal-buttons #input-markdown{
+    background-image: url('../assets/icons/markdown-light.png');
+    background-repeat: no-repeat;
+    background-size:contain;
+    margin: 0 0.5rem;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+}
+
+.modal-buttons #input-text:hover{
+    background-image: url('../assets/icons/text-hover-light.png');
+    background-repeat: no-repeat;
+    background-size:contain;
+    margin: 0 0.5rem;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+}
+
+.modal-buttons #input-image:hover{
+    background-image: url('../assets/icons/image-hover-light.png');
+    background-repeat: no-repeat;
+    background-size:contain;
+    margin: 0 0.5rem;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+}
+
+.modal-buttons #input-markdown:hover{
+    background-image: url('../assets/icons/markdown-hover-light.png');
+    background-repeat: no-repeat;
+    background-size:contain;
+    margin: 0 0.5rem;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+}
+
+.dark-mode .modal-buttons #input-text{
+    background-image: url('../assets/icons/text-dark.png');
+    background-repeat: no-repeat;
+    background-size:contain;
+    margin: 0 0.5rem;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+}
+
+.dark-mode .modal-buttons #input-image{
+    background-image: url('../assets/icons/image-dark.png');
+    background-repeat: no-repeat;
+    background-size:contain;
+    margin: 0 0.5rem;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+}
+
+.dark-mode .modal-buttons #input-markdown{
+    background-image: url('../assets/icons/markdown-dark.png');
+    background-repeat: no-repeat;
+    background-size:contain;
+    margin: 0 0.5rem;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+}
+
+.dark-mode .modal-buttons #input-text:hover{
+    background-image: url('../assets/icons/text-hover-dark.png');
+    background-repeat: no-repeat;
+    background-size:contain;
+    margin: 0 0.5rem;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+}
+
+.dark-mode .modal-buttons #input-image:hover{
+    background-image: url('../assets/icons/image-hover-dark.png');
+    background-repeat: no-repeat;
+    background-size:contain;
+    margin: 0 0.5rem;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+}
+
+.dark-mode .modal-buttons #input-markdown:hover{
+    background-image: url('../assets/icons/markdown-hover-dark.png');
+    background-repeat: no-repeat;
+    background-size:contain;
+    margin: 0 0.5rem;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
 }
 
 /* EDIT MODAL */
@@ -311,3 +602,32 @@ main {
     background-color: var(--dark-button-color-hover);
 }
 
+@media (width <= 500px) {
+    /* Add note and add folder button under header */ 
+    header {
+        position: relative;
+        height: 11em;
+    }
+
+    .top-right-buttons {
+        display: flex;
+        margin-left: 20%;
+        margin-right: 25%;
+        padding-top: 6em;
+    }
+    
+    /* Change size of note display */
+    .note-content {
+        width: 16em;
+        height: 9em;
+        background-color: var(--accent-color);
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+        margin-bottom: 10px;
+    }
+
+    .note-modal {
+        padding-bottom: 4rem;
+    }
+    
+}

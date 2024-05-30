@@ -184,7 +184,7 @@ p {
     border: 1px solid var(--light-border-color);
     border-radius: 5px;
     background: white;
-    margin-left: 3em;
+    margin-left: 1em;
 }
 
 .dark-mode .search-container input[type="text"] {
@@ -194,4 +194,33 @@ p {
 .search-container input[type="text"]:focus {
     outline: none;
     border-color: var(--accent-color);
+}
+
+/* Edits for smaller screens (mobile) */
+@media (width <= 500px) {
+    nav {
+        width: 4rem;
+    }
+
+    header {
+        margin-left: 4rem;
+    }
+
+    main {
+        margin-left: 4rem;
+    }
+
+    .search-container {
+        justify-content: center;
+    }
+
+    .search-container input[type="text"] {
+        margin-left: 0.1em;
+    }
+
+    .toggle-container {
+        margin-top: 1em;
+        margin-bottom: 1em;
+    }
+
 }
