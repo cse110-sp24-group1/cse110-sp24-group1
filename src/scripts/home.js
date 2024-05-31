@@ -88,23 +88,7 @@ class HomeScript {
     // Clear main element
     this.mainElement.innerHTML = '';
 
-    // Render all folders in current folder
-    this.folders.forEach(folder => {
-      const folderElement = document.createElement('div');
-      folderElement.classList.add('folder');
-      folderElement.setAttribute('data-folder-id', folder.id);
-      folderElement.innerHTML = `<h3>${folder.name}</h3>`;
-      folderElement.addEventListener('dragover', this.onDragOver.bind(this));
-      folderElement.addEventListener('drop', this.onDrop.bind(this));
-
-      // Click to open folder
-      folderElement.addEventListener('click', () => {
-        this.visitFolder(folder.id);
-      });
-
-      this.mainElement.appendChild(folderElement);
-    });
-
+    
     // Render all notes in current folder
     this.notes.forEach(note => {
       const noteElement = document.createElement('div');
@@ -126,6 +110,24 @@ class HomeScript {
       });
       this.mainElement.prepend(noteElement);
     });
+
+    // Render all folders in current folder
+    this.folders.forEach(folder => {
+      const folderElement = document.createElement('div');
+      folderElement.classList.add('folder');
+      folderElement.setAttribute('data-folder-id', folder.id);
+      folderElement.innerHTML = `<h3>${folder.name}</h3>`;
+      folderElement.addEventListener('dragover', this.onDragOver.bind(this));
+      folderElement.addEventListener('drop', this.onDrop.bind(this));
+
+      // Click to open folder
+      folderElement.addEventListener('click', () => {
+        this.visitFolder(folder.id);
+      });
+
+      this.mainElement.prepend(folderElement);
+    });
+
   }
 
   openCreateNoteModal () {
