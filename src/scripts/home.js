@@ -80,8 +80,11 @@ class HomeScript {
     this.render();
   }
 
-  createFolder () {
-    const folderName = prompt('Enter folder name:');
+  /**
+   * Create a new folder.
+   * @param {string} folderName - The name of the folder.
+   */
+  createFolder (folderName) {
     if (folderName) {
       const folder = {
         name: folderName,
@@ -100,29 +103,12 @@ class HomeScript {
   }
 
   /**
-   * Render the notes and folders on the main page.
+   * Render notes and folders to the homepage.
    */
   render () {
     console.log(this.currentFolderID + ' ' + this.parentFolderID);
     // Clear main element
     this.mainElement.innerHTML = '';
-
-    // Render all folders in current folder
-    this.folders.forEach(folder => {
-      const folderElement = document.createElement('div');
-      folderElement.classList.add('folder');
-      folderElement.setAttribute('data-folder-id', folder.id);
-      folderElement.innerHTML = `<h3>${folder.name}</h3>`;
-      folderElement.addEventListener('dragover', this.onDragOver.bind(this));
-      folderElement.addEventListener('drop', this.onDrop.bind(this));
-
-      // Click to open folder
-      folderElement.addEventListener('click', () => {
-        this.visitFolder(folder.id);
-      });
-
-      this.mainElement.appendChild(folderElement);
-    });
 
     // Render all notes in current folder
     this.notes.forEach(note => {
@@ -143,21 +129,29 @@ class HomeScript {
       });
       this.mainElement.prepend(noteElement);
     });
+
+    // Render all folders in current folder
+    this.folders.forEach(folder => {
+      const folderElement = document.createElement('div');
+      folderElement.classList.add('folder');
+      folderElement.setAttribute('data-folder-id', folder.id);
+      folderElement.innerHTML = `<h3>${folder.name}</h3>`;
+
+      // Click to open folder
+      folderElement.addEventListener('click', () => {
+        this.visitFolder(folder.id);
+      });
+
+      this.mainElement.prepend(folderElement);
+    });
+
   }
 
-  openModal () {
-    // Add blur class to navigation bar
-    this.navBar.classList.add('blur');
-    // Remove the display of notes with the open modal
-    this.mainElement.classList.add('hide-notes');
-    // Remove the display of search bar with the open modal
-    this.searchBar.style.display = 'none';
-    // Remove the display of journal header with the open modal
-    this.journalHeader.classList.add('hide-notes');
-    // Create modal element for 'div' of home html
-    const modal = document.createElement('div');
-    // Modal class for css design
-    modal.classList.add('modal');
+  /**
+   * Open the modal to create a new note.
+   */
+  openCreateNoteModal () {
+    const modal = this.openModal()
     // Modal content
     modal.innerHTML = `
             <div class='note-modal'>
@@ -219,20 +213,14 @@ class HomeScript {
     });
   }
 
-  // Opens the modal to the existing note
-  editModal (index, title, body) {
-    // Add blur class to navigation bar
-    this.navBar.classList.add('blur');
-    // Remove the display of notes with the open modal
-    this.mainElement.classList.add('hide-notes');
-    // Remove the display of search bar with the open modal
-    this.searchBar.style.display = 'none';
-    // Remove the display of journal header with the open modal
-    this.journalHeader.classList.add('hide-notes');
-    // Create modal element for 'div' of home html
-    const modal = document.createElement('div');
-    // Modal class for css design
-    modal.classList.add('modal');
+  /**
+   * Open the modal to edit an existing note.
+   * @param {number} index - The index of the note in the notes array.
+   * @param {string} title - The title of the note.
+   * @param {string} body - The body content of the note.
+   */
+  openEditNoteModal (index, title, body) {
+    const modal = this.openModal();
 
     // Modal content
     modal.innerHTML = `
@@ -284,7 +272,9 @@ class HomeScript {
     });
   }
 
-  /* Folder creation modal function*/
+  /**
+   * Open the modal to create a new folder.
+   */
   openCreateFolderModal () {
     const modal = document.createElement('div');
     // Modal class for css design
@@ -331,8 +321,10 @@ class HomeScript {
     });
   }
 
-  // Helper functions to create / delete modals
-
+  /**
+   * Open a modal.
+   * @returns {HTMLElement} - The created modal element.
+   */
   openModal() {
     // Add blur class to navigation bar
     this.navBar.classList.add('blur');
@@ -354,6 +346,10 @@ class HomeScript {
     return modal;
   }
 
+  /**
+   * Close a modal.
+   * @param {HTMLElement} modal - The modal element to close.
+   */
   closeModal(modal) {
     document.body.removeChild(modal);
       // Show the top right buttons again
@@ -366,12 +362,10 @@ class HomeScript {
     this.mainElement.classList.remove('hide-notes');
     // Unhide the search bar from display
     this.journalHeader.classList.remove('hide-notes');
-  }
-
-  
+  }  
 
   /**
-   * Visit a folder by its ID.
+   * Visit a folder.
    * @param {string} newFolderId - The ID of the folder to visit.
    */
   visitFolder(newFolderId) {
@@ -409,7 +403,7 @@ class HomeScript {
 }
 
 /**
- * Initialize HomeScript when the DOM content is fully loaded.
+ * Initialize HomeScript when the DOM content is loaded.
  */
 document.addEventListener('DOMContentLoaded', () => {
   new HomeScript();
