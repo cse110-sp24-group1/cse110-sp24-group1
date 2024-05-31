@@ -21,7 +21,7 @@ We decided to remove the draggable component for moving notes into folders. Inst
 
 ## Consequences
 
-- [ ] Simplified codebase by removing the complex draggable functionality.
-- [ ] Reduced potential for bugs related to local storage management.
-- [ ] Streamlined the user experience by using familiar button-based interactions within folders.
-- [ ] Allowed the team to focus on more critical features and ensure timely project delivery.
+- Simplified codebase by removing the complex draggable functionality.
+- Reduced potential for bugs related to local storage management.
+- Streamlined the user experience by using familiar button-based interactions within folders.
+- Allowed the team to focus on more critical features and ensure timely project delivery.
