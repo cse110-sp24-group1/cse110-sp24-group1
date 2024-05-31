@@ -2,8 +2,8 @@
 
 ## Status
 
-- [x] Propose
-- [ ] Accepted
+- [ ] Propose
+- [x] Accepted
 - [ ] Rejected
 - [ ] Deprecated
 - [ ] Superseded
