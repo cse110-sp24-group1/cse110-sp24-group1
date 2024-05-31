@@ -27,7 +27,7 @@ class HomeScript {
     this.currentFolderID = MAIN_ID;
     // A const representing the parent folder
     this.parentFolderID = null;
-
+    
     // Add event listener to open the modal on click of the new note button
     this.newNoteButton.addEventListener('click', this.openModal.bind(this));
     // Add event listener to create a new folder on click of the new folder button
@@ -91,8 +91,6 @@ class HomeScript {
       folderElement.classList.add('folder');
       folderElement.setAttribute('data-folder-id', folder.id);
       folderElement.innerHTML = `<h3>${folder.name}</h3>`;
-      folderElement.addEventListener('dragover', this.onDragOver.bind(this));
-      folderElement.addEventListener('drop', this.onDrop.bind(this));
 
       // Click to open folder
       folderElement.addEventListener('click', () => {
@@ -106,7 +104,6 @@ class HomeScript {
     this.notes.forEach(note => {
       const noteElement = document.createElement('div');
       noteElement.classList.add('note');
-      noteElement.setAttribute('draggable', 'true');
       noteElement.setAttribute('data-note-id', note.id);
       noteElement.innerHTML = `
         <div class='note-content' id=${note.label}>
@@ -115,7 +112,6 @@ class HomeScript {
         <div class='note-title'>
             <h3>${note.title}</h3>
         </div>`;
-      noteElement.addEventListener('dragstart', this.onDragStart.bind(this));
 
       // Click to open edit modal
       noteElement.addEventListener('click', () => {
@@ -309,28 +305,6 @@ class HomeScript {
     });
   }
 
-  onDragStart (event) {
-    event.dataTransfer.setData('text/plain', event.target.getAttribute('data-note-id'));
-  }
-
-  onDragOver (event) {
-    event.preventDefault();
-  }
-
-  onDrop (event) {
-    event.preventDefault();
-    const noteId = event.dataTransfer.getData('text/plain');
-    const folderId = event.target.closest('.folder').getAttribute('data-folder-id');
-
-    const note = this.notes.find(note => note.id === noteId);
-    if (note) {
-      note.folderId = folderId;
-      this.render();
-    };
-  }
-  
-  
-
   visitFolder(newFolderId) {
     //calling temp method
     let newFolder = getFolderByID(newFolderId);
@@ -363,9 +337,6 @@ class HomeScript {
     //render folders / notes
     this.render();
   }
-
-
-
 }
 
 document.addEventListener('DOMContentLoaded', () => {
