@@ -32,7 +32,7 @@ function getFolderByID(id) {
 
     // Return the array of folders with the folderID as their parentFolderID
     return folderWithID;
-  }
+}
 
 /**
  * Searches through the folder array in localStorage and returns
