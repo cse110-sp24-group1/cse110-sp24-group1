@@ -1,7 +1,16 @@
-// Main page folder 
+/**
+ * Main page folder ID.
+ * @constant {string}
+ */
 const MAIN_ID = '0';
 
+/**
+ * Class representing the HomeScript for managing notes and folders.
+ */
 class HomeScript {
+  /**
+   * Create a HomeScript instance.
+   */
   constructor () {
     // Selects the new note button
     this.newNoteButton = document.getElementById('new-note-button');
@@ -27,7 +36,7 @@ class HomeScript {
     this.currentFolderID = MAIN_ID;
     // A const representing the parent folder
     this.parentFolderID = null;
-    
+
     // Add event listener to open the modal on click of the new note button
     this.newNoteButton.addEventListener('click', this.openModal.bind(this));
     // Add event listener to create a new folder on click of the new folder button
@@ -47,6 +56,12 @@ class HomeScript {
     this.render();
   }
 
+  /**
+   * Create a new note.
+   * @param {string} title - The title of the note.
+   * @param {string} body - The body content of the note.
+   * @param {string} labelId - The label ID of the note.
+   */
   createNote (title, body,labelId) {
     const note = {
       title,
@@ -62,6 +77,9 @@ class HomeScript {
     this.render();
   }
 
+  /**
+   * Create a new folder.
+   */
   createFolder () {
     const folderName = prompt('Enter folder name:');
     if (folderName) {
@@ -80,6 +98,9 @@ class HomeScript {
     };
   }
 
+  /**
+   * Render the notes and folders on the main page.
+   */
   render () {
     console.log(this.currentFolderID + ' ' + this.parentFolderID);
     // Clear main element
@@ -121,6 +142,9 @@ class HomeScript {
     });
   }
 
+  /**
+   * Open the modal for creating a new note.
+   */
   openModal () {
     // Add blur class to navigation bar
     this.navBar.classList.add('blur');
@@ -221,7 +245,12 @@ class HomeScript {
     });
   }
 
-  // Opens the modal to the existing note
+  /**
+   * Open the modal to edit an existing note.
+   * @param {number} index - The index of the note in the notes array.
+   * @param {string} title - The title of the note.
+   * @param {string} body - The body content of the note.
+   */
   editModal (index, title, body) {
     // Add blur class to navigation bar
     this.navBar.classList.add('blur');
@@ -305,6 +334,10 @@ class HomeScript {
     });
   }
 
+  /**
+   * Visit a folder by its ID.
+   * @param {string} newFolderId - The ID of the folder to visit.
+   */
   visitFolder(newFolderId) {
     //calling temp method
     let newFolder = getFolderByID(newFolderId);
@@ -339,6 +372,9 @@ class HomeScript {
   }
 }
 
+/**
+ * Initialize HomeScript when the DOM content is fully loaded.
+ */
 document.addEventListener('DOMContentLoaded', () => {
   new HomeScript();
 });
