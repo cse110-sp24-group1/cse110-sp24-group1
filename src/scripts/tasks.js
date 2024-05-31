@@ -43,7 +43,7 @@ class TaskList extends HTMLElement {
     // Populate the task element with the new task data which incluudees checkbox, task name, desscription, due date, label, and label color using HTML content
     newTask.innerHTML = `
         <div class="task-main">
-        <input type="checkbox" id="${task.id}">
+        <input type="checkbox" class='check' id="${task.id}" ${task.checked ? `checked`: ''}>
         <label for="${task.id}">${task.name}</label>
         <button class="edit-btn">✏️</button>
         </div>
@@ -74,6 +74,19 @@ class TaskList extends HTMLElement {
     const deleteBtn = newTask.querySelector('.delete-btn');
     editBtn.addEventListener('click', () => this.editTask(newTask));
     deleteBtn.addEventListener('click', () => this.deleteTask(newTask));
+    // Add event listener to the checkbox to save the task to local storage
+    const checkbox = newTask.querySelector('.check');
+    checkbox.addEventListener('change', () => {
+      task.checked = checkbox.checked;
+      saveTask(task);
+    });
+
+    // Grey out the task if it is checked
+    const taskItem = checkbox.closest('.task-item');
+    if(task.checked) {
+      taskItem.style.opacity = '0.5';
+      taskItem.style.backgroundColor = 'lightgrey';
+    }
     
     // Save the task to local storage using backend API
     saveTask(task);
@@ -121,6 +134,7 @@ class TaskList extends HTMLElement {
     const task = {
       id: taskId,
       name: newTaskName,
+      checked: false,
       description: newTaskText,
       dueDate: taskDueDate,
       label: taskLabel,
@@ -217,14 +231,23 @@ class TaskList extends HTMLElement {
       taskNameInput.replaceWith(taskName);
       saveBtn.replaceWith(editBtn);
 
+      let color = taskLabel.style.backgroundColor;
+      // Convert the color to 6 digit hex format from RGB format rgb(#, #, #)
+      // Required since style.backgroundColor returns the color in RGB format
+      // But calculating text color requires the color in hex format
+      if (color.includes('rgb')) {
+        color = '#' + color.match(/\d+/g).map((num) => parseInt(num).toString(16).padStart(2, '0')).join('');
+      }
+
       // Create a new task object
       const task = {
         id: taskElement.querySelector('input').id,
         name: taskName.textContent,
         description: taskDesc.textContent,
+        checked: taskElement.querySelector('.check').checked,
         dueDate: taskDate.textContent.substring(2),
         label: taskLabel.textContent,
-        color: taskLabel.style.backgroundColor
+        color: color
       };
 
       // Save the updated task to local storage using backend API
@@ -234,6 +257,9 @@ class TaskList extends HTMLElement {
  
   // Method to delete a task
   deleteTask (taskElement) {
+    // Delete the task from local storage using backend API
+    deleteTask(taskElement.querySelector('input').id);
+    // Remove the task element from the task list
     taskElement.remove();
   }
  
