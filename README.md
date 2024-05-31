@@ -29,8 +29,8 @@ Welcome to **One and Done**, a feature-rich journal app built with HTML, CSS, an
 ![Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)
 ![Miro](https://img.shields.io/badge/Miro-F7C922?style=for-the-badge&logo=Miro&logoColor=050036)
 
-- We used ![Miro](https://miro.com/app/board/uXjVKSW94aI=/) for our brainstorming and wireframing process. 
-- We used Figma for ![wireframing](https://www.figma.com/design/VSgkp9TLpiEXWHehsFP2Dg/Team-1-App-Wireframing?node-id=0-1&t=2TFJMbA5jlGBypO5-0) and ![hi-fidelity]()  (ADD LINK) diagrams.
+- We used [Miro](https://miro.com/app/board/uXjVKSW94aI=/) for our brainstorming and wireframing process. 
+- We used Figma for [wireframing](https://www.figma.com/design/VSgkp9TLpiEXWHehsFP2Dg/Team-1-App-Wireframing?node-id=0-1&t=2TFJMbA5jlGBypO5-0) and [hi-fidelity]()  (ADD LINK) diagrams.
 
 
 ## CI/CD Pipeline
