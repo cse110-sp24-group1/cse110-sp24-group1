@@ -116,12 +116,15 @@ class HomeScript {
       noteElement.classList.add('note');
       noteElement.setAttribute('data-note-id', note.id);
       noteElement.innerHTML = `
-        <div class='note-content' id=${note.label}>
-            <p>${note.body}</p>
-        </div>
-        <div class='note-title'>
-            <h3>${note.title}</h3>
-        </div>`;
+        <button class='obj-container'>
+          <div class='note-content' id=${note.label}>
+              <p>${note.body}</p>
+          </div>
+          <div class='note-title'>
+              <h3>${note.title}</h3>
+          </div>
+        </button>
+        `;
 
       // Click to open edit modal
       noteElement.addEventListener('click', () => {
@@ -135,7 +138,12 @@ class HomeScript {
       const folderElement = document.createElement('div');
       folderElement.classList.add('folder');
       folderElement.setAttribute('data-folder-id', folder.id);
-      folderElement.innerHTML = `<h3>${folder.name}</h3>`;
+      folderElement.innerHTML = `
+        <button class='obj-container'>
+          <div class='note-title'>
+            <h3>${folder.name}</h3>
+          </div>
+        </button>`;
       folderElement.classList.add('folder-title');
 
       // Click to open folder

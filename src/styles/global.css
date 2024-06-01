@@ -115,6 +115,7 @@ nav .task-page-icon:hover {
     height: 20px;
 }
 
+
 .switch input {
     opacity: 0;
     width: 0;
@@ -153,6 +154,11 @@ input:checked + .slider::before {
 .toggle-container {
     margin-top: auto; /* Pushes the toggle to the bottom */
     padding-bottom: 1em; /* Optional: add some padding at the bottom */
+}
+
+/*Focus specific listener for accessibility on custom textbox*/
+label:has(input[type="checkbox"]:focus) {
+    border:0.1em solid var(--accent-color);
 }
 
 /* Main Page for Home and Task List */
@@ -238,6 +244,15 @@ p {
     outline: none;
     border-color: var(--accent-color);
 }
+
+/* Contain objects with button for accessibility, remove button styling*/
+.obj-container {
+    border: none;
+    background: none;
+    margin : 0;
+    padding: 0;
+}
+
 
 /* Edits for smaller screens (mobile) */
 @media (width <= 500px) {
