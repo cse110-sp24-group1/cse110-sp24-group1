@@ -136,6 +136,7 @@ class HomeScript {
       folderElement.classList.add('folder');
       folderElement.setAttribute('data-folder-id', folder.id);
       folderElement.innerHTML = `<h3>${folder.name}</h3>`;
+      folderElement.classList.add('folder-title');
 
       // Click to open folder
       folderElement.addEventListener('click', () => {
@@ -144,7 +145,6 @@ class HomeScript {
 
       this.mainElement.prepend(folderElement);
     });
-
   }
 
   /**
@@ -176,19 +176,34 @@ class HomeScript {
                         </select>
                     </div>
                     <div class='modal-input'>
-                      <div class='textarea-container'>
                         <textarea id='note-body' name='note-body'></textarea>
-                        <div class='modal-buttons'>
-                          <button type='button' name='input-Text' id='input-text'></button>
-                          <button type='button' name='input-Image' id='input-image'></button>
-                          <button type='button' name='input-Markdown' id='input-markdown'></button>
-                      </div>
                     </div>
                     <button class='create-button' type='submit'>Create</button>
                 </form>
             </div>
         `;
-    
+
+    // Initialize SimpleMDE
+    const simplemde = new SimpleMDE({ 
+      element: document.getElementById("note-body"),
+      forceSync: true,
+      hideIcons: ['quote'],
+      toolbar: ['bold', 'italic', 'strikethrough', 'code', 'unordered-list', 'ordered-list', 'link', 'image', '|', 'preview', 'side-by-side', '|', 'guide'],
+      shortcuts: {
+        'toggleBold': 'Cmd-B',
+        'toggleItalic': 'Cmd-I',
+        'drawLink': 'Cmd-K',
+        'togglePreview': 'Cmd-P',
+        'toggleUnorderedList': 'Cmd-L',
+        'toggleCodeBlock': 'Cmd-Alt-C',
+        'drawImage': 'Cmd-Alt-I',
+        'toggleOrderedList': 'Cmd-Alt-L',
+        'toggleHeadingBigger': 'Shift-Cmd-H',
+        'toggleHeadingSmaller': 'Cmd-H',
+        'toggleSideBySide': 'F9',
+        'toggleFullScreen': 'F11'
+      }
+    });
 
     // Close modal when clicking the close button
     const closeButton = modal.querySelector('.close-modal');
@@ -232,16 +247,34 @@ class HomeScript {
                     <button class='back-button' type='submit'>Back</button>
                     <div>
                         <textarea id='edit-note-body' name='note-body'>${body}</textarea>
-                        <div class='exist-modal-buttons'>
-                          <button type='button' class='exist-input-button' name='exist-input-Text'>Text</button>
-                          <button type='button' class='exist-input-button' name='exist-input-Image'>Image</button>
-                          <button type='button' class='exist-input-button' name='exist-input-Markdown'>MDown</button>
-                        </div>
                     </div>
                     <button class='save-button' type='submit'>Save</button>
                 </form>
             </div>
         `;
+
+    // Initialize SimpleMDE
+    const simplemde = new SimpleMDE({ 
+      element: document.getElementById("edit-note-body"),
+      forceSync: true,
+      hideIcons: ['quote'],
+      toolbar: ['bold', 'italic', 'strikethrough', 'code', 'unordered-list', 'ordered-list', 'link', 'image', '|', 'preview', 'side-by-side', '|', 'guide'],
+      shortcuts: {
+        'toggleBold': 'Cmd-B',
+        'toggleItalic': 'Cmd-I',
+        'drawLink': 'Cmd-K',
+        'togglePreview': 'Cmd-P',
+        'toggleUnorderedList': 'Cmd-L',
+        'toggleCodeBlock': 'Cmd-Alt-C',
+        'drawImage': 'Cmd-Alt-I',
+        'toggleOrderedList': 'Cmd-Alt-L',
+        'toggleHeadingBigger': 'Shift-Cmd-H',
+        'toggleHeadingSmaller': 'Cmd-H',
+        'toggleSideBySide': 'F9',
+        'toggleFullScreen': 'F11'
+      }
+    });
+
     // Append modal to main body
     document.body.appendChild(modal);
     // Hide the top right buttons
@@ -282,7 +315,6 @@ class HomeScript {
     // Append modal to main body
     document.body.appendChild(modal);
 
-
     // Modal content
     modal.innerHTML = `
             <div class='folder-modal'>
@@ -299,7 +331,6 @@ class HomeScript {
             </div>
         `;
     
-
     // Close modal when clicking the close button
     const closeButton = modal.querySelector('.close-modal');
     closeButton.addEventListener('click', () => {

@@ -7,5 +7,8 @@
     "jsdoc": "^4.0.3",
     "stylelint": "^16.5.0",
     "stylelint-config-standard": "^36.0.0"
+  },
+  "dependencies": {
+    "simplemde": "^1.11.2"
   }
 }
