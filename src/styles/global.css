@@ -61,88 +61,46 @@ nav a:hover {
     transform: scale(1.05);
 }
 
-nav .home-page-icon{
+/* Apply common properties to all icons */
+nav .home-page-icon,
+nav .home-page-icon:hover,
+nav .task-page-icon,
+nav .task-page-icon:hover {
     padding: 20px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    margin-bottom: 5px;
+}
+
+/* Light mode icons */
+nav .home-page-icon {
     background-image: url('../assets/icons/home-light.png');
-    background-repeat: no-repeat;
-    background-size:contain;
-    border: none;
-    cursor: pointer;
-    border-radius: 20px;
-    margin-bottom: 5px;
 }
-
-nav .home-page-icon:hover{
-    padding: 20px;
+nav .home-page-icon:hover {
     background-image: url('../assets/icons/home-hover-light.png');
-    background-repeat: no-repeat;
-    background-size:contain;
-    border: none;
-    cursor: pointer;
-    border-radius: 20px;
-    margin-bottom: 5px;
 }
-
-.dark-mode nav .home-page-icon {
-    padding: 20px; 
-    background-image: url('../assets/icons/home-dark.png');
-    background-repeat: no-repeat;
-    background-size:contain;
-    border: none;
-    cursor: pointer;
-    border-radius: 20px;
-}
-
-.dark-mode nav .home-page-icon:hover{
-    padding: 20px;
-    background-image: url('../assets/icons/home-hover-dark.png');
-    background-repeat: no-repeat;
-    background-size:contain;
-    border: none;
-    cursor: pointer;
-    border-radius: 20px;
-}
-
-nav .task-page-icon{
-    padding: 20px;
+nav .task-page-icon {
     background-image: url('../assets/icons/tasklist-light.png');
-    background-repeat: no-repeat;
-    background-size:contain;
-    border: none;
-    cursor: pointer;
-    border-radius: 20px;
-    margin-bottom: 5px;
 }
-
-nav .task-page-icon:hover{
-    padding: 20px;
+nav .task-page-icon:hover {
     background-image: url('../assets/icons/tasklist-hover-light.png');
-    background-repeat: no-repeat;
-    background-size:contain;
-    border: none;
-    cursor: pointer;
-    border-radius: 20px;
-    margin-bottom: 5px;
 }
 
+/* Dark mode icons */
+.dark-mode nav .home-page-icon {
+    background-image: url('../assets/icons/home-dark.png');
+}
+.dark-mode nav .home-page-icon:hover {
+    background-image: url('../assets/icons/home-hover-dark.png');
+}
 .dark-mode nav .task-page-icon {
-    padding: 20px; 
     background-image: url('../assets/icons/tasklist-dark.png');
-    background-repeat: no-repeat;
-    background-size:contain;
-    border: none;
-    cursor: pointer;
-    border-radius: 20px;
 }
-
-.dark-mode nav .task-page-icon:hover{
-    padding: 20px;
+.dark-mode nav .task-page-icon:hover {
     background-image: url('../assets/icons/tasklist-hover-dark.png');
-    background-repeat: no-repeat;
-    background-size:contain;
-    border: none;
-    cursor: pointer;
-    border-radius: 20px;
 }
 
 .current-page {
