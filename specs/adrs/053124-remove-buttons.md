@@ -5,7 +5,7 @@
 What is the status, such as proposed, accepted, rejected, deprecated, superseded, etc.?
 
 - [ ] Propose
-- [ ] Accepted
+- [x] Accepted
 - [ ] Rejected
 - [ ] Deprecated
 - [ ] Superseded
