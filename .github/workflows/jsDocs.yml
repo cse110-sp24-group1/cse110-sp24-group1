@@ -30,3 +30,22 @@ jobs:
         with:
           message: "Generated JSDocs"
           add: "./docs"
+          author_name: github-actions
+          author_email: github-actions@github.com
+
+      - name: Push changes
+        run: |
+          git checkout -b jsdocs-update
+          git push --set-upstream origin jsdocs-update
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "Update JSDocs"
+          branch: jsdocs-update
+          base: main
+          title: "Update JSDocs"
+          body: "This PR updates the JSDocs."
