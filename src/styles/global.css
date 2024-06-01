@@ -44,6 +44,9 @@ nav a {
     border-radius: 10px;
     color: var(--light-text-color);
     transition: background-color 0.3s, transform 0.3s;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .dark-mode nav a {
@@ -60,6 +63,89 @@ nav a:hover {
     transform: scale(1.05);
 }
 
+nav .home-page-icon{
+    padding: 20px;
+    background-image: url('../assets/icons/home-light.png');
+    background-repeat: no-repeat;
+    background-size:contain;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    margin-bottom: 5px;
+}
+
+nav .home-page-icon:hover{
+    padding: 20px;
+    background-image: url('../assets/icons/home-hover-light.png');
+    background-repeat: no-repeat;
+    background-size:contain;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    margin-bottom: 5px;
+}
+
+.dark-mode nav .home-page-icon {
+    padding: 20px; 
+    background-image: url('../assets/icons/home-dark.png');
+    background-repeat: no-repeat;
+    background-size:contain;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.dark-mode nav .home-page-icon:hover{
+    padding: 20px;
+    background-image: url('../assets/icons/home-hover-dark.png');
+    background-repeat: no-repeat;
+    background-size:contain;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+nav .task-page-icon{
+    padding: 20px;
+    background-image: url('../assets/icons/tasklist-light.png');
+    background-repeat: no-repeat;
+    background-size:contain;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    margin-bottom: 5px;
+}
+
+nav .task-page-icon:hover{
+    padding: 20px;
+    background-image: url('../assets/icons/tasklist-hover-light.png');
+    background-repeat: no-repeat;
+    background-size:contain;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    margin-bottom: 5px;
+}
+
+.dark-mode nav .task-page-icon {
+    padding: 20px; 
+    background-image: url('../assets/icons/tasklist-dark.png');
+    background-repeat: no-repeat;
+    background-size:contain;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.dark-mode nav .task-page-icon:hover{
+    padding: 20px;
+    background-image: url('../assets/icons/tasklist-hover-dark.png');
+    background-repeat: no-repeat;
+    background-size:contain;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+}
 .current-page {
     text-decoration: underline;
 }
