@@ -188,7 +188,7 @@ class HomeScript {
       element: document.getElementById("note-body"),
       forceSync: true,
       hideIcons: ['quote'],
-      toolbar: ['bold', 'italic', 'strikethrough', 'code', 'unordered-list', 'ordered-list', 'link', 'image', '|', 'preview', 'side-by-side', '|', 'guide'],
+      toolbar: ['bold', 'italic', 'strikethrough', 'code', 'unordered-list', 'ordered-list', 'link', 'image', '|', 'preview', 'side-by-side', 'fullscreen', '|', 'guide'],
       shortcuts: {
         'toggleBold': 'Cmd-B',
         'toggleItalic': 'Cmd-I',
@@ -258,7 +258,7 @@ class HomeScript {
       element: document.getElementById("edit-note-body"),
       forceSync: true,
       hideIcons: ['quote'],
-      toolbar: ['bold', 'italic', 'strikethrough', 'code', 'unordered-list', 'ordered-list', 'link', 'image', '|', 'preview', 'side-by-side', '|', 'guide'],
+      toolbar: ['bold', 'italic', 'strikethrough', 'code', 'unordered-list', 'ordered-list', 'link', 'image', '|', 'preview', 'side-by-side', 'fullscreen', '|', 'guide'],
       shortcuts: {
         'toggleBold': 'Cmd-B',
         'toggleItalic': 'Cmd-I',
