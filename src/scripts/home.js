@@ -1,7 +1,16 @@
-// Main page folder 
+/**
+ * Main page folder ID.
+ * @constant {string}
+ */
 const MAIN_ID = '0';
 
+/**
+ * Class representing the HomeScript for managing notes and folders.
+ */
 class HomeScript {
+  /**
+   * Create a HomeScript instance.
+   */
   constructor () {
     // Selects the new note button
     this.newNoteButton = document.getElementById('new-note-button');
@@ -47,6 +56,12 @@ class HomeScript {
     this.render();
   }
 
+  /**
+   * Create a new note.
+   * @param {string} title - The title of the note.
+   * @param {string} body - The body content of the note.
+   * @param {string} labelId - The label ID of the note.
+   */
   createNote (title, body,labelId) {
     const note = {
       title,
@@ -65,6 +80,10 @@ class HomeScript {
     this.render();
   }
 
+  /**
+   * Create a new folder.
+   * @param {string} folderName - The name of the folder.
+   */
   createFolder (folderName) {
     if (folderName) {
       const folder = {
@@ -83,17 +102,18 @@ class HomeScript {
     };
   }
 
+  /**
+   * Render notes and folders to the homepage.
+   */
   render () {
     console.log(this.currentFolderID + ' ' + this.parentFolderID);
     // Clear main element
     this.mainElement.innerHTML = '';
 
-    
     // Render all notes in current folder
     this.notes.forEach(note => {
       const noteElement = document.createElement('div');
       noteElement.classList.add('note');
-      noteElement.setAttribute('draggable', 'true');
       noteElement.setAttribute('data-note-id', note.id);
       noteElement.innerHTML = `
         <div class='note-content' id=${note.label}>
@@ -102,7 +122,6 @@ class HomeScript {
         <div class='note-title'>
             <h3>${note.title}</h3>
         </div>`;
-      noteElement.addEventListener('dragstart', this.onDragStart.bind(this));
 
       // Click to open edit modal
       noteElement.addEventListener('click', () => {
@@ -117,8 +136,6 @@ class HomeScript {
       folderElement.classList.add('folder');
       folderElement.setAttribute('data-folder-id', folder.id);
       folderElement.innerHTML = `<h3>${folder.name}</h3>`;
-      folderElement.addEventListener('dragover', this.onDragOver.bind(this));
-      folderElement.addEventListener('drop', this.onDrop.bind(this));
 
       // Click to open folder
       folderElement.addEventListener('click', () => {
@@ -130,6 +147,9 @@ class HomeScript {
 
   }
 
+  /**
+   * Open the modal to create a new note.
+   */
   openCreateNoteModal () {
     const modal = this.openModal()
     // Modal content
@@ -193,7 +213,12 @@ class HomeScript {
     });
   }
 
-  // Opens the modal to the existing note
+  /**
+   * Open the modal to edit an existing note.
+   * @param {number} index - The index of the note in the notes array.
+   * @param {string} title - The title of the note.
+   * @param {string} body - The body content of the note.
+   */
   openEditNoteModal (index, title, body) {
     const modal = this.openModal();
 
@@ -247,7 +272,9 @@ class HomeScript {
     });
   }
 
-  /* Folder creation modal function*/
+  /**
+   * Open the modal to create a new folder.
+   */
   openCreateFolderModal () {
     const modal = document.createElement('div');
     // Modal class for css design
@@ -294,8 +321,10 @@ class HomeScript {
     });
   }
 
-  // Helper functions to create / delete modals
-
+  /**
+   * Open a modal.
+   * @returns {HTMLElement} - The created modal element.
+   */
   openModal() {
     // Add blur class to navigation bar
     this.navBar.classList.add('blur');
@@ -317,6 +346,10 @@ class HomeScript {
     return modal;
   }
 
+  /**
+   * Close a modal.
+   * @param {HTMLElement} modal - The modal element to close.
+   */
   closeModal(modal) {
     document.body.removeChild(modal);
       // Show the top right buttons again
@@ -329,32 +362,12 @@ class HomeScript {
     this.mainElement.classList.remove('hide-notes');
     // Unhide the search bar from display
     this.journalHeader.classList.remove('hide-notes');
-  }
+  }  
 
-  
-
-  onDragStart (event) {
-    event.dataTransfer.setData('text/plain', event.target.getAttribute('data-note-id'));
-  }
-
-  onDragOver (event) {
-    event.preventDefault();
-  }
-
-  onDrop (event) {
-    event.preventDefault();
-    const noteId = event.dataTransfer.getData('text/plain');
-    const folderId = event.target.closest('.folder').getAttribute('data-folder-id');
-
-    const note = this.notes.find(note => note.id === noteId);
-    if (note) {
-      note.folderId = folderId;
-      this.render();
-    };
-  }
-  
-  
-
+  /**
+   * Visit a folder.
+   * @param {string} newFolderId - The ID of the folder to visit.
+   */
   visitFolder(newFolderId) {
     //calling temp method
     let newFolder = getFolderByID(newFolderId);
@@ -387,11 +400,11 @@ class HomeScript {
     //render folders / notes
     this.render();
   }
-
-
-
 }
 
+/**
+ * Initialize HomeScript when the DOM content is loaded.
+ */
 document.addEventListener('DOMContentLoaded', () => {
   new HomeScript();
 });
