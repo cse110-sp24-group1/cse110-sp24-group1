@@ -44,9 +44,7 @@ nav a {
     border-radius: 10px;
     color: var(--light-text-color);
     transition: background-color 0.3s, transform 0.3s;
-    display:flex;
     flex-direction: column;
-    align-items: center;
 }
 
 .dark-mode nav a {
@@ -146,6 +144,7 @@ nav .task-page-icon:hover{
     cursor: pointer;
     border-radius: 20px;
 }
+
 .current-page {
     text-decoration: underline;
 }
