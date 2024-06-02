@@ -117,11 +117,21 @@ class HomeScript {
       noteElement.setAttribute('data-note-id', note.id);
       noteElement.innerHTML = `
         <div class='note-content' id=${note.label}>
+            <span class='delete'>&times;</span>
             <p>${note.body}</p>
         </div>
         <div class='note-title'>
             <h3>${note.title}</h3>
         </div>`;
+
+      // Click the x button to delete the note
+      noteElement.querySelector('.delete').addEventListener('click', () => {
+        event.stopPropagation();
+        const confirmDelete = confirm("Are you sure you want to delete this note?!");
+        if (confirmDelete) {
+          this.deleteNote(note.id);
+        }
+      });
 
       // Click to open edit modal
       noteElement.addEventListener('click', () => {
@@ -145,6 +155,14 @@ class HomeScript {
 
       this.mainElement.prepend(folderElement);
     });
+  }
+  
+  // Clicking the delete button will delete the note and all the data
+  deleteNote (noteId) {
+    // erm idrk how to deletus cuz after refreshing notes reappears
+    this.notes = this.notes.filter(note => note.id !== noteId);
+    localStorage.removeItem(`note-${noteId}`);
+    this.render();
   }
 
   /**
