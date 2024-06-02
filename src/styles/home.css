@@ -354,31 +354,6 @@ main {
     border-color: var(--accent-color);
 }
 
-.modal-input textarea {
-    height: calc(100vh / 2);  
-    width: 100%;
-    padding: 5px 10px;   
-    border: 1px solid var(--light-border-color); 
-    border-radius: 5px; 
-    box-sizing: border-box;
-    resize: none;
-    overflow-y: auto;
-    max-height: calc(100vh - 20rem);
-}
-
-.dark-mode .modal-input textarea {
-    border: 1px solid var(--dark-border-color);
-}
-
-.modal-input textarea:focus {
-    outline: none;
-    border-color: var(--accent-color);
-}
-
-.textarea-container {
-    position: relative;
-}
-
 /* EDIT MODAL */
 .edit-modal-title h2 {
     text-align: center;
@@ -501,6 +476,23 @@ main {
     background-color: var(--dark-button-color-hover);
 }
 
+.create-folder-button {
+    background-color: var(--light-button-color);
+    color: var(--light-text-color);
+    position: relative;
+    bottom: 1rem;
+    right: 3.75rem;
+    margin-top: 20px;
+    margin-left: 100%;
+    padding: 5px 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    margin-right: 1em;
+    transition: background-color 0.3s;
+    box-shadow: 0 1.5px #999;
+}
+
 @media (width <= 700px) {
     /* Add note and add folder button under header */ 
     
@@ -538,6 +530,12 @@ main {
         box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
         margin-bottom: 10px;
     }
+
+    /* Folder creation modal changes */
+    .folder-modal {
+        padding: 1.5em;
+        padding-bottom: none;
+    }
 }
 
 /* SimpleMDE toolbar */
@@ -564,8 +562,8 @@ main {
 .edit-note-label {
     color: var(--light-text-color);
     position: absolute;
-    bottom: 1rem;
-    left: 1rem;
+    top: 1rem;
+    right: 2rem;
     padding: 5px 10px;
     border: none;
     border-radius: 5px;
@@ -575,8 +573,8 @@ main {
 .dark-mode .edit-note-label {
     color: var(--dark-text-color);
     position: absolute;
-    bottom: 1rem;
-    left: 1rem;
+    top: 1rem;
+    right: 2rem;
     padding: 5px 10px;
     cursor: pointer;
     border: none;

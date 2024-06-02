@@ -432,7 +432,7 @@ class HomeScript {
                     <div class='modal-input'>
                         <input type='text' id='note-title' name='note-title' placeholder='Folder Name'>
                     </div>
-                    <button class='create-button' type='submit'>Create</button>
+                    <button class='create-folder-button' type='submit'>Create</button>
                 </form>
             </div>
         `;
