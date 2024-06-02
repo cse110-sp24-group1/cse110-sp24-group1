@@ -257,7 +257,9 @@ class HomeScript {
                     <div class='modal-input'>
                         <textarea id='note-body' name='note-body'></textarea>
                     </div>
-                    <button class='create-button' type='submit'>Create</button>
+                    <div class='new-note-foot'> 
+                        <button class='create-button' type='submit'>Create</button>
+                    </div>
                 </form>
             </div>
         `;

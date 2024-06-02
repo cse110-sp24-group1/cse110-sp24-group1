@@ -504,9 +504,17 @@ main {
         margin-bottom: 10px;
     }
 
-    .note-modal {
-        padding-bottom: 4rem;
+    #modal-form {
+        display: flex;
+        flex-direction: column;
     }
+
+    #modal-form .create-button {
+        position: relative;
+        margin-top: 10px;
+        margin-left: 90%;
+    }
+
 }
 
 /* SimpleMDE toolbar */
