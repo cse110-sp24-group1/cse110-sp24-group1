@@ -508,9 +508,8 @@ main {
     background-color: var(--light-button-color-hover) !important;
     color: var(--light-text-color) !important;
 }
-  
-/* Note label appears when editing */
 
+/* Note label appears when editing */
 .edit-note-label {
     color: var(--light-text-color);
     position: absolute;
