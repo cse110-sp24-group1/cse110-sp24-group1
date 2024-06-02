@@ -263,17 +263,17 @@ p {
     background-color: var(--dark-button-color-hover);
 }
 
-.search-container button:active,
-.search-container #folder-back-button:active {
+.search-container button:hover button:active,
+.search-container #folder-back-button:hover #folder-back-button:active {
     background-color: var(--light-button-color-hover);
-    box-shadow: 0 0px #999;
+    box-shadow: #999;
     transform: translateY(1.5px);
 }
 
-.dark-mode .search-container button:active,
-.dark-mode .search-container #folder-back-button:active {
+.dark-mode .search-container button:hover button:active,
+.dark-mode .search-container #folder-back-button:hover #folder-back-button:active {
     background-color: var(--dark-button-color-hover);
-    box-shadow: 0 0px #595858;
+    box-shadow: #595858;
     transform: translateY(1.5px);
 }
 
