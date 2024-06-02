@@ -581,3 +581,20 @@ main {
     border-radius: 5px;
     margin-left: 1em;
 }
+
+.confirmation-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.no-button,
+.yes-button {
+    background-color: var(--light-button-color);
+    color: var(--light-text-color);
+    padding: 5px 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    box-shadow: 0 1.5px #999;
+}
