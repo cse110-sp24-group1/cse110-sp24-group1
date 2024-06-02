@@ -2,10 +2,10 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Notes</title>
+        <title>My Journal</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Favicon for Task List -->
-        <link rel="icon" type="image/x-icon" href="./assets/icons/TeamLogo.ico">
+        <link rel="icon" type="image/x-icon" href="./assets/icons/team-logo.ico">
         <!-- Include global CSS styles for nav bar -->
         <link rel="stylesheet" type="text/css" href="./styles/global.css" media="screen">
         <!-- Include task-specific CSS styles -->
@@ -14,6 +14,8 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">  
+        <!-- SimpleMDE CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
     </head>
     <body>
         <header>
@@ -28,8 +30,18 @@
             <nav>
                 <!--Navigation Buttons-->
                 <ul>
-                    <li><a href="index.html" class="current-page">My Journal</a></li>
-                    <li><a href="tasks.html">My Tasks</a></li>
+                    <li>
+                        <a href="index.html" class="current-page">
+                            <button class="home-page-icon"></button>
+                            <span>Journal</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="tasks.html">
+                            <button class="task-page-icon"></button>
+                            <span>Tasks</span>
+                        </a>
+                    </li>
                     <!--Dark/Light Toggle-->
                     <li class="toggle-container">
                         <label class="switch">
@@ -51,6 +63,8 @@
             <script src="./scripts/home.js" type="module"></script>
             <!-- Include scripts for dark/light mode -->
             <script src="./scripts/global.js" type="module"></script>
+            <!-- SimpleMDE JS -->
+            <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
         </main>
     </body>
 </html>

@@ -2,10 +2,10 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Task List</title>
+        <title>My Tasks</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Favicon for Task List -->
-        <link rel="icon" type="image/x-icon" href="./assets/icons/TeamLogo.ico">
+        <link rel="icon" type="image/x-icon" href="./assets/icons/team-logo.ico">
         <!-- Include global CSS styles for nav bar -->
         <link rel="stylesheet" type="text/css" href="./styles/global.css" media="screen">
         <!-- Include task-specific CSS styles -->
@@ -19,21 +19,31 @@
                 <button id="search-btn" type="submit">Search</button>
             </div>
             <!-- Title of the task list -->
-            <h1>Task List</h1>
+            <h1 class="journal-header">My Tasks</h1>
             <nav>
-                    <!--Navigation Buttons-->
-                    <ul>
-                        <li><a href="index.html">My Journal</a></li>
-                        <li><a href="tasks.html" class="current-page">My Tasks</a></li>
-                        <!--Dark/Light Toggle-->
-                        <li class="toggle-container">
-                            <label class="switch">
-                                <input type="checkbox" id="dark-mode-toggle">
-                                <span class="slider"></span>
-                            </label>
-                        </li>
-                    </ul>  
-            </nav>
+                <!--Navigation Buttons-->
+                <ul>
+                    <li>
+                        <a href="index.html">
+                            <button class="home-page-icon"></button>
+                            <span>Journal</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="tasks.html" class="current-page">
+                            <button class="task-page-icon"></button>
+                            <span>Tasks</span>
+                        </a>
+                    </li>
+                    <!--Dark/Light Toggle-->
+                    <li class="toggle-container">
+                        <label class="switch">
+                            <input type="checkbox" id="dark-mode-toggle">
+                            <span class="slider"></span>
+                        </label>
+                    </li>
+                </ul>  
+            </nav> 
         </header>
         <main>
             <!-- Form to add a new task -->

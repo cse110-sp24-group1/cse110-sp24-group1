@@ -1,7 +1,16 @@
-// Main page folder 
+/**
+ * Main page folder ID.
+ * @constant {string}
+ */
 const MAIN_ID = '0';
 
+/**
+ * Class representing the HomeScript for managing notes and folders.
+ */
 class HomeScript {
+  /**
+   * Create a HomeScript instance.
+   */
   constructor () {
     // Selects the new note button
     this.newNoteButton = document.getElementById('new-note-button');
@@ -29,9 +38,9 @@ class HomeScript {
     this.parentFolderID = null;
 
     // Add event listener to open the modal on click of the new note button
-    this.newNoteButton.addEventListener('click', this.openModal.bind(this));
+    this.newNoteButton.addEventListener('click', this.openCreateNoteModal.bind(this));
     // Add event listener to create a new folder on click of the new folder button
-    this.newFolderButton.addEventListener('click', this.createFolder.bind(this));
+    this.newFolderButton.addEventListener('click', this.openCreateFolderModal.bind(this));
     // Add event listener to return to parent folder on click of back button
     this.folderBackButton.addEventListener('click', () => {this.visitFolder(this.parentFolderID);});
     
@@ -47,6 +56,12 @@ class HomeScript {
     this.render();
   }
 
+  /**
+   * Create a new note.
+   * @param {string} title - The title of the note.
+   * @param {string} body - The body content of the note.
+   * @param {string} labelId - The label ID of the note.
+   */
   createNote (title, body,labelId) {
     const note = {
       title,
@@ -58,12 +73,18 @@ class HomeScript {
     // Add note to the notes array
     this.notes.push(note);
 
+    // Save to local storage
+    saveNote(note);
+
     // Render the notes to the homepage
     this.render();
   }
 
-  createFolder () {
-    const folderName = prompt('Enter folder name:');
+  /**
+   * Create a new folder.
+   * @param {string} folderName - The name of the folder.
+   */
+  createFolder (folderName) {
     if (folderName) {
       const folder = {
         name: folderName,
@@ -73,6 +94,7 @@ class HomeScript {
       // Add folder to the folders array
       this.folders.push(folder);
 
+      // Save to local storage
       saveFolder(folder);
 
       // Render the folders to the homepage
@@ -80,33 +102,18 @@ class HomeScript {
     };
   }
 
+  /**
+   * Render notes and folders to the homepage.
+   */
   render () {
     console.log(this.currentFolderID + ' ' + this.parentFolderID);
     // Clear main element
     this.mainElement.innerHTML = '';
 
-    // Render all folders in current folder
-    this.folders.forEach(folder => {
-      const folderElement = document.createElement('div');
-      folderElement.classList.add('folder');
-      folderElement.setAttribute('data-folder-id', folder.id);
-      folderElement.innerHTML = `<h3>${folder.name}</h3>`;
-      folderElement.addEventListener('dragover', this.onDragOver.bind(this));
-      folderElement.addEventListener('drop', this.onDrop.bind(this));
-
-      // Click to open folder
-      folderElement.addEventListener('click', () => {
-        this.visitFolder(folder.id);
-      });
-
-      this.mainElement.appendChild(folderElement);
-    });
-
     // Render all notes in current folder
     this.notes.forEach(note => {
       const noteElement = document.createElement('div');
       noteElement.classList.add('note');
-      noteElement.setAttribute('draggable', 'true');
       noteElement.setAttribute('data-note-id', note.id);
       noteElement.innerHTML = `
         <div class='note-content' id=${note.label}>
@@ -115,29 +122,36 @@ class HomeScript {
         <div class='note-title'>
             <h3>${note.title}</h3>
         </div>`;
-      noteElement.addEventListener('dragstart', this.onDragStart.bind(this));
 
       // Click to open edit modal
       noteElement.addEventListener('click', () => {
-        this.editModal(this.notes.indexOf(note), note.title, note.body);
+        this.openEditNoteModal(this.notes.indexOf(note), note.title, note.body);
       });
       this.mainElement.prepend(noteElement);
     });
+
+    // Render all folders in current folder
+    this.folders.forEach(folder => {
+      const folderElement = document.createElement('div');
+      folderElement.classList.add('folder');
+      folderElement.setAttribute('data-folder-id', folder.id);
+      folderElement.innerHTML = `<h3>${folder.name}</h3>`;
+      folderElement.classList.add('folder-title');
+
+      // Click to open folder
+      folderElement.addEventListener('click', () => {
+        this.visitFolder(folder.id);
+      });
+
+      this.mainElement.prepend(folderElement);
+    });
   }
 
-  openModal () {
-    // Add blur class to navigation bar
-    this.navBar.classList.add('blur');
-    // Remove the display of notes with the open modal
-    this.mainElement.classList.add('hide-notes');
-    // Remove the display of search bar with the open modal
-    this.searchBar.style.display = 'none';
-    // Remove the display of journal header with the open modal
-    this.journalHeader.classList.add('hide-notes');
-    // Create modal element for 'div' of home html
-    const modal = document.createElement('div');
-    // Modal class for css design
-    modal.classList.add('modal');
+  /**
+   * Open the modal to create a new note.
+   */
+  openCreateNoteModal () {
+    const modal = this.openModal()
     // Modal content
     modal.innerHTML = `
             <div class='note-modal'>
@@ -162,37 +176,39 @@ class HomeScript {
                         </select>
                     </div>
                     <div class='modal-input'>
-                      <div class='textarea-container'>
                         <textarea id='note-body' name='note-body'></textarea>
-                        <div class='modal-buttons'>
-                          <button type='button' name='input-Text' id='input-text'></button>
-                          <button type='button' name='input-Image' id='input-image'></button>
-                          <button type='button' name='input-Markdown' id='input-markdown'></button>
-                      </div>
                     </div>
                     <button class='create-button' type='submit'>Create</button>
                 </form>
             </div>
         `;
-    // Append modal to main body
-    document.body.appendChild(modal);
-    // Hide the top right buttons
-    this.topRightButtons.style.display = 'none';
+
+    // Initialize SimpleMDE
+    const simplemde = new SimpleMDE({ 
+      element: document.getElementById("note-body"),
+      forceSync: true,
+      hideIcons: ['quote'],
+      toolbar: ['bold', 'italic', 'strikethrough', 'code', 'unordered-list', 'ordered-list', 'link', 'image', '|', 'preview', 'side-by-side', 'fullscreen', '|', 'guide'],
+      shortcuts: {
+        'toggleBold': 'Cmd-B',
+        'toggleItalic': 'Cmd-I',
+        'drawLink': 'Cmd-K',
+        'togglePreview': 'Cmd-P',
+        'toggleUnorderedList': 'Cmd-L',
+        'toggleCodeBlock': 'Cmd-Alt-C',
+        'drawImage': 'Cmd-Alt-I',
+        'toggleOrderedList': 'Cmd-Alt-L',
+        'toggleHeadingBigger': 'Shift-Cmd-H',
+        'toggleHeadingSmaller': 'Cmd-H',
+        'toggleSideBySide': 'F9',
+        'toggleFullScreen': 'F11'
+      }
+    });
 
     // Close modal when clicking the close button
     const closeButton = modal.querySelector('.close-modal');
     closeButton.addEventListener('click', () => {
-      document.body.removeChild(modal);
-      // Show the top right buttons again
-      this.topRightButtons.style.display = 'flex';
-      // Show the search bar again
-      this.searchBar.style.display = 'flex';
-      // Remove the blur class from the navigation bar
-      this.navBar.classList.remove('blur');
-      // Unhide the notes from display
-      this.mainElement.classList.remove('hide-notes');
-      // Unhide the search bar from display
-      this.journalHeader.classList.remove('hide-notes');
+      this.closeModal(modal);
     });
 
     // Create modal when clicking the create new note button
@@ -204,41 +220,22 @@ class HomeScript {
       const title = modal.querySelector('#note-title').value;
       const body = modal.querySelector('#note-body').value;
       const labelId = modal.querySelector('#note-label').value;
-      console.log(labelId);
+      
       // Create a new note
       this.createNote(title, body,labelId);
 
-      //save to local storage
-      saveNote(this.notes[this.notes.length - 1]);
-
-      document.body.removeChild(modal);
-      // Show the top right buttons again
-      this.topRightButtons.style.display = 'flex';
-      // Remove the blur class from the navigation bar
-      this.navBar.classList.remove('blur');
-      // Unhide the notes from display
-      this.mainElement.classList.remove('hide-notes');
-      // Unhide the search bar from display
-      this.searchBar.style.display = 'flex';
-      // Unhide the journal header from display
-      this.journalHeader.classList.remove('hide-notes');
+      this.closeModal(modal);
     });
   }
 
-  // Opens the modal to the existing note
-  editModal (index, title, body) {
-    // Add blur class to navigation bar
-    this.navBar.classList.add('blur');
-    // Remove the display of notes with the open modal
-    this.mainElement.classList.add('hide-notes');
-    // Remove the display of search bar with the open modal
-    this.searchBar.style.display = 'none';
-    // Remove the display of journal header with the open modal
-    this.journalHeader.classList.add('hide-notes');
-    // Create modal element for 'div' of home html
-    const modal = document.createElement('div');
-    // Modal class for css design
-    modal.classList.add('modal');
+  /**
+   * Open the modal to edit an existing note.
+   * @param {number} index - The index of the note in the notes array.
+   * @param {string} title - The title of the note.
+   * @param {string} body - The body content of the note.
+   */
+  openEditNoteModal (index, title, body) {
+    const modal = this.openModal();
 
     // Modal content
     modal.innerHTML = `
@@ -250,16 +247,34 @@ class HomeScript {
                     <button class='back-button' type='submit'>Back</button>
                     <div>
                         <textarea id='edit-note-body' name='note-body'>${body}</textarea>
-                        <div class='exist-modal-buttons'>
-                          <button type='button' class='exist-input-button' name='exist-input-Text'>Text</button>
-                          <button type='button' class='exist-input-button' name='exist-input-Image'>Image</button>
-                          <button type='button' class='exist-input-button' name='exist-input-Markdown'>MDown</button>
-                        </div>
                     </div>
                     <button class='save-button' type='submit'>Save</button>
                 </form>
             </div>
         `;
+
+    // Initialize SimpleMDE
+    const simplemde = new SimpleMDE({ 
+      element: document.getElementById("edit-note-body"),
+      forceSync: true,
+      hideIcons: ['quote'],
+      toolbar: ['bold', 'italic', 'strikethrough', 'code', 'unordered-list', 'ordered-list', 'link', 'image', '|', 'preview', 'side-by-side', 'fullscreen', '|', 'guide'],
+      shortcuts: {
+        'toggleBold': 'Cmd-B',
+        'toggleItalic': 'Cmd-I',
+        'drawLink': 'Cmd-K',
+        'togglePreview': 'Cmd-P',
+        'toggleUnorderedList': 'Cmd-L',
+        'toggleCodeBlock': 'Cmd-Alt-C',
+        'drawImage': 'Cmd-Alt-I',
+        'toggleOrderedList': 'Cmd-Alt-L',
+        'toggleHeadingBigger': 'Shift-Cmd-H',
+        'toggleHeadingSmaller': 'Cmd-H',
+        'toggleSideBySide': 'F9',
+        'toggleFullScreen': 'F11'
+      }
+    });
+
     // Append modal to main body
     document.body.appendChild(modal);
     // Hide the top right buttons
@@ -268,17 +283,7 @@ class HomeScript {
     // Close modal when clicking the back button
     const backButton = modal.querySelector('.back-button');
     backButton.addEventListener('click', () => {
-      document.body.removeChild(modal);
-      // Show the top right buttons again
-      this.topRightButtons.style.display = 'flex';
-      // Remove the blur class from the navigation bar
-      this.navBar.classList.remove('blur');
-      // Unhide the notes from display
-      this.mainElement.classList.remove('hide-notes');
-      // Unhide the search bar from display
-      this.searchBar.style.display = 'flex';
-      // Unhide the journal header from display
-      this.journalHeader.classList.remove('hide-notes');
+      this.closeModal(modal);
     });
 
     // Close modal when clicking save, also update the note accordingly
@@ -293,44 +298,107 @@ class HomeScript {
       // Edit the note with updated title and body
       this.notes[index].title = newTitle;
       this.notes[index].body = newBody;
+      saveNote(this.notes[index]);
       this.render();
 
-      document.body.removeChild(modal);
-      // Show the top right buttons again
-      this.topRightButtons.style.display = 'flex';
-      // Remove the blur class from the navigation bar
-      this.navBar.classList.remove('blur');
-      // Unhide the notes from display
-      this.mainElement.classList.remove('hide-notes');
-      // Unhide the search bar from display
-      this.searchBar.style.display = 'flex';
-      // Unhide the journal header from display
-      this.journalHeader.classList.remove('hide-notes');
+      this.closeModal(modal);
     });
   }
 
-  onDragStart (event) {
-    event.dataTransfer.setData('text/plain', event.target.getAttribute('data-note-id'));
+  /**
+   * Open the modal to create a new folder.
+   */
+  openCreateFolderModal () {
+    const modal = document.createElement('div');
+    // Modal class for css design
+    modal.classList.add('modal');
+    // Append modal to main body
+    document.body.appendChild(modal);
+
+    // Modal content
+    modal.innerHTML = `
+            <div class='folder-modal'>
+                <span class='close-modal'>&times;</span>
+                <div class='modal-title'>
+                    <h2>New Folder</h2>
+                </div>
+                <form id='modal-form'>
+                    <div class='modal-input'>
+                        <input type='text' id='note-title' name='note-title' placeholder='Folder Name'>
+                    </div>
+                    <button class='create-button' type='submit'>Create</button>
+                </form>
+            </div>
+        `;
+    
+    // Close modal when clicking the close button
+    const closeButton = modal.querySelector('.close-modal');
+    closeButton.addEventListener('click', () => {
+      this.closeModal(modal);
+    });
+
+    // Create modal when clicking the create new note button
+    const createButton = modal.querySelector('.create-button');
+    createButton.addEventListener('click', (event) => {
+      // Prevent default form submission
+      event.preventDefault();
+      // Take the values inputted from the modal form
+      const folderName = modal.querySelector('#note-title').value;
+      
+      // Create a new note
+      this.createFolder(folderName);
+
+      this.closeModal(modal);
+    });
   }
 
-  onDragOver (event) {
-    event.preventDefault();
+  /**
+   * Open a modal.
+   * @returns {HTMLElement} - The created modal element.
+   */
+  openModal() {
+    // Add blur class to navigation bar
+    this.navBar.classList.add('blur');
+    // Remove the display of notes with the open modal
+    this.mainElement.classList.add('hide-notes');
+    // Remove the display of search bar with the open modal
+    this.searchBar.style.display = 'none';
+    // Remove the display of journal header with the open modal
+    this.journalHeader.classList.add('hide-notes');
+    // Create modal element for 'div' of home html
+    const modal = document.createElement('div');
+    // Modal class for css design
+    modal.classList.add('modal');
+    // Append modal to main body
+    document.body.appendChild(modal);
+    // Hide the top right buttons
+    this.topRightButtons.style.display = 'none';
+
+    return modal;
   }
 
-  onDrop (event) {
-    event.preventDefault();
-    const noteId = event.dataTransfer.getData('text/plain');
-    const folderId = event.target.closest('.folder').getAttribute('data-folder-id');
+  /**
+   * Close a modal.
+   * @param {HTMLElement} modal - The modal element to close.
+   */
+  closeModal(modal) {
+    document.body.removeChild(modal);
+      // Show the top right buttons again
+    this.topRightButtons.style.display = 'flex';
+    // Show the search bar again
+    this.searchBar.style.display = 'flex';
+    // Remove the blur class from the navigation bar
+    this.navBar.classList.remove('blur');
+    // Unhide the notes from display
+    this.mainElement.classList.remove('hide-notes');
+    // Unhide the search bar from display
+    this.journalHeader.classList.remove('hide-notes');
+  }  
 
-    const note = this.notes.find(note => note.id === noteId);
-    if (note) {
-      note.folderId = folderId;
-      this.render();
-    };
-  }
-  
-  
-
+  /**
+   * Visit a folder.
+   * @param {string} newFolderId - The ID of the folder to visit.
+   */
   visitFolder(newFolderId) {
     //calling temp method
     let newFolder = getFolderByID(newFolderId);
@@ -363,11 +431,11 @@ class HomeScript {
     //render folders / notes
     this.render();
   }
-
-
-
 }
 
+/**
+ * Initialize HomeScript when the DOM content is loaded.
+ */
 document.addEventListener('DOMContentLoaded', () => {
   new HomeScript();
 });

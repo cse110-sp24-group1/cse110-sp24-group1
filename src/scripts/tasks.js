@@ -33,7 +33,9 @@ class TaskList extends HTMLElement {
     });
   }
  
-  // Method to add a new task to the task list from the modal form
+  /**
+   * Add a new task to the task list from the modal form.
+   */
   addTaskFromModal () {
     // Get the necessary elements from the modal form
     const modalForm = document.querySelector('#modal-form');
@@ -105,7 +107,11 @@ class TaskList extends HTMLElement {
     modalForm.reset();
   }
  
-  // Method to calculate the text color based on the background color
+  /**
+   * Calculate the text color based on the background color.
+   * @param {string} color - The background color in hexadecimal format.
+   * @returns {string} - The appropriate text color style.
+   */
   calculateTextColor (color) {
     const hex = color.substring(1);
     const r = parseInt(hex.substring(0, 2), 16);
@@ -115,20 +121,23 @@ class TaskList extends HTMLElement {
     return luminance < 0.5 ? 'color: white;' : '';
   }
  
-  // Method to edit a task
+  /**
+   * Edit a task in the task list.
+   * @param {HTMLElement} taskElement - The task element to be edited.
+   */
   editTask (taskElement) {
     const taskDesc = taskElement.querySelector('.task-desc');
     const taskLabel = taskElement.querySelector('.task-label');
     const taskDate = taskElement.querySelector('.task-date');
     const taskName = taskElement.querySelector('label[for]');
     const editBtn = taskElement.querySelector('.edit-btn');
+    
     // Create an input element for task description
     const taskDescInput = document.createElement('input');
     taskDescInput.type = 'text';
     taskDescInput.value = taskDesc.textContent;
     taskDescInput.classList.add('task-desc-input');
  
-    // Create a select element for task label
     const taskLabelSelect = document.createElement('select');
     taskLabelSelect.id = 'task-label';
     taskLabelSelect.name = 'task-label';
@@ -190,12 +199,18 @@ class TaskList extends HTMLElement {
     });
   }
  
-  // Method to delete a task
+  /**
+   * Delete a task from the task list.
+   * @param {HTMLElement} taskElement - The task element to be deleted.
+   */
   deleteTask (taskElement) {
     taskElement.remove();
   }
  
-  // Method to search for tasks based on the search query
+  /**
+   * Search for tasks based on the search query.
+   * @param {string} query - The search query.
+   */
   searchTasks (query) {
     const tasks = this.shadowRoot.querySelectorAll('.task-item');
     tasks.forEach(task => {
@@ -210,7 +225,10 @@ class TaskList extends HTMLElement {
     });
   }
  
-  // Method to animate confetti
+  /**
+   * Animate confetti effect for the given target element.
+   * @param {HTMLElement} target - The target element to animate confetti.
+   */
   animateConfetti (target) {
     const confettiCount = 100;
     const fragment = document.createDocumentFragment();
@@ -286,7 +304,9 @@ document.addEventListener('DOMContentLoaded', () => {
     taskList.searchTasks(searchQuery);
   });
  
-  // Function to open the modal
+  /**
+   * Open the modal for adding a new task.
+   */
   function openModal () {
     modal.style.display = 'block';
     document.body.classList.add('modal-open');
@@ -299,7 +319,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
  
-  // Function to close the modal
+  /**
+   * Close the modal.
+   */
   function closeModal () {
     modal.style.display = 'none';
     document.body.classList.remove('modal-open');
