@@ -34,7 +34,7 @@ main {
     height: 9em;
     background-color: var(--accent-color);
     border-radius: 5px;
-    box-shadow: 3px 4px 3px 1px rgba(50, 50, 50, 1);
+    box-shadow: 3px 4px 3px 1px rgba(50, 50, 50, 100%);
     margin-bottom: 10px;
     position: relative;
 }
@@ -68,7 +68,6 @@ main {
     top: 0.2rem;
     right: 0.75rem;
     font-size: 1.2rem;
-    display: block;
 }
 
 .note-content p {
