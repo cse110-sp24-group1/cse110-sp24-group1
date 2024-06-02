@@ -424,13 +424,29 @@ main {
     border-radius: 5px;
     margin-right: 1em;
     transition: background-color 0.3s;
+    box-shadow: 0 1.5px #999;
 }
 
 .dark-mode .create-button,
 .dark-mode .save-button {
     background-color: var(--dark-button-color);
     color: var(--dark-text-color);
+    box-shadow: 0 1.5px #595858;
 }
+.create-button:active, 
+.save-button:active {
+    background-color: var(--light-button-color-hover);
+    box-shadow: 0 0px #999;
+    transform: translateY(1.5px);   
+}
+
+.dark-mode .create-button:active, 
+.dark-mode .save-button:active {
+    background-color: var(--dark-button-color-hover);
+    box-shadow: 0 0px #595858;
+    transform: translateY(1.5px);   
+}
+
 
 .back-button {
     background-color: var(--light-button-color);
@@ -444,11 +460,28 @@ main {
     border-radius: 5px;
     margin-left: 1em;
     transition: background-color 0.3s;
+    box-shadow: 0 1.5px #999;
+
 }
 
 .dark-mode .back-button {
     background-color: var(--dark-button-color);
     color: var(--dark-text-color);
+    box-shadow: 0 1.5px #595858;
+}
+
+.back-button:active, 
+.back-button:active {
+    background-color: var(--light-button-color-hover);
+    box-shadow: 0 0px #999;
+    transform: translateY(1.5px);   
+}
+
+.dark-mode .back-button:active, 
+.dark-mode .back-button:active {
+    background-color: var(--dark-button-color-hover);
+    box-shadow: 0 0px #595858;
+    transform: translateY(1.5px);   
 }
 
 .create-button:hover, 
@@ -469,6 +502,7 @@ main {
 
 @media (width <= 700px) {
     /* Add note and add folder button under header */ 
+    
     .header-top-main {
         display: flex;
         flex-direction: column;
