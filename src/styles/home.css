@@ -38,6 +38,7 @@ main {
     display: none;
 }
 
+/* When hovering over note, show the delete button */
 .note-content:hover .delete {
     display: block;
     position: absolute;
@@ -51,7 +52,8 @@ main {
     display: none;
 }
 
-.folder-id:hover .delete-folder {
+/* Currently folder hover isnt folder hovering because there is no container for it */
+.folder:hover .delete-folder {
     display: block;
     position: absolute;
     top: 0.2rem;
