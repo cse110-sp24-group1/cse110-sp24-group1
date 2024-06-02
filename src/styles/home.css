@@ -439,53 +439,6 @@ main {
     }
 }
 
-/* Adding font in general */
-/* Tilte of the page */
-body {
-    font-family: "Open Sans", sans-serif;
-    font-weight: 800;  /* Extra-Bold */
-}
-
-/* Tilte of note and folder */
-h2, h3 {
-    font-family: "Open Sans", sans-serif;
-    font-weight: 600;  /* Semi-Bold */
-}
-
-/* Text in the note */
-p {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 400;  /* Regular */
-}
-
-/* Text in the input */
-input {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 400;  /* Regular */
-}
-
-/* Text in the note model */
-.modal-input #note-title {
-    font-family: "Open Sans", sans-serif;
-    font-weight: 600;  /* Semi-Bold */
-}
-
-select {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 400;  /* Regular */
-}
-
-textarea {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 400;  /* Regular */
-}
-
-/* Text in the button */
-button {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 300;  /* Light */
-}
-
 /* SimpleMDE toolbar */
 .editor-toolbar .fa {
     color: var(--light-text-color) !important;
