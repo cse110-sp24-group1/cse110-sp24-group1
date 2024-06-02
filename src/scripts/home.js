@@ -37,6 +37,8 @@ class HomeScript {
     // A const representing the parent folder
     this.parentFolderID = null;
 
+  
+
     // Add event listener to open the modal on click of the new note button
     this.newNoteButton.addEventListener('click', this.openCreateNoteModal.bind(this));
     // Add event listener to create a new folder on click of the new folder button
@@ -163,7 +165,7 @@ class HomeScript {
     // Modal content
     modal.innerHTML = `
             <div class='note-modal'>
-                <span class='close-modal'>&times;</span>
+                <button class='obj-container'><span class='close-modal'>&times;</span></button>
                 <div class='modal-title'>
                     <h2>New Note</h2>
                 </div>
@@ -190,6 +192,7 @@ class HomeScript {
                 </form>
             </div>
         `;
+    
 
     // Initialize SimpleMDE
     const simplemde = new SimpleMDE({ 
@@ -211,6 +214,15 @@ class HomeScript {
         'toggleSideBySide': 'F9',
         'toggleFullScreen': 'F11'
       }
+    });
+
+    // Enable escape to remove focus from element for accessibility in textAreas
+    document.
+    addEventListener('keydown', 
+      function(event) {
+        if(event.key == 'Escape' && document.activeElement.nodeName == 'TEXTAREA') {
+          document.activeElement.blur();
+        }
     });
 
     // Close modal when clicking the close button
@@ -326,7 +338,7 @@ class HomeScript {
     // Modal content
     modal.innerHTML = `
             <div class='folder-modal'>
-                <span class='close-modal'>&times;</span>
+              <button class='obj-container'><span class='close-modal'>&times;</span></button>
                 <div class='modal-title'>
                     <h2>New Folder</h2>
                 </div>
@@ -338,6 +350,7 @@ class HomeScript {
                 </form>
             </div>
         `;
+    enableModalTabTrap(modal);
     
     // Close modal when clicking the close button
     const closeButton = modal.querySelector('.close-modal');
@@ -382,6 +395,8 @@ class HomeScript {
     // Hide the top right buttons
     this.topRightButtons.style.display = 'none';
 
+    // trap Tab within modal for accesibility
+    enableModalTabTrap(modal);
     return modal;
   }
 

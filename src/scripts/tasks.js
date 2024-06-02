@@ -317,6 +317,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       modalTitle.textContent = 'New Task';
     }
+    enableModalTabTrap(modal);
   }
  
   /**

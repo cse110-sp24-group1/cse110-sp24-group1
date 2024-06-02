@@ -49,3 +49,42 @@ darkModeToggle.addEventListener("change", function () {
         localStorage.setItem("theme", "light");
     }
 });
+
+
+
+/* Modal accessibility method*/
+function enableModalTabTrap(modal) {
+    let focusable = modal.querySelectorAll('input,button,select,textarea');
+    window.addEventListener('keydown', handleKey);
+    function handleKey(e) {
+        if (e.keyCode === 9) {
+            if (focusable.length) {
+                let first = focusable[0];
+                let last = focusable[focusable.length - 1];
+                let shift = e.shiftKey;
+                if(!Array.from(focusable).includes(e.target)) {
+                    first.focus();
+                    e.preventDefault();
+                    console.log('saved the day');
+                }
+                if (shift) {
+                    if (e.target === first) { // shift-tab pressed on first input in dialog
+                        last.focus();
+                        e.preventDefault();
+                        console.log('yay');
+                    }
+                } else {
+                    if (e.target === last) { // tab pressed on last input in dialog
+                        first.focus();
+                        e.preventDefault();
+                        console.log('nay');
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+
