@@ -228,6 +228,7 @@ p {
     border-radius: 5px;
     background: white;
     margin-left: 1em;
+    width: 25em;
 }
 
 .dark-mode .search-container input[type="text"] {
