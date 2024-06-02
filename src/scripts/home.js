@@ -180,7 +180,7 @@ class HomeScript {
     modal.innerHTML = `
             <div class='folder-modal'>
                 <div class='modal-title'>
-                    <h2>Are you sure you want to delete this ${type}!!??</h2>
+                    <h3>Are you sure you want to delete this ${type}!!??</h3>
                 </div>
                 <div class='confirmation-buttons'> 
                     <button class='no-button' type='submit'>NOPE</button>
