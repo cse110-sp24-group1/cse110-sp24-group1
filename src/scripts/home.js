@@ -117,15 +117,25 @@ class HomeScript {
       noteElement.setAttribute('data-note-id', note.id);
       noteElement.innerHTML = `
         <div class='note-content' id=${note.label}>
+            <span class='delete'>&times;</span>
             <p>${note.body}</p>
         </div>
         <div class='note-title'>
             <h3>${note.title}</h3>
         </div>`;
 
+      // Click the x button to delete the note
+      noteElement.querySelector('.delete').addEventListener('click', () => {
+        event.stopPropagation();
+        const confirmDelete = confirm("Are you sure you want to delete this note?!");
+        if (confirmDelete) {
+          this.deleteNote(note.id);
+        }
+      });
+
       // Click to open edit modal
       noteElement.addEventListener('click', () => {
-        this.openEditNoteModal(this.notes.indexOf(note), note.title, note.body);
+        this.openEditNoteModal(this.notes.indexOf(note), note.title, note.body, note.label);
       });
       this.mainElement.prepend(noteElement);
     });
@@ -135,8 +145,18 @@ class HomeScript {
       const folderElement = document.createElement('div');
       folderElement.classList.add('folder');
       folderElement.setAttribute('data-folder-id', folder.id);
-      folderElement.innerHTML = `<h3>${folder.name}</h3>`;
+      folderElement.innerHTML = `<h3>${folder.name}</h3>
+         <span class='delete-folder'>&times;</span>`;
       folderElement.classList.add('folder-title');
+
+      // Click the x button to delete the folder
+      folderElement.querySelector('.delete-folder').addEventListener('click', () => {
+        event.stopPropagation();
+        const confirmDelete = confirm("Are you sure you want to delete this folder?!");
+        if (confirmDelete) {
+          this.deleteFolder(folder.id);
+        }
+      });
 
       // Click to open folder
       folderElement.addEventListener('click', () => {
@@ -145,6 +165,21 @@ class HomeScript {
 
       this.mainElement.prepend(folderElement);
     });
+  }
+  
+  // Clicking the delete button will delete the note and all the data
+  deleteNote (noteId) {
+    // erm idrk how to deletus cuz after refreshing notes reappears
+    this.notes = this.notes.filter(note => note.id !== noteId);
+    localStorage.removeItem(`note-${noteId}`);
+    this.render();
+  }
+
+  // Clicking the delete button will delete the folder and all the data
+  deleteFolder (folderId) {
+    // erm idrk how to deletus at all TT
+    localStorage.removeItem(`folder-${folderId}`);
+    this.render();
   }
 
   /**
@@ -233,9 +268,23 @@ class HomeScript {
    * @param {number} index - The index of the note in the notes array.
    * @param {string} title - The title of the note.
    * @param {string} body - The body content of the note.
+   * @param {string} label - The label ID of the note category.
    */
-  openEditNoteModal (index, title, body) {
+  openEditNoteModal (index, title, body, label) {
     const modal = this.openModal();
+
+    const noteIdValues = ['', 'code-snippets','stand-up', 'bug-reports', 'learning-notes', 'newsletter', 'performance', 'feature-ideas'];
+    const noteIdText = ['', 'Code Snippets', 'Stand-Up Notes', 'Bug Reports', 'Learning Notes', 'Newsletters', 'Performance Metrics',  'Feature Ideas'];
+    const noteIdColor = ['', '#e1322f', '#e14083', '#b351e0', '#6661e0', '#459de0', '#53e091', '#e07e37'];
+
+    let noteLabel, noteColor;
+
+    for (let i = 0; i < noteIdValues.length; i++ ) {
+      if (noteIdValues[i] === label) {
+        noteLabel = noteIdText[i];
+        noteColor = noteIdColor[i];
+      }
+    }
 
     // Modal content
     modal.innerHTML = `
@@ -248,10 +297,21 @@ class HomeScript {
                     <div>
                         <textarea id='edit-note-body' name='note-body'>${body}</textarea>
                     </div>
-                    <button class='save-button' type='submit'>Save</button>
+                    <div class='edit-note-footer'> 
+                        <div class='edit-note-label'>${noteLabel}</div>
+                        <button class='save-button' type='submit'>Save</button>
+                    </div>
                 </form>
             </div>
         `;
+
+    // Color of label
+    const nLabel = modal.querySelector('.edit-note-label');
+    nLabel.style.backgroundColor = noteColor;
+
+    if (label === '') {
+      nLabel.style.display = 'none';
+    }
 
     // Initialize SimpleMDE
     const simplemde = new SimpleMDE({ 

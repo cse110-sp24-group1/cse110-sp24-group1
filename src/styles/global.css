@@ -63,9 +63,7 @@ nav a:hover {
 
 /* Apply common properties to all icons */
 nav .home-page-icon,
-nav .home-page-icon:hover,
-nav .task-page-icon,
-nav .task-page-icon:hover {
+nav .task-page-icon {
     padding: 20px;
     background-repeat: no-repeat;
     background-size: contain;
@@ -79,12 +77,15 @@ nav .task-page-icon:hover {
 nav .home-page-icon {
     background-image: url('../assets/icons/home-light.png');
 }
+
 nav .home-page-icon:hover {
     background-image: url('../assets/icons/home-hover-light.png');
 }
+
 nav .task-page-icon {
     background-image: url('../assets/icons/tasklist-light.png');
 }
+
 nav .task-page-icon:hover {
     background-image: url('../assets/icons/tasklist-hover-light.png');
 }
@@ -93,12 +94,15 @@ nav .task-page-icon:hover {
 .dark-mode nav .home-page-icon {
     background-image: url('../assets/icons/home-dark.png');
 }
+
 .dark-mode nav .home-page-icon:hover {
     background-image: url('../assets/icons/home-hover-dark.png');
 }
+
 .dark-mode nav .task-page-icon {
     background-image: url('../assets/icons/tasklist-dark.png');
 }
+
 .dark-mode nav .task-page-icon:hover {
     background-image: url('../assets/icons/tasklist-hover-dark.png');
 }
@@ -228,6 +232,7 @@ p {
     border-radius: 5px;
     background: white;
     margin-left: 1em;
+    width: 25em;
 }
 
 .dark-mode .search-container input[type="text"] {
@@ -265,5 +270,4 @@ p {
         margin-top: 1em;
         margin-bottom: 1em;
     }
-
 }

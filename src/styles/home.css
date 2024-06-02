@@ -24,8 +24,50 @@ main {
     height: 9em;
     background-color: var(--accent-color);
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+    box-shadow: 3px 4px 3px 1px rgb(0 0 0 / 10%);
     margin-bottom: 10px;
+    position: relative;
+}
+
+.dark-mode .note-content {
+    width: 16em;
+    height: 9em;
+    background-color: var(--accent-color);
+    border-radius: 5px;
+    box-shadow: 3px 4px 3px 1px rgb(50 50 50 / 100%);
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.note-content:hover,
+.folder:hover {
+    cursor: pointer; 
+}
+
+.delete {
+    display: none;
+}
+
+/* When hovering over note, show the delete button */
+.note-content:hover .delete {
+    display: block;
+    position: absolute;
+    top: 0.2rem;
+    right: 0.75rem;
+    font-size: 1.2rem;
+}
+
+.delete-folder {
+    display: none;
+}
+
+/* Currently folder hover isnt folder hovering because there is no container for it */
+.folder:hover .delete-folder {
+    display: block;
+    position: absolute;
+    top: 0.2rem;
+    right: 0.75rem;
+    font-size: 1.2rem;
 }
 
 .note-content p {
@@ -93,6 +135,7 @@ main {
     cursor: pointer;
     margin-left: 10px;
     border-radius: 20px;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 .top-right-buttons #new-note-button {
@@ -105,10 +148,12 @@ main {
 
 .top-right-buttons #new-note-button:hover {
     background-image: url('../assets/icons/newnote-hover-light.png');
+    transform: scale(1.05);
 }
 
 .top-right-buttons #new-folder-button:hover {
     background-image: url('../assets/icons/newfolder-hover-light.png');
+    transform: scale(1.05);
 }
 
 .dark-mode .top-right-buttons #new-note-button {
@@ -121,10 +166,12 @@ main {
 
 .dark-mode .top-right-buttons #new-note-button:hover {
     background-image: url('../assets/icons/newnote-hover-dark.png');
+    transform: scale(1.05);
 }
 
 .dark-mode .top-right-buttons #new-folder-button:hover {
     background-image: url('../assets/icons/newfolder-hover-dark.png');
+    transform: scale(1.05);
 }
 
 #folder-back-button {
@@ -459,4 +506,28 @@ main {
     color: var(--light-text-color) !important;
 }
   
+/* Note label appears when editing */
 
+.edit-note-label {
+    color: var(--light-text-color);
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    padding: 5px 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    margin-left: 1em;
+}
+
+.dark-mode .edit-note-label {
+    color: var(--dark-text-color);
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    padding: 5px 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    margin-left: 1em;
+}
