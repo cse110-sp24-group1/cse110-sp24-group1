@@ -404,6 +404,28 @@ main {
     box-shadow: 1.5px #999;
 }
 
+.back-button {
+    background-color: var(--light-button-color);
+    color: var(--light-text-color);
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    padding: 5px 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    margin-left: 1em;
+    transition: background-color 0.3s;
+    box-shadow: 1.5px #999;
+
+}
+
+.dark-mode .back-button {
+    background-color: var(--dark-button-color);
+    color: var(--dark-text-color);
+    box-shadow: 1.5px #595858;
+}
+
 .dark-mode .create-button,
 .dark-mode .save-button {
     background-color: var(--dark-button-color);
@@ -439,28 +461,6 @@ main {
     background-color: var(--dark-button-color-hover);
     box-shadow: #595858;
     transform: translateY(1.5px);   
-}
-
-.back-button {
-    background-color: var(--light-button-color);
-    color: var(--light-text-color);
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    padding: 5px 10px;
-    cursor: pointer;
-    border: none;
-    border-radius: 5px;
-    margin-left: 1em;
-    transition: background-color 0.3s;
-    box-shadow: 1.5px #999;
-
-}
-
-.dark-mode .back-button {
-    background-color: var(--dark-button-color);
-    color: var(--dark-text-color);
-    box-shadow: 1.5px #595858;
 }
 
 .back-button:hover .back-button:active {
