@@ -134,7 +134,7 @@ class HomeScript {
       });
 
       // Click to open edit modal
-      noteElement.querySelector('p').addEventListener('click', () => {
+      noteElement.addEventListener('click', () => {
         this.openEditNoteModal(this.notes.indexOf(note), note.title, note.body);
       });
       this.mainElement.prepend(noteElement);
