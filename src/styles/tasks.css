@@ -375,7 +375,6 @@ select:focus {
 }
 
 /* Editing a task */
-
 .task-item.editing-task {
    display: flex;
    row-gap: 10px;
@@ -393,7 +392,7 @@ select:focus {
 .task-item.editing-task .task-footer {
    display: flex;
    justify-content: space-between;
-   margin-top: 0px;
+   margin-top: 0;
 }
 
 .task-item.editing-task .task-footer .date-label {
@@ -409,6 +408,7 @@ select:focus {
    background-color: var(--light-button-color);
    color: var(--light-text-color);
 }
+
 .task-item.editing-task .task-main button:hover {
    background-color: var(--light-button-color-hover);
 }
