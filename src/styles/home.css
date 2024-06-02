@@ -34,7 +34,7 @@ main {
     height: 9em;
     background-color: var(--accent-color);
     border-radius: 5px;
-    box-shadow: 3px 4px 3px 1px rgba(50, 50, 50, 100%);
+    box-shadow: 3px 4px 3px 1px rgb(50 50 50 / 100%);
     margin-bottom: 10px;
     position: relative;
 }

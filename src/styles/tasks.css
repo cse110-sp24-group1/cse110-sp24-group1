@@ -235,8 +235,7 @@ select:focus {
 
    .task-item.editing-task .task-footer .date-label {
       flex-direction: column;
-      row-gap: 10px;
-      column-gap: 20px;
+      gap: 10px 20px;
    }
 }
 
