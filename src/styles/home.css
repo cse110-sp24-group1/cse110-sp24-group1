@@ -469,7 +469,6 @@ main {
 
 @media (width <= 700px) {
     /* Add note and add folder button under header */ 
-    
     .header-top-main {
         display: flex;
         flex-direction: column;
@@ -481,6 +480,18 @@ main {
         width: 100vw - 4rem;
         margin: auto;
         position: relative;
+    }
+
+    /* Edit back button for in folder */
+    .search-container {
+        justify-content: left;
+        margin-left: 10px;
+    }
+
+    .search-container #folder-back-button,
+    .search-container button
+     {
+        margin-right: 10px;
     }
 
     /* Change size of note display */
