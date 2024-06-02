@@ -233,7 +233,8 @@ p {
     margin-top: 1em;
 }
 
-.search-container button {
+.search-container button,
+.search-container #folder-back-button {
     margin-left: 10px;
     background-color: var(--light-button-color);
     color: var(--light-text-color);
@@ -244,16 +245,19 @@ p {
     transition: background-color 0.3s;
 }
 
-.dark-mode .search-container button {
+.dark-mode .search-container button,
+.dark-mode .search-container #folder-back-button {
     background-color: var(--dark-button-color);
     color: var(--dark-text-color);
 }
 
-.search-container button:hover {
+.search-container button:hover,
+.search-container #folder-back-button:hover {
     background-color: var(--light-button-color-hover);
 }
 
-.dark-mode .search-container button:hover {
+.dark-mode .search-container button:hover,
+.dark-mode .search-container #folder-back-button:hover {
     background-color: var(--dark-button-color-hover);
 }
 
