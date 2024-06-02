@@ -19,14 +19,21 @@
     </head>
     <body>
         <header>
-            <!-- Search bar for filtering notes -->
-            <div class="search-container">
-                <button id="folder-back-button">Back</button>
-                <input type="text" id="search-bar" placeholder="Search tasks...">
-                <button id="search-btn" type="submit">Search</button>
+            <div class="header-top-main">
+                <!-- Search bar for filtering notes -->
+                <div class="search-container">
+                    <button id="folder-back-button">Back</button>
+                    <input type="text" id="search-bar" placeholder="Search tasks...">
+                    <button id="search-btn" type="submit">Search</button>
+                </div>
+                <!-- Title of the notes page -->
+                <h1 class="journal-header">My Journal</h1>
+                <!-- New note/folder buttons -->
+                <div class="top-right-buttons">
+                    <button id="new-note-button"></button>
+                    <button id="new-folder-button"></button>
+                </div>
             </div>
-            <!-- Title of the notes page -->
-            <h1 class="journal-header">My Journal</h1>
             <nav>
                 <!--Navigation Buttons-->
                 <ul>
@@ -51,10 +58,6 @@
                     </li>
                 </ul>  
             </nav>            
-            <div class="top-right-buttons">
-                <button id="new-note-button"></button>
-                <button id="new-folder-button"></button>
-            </div>
         </header>
         <main>
             <!-- Backend javascript file loaded before for scope -->

@@ -280,7 +280,7 @@ p {
 }
 
 /* Edits for smaller screens (mobile) */
-@media (width <= 500px) {
+@media (width <= 700px) {
     nav {
         width: 4rem;
     }
