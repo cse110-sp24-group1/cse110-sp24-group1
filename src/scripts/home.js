@@ -106,7 +106,7 @@ class HomeScript {
    * Render notes and folders to the homepage.
    */
   render () {
-    console.log(this.currentFolderID + ' ' + this.parentFolderID);
+    //console.log(this.currentFolderID + ' ' + this.parentFolderID);
     // Clear main element
     this.mainElement.innerHTML = '';
 
@@ -145,16 +145,22 @@ class HomeScript {
       const folderElement = document.createElement('div');
       folderElement.classList.add('folder');
       folderElement.setAttribute('data-folder-id', folder.id);
-      folderElement.innerHTML = `<h3>${folder.name}</h3>
-         <span class='delete-folder'>&times;</span>`;
-      folderElement.classList.add('folder-title');
-
+      folderElement.innerHTML = `
+        <div class='folder-content' id=${folder.label}>
+          <span class='delete-folder'>&times;</span>
+        </div>
+        <div class='folder-title'>
+          <h3>${folder.name}</h3>
+        </div>
+        `;
+      
       // Click the x button to delete the folder
       folderElement.querySelector('.delete-folder').addEventListener('click', () => {
         event.stopPropagation();
         const confirmDelete = confirm("Are you sure you want to delete this folder?!");
         if (confirmDelete) {
           this.deleteFolder(folder.id);
+          console.log(folder.id);
         }
       });
 
@@ -177,9 +183,47 @@ class HomeScript {
 
   // Clicking the delete button will delete the folder and all the data
   deleteFolder (folderId) {
-    // erm idrk how to deletus at all TT
+    // Remove the folder from the folders array
+    this.folders = this.folders.filter(folder => folder.id !== folderId);
+
+    // Remove all child folders and notes
+    const childFolders = this.getChildFolders(folderId);
+    const childNotes = this.getChildNotes(folderId);
+    
+    childFolders.forEach(childFolder => {
+      localStorage.removeItem(`folder-${childFolder.id}`);
+    });
+    childNotes.forEach(childNote => {
+      localStorage.removeItem(`note-${childNote.id}`);
+    });
+
+    // Remove the folder from local storage
     localStorage.removeItem(`folder-${folderId}`);
+
+    // Render the remaining folders and notes
     this.render();
+  }
+
+  /**
+   * Get all child folders of a given folder.
+   * @param {string} parentFolderID - The ID of the parent folder.
+   * @returns {Array} - An array of child folders.
+   */
+  getChildFolders(parentFolderID) {
+      let childFolders = this.folders.filter(folder => folder.parentFolderID === parentFolderID);
+      childFolders.forEach(childFolder => {
+          childFolders = childFolders.concat(this.getChildFolders(childFolder.id));
+      });
+      return childFolders;
+  }
+
+  /**
+   * Get all child notes of a given folder.
+   * @param {string} folderID - The ID of the folder.
+   * @returns {Array} - An array of child notes.
+   */
+  getChildNotes(folderID) {
+      return this.notes.filter(note => note.folderID === folderID);
   }
 
   /**
@@ -467,7 +511,6 @@ class HomeScript {
     if(!newFolder) {
       this.currentFolderID = MAIN_ID;
       this.parentFolderID = null;
-      console.log('hi');
     }
     else {
       this.currentFolderID = newFolderId;
