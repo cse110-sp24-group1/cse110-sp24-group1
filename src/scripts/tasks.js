@@ -194,22 +194,7 @@ class TaskList extends HTMLElement {
   deleteTask (taskElement) {
     taskElement.remove();
   }
- 
-  // Method to search for tasks based on the search query
-  searchTasks (query) {
-    const tasks = this.shadowRoot.querySelectorAll('.task-item');
-    tasks.forEach(task => {
-      const taskName = task.querySelector('label[for]').textContent.toLowerCase();
-      const taskDesc = task.querySelector('.task-desc').textContent.toLowerCase();
-      const taskLabel = task.querySelector('.task-label').textContent.toLowerCase();
-      if (taskName.includes(query) || taskDesc.includes(query) || taskLabel.includes(query)) {
-        task.style.display = 'block';
-      } else {
-        task.style.display = 'none';
-      }
-    });
-  }
- 
+
   // Method to animate confetti
   animateConfetti (target) {
     const confettiCount = 100;
@@ -270,6 +255,35 @@ document.addEventListener('DOMContentLoaded', () => {
     closeModal();
   });
  
+  // Function to search for specific tasks from search bar
+  function searchTasks() {
+    const searchQuery = searchInput.value.trim().toLowerCase();
+    const taskLists = document.querySelectorAll('task-list');
+  
+    // Loop through each task list
+    taskLists.forEach(taskList => {
+      const tasks = taskList.shadowRoot.querySelectorAll('.task-item');
+  
+      // Loop through each task in the current task list
+      tasks.forEach(task => {
+        const taskName = task.querySelector('label[for]').textContent.toLowerCase();
+        const taskDesc = task.querySelector('.task-desc').textContent.toLowerCase();
+        const taskLabel = task.querySelector('.task-label').textContent.toLowerCase();
+  
+        // Check if any of the task details match the search query
+        if (taskName.includes(searchQuery) || taskDesc.includes(searchQuery) || taskLabel.includes(searchQuery)) {
+          task.style.display = 'block'; 
+        } else {
+          task.style.display = 'none';
+        }
+      });
+    });
+  }
+
+  // Search tasks from the search bar
+  searchInput.addEventListener('keyup', searchTasks);
+  searchBtn.addEventListener('click', searchTasks);
+
   // Show or hide the new label input based on the selected value
   taskLabelSelect.addEventListener('change', () => {
     if (taskLabelSelect.value === 'createNew') {
@@ -278,14 +292,7 @@ document.addEventListener('DOMContentLoaded', () => {
       newLabelInput.style.display = 'none';
     }
   });
- 
-  // Search functionality for the task list
-  searchBtn.addEventListener('click', () => {
-    const taskList = document.querySelector('.task-list');
-    const searchQuery = searchInput.value.trim().toLowerCase();
-    taskList.searchTasks(searchQuery);
-  });
- 
+
   // Function to open the modal
   function openModal () {
     modal.style.display = 'block';
