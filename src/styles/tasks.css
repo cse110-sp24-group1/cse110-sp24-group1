@@ -237,6 +237,10 @@ select:focus {
       flex-direction: column;
       gap: 10px 20px;
    }
+
+   .search-container {
+      margin-left: 10px;
+  }
 }
 
 /* Add a Task Form */
