@@ -498,4 +498,28 @@ main {
     color: var(--light-text-color) !important;
 }
   
+/* Note label appears when editing */
 
+.edit-note-label {
+    color: var(--light-text-color);
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    padding: 5px 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    margin-left: 1em;
+}
+
+.dark-mode .edit-note-label {
+    color: var(--dark-text-color);
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    padding: 5px 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    margin-left: 1em;
+}

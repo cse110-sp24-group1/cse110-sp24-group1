@@ -135,7 +135,7 @@ class HomeScript {
 
       // Click to open edit modal
       noteElement.addEventListener('click', () => {
-        this.openEditNoteModal(this.notes.indexOf(note), note.title, note.body);
+        this.openEditNoteModal(this.notes.indexOf(note), note.title, note.body, note.label);
       });
       this.mainElement.prepend(noteElement);
     });
@@ -268,9 +268,23 @@ class HomeScript {
    * @param {number} index - The index of the note in the notes array.
    * @param {string} title - The title of the note.
    * @param {string} body - The body content of the note.
+   * @param {string} label - The label ID of the note category.
    */
-  openEditNoteModal (index, title, body) {
+  openEditNoteModal (index, title, body, label) {
     const modal = this.openModal();
+
+    const noteIdValues = ['', 'code-snippets','stand-up', 'bug-reports', 'learning-notes', 'newsletter', 'performance', 'feature-ideas'];
+    const noteIdText = ['', 'Code Snippets', 'Stand-Up Notes', 'Bug Reports', 'Learning Notes', 'Newsletters', 'Performance Metrics',  'Feature Ideas'];
+    const noteIdColor = ['', '#e1322f', '#e14083', '#b351e0', '#6661e0', '#459de0', '#53e091', '#e07e37'];
+
+    let noteLabel, noteColor;
+
+    for (let i = 0; i < noteIdValues.length; i++ ) {
+      if (noteIdValues[i] === label) {
+        noteLabel = noteIdText[i];
+        noteColor = noteIdColor[i];
+      }
+    }
 
     // Modal content
     modal.innerHTML = `
@@ -283,10 +297,21 @@ class HomeScript {
                     <div>
                         <textarea id='edit-note-body' name='note-body'>${body}</textarea>
                     </div>
-                    <button class='save-button' type='submit'>Save</button>
+                    <div class='edit-note-footer'> 
+                        <div class='edit-note-label'>${noteLabel}</div>
+                        <button class='save-button' type='submit'>Save</button>
+                    </div>
                 </form>
             </div>
         `;
+
+    // Color of label
+    const nLabel = modal.querySelector('.edit-note-label');
+    nLabel.style.backgroundColor = noteColor;
+
+    if (label === '') {
+      nLabel.style.display = 'none';
+    }
 
     // Initialize SimpleMDE
     const simplemde = new SimpleMDE({ 
