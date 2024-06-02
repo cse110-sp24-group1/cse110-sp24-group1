@@ -186,7 +186,7 @@ class HomeScript {
    * Open the modal to create a new note.
    */
   openCreateNoteModal () {
-    const modal = this.openModal()
+    const modal = this.openModal();
     // Modal content
     modal.innerHTML = `
             <div class='note-modal'>

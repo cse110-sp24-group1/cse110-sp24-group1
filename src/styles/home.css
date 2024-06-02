@@ -182,6 +182,7 @@ main {
     border-radius: 300%;
     cursor: pointer;
     margin-left: 10px;
+    transition: background-color 0.3s;
 }
 
 .dark-mode #folder-back-button {
@@ -415,6 +416,7 @@ main {
     border: none;
     border-radius: 5px;
     margin-right: 1em;
+    transition: background-color 0.3s;
 }
 
 .dark-mode .create-button,
@@ -434,6 +436,7 @@ main {
     border: none;
     border-radius: 5px;
     margin-left: 1em;
+    transition: background-color 0.3s;
 }
 
 .dark-mode .back-button {
@@ -505,9 +508,8 @@ main {
     background-color: var(--light-button-color-hover) !important;
     color: var(--light-text-color) !important;
 }
-  
-/* Note label appears when editing */
 
+/* Note label appears when editing */
 .edit-note-label {
     color: var(--light-text-color);
     position: absolute;
