@@ -35,14 +35,28 @@ main {
 }
 
 .delete {
-    top: 0.2rem;
-    right: 0.2rem;
-    font-size: 0.75rem;
-    font-weight: bold;
     display: none;
 }
 
 .note-content:hover .delete {
+    display: block;
+    position: absolute;
+    top: 0.2rem;
+    right: 0.75rem;
+    font-size: 1.2rem;
+    display: block;
+}
+
+.delete-folder {
+    display: none;
+}
+
+.folder-id:hover .delete-folder {
+    display: block;
+    position: absolute;
+    top: 0.2rem;
+    right: 0.75rem;
+    font-size: 1.2rem;
     display: block;
 }
 

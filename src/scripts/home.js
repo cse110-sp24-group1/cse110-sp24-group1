@@ -134,7 +134,7 @@ class HomeScript {
       });
 
       // Click to open edit modal
-      noteElement.addEventListener('click', () => {
+      noteElement.querySelector('p').addEventListener('click', () => {
         this.openEditNoteModal(this.notes.indexOf(note), note.title, note.body);
       });
       this.mainElement.prepend(noteElement);
@@ -145,8 +145,18 @@ class HomeScript {
       const folderElement = document.createElement('div');
       folderElement.classList.add('folder');
       folderElement.setAttribute('data-folder-id', folder.id);
-      folderElement.innerHTML = `<h3>${folder.name}</h3>`;
+      folderElement.innerHTML = `<h3>${folder.name}</h3>
+         <span class='delete-folder'>&times;</span>`;
       folderElement.classList.add('folder-title');
+
+      // Click the x button to delete the folder
+      folderElement.querySelector('.delete-folder').addEventListener('click', () => {
+        event.stopPropagation();
+        const confirmDelete = confirm("Are you sure you want to delete this folder?!");
+        if (confirmDelete) {
+          this.deleteFolder(folder.id);
+        }
+      });
 
       // Click to open folder
       folderElement.addEventListener('click', () => {
@@ -162,6 +172,13 @@ class HomeScript {
     // erm idrk how to deletus cuz after refreshing notes reappears
     this.notes = this.notes.filter(note => note.id !== noteId);
     localStorage.removeItem(`note-${noteId}`);
+    this.render();
+  }
+
+  // Clicking the delete button will delete the folder and all the data
+  deleteFolder (folderId) {
+    // erm idrk how to deletus at all TT
+    localStorage.removeItem(`folder-${folderId}`);
     this.render();
   }
 
