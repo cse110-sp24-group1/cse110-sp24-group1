@@ -49,16 +49,6 @@ class TaskList extends HTMLElement {
     // Validate the new task text
     if (newTaskText === '') return;
  
-    // Handle the case where a new label is created
-    if (taskLabel === 'createNew') {
-      const newLabelInput = modalForm.querySelector('#new-label-input');
-      const newLabel = newLabelInput.value.trim();
- 
-      // Validate the new label text
-      if (newLabel === '') return;
-      taskLabel = newLabel;
-    }
- 
     // Generate a unique task ID
     const taskId = `task${this.taskContainer.children.length + 1}`;
     // Create a new task element
@@ -143,11 +133,10 @@ class TaskList extends HTMLElement {
     const taskLabelSelect = document.createElement('select');
     taskLabelSelect.id = 'task-label';
     taskLabelSelect.name = 'task-label';
-    const labels = ['Default', 'Work', 'Personal', 'Health and Fitness', 'Finance', 'Social', 'Travel', 'School', 'Create New Label'];
+    const labels = ['Default', 'Work', 'Personal', 'Health and Fitness', 'Finance', 'Social', 'Travel', 'School'];
     for (const label of labels) {
       const option = document.createElement('option');
-      option.value = label === 'Create New Label' ? 'createNew' : label;
-      // HOW TO DO CREATE NEW LABEL?
+      option.value = label
       option.textContent = label;
       if (label === taskLabel.textContent) {
         option.selected = true;
@@ -290,15 +279,6 @@ document.addEventListener('DOMContentLoaded', () => {
     taskContainer.appendChild(taskList);
     taskList.addTaskFromModal();
     closeModal();
-  });
- 
-  // Show or hide the new label input based on the selected value
-  taskLabelSelect.addEventListener('change', () => {
-    if (taskLabelSelect.value === 'createNew') {
-      newLabelInput.style.display = 'inline-block';
-    } else {
-      newLabelInput.style.display = 'none';
-    }
   });
  
   // Search functionality for the task list
