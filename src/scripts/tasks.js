@@ -136,7 +136,7 @@ class TaskList extends HTMLElement {
     const labels = ['Default', 'Work', 'Personal', 'Health and Fitness', 'Finance', 'Social', 'Travel', 'School'];
     for (const label of labels) {
       const option = document.createElement('option');
-      option.value = label
+      option.value = label;
       option.textContent = label;
       if (label === taskLabel.textContent) {
         option.selected = true;
