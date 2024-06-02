@@ -1,5 +1,34 @@
 @import url("vars.css");
 
+/* Bold */
+h1 {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700; 
+}
+
+/* Semi-bold */
+h2, 
+h3,
+.modal-input #note-title {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;  
+}
+
+/* Regular */
+p, 
+select, 
+input, 
+textarea {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;  
+}
+
+/* Light */
+button {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300; 
+} 
+
 /* Nav Bar */
 nav { 
     background-color: var(--light-nav-bar-color);
@@ -63,9 +92,7 @@ nav a:hover {
 
 /* Apply common properties to all icons */
 nav .home-page-icon,
-nav .home-page-icon:hover,
-nav .task-page-icon,
-nav .task-page-icon:hover {
+nav .task-page-icon {
     padding: 20px;
     background-repeat: no-repeat;
     background-size: contain;
@@ -79,12 +106,15 @@ nav .task-page-icon:hover {
 nav .home-page-icon {
     background-image: url('../assets/icons/home-light.png');
 }
+
 nav .home-page-icon:hover {
     background-image: url('../assets/icons/home-hover-light.png');
 }
+
 nav .task-page-icon {
     background-image: url('../assets/icons/tasklist-light.png');
 }
+
 nav .task-page-icon:hover {
     background-image: url('../assets/icons/tasklist-hover-light.png');
 }
@@ -93,12 +123,15 @@ nav .task-page-icon:hover {
 .dark-mode nav .home-page-icon {
     background-image: url('../assets/icons/home-dark.png');
 }
+
 .dark-mode nav .home-page-icon:hover {
     background-image: url('../assets/icons/home-hover-dark.png');
 }
+
 .dark-mode nav .task-page-icon {
     background-image: url('../assets/icons/tasklist-dark.png');
 }
+
 .dark-mode nav .task-page-icon:hover {
     background-image: url('../assets/icons/tasklist-hover-dark.png');
 }
@@ -164,6 +197,8 @@ body {
     flex-direction: column;
     min-height: 100vh;
     min-width: 320px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
 }
 
 body.dark-mode  {
@@ -228,6 +263,7 @@ p {
     border-radius: 5px;
     background: white;
     margin-left: 1em;
+    width: 25em;
 }
 
 .dark-mode .search-container input[type="text"] {
@@ -266,38 +302,3 @@ p {
         margin-bottom: 1em;
     }
 }
-
-/* Fonts */
-body {
-    font-family: "Open Sans", sans-serif;
-    font-weight: 400;
-}
-
-/* Bold */
-h1 {
-    font-family: "Open Sans", sans-serif;
-    font-weight: 700; 
-}
-
-/* Semi-bold */
-h2, 
-h3,
-.modal-input #note-title {
-    font-family: "Open Sans", sans-serif;
-    font-weight: 600;  
-}
-
-/* Regular */
-p, 
-input, 
-select, 
-textarea {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 400;  
-}
-
-/* Light */
-button {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 300; 
-} 
