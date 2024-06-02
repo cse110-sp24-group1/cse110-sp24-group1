@@ -415,9 +415,11 @@ main {
 .save-button {
     background-color: var(--light-button-color);
     color: var(--light-text-color);
-    position: absolute;
+    position: relative;
     bottom: 1rem;
     right: 1rem;
+    margin-top: 20px;
+    margin-left: 95%;
     padding: 5px 10px;
     cursor: pointer;
     border: none;
@@ -446,7 +448,6 @@ main {
     box-shadow: 0 0px #595858;
     transform: translateY(1.5px);   
 }
-
 
 .back-button {
     background-color: var(--light-button-color);
@@ -537,18 +538,6 @@ main {
         box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
         margin-bottom: 10px;
     }
-
-    #modal-form {
-        display: flex;
-        flex-direction: column;
-    }
-
-    #modal-form .create-button {
-        position: relative;
-        margin-top: 10px;
-        margin-left: 90%;
-    }
-
 }
 
 /* SimpleMDE toolbar */
