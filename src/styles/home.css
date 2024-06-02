@@ -478,7 +478,7 @@ main {
 
     .top-right-buttons {
         margin-left: 4rem;
-        width: 80%;
+        width: 100vw - 4rem;
         margin: auto;
         position: relative;
     }
