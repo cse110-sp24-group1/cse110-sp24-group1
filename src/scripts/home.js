@@ -159,7 +159,7 @@ class HomeScript {
           <div class='folder-title'>
             <h3>${folder.name}</h3>
           </div>
-        </button>`;
+        </button>
         `;
       
       // Click the x button to delete the folder
