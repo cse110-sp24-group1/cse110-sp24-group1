@@ -4,7 +4,6 @@
 
 - Open Sans
 
-
 ## Head of the website
 
 - Extra-Bold 800
