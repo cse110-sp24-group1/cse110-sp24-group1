@@ -131,6 +131,8 @@ class TaskList extends HTMLElement {
     const taskDate = taskElement.querySelector('.task-date');
     const taskName = taskElement.querySelector('label[for]');
     const editBtn = taskElement.querySelector('.edit-btn');
+
+    taskElement.classList.toggle("editing-task");
     
     // Create an input element for task description
     const taskDescInput = document.createElement('input');
@@ -189,6 +191,8 @@ class TaskList extends HTMLElement {
         taskDate.classList.remove('no-date');
       }      
       taskName.textContent = taskNameInput.value;
+
+      taskElement.classList.toggle("editing-task");
  
       // Replace the input elements with the original elements
       taskDescInput.replaceWith(taskDesc);

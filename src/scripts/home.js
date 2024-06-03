@@ -108,7 +108,7 @@ class HomeScript {
    * Render notes and folders to the homepage.
    */
   render () {
-    console.log(this.currentFolderID + ' ' + this.parentFolderID);
+    //console.log(this.currentFolderID + ' ' + this.parentFolderID);
     // Clear main element
     this.mainElement.innerHTML = '';
 
@@ -119,18 +119,28 @@ class HomeScript {
       noteElement.setAttribute('data-note-id', note.id);
       noteElement.innerHTML = `
         <button class='obj-container'>
-          <div class='note-content' id=${note.label}>
-              <p>${note.body}</p>
-          </div>
-          <div class='note-title'>
-              <h3>${note.title}</h3>
-          </div>
-        </button>
-        `;
+        <div class='note-content' id=${note.label}>
+            <span class='delete'>&times;</span>
+            <p>${note.body}</p>
+        </div>
+        <div class='note-title'>
+            <h3>${note.title}</h3>
+        </div>
+        </button>`;
+
+
+      // Click the x button to delete the note
+      noteElement.querySelector('.delete').addEventListener('click', () => {
+        event.stopPropagation();
+        const confirmDelete = confirm("Are you sure you want to delete this note?!");
+        if (confirmDelete) {
+          this.deleteNote(note.id);
+        }
+      });
 
       // Click to open edit modal
       noteElement.addEventListener('click', () => {
-        this.openEditNoteModal(this.notes.indexOf(note), note.title, note.body);
+        this.openEditNoteModal(this.notes.indexOf(note), note.title, note.body, note.label);
       });
       this.mainElement.prepend(noteElement);
     });
@@ -141,12 +151,26 @@ class HomeScript {
       folderElement.classList.add('folder');
       folderElement.setAttribute('data-folder-id', folder.id);
       folderElement.innerHTML = `
+
         <button class='obj-container'>
-          <div class='note-title'>
+          <div class='folder-content' id=${folder.label}>
+            <span class='delete-folder'>&times;</span>
+          </div>
+          <div class='folder-title'>
             <h3>${folder.name}</h3>
           </div>
         </button>`;
-      folderElement.classList.add('folder-title');
+        `;
+      
+      // Click the x button to delete the folder
+      folderElement.querySelector('.delete-folder').addEventListener('click', () => {
+        event.stopPropagation();
+        const confirmDelete = confirm("Are you sure you want to delete this folder?!");
+        if (confirmDelete) {
+          this.deleteFolder(folder.id);
+          console.log(folder.id);
+        }
+      });
 
       // Click to open folder
       folderElement.addEventListener('click', () => {
@@ -156,12 +180,65 @@ class HomeScript {
       this.mainElement.prepend(folderElement);
     });
   }
+  
+  // Clicking the delete button will delete the note and all the data
+  deleteNote (noteId) {
+    // erm idrk how to deletus cuz after refreshing notes reappears
+    this.notes = this.notes.filter(note => note.id !== noteId);
+    localStorage.removeItem(`note-${noteId}`);
+    this.render();
+  }
+
+  // Clicking the delete button will delete the folder and all the data
+  deleteFolder (folderId) {
+    // Remove the folder from the folders array
+    this.folders = this.folders.filter(folder => folder.id !== folderId);
+
+    // Remove all child folders and notes
+    const childFolders = this.getChildFolders(folderId);
+    const childNotes = this.getChildNotes(folderId);
+    
+    childFolders.forEach(childFolder => {
+      localStorage.removeItem(`folder-${childFolder.id}`);
+    });
+    childNotes.forEach(childNote => {
+      localStorage.removeItem(`note-${childNote.id}`);
+    });
+
+    // Remove the folder from local storage
+    localStorage.removeItem(`folder-${folderId}`);
+
+    // Render the remaining folders and notes
+    this.render();
+  }
+
+  /**
+   * Get all child folders of a given folder.
+   * @param {string} parentFolderID - The ID of the parent folder.
+   * @returns {Array} - An array of child folders.
+   */
+  getChildFolders(parentFolderID) {
+      let childFolders = this.folders.filter(folder => folder.parentFolderID === parentFolderID);
+      childFolders.forEach(childFolder => {
+          childFolders = childFolders.concat(this.getChildFolders(childFolder.id));
+      });
+      return childFolders;
+  }
+
+  /**
+   * Get all child notes of a given folder.
+   * @param {string} folderID - The ID of the folder.
+   * @returns {Array} - An array of child notes.
+   */
+  getChildNotes(folderID) {
+      return this.notes.filter(note => note.folderID === folderID);
+  }
 
   /**
    * Open the modal to create a new note.
    */
   openCreateNoteModal () {
-    const modal = this.openModal()
+    const modal = this.openModal();
     // Modal content
     modal.innerHTML = `
             <div class='note-modal'>
@@ -253,9 +330,23 @@ class HomeScript {
    * @param {number} index - The index of the note in the notes array.
    * @param {string} title - The title of the note.
    * @param {string} body - The body content of the note.
+   * @param {string} label - The label ID of the note category.
    */
-  openEditNoteModal (index, title, body) {
+  openEditNoteModal (index, title, body, label) {
     const modal = this.openModal();
+
+    const noteIdValues = ['', 'code-snippets','stand-up', 'bug-reports', 'learning-notes', 'newsletter', 'performance', 'feature-ideas'];
+    const noteIdText = ['', 'Code Snippets', 'Stand-Up Notes', 'Bug Reports', 'Learning Notes', 'Newsletters', 'Performance Metrics',  'Feature Ideas'];
+    const noteIdColor = ['', '#e1322f', '#e14083', '#b351e0', '#6661e0', '#459de0', '#53e091', '#e07e37'];
+
+    let noteLabel, noteColor;
+
+    for (let i = 0; i < noteIdValues.length; i++ ) {
+      if (noteIdValues[i] === label) {
+        noteLabel = noteIdText[i];
+        noteColor = noteIdColor[i];
+      }
+    }
 
     // Modal content
     modal.innerHTML = `
@@ -268,10 +359,21 @@ class HomeScript {
                     <div>
                         <textarea id='edit-note-body' name='note-body'>${body}</textarea>
                     </div>
-                    <button class='save-button' type='submit'>Save</button>
+                    <div class='edit-note-footer'> 
+                        <div class='edit-note-label'>${noteLabel}</div>
+                        <button class='save-button' type='submit'>Save</button>
+                    </div>
                 </form>
             </div>
         `;
+
+    // Color of label
+    const nLabel = modal.querySelector('.edit-note-label');
+    nLabel.style.backgroundColor = noteColor;
+
+    if (label === '') {
+      nLabel.style.display = 'none';
+    }
 
     // Initialize SimpleMDE
     const simplemde = new SimpleMDE({ 
@@ -430,7 +532,6 @@ class HomeScript {
     if(!newFolder) {
       this.currentFolderID = MAIN_ID;
       this.parentFolderID = null;
-      console.log('hi');
     }
     else {
       this.currentFolderID = newFolderId;
