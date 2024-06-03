@@ -271,10 +271,10 @@ main {
     border-radius: 1.4rem;
     box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 30%);
     width: 40%;
-    height: 20%;
     max-width: 65%;
-    overflow-y: auto;
-    position: relative;
+    height: auto;
+    overflow: hidden; 
+    position: relative; 
 }
 
 .dark-mode .folder-modal {

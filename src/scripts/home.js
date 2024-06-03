@@ -68,6 +68,12 @@ class HomeScript {
    * @param {string} labelId - The label ID of the note.
    */
   createNote (title, body, labelId) {
+    const defaultNoteTitle = 'New Note'; // Default note title
+
+    if (!title) {
+      title = defaultNoteTitle; // Assign default title if title is empty
+    }
+
     const note = {
       title,
       body,
@@ -90,21 +96,26 @@ class HomeScript {
    * @param {string} folderName - The name of the folder.
    */
   createFolder (folderName) {
-    if (folderName) {
-      const folder = {
-        name: folderName,
-        id: `folder-${Date.now()}`, // unique id for the folder
-        parentFolderID: this.currentFolderID
-      };
-      // Add folder to the folders array
-      this.folders.push(folder);
+    const defaultFolderName = 'New Folder'; // Default folder name
 
-      // Save to local storage
-      saveFolder(folder);
+    if (!folderName) {
+      folderName = defaultFolderName; // Assign default name if folderName is empty
+    }
 
-      // Render the folders to the homepage
-      this.render();
+    const folder = {
+      name: folderName,
+      id: `folder-${Date.now()}`, // unique id for the folder
+      parentFolderID: this.currentFolderID
     };
+
+    // Add folder to the folders array
+    this.folders.push(folder);
+
+    // Save to local storage
+    saveFolder(folder);
+
+    // Render the folders to the homepage
+    this.render();
   }
 
   /**
@@ -310,10 +321,10 @@ class HomeScript {
       // Prevent default form submission
       event.preventDefault();
       // Take the values inputted from the modal form
-      const title = modal.querySelector('#note-title').value;
+      let title = modal.querySelector('#note-title').value;
       const body = modal.querySelector('#note-body').value;
       const labelId = modal.querySelector('#note-label').value;
-      
+
       // Create a new note
       this.createNote(title, body, labelId);
 
@@ -448,21 +459,21 @@ class HomeScript {
                 </form>
             </div>
         `;
-    
+
     // Close modal when clicking the close button
     const closeButton = modal.querySelector('.close-modal');
     closeButton.addEventListener('click', () => {
       this.closeModal(modal);
     });
 
-    // Create modal when clicking the create new note button
+    // Create modal when clicking the create new folder button
     const createButton = modal.querySelector('.create-folder-button');
     createButton.addEventListener('click', (event) => {
       // Prevent default form submission
       event.preventDefault();
       // Take the values inputted from the modal form
-      const folderName = modal.querySelector('#note-title').value;
-      
+      let folderName = modal.querySelector('#note-title').value;
+
       // Create a new folder
       this.createFolder(folderName);
 
