@@ -23,7 +23,7 @@
     - [ ] Back Button
     - [ ] Edit and Delete for Task List Page
     - [ ] Search 
-    - [ ] There is nothing here 
+    - [ ] Folder SVG Icon, Journal Entry (Maybe)
 - [ ] Make Hi-fis (wait for big changes to ui to be done) -- Vedant, Jeff, Moss
     - [ ] Make Hi-fis (colored) for the pages we have
     - [ ] Wait for most features to be done to start adapting as big changes to the UI are still being made
@@ -71,17 +71,17 @@
 - [ ] Test User flow of journal entry -- Anshi, Jeremy
 - [ ] Add testing automation -- Jeremy
 - [ ] All Javascript functions don't have proper comments -- Anshi
-- [ ] Implement Markdown Integration -- Purich, Anshi
+- [x] Implement Markdown Integration -- Purich, Anshi
     - [ ] Update buttons on new note/note to work
-- [ ] Changing the colors of the labels to be more accessible (no yellow) -- Purich
+- [x] Changing the colors of the labels to be more accessible (no yellow) -- Purich
 - [ ] Upload all icons -- Purich
     - [ ] Task List Page
     - [ ] Home Page
     - [ ] Task List Edit and Delete Task
 - [ ] Style folder entries to show an actual folder -- Purich
 - [ ] Show label as you hover over the journal entry -- Purich
-- [ ] Change opacity of blur -- Purich
-- [ ] Add ADRs -- Purich
+- [x] Change opacity of blur -- Purich
+- [x] Add ADRs -- Purich
 
 ## Back-End 
 
