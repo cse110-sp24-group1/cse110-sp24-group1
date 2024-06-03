@@ -8,15 +8,16 @@ Welcome to **One and Done**, a feature-rich journal app built with HTML, CSS, an
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 
-## Learn More About our [Team](admin/team.md)!
+## Learn More About our [Team](./admin/team.md)!
 
 ## Features
 
-  - Create notes and folders
-  - Markdown capability for notes
-  - Task list management
-  - Dark mode/light mode theme
-  - Local Storage for data management
+- Organized Note and Folder Creation: Easily create and manage your notes and folders to keep your thoughts and tasks well-organized.
+- Markdown Support: Utilize powerful markdown capabilities to format your notes with ease, adding structure and emphasis.
+- Efficient Task List Management: Keep track of your tasks and to-dos effortlessly with a dedicated task list management system.
+- Dual Theme Options: Switch seamlessly between dark mode and light mode to suit your preferences and enhance your writing experience.
+- Persistent Data Management: Rely on local storage to securely manage your data, ensuring your notes and tasks are always saved.
+- Powerful Search Functionality: Quickly find specific notes and tasks with a robust search bar, enhancing productivity and accessibility.
 
 ## Project Links
 
@@ -34,8 +35,8 @@ Welcome to **One and Done**, a feature-rich journal app built with HTML, CSS, an
 ![Miro](https://img.shields.io/badge/Miro-F7C922?style=for-the-badge&logo=Miro&logoColor=050036)
 
 - We used [Dribble](https://dribbble.com/tags/journal-app) for inspiration for our journal app.
-- We used [Miro](https://miro.com/app/board/uXjVKSW94aI=/) for our brainstorming and wireframing process.
-- We used Figma for [wireframing](https://www.figma.com/design/VSgkp9TLpiEXWHehsFP2Dg/Team-1-App-Wireframing?node-id=0-1&t=2TFJMbA5jlGBypO5-0) and [hi-fidelity](ADD LINK) diagrams.
+- We used this [Miro Board](https://miro.com/app/board/uXjVKSW94aI=/) for our brainstorming and wireframing process.
+- We used Figma for [wireframing](https://www.figma.com/design/VSgkp9TLpiEXWHehsFP2Dg/One-and-Done-Journal-App-Wireframing?node-id=0-1&t=y5qAZjXKxdrZl7Rq-1) and [hi-fidelity diagrams](https://www.figma.com/proto/uAhqMx3Dmbe6gv9awADPCt/One-and-Done-Journal-App-Prototype?node-id=1-2&t=U0amyd0JrK52E80l-1&starting-point-node-id=1%3A2).
 
 ## SimpleMDE API
 
@@ -82,7 +83,7 @@ Our project uses GitHub Actions for Continuous Integration and Deployment. The p
 - `/admin/meetings`: Contains our meeting notes.
 - `/admin/cipipline`: Contains pipeline diagrams.
 - `/admin/branding`: Continas branding information.
-- `/admin/videos`: Contains progress videos.
+- `/admin/videos`: Contains progress videos and final demo video.
 - `/admin/guidelines`: Contains code style, version control, and CSS style guidelines
 - `/docs`: Contains JSDoc information.
 - `/specs/adrs`: Contains Architectural Design Records for any major decisions made in our project.
