@@ -401,7 +401,7 @@ main {
     border-radius: 5px;
     margin-right: 1em;
     transition: background-color 0.3s;
-    box-shadow: 1.5px #999;
+    box-shadow: 0 1.5px #999;
 }
 
 .back-button {
@@ -416,7 +416,7 @@ main {
     border-radius: 5px;
     margin-left: 1em;
     transition: background-color 0.3s;
-    box-shadow: 1.5px #999;
+    box-shadow: 0 1.5px #999;
 
 }
 
@@ -449,29 +449,29 @@ main {
     background-color: var(--dark-button-color-hover);
 }
 
-.create-button:hover .create-button:active, 
-.save-button:hover .save-button:active {
+.create-button:hover:active, 
+.save-button:hover:active {
     background-color: var(--light-button-color-hover);
-    box-shadow: #999;
+    box-shadow: none;
     transform: translateY(1.5px);   
 }
 
-.dark-mode .create-button:hover .create-button:active, 
-.dark-mode .save-button:hover .save-button:active {
+.dark-mode .create-button:hover:active, 
+.dark-mode .save-button:hover:active {
     background-color: var(--dark-button-color-hover);
-    box-shadow: #595858;
+    box-shadow: none;
     transform: translateY(1.5px);   
 }
 
-.back-button:hover .back-button:active {
+.back-button:hover:active {
     background-color: var(--light-button-color-hover);
-    box-shadow: #999;
+    box-shadow: none;
     transform: translateY(1.5px);   
 }
 
-.dark-mode .back-button:hover .back-button:active {
+.dark-mode .back-button:hover:active {
     background-color: var(--dark-button-color-hover);
-    box-shadow: #595858;
+    box-shadow: none;
     transform: translateY(1.5px);   
 }
 
