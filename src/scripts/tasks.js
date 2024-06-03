@@ -165,7 +165,6 @@ class TaskList extends HTMLElement {
     const taskDate = taskElement.querySelector('.task-date');
     const taskName = taskElement.querySelector('label[for]');
     const editBtn = taskElement.querySelector('.edit-btn');
- 
     // Create an input element for task description
     const taskDescInput = document.createElement('input');
     taskDescInput.type = 'text';
@@ -202,6 +201,7 @@ class TaskList extends HTMLElement {
  
     // Create a save button
     const saveBtn = document.createElement('button');
+    saveBtn.classList.add('save-btn');
     saveBtn.textContent = 'Save';
  
     // Replace the task content with the input elements
@@ -319,25 +319,24 @@ document.addEventListener('DOMContentLoaded', () => {
   const taskContainer = document.querySelector('.task-container');
   const searchBtn = document.getElementById('search-btn');
   const searchInput = document.getElementById('search-bar');
- 
+
   // Open the modal when the task form is submitted
   taskForm.addEventListener('submit', (event) => {
     event.preventDefault();
     openModal();
   });
- 
+
   // Close the modal when the close button is clicked
   closeModalBtn.addEventListener('click', closeModal);
- 
+
   // Add a new task when the modal form is submitted
   modalForm.addEventListener('submit', (event) => {
     event.preventDefault();
-    const taskList = document.createElement('task-list');
-    taskContainer.appendChild(taskList);
+    const taskList = document.querySelector('task-list');
     taskList.addTaskFromModal();
     closeModal();
   });
- 
+
   // Show or hide the new label input based on the selected value
   taskLabelSelect.addEventListener('change', () => {
     if (taskLabelSelect.value === 'createNew') {
@@ -346,14 +345,14 @@ document.addEventListener('DOMContentLoaded', () => {
       newLabelInput.style.display = 'none';
     }
   });
- 
+
   // Search functionality for the task list
   searchBtn.addEventListener('click', () => {
     const taskList = document.querySelector('.task-list');
     const searchQuery = searchInput.value.trim().toLowerCase();
     taskList.searchTasks(searchQuery);
   });
- 
+
   // Function to open the modal
   function openModal () {
     modal.style.display = 'block';
@@ -366,7 +365,7 @@ document.addEventListener('DOMContentLoaded', () => {
       modalTitle.textContent = 'New Task';
     }
   }
- 
+
   // Function to close the modal
   function closeModal () {
     modal.style.display = 'none';
