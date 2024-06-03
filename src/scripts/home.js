@@ -127,10 +127,7 @@ class HomeScript {
       // Click the x button to delete the note
       noteElement.querySelector('.delete').addEventListener('click', () => {
         event.stopPropagation();
-        const confirmDelete = confirm("Are you sure you want to delete this note?!");
-        if (confirmDelete) {
-          this.deleteNote(note.id);
-        }
+        this.openConfirmationDeleteModal(note.id, 'note');
       });
 
       // Click to open edit modal
@@ -157,11 +154,7 @@ class HomeScript {
       // Click the x button to delete the folder
       folderElement.querySelector('.delete-folder').addEventListener('click', () => {
         event.stopPropagation();
-        const confirmDelete = confirm("Are you sure you want to delete this folder?!");
-        if (confirmDelete) {
-          this.deleteFolder(folder.id);
-          console.log(folder.id);
-        }
+        this.openConfirmationDeleteModal(folder.id, 'folder');
       });
 
       // Click to open folder
@@ -173,36 +166,51 @@ class HomeScript {
     });
   }
   
-  // Clicking the delete button will delete the note and all the data
-  deleteNote (noteId) {
-    // erm idrk how to deletus cuz after refreshing notes reappears
-    this.notes = this.notes.filter(note => note.id !== noteId);
-    localStorage.removeItem(`note-${noteId}`);
-    this.render();
-  }
+  /**
+   * Open the modal to reassure with the user that they want to delete this note.
+   */
+   openConfirmationDeleteModal(Id, type) {
+    const modal = document.createElement('div');
+    // Modal class for css design
+    modal.classList.add('modal');
+    // Append modal to main body
+    document.body.appendChild(modal);
 
-  // Clicking the delete button will delete the folder and all the data
-  deleteFolder (folderId) {
-    // Remove the folder from the folders array
-    this.folders = this.folders.filter(folder => folder.id !== folderId);
-
-    // Remove all child folders and notes
-    const childFolders = this.getChildFolders(folderId);
-    const childNotes = this.getChildNotes(folderId);
+    // Modal content
+    modal.innerHTML = `
+            <div class='folder-modal'>
+                <div class='modal-title'>
+                    <h3>Are you sure you want to delete this ${type}!!??</h3>
+                </div>
+                <div class='confirmation-buttons'> 
+                    <button class='no-button' type='submit'>NOPE</button>
+                    <button class='yes-button' type='submit'>YES</button>
+                </div>
+            </div>
+        `;
     
-    childFolders.forEach(childFolder => {
-      localStorage.removeItem(`folder-${childFolder.id}`);
-    });
-    childNotes.forEach(childNote => {
-      localStorage.removeItem(`note-${childNote.id}`);
+    // Close modal when clicking the close button or saying no
+    const noButton = modal.querySelector('.no-button');
+    noButton.addEventListener('click', () => {
+      this.closeModal(modal);
     });
 
-    // Remove the folder from local storage
-    localStorage.removeItem(`folder-${folderId}`);
-
-    // Render the remaining folders and notes
-    this.render();
+    // Deletes note when yes is selected
+    const yesButton = modal.querySelector('.yes-button');
+    yesButton.addEventListener('click', (event) => {
+      // Prevent default form submission
+      event.preventDefault();
+      if (type === 'folder') {
+        deleteFolderByID(Id);
+      }
+      if (type === 'note') {
+        deleteNoteByID(Id);
+      }
+      this.closeModal(modal);
+      location.reload();
+    });
   }
+
 
   /**
    * Get all child folders of a given folder.
@@ -257,7 +265,9 @@ class HomeScript {
                     <div class='modal-input'>
                         <textarea id='note-body' name='note-body'></textarea>
                     </div>
-                    <button class='create-button' type='submit'>Create</button>
+                    <div class='new-note-foot'> 
+                        <button class='create-button' type='submit'>Create</button>
+                    </div>
                 </form>
             </div>
         `;
@@ -430,7 +440,7 @@ class HomeScript {
                     <div class='modal-input'>
                         <input type='text' id='note-title' name='note-title' placeholder='Folder Name'>
                     </div>
-                    <button class='create-button' type='submit'>Create</button>
+                    <button class='create-folder-button' type='submit'>Create</button>
                 </form>
             </div>
         `;
@@ -442,7 +452,7 @@ class HomeScript {
     });
 
     // Create modal when clicking the create new note button
-    const createButton = modal.querySelector('.create-button');
+    const createButton = modal.querySelector('.create-folder-button');
     createButton.addEventListener('click', (event) => {
       // Prevent default form submission
       event.preventDefault();

@@ -228,7 +228,7 @@ select:focus {
 }
 
 /* Edits for smaller screens (mobile) */
-@media (width <= 500px) { 
+@media (width <= 700px) { 
    #task-form {
       margin-left: 1em;
    }
@@ -237,6 +237,10 @@ select:focus {
       flex-direction: column;
       gap: 10px 20px;
    }
+
+   .search-container {
+      margin-left: 10px;
+  }
 }
 
 /* Add a Task Form */
@@ -310,7 +314,7 @@ select:focus {
    background-color: var(--dark-background-color);
 }
 
-@media (width <= 480px) {
+@media (width <= 700px) {
    #modal {
        width: 90vw;
        height: 90vh;
