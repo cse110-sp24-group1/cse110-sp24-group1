@@ -67,7 +67,7 @@ class HomeScript {
    * @param {string} body - The body content of the note.
    * @param {string} labelId - The label ID of the note.
    */
-  createNote (title, body,labelId) {
+  createNote (title, body, labelId) {
     const note = {
       title,
       body,
@@ -107,8 +107,6 @@ class HomeScript {
     };
   }
 
-  renderNotes (filteredNotes = this.notes) { // filteredNotes to render a specific subset of notes  
-    // Clear existing notes
   /**
    * Render notes and folders to the homepage.
    */
@@ -149,14 +147,6 @@ class HomeScript {
       const folderElement = document.createElement('div');
       folderElement.classList.add('folder');
       folderElement.setAttribute('data-folder-id', folder.id);
-      folderElement.innerHTML = `<h3>${folder.name}</h3>`;
-      folderElement.addEventListener('dragover', this.onDragOver.bind(this));
-      folderElement.addEventListener('drop', this.onDrop.bind(this));
-      this.mainElement.appendChild(folderElement);
-
-      const notesInFolder = filteredNotes.filter(note => note.folderId === folder.id);
-      notesInFolder.forEach(note => {
-        this.appendNoteToFolder(note, folderElement);
       folderElement.innerHTML = `
         <div class='folder-content' id=${folder.label}>
           <span class='delete-folder'>&times;</span>
@@ -164,7 +154,7 @@ class HomeScript {
         <div class='folder-title'>
           <h3>${folder.name}</h3>
         </div>
-        `;
+      `;
       
       // Click the x button to delete the folder
       folderElement.querySelector('.delete-folder').addEventListener('click', () => {
@@ -180,7 +170,7 @@ class HomeScript {
       this.mainElement.prepend(folderElement);
     });
   }
-  
+
   /**
    * Open the modal to reassure with the user that they want to delete this note.
    */
@@ -191,10 +181,6 @@ class HomeScript {
     // Append modal to main body
     document.body.appendChild(modal);
 
-    // Render notes not in any folder
-    const unassignedNotes = filteredNotes.filter(note => note.folderId === null);
-    unassignedNotes.forEach(note => {
-      this.appendNoteToFolder(note, this.mainElement);
     // Modal content
     modal.innerHTML = `
             <div class='folder-modal'>
@@ -230,18 +216,17 @@ class HomeScript {
     });
   }
 
-
   /**
    * Get all child folders of a given folder.
    * @param {string} parentFolderID - The ID of the parent folder.
    * @returns {Array} - An array of child folders.
    */
   getChildFolders(parentFolderID) {
-      let childFolders = this.folders.filter(folder => folder.parentFolderID === parentFolderID);
-      childFolders.forEach(childFolder => {
-          childFolders = childFolders.concat(this.getChildFolders(childFolder.id));
-      });
-      return childFolders;
+    let childFolders = this.folders.filter(folder => folder.parentFolderID === parentFolderID);
+    childFolders.forEach(childFolder => {
+        childFolders = childFolders.concat(this.getChildFolders(childFolder.id));
+    });
+    return childFolders;
   }
 
   /**
@@ -250,7 +235,7 @@ class HomeScript {
    * @returns {Array} - An array of child notes.
    */
   getChildNotes(folderID) {
-      return this.notes.filter(note => note.folderID === folderID);
+    return this.notes.filter(note => note.folderID === folderID);
   }
 
   /**
@@ -330,7 +315,7 @@ class HomeScript {
       const labelId = modal.querySelector('#note-label').value;
       
       // Create a new note
-      this.createNote(title, body,labelId);
+      this.createNote(title, body, labelId);
 
       this.closeModal(modal);
     });
@@ -478,7 +463,7 @@ class HomeScript {
       // Take the values inputted from the modal form
       const folderName = modal.querySelector('#note-title').value;
       
-      // Create a new note
+      // Create a new folder
       this.createFolder(folderName);
 
       this.closeModal(modal);
@@ -516,7 +501,7 @@ class HomeScript {
    */
   closeModal(modal) {
     document.body.removeChild(modal);
-      // Show the top right buttons again
+    // Show the top right buttons again
     this.topRightButtons.style.display = 'flex';
     // Show the search bar again
     this.searchBar.style.display = 'flex';
@@ -524,7 +509,7 @@ class HomeScript {
     this.navBar.classList.remove('blur');
     // Unhide the notes from display
     this.mainElement.classList.remove('hide-notes');
-    // Unhide the search bar from display
+    // Unhide the journal header from display
     this.journalHeader.classList.remove('hide-notes');
   }  
 
@@ -564,13 +549,49 @@ class HomeScript {
     this.render();
   }
 
-  // Filter the exist note with title of the note
+  /**
+   * Filter the exist note with title of the note.
+   * @param {Event} event - The input event from the search bar.
+   */
   searchNotes(event) {
     const searchQuery = event.target.value.toLowerCase(); // check the lower character
     const filteredNotes = this.notes.filter(note => note.title.toLowerCase().includes(searchQuery));
-    // const filteredFolder = this.folders.filter(folder => folder.title.toLowerCase().includes(searchQuery));
     this.renderNotes(filteredNotes);
-    // this.renderNotes(filteredFolder);
+  }
+
+  /**
+   * Render notes to the homepage.
+   * @param {Array} [filteredNotes=this.notes] - The notes to render.
+   */
+  renderNotes (filteredNotes = this.notes) {
+    this.mainElement.innerHTML = '';
+
+    // Render all notes in current folder
+    filteredNotes.forEach(note => {
+      const noteElement = document.createElement('div');
+      noteElement.classList.add('note');
+      noteElement.setAttribute('data-note-id', note.id);
+      noteElement.innerHTML = `
+        <div class='note-content' id=${note.label}>
+            <span class='delete'>&times;</span>
+            <p>${note.body}</p>
+        </div>
+        <div class='note-title'>
+            <h3>${note.title}</h3>
+        </div>`;
+
+      // Click the x button to delete the note
+      noteElement.querySelector('.delete').addEventListener('click', () => {
+        event.stopPropagation();
+        this.openConfirmationDeleteModal(note.id, 'note');
+      });
+
+      // Click to open edit modal
+      noteElement.addEventListener('click', () => {
+        this.openEditNoteModal(this.notes.indexOf(note), note.title, note.body, note.label);
+      });
+      this.mainElement.prepend(noteElement);
+    });
   }
 }
 
