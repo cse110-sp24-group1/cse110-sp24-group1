@@ -4,9 +4,9 @@
 
 Welcome to **One and Done**, a feature-rich journal app built with HTML, CSS, and JavaScript. This app allows you to create notes and folders, use markdown for formatting, and manage tasks efficiently.
 
-![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
 
 ## Learn More About our [Team](./admin/team.md)!
 
@@ -24,15 +24,14 @@ Welcome to **One and Done**, a feature-rich journal app built with HTML, CSS, an
 ![Github](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)
 ![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-222222?style=for-the-badge&logo=GitHub%20Pages&logoColor=white)
 
-
 - We used Github for project management. Our [GitHub Repository](https://github.com/cse110-sp24-group1/cse110-sp24-group1) has our source code, meeting notes, brainstorming information, kanban board, and much more.
 - We are hosting our [website](https://cse110-sp24-group1.github.io/cse110-sp24-group1/src/) with GitHub Pages.
 
 ## Brainstorming and Design Process
 
 ![Dribbble](https://img.shields.io/badge/Dribbble-EA4C89?style=for-the-badge&logo=dribbble&logoColor=white)
-![Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)
 ![Miro](https://img.shields.io/badge/Miro-F7C922?style=for-the-badge&logo=Miro&logoColor=050036)
+![Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)
 
 - We used [Dribble](https://dribbble.com/tags/journal-app) for inspiration for our journal app.
 - We used this [Miro Board](https://miro.com/app/board/uXjVKSW94aI=/) for our brainstorming and wireframing process.
