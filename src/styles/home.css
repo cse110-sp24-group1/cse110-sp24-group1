@@ -271,9 +271,9 @@ main {
     border-radius: 1.4rem;
     box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 30%);
     width: 40%;
-    height: 20%;
     max-width: 65%;
-    overflow-y: auto;
+    height: auto;
+    overflow: none;
     position: relative;
 }
 
@@ -513,9 +513,7 @@ main {
         margin-left: 10px;
     }
 
-    .search-container #folder-back-button,
-    .search-container button
-     {
+    .search-container #folder-back-button {
         margin-right: 10px;
     }
 
@@ -595,4 +593,5 @@ main {
     border-radius: 5px;
     transition: background-color 0.3s;
     box-shadow: 0 1.5px #999;
+    margin-bottom: 1em;
 }

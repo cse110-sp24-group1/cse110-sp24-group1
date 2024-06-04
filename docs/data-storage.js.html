@@ -1,10 +1,38 @@
-/**
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: data-storage.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: data-storage.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
 * Searches through the folder array in localStorage and returns
 * the folder with id as their id.
 * If nothing is found in localStorage for the folder, an empty array
 * is returned.
 * @param {string} folderID: The ID of the folder to get
-* @returns {Array<Object>} An array of folders found in localStorage
+* @returns {Array&lt;Object>} An array of folders found in localStorage
 * Data format: {
 *     id: string,
 *     name: string,
@@ -25,7 +53,7 @@ function getFolderByID(folderID) {
 
     // Otherwise, search through the folders array in localStorage
     // and add any folders with the folderID as their parentFolderID
-    for(let i = 0; i < folders.length; i++) {
+    for(let i = 0; i &lt; folders.length; i++) {
         if(folders[i].id === folderID) {
             folderWithID = folders[i];
         }
@@ -41,7 +69,7 @@ function getFolderByID(folderID) {
 * If nothing is found in localStorage for the folder, an empty array
 * is returned.
 * @param {string} folderID: The ID of the folder to get the children of
-* @returns {Array<Object>} An array of folders found in localStorage
+* @returns {Array&lt;Object>} An array of folders found in localStorage
 * Data format: [{
 *     id: string,
 *     name: string,
@@ -62,7 +90,7 @@ function getFoldersByID(folderID) {
 
     // Otherwise, search through the folders array in localStorage
     // and add any folders with the folderID as their parentFolderID
-    for(let i = 0; i < folders.length; i++) {
+    for(let i = 0; i &lt; folders.length; i++) {
         if(folders[i].parentFolderID === folderID) {
             foldersWithID.push(folders[i]);
         }
@@ -93,7 +121,7 @@ function saveFolder(folder) {
     }
 
     // Check if the folder already exists in the folders array
-    for(let i = 0; i < folders.length; i++) {
+    for(let i = 0; i &lt; folders.length; i++) {
         if(folders[i].id === folder.id) {
             // If the folder already exists, update it in the folders array
             folders[i] = folder;
@@ -125,7 +153,7 @@ function deleteFolderByID(folderID) {
     }
     // Otherwise, search through the folders array in localStorage
     // and delete the folder with the folderID
-    for(let i = 0; i < folders.length; i++) {
+    for(let i = 0; i &lt; folders.length; i++) {
         if(folders[i].id === folderID) {
             // Delete the folder from the folders array
             folders.splice(i, 1);
@@ -138,7 +166,7 @@ function deleteFolderByID(folderID) {
     deleteNotesByFolderID(folderID);
     // Recursively delete all children of the folder
     let children = getFoldersByID(folderID);
-    for(let i = 0; i < children.length; i++) {
+    for(let i = 0; i &lt; children.length; i++) {
         deleteFolderByID(children[i].id);
     }
  }
@@ -149,7 +177,7 @@ function deleteFolderByID(folderID) {
 * If nothing is found in localStorage for the folder, an empty array
 * is returned.
 * @param {string} folderID: The ID of the folder to get the notes of
-* @returns {Array<Object>} An array of notes found in localStorage
+* @returns {Array&lt;Object>} An array of notes found in localStorage
 * Data format: [{
 *    "id": "string", // This is a unique identifier for the note
 *    "folderID": "string", // The ID of the folder the note belongs to
@@ -172,7 +200,7 @@ function getNotesByFolderID(folderID) {
 
     // Otherwise, search through the notes array in localStorage
     // and add any notes with the folderID as their folderID
-    for(let i = 0; i < notes.length; i++) {
+    for(let i = 0; i &lt; notes.length; i++) {
         if(notes[i].folderID === folderID) {
             notesWithID.push(notes[i]);
         }
@@ -205,7 +233,7 @@ function saveNote(note) {
     }
 
     // Check if the note already exists in the notes array
-    for(let i = 0; i < notes.length; i++) {
+    for(let i = 0; i &lt; notes.length; i++) {
         if(notes[i].id === note.id) {
             // If the note already exists, update it in the notes array
             notes[i] = note;
@@ -237,7 +265,7 @@ function deleteNoteByID(noteID) {
 
     // Otherwise, search through the notes array in localStorage
     // and delete the note with the noteID
-    for(let i = 0; i < notes.length; i++) {
+    for(let i = 0; i &lt; notes.length; i++) {
         if(notes[i].id === noteID) {
             // Delete the note from the notes array
             notes.splice(i, 1);
@@ -261,7 +289,7 @@ function deleteNoteByID(noteID) {
 
     // Otherwise, search through the notes array in localStorage
     // and delete the note with the noteID
-    for(let i = 0; i < notes.length; i++) {
+    for(let i = 0; i &lt; notes.length; i++) {
         if(notes[i].id === noteID) {
             // Delete the note from the notes array
             notes.splice(i, 1);
@@ -288,7 +316,7 @@ function deleteNotesByFolderID(folderID) {
 
     // Otherwise, search through the notes array in localStorage
     // and delete all notes with the folderID
-    for(let i = 0; i < notes.length; i++) {
+    for(let i = 0; i &lt; notes.length; i++) {
         if(notes[i].folderID === folderID) {
             // Delete the note from the notes array
             notes.splice(i, 1);
@@ -304,7 +332,7 @@ function deleteNotesByFolderID(folderID) {
 * all of the tasks found (parsed, not in string form). If
 * nothing is found in localStorage for 'taskList', an empty array
 * is returned.
-* @returns {Array<data>} An array of tasks found in localStorage
+* @returns {Array&lt;data>} An array of tasks found in localStorage
 * Data format: {
 *    "tasks[]": "array[string]",
 * }
@@ -341,7 +369,7 @@ function saveTask(task) {
     }
 
     // Check if the task already exists in the taskList array
-    for(let i = 0; i < taskList.length; i++) {
+    for(let i = 0; i &lt; taskList.length; i++) {
         if(taskList[i].id === task.id) {
             // If the task already exists, update it in the taskList array
             taskList[i] = task;
@@ -372,7 +400,7 @@ function deleteTask(taskID) {
 
     // Otherwise, search through the taskList array in localStorage
     // and delete the task with the taskID
-    for(let i = 0; i < taskList.length; i++) {
+    for(let i = 0; i &lt; taskList.length; i++) {
         if(taskList[i].id === taskID) {
             // Delete the task from the taskList array
             taskList.splice(i, 1);
@@ -382,3 +410,26 @@ function deleteTask(taskID) {
         }
     }
 }
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="HomeScript.html">HomeScript</a></li><li><a href="TaskList.html">TaskList</a></li></ul><h3>Global</h3><ul><li><a href="global.html#currentTheme">currentTheme</a></li><li><a href="global.html#darkModeToggle">darkModeToggle</a></li><li><a href="global.html#deleteFolderByID">deleteFolderByID</a></li><li><a href="global.html#deleteNoteByID">deleteNoteByID</a></li><li><a href="global.html#deleteNotesByFolderID">deleteNotesByFolderID</a></li><li><a href="global.html#deleteTask">deleteTask</a></li><li><a href="global.html#getFolderByID">getFolderByID</a></li><li><a href="global.html#getFoldersByID">getFoldersByID</a></li><li><a href="global.html#getNotesByFolderID">getNotesByFolderID</a></li><li><a href="global.html#getTaskList">getTaskList</a></li><li><a href="global.html#MAIN_ID">MAIN_ID</a></li><li><a href="global.html#prefersDarkScheme">prefersDarkScheme</a></li><li><a href="global.html#saveFolder">saveFolder</a></li><li><a href="global.html#saveNote">saveNote</a></li><li><a href="global.html#saveTask">saveTask</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Tue Jun 04 2024 22:26:52 GMT+0000 (Coordinated Universal Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
