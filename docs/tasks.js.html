@@ -1,4 +1,32 @@
-/**
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: tasks.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: tasks.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
  * Class representing the TaskList for managing tasks.
  */
 class TaskList extends HTMLElement {
@@ -13,9 +41,9 @@ class TaskList extends HTMLElement {
     
     // Set up the initial HTML structure for the task list
     this.shadowRoot.innerHTML = `
-      <link rel="stylesheet" type="text/css" href="./styles/global.css" media="screen">
-      <link rel="stylesheet" type="text/css" href="./styles/tasks.css" media="screen">
-      <section class="task-container"></section>
+      &lt;link rel="stylesheet" type="text/css" href="./styles/global.css" media="screen">
+      &lt;link rel="stylesheet" type="text/css" href="./styles/tasks.css" media="screen">
+      &lt;section class="task-container">&lt;/section>
     `;
  
     // Get a reference to the task container
@@ -24,7 +52,7 @@ class TaskList extends HTMLElement {
     // Event listener for when checkbox is checked to trigger confetti effect and to grey out the task and to remove greyed out when checkbox is unchecked
     this.taskContainer.addEventListener('change', (event) => {
       const checkbox = event.target;
-      if (checkbox.tagName === 'INPUT' && checkbox.type === 'checkbox') {
+      if (checkbox.tagName === 'INPUT' &amp;&amp; checkbox.type === 'checkbox') {
         const taskItem = checkbox.closest('.task-item');
         if (checkbox.checked) {
           this.animateConfetti(taskItem);
@@ -100,31 +128,31 @@ class TaskList extends HTMLElement {
     newTask.dataset.label = task.label;
     // Populate the task element with the new task data
     newTask.innerHTML = `
-        <div class="task-main">
-        <input type="checkbox" class='check' id="${task.id}" ${task.checked ? `checked`: ''}>
-        <label for="${task.id}">${task.name}</label>
-        <button class="edit-btn">✏️</button>
-        </div>
-        <label class="task-desc">${task.description}</label>
-        <div class="task-footer">
-        <div class="date-label">
-            <div class="task-label" style="background-color: ${task.color}; ${this.calculateTextColor(task.color)}">
+        &lt;div class="task-main">
+        &lt;input type="checkbox" class='check' id="${task.id}" ${task.checked ? `checked`: ''}>
+        &lt;label for="${task.id}">${task.name}&lt;/label>
+        &lt;button class="edit-btn">✏️&lt;/button>
+        &lt;/div>
+        &lt;label class="task-desc">${task.description}&lt;/label>
+        &lt;div class="task-footer">
+        &lt;div class="date-label">
+            &lt;div class="task-label" style="background-color: ${task.color}; ${this.calculateTextColor(task.color)}">
             ${task.label}
-            </div>
+            &lt;/div>
             ${
             task.dueDate
                 ? `
-            <div class="task-date">
-                <label>🗓️ ${task.dueDate}</label>
-            </div>
+            &lt;div class="task-date">
+                &lt;label>🗓️ ${task.dueDate}&lt;/label>
+            &lt;/div>
             ` 
-                : '<div class="task-date no-date"><label></label></div>'
+                : '&lt;div class="task-date no-date">&lt;label>&lt;/label>&lt;/div>'
             }
-        </div>
-        <div class="task-buttons">
-            <button class="delete-btn">🗑️</button>
-        </div>
-        </div>
+        &lt;/div>
+        &lt;div class="task-buttons">
+            &lt;button class="delete-btn">🗑️&lt;/button>
+        &lt;/div>
+        &lt;/div>
     `;
 
     // Add event listeners for the edit and delete buttons
@@ -174,7 +202,7 @@ class TaskList extends HTMLElement {
     const g = parseInt(hex.substring(2, 4), 16);
     const b = parseInt(hex.substring(4, 6), 16);
     const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
-    return luminance < 0.5 ? 'color: white;' : '';
+    return luminance &lt; 0.5 ? 'color: white;' : '';
   }
  
   /**
@@ -318,7 +346,7 @@ class TaskList extends HTMLElement {
     const confettiCount = 100;
     const fragment = document.createDocumentFragment();
  
-    for (let i = 0; i < confettiCount; i++) {
+    for (let i = 0; i &lt; confettiCount; i++) {
       const confetti = document.createElement('i');
       confetti.classList.add('confetti');
  
@@ -395,4 +423,26 @@ document.addEventListener('DOMContentLoaded', () => {
   const taskList = document.createElement('task-list');
   taskContainer.appendChild(taskList);
   taskList.loadTasks();
-});
+});</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="HomeScript.html">HomeScript</a></li><li><a href="TaskList.html">TaskList</a></li></ul><h3>Global</h3><ul><li><a href="global.html#currentTheme">currentTheme</a></li><li><a href="global.html#darkModeToggle">darkModeToggle</a></li><li><a href="global.html#deleteFolderByID">deleteFolderByID</a></li><li><a href="global.html#deleteNoteByID">deleteNoteByID</a></li><li><a href="global.html#deleteNotesByFolderID">deleteNotesByFolderID</a></li><li><a href="global.html#deleteTask">deleteTask</a></li><li><a href="global.html#getFolderByID">getFolderByID</a></li><li><a href="global.html#getFoldersByID">getFoldersByID</a></li><li><a href="global.html#getNotesByFolderID">getNotesByFolderID</a></li><li><a href="global.html#getTaskList">getTaskList</a></li><li><a href="global.html#MAIN_ID">MAIN_ID</a></li><li><a href="global.html#prefersDarkScheme">prefersDarkScheme</a></li><li><a href="global.html#saveFolder">saveFolder</a></li><li><a href="global.html#saveNote">saveNote</a></li><li><a href="global.html#saveTask">saveTask</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Tue Jun 04 2024 20:15:44 GMT+0000 (Coordinated Universal Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

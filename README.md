@@ -64,7 +64,7 @@ Our project uses GitHub Actions for Continuous Integration and Deployment. The p
 
 ### JSDoc
 
-- We use JSDoc(ADD LINK) to generate our project documentation from JavaScript Comments. 
+- We used JSDoc Actions to generate our [project documentation](https://cse110-sp24-group1.github.io/cse110-sp24-group1/docs/home.js.html) from JavaScript Comments. 
 
 ### Superlinter
 
