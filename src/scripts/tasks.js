@@ -199,7 +199,7 @@ class TaskList extends HTMLElement {
   deleteTask (taskElement) {
     taskElement.remove();
   }
- 
+
   /**
    * Search for tasks based on the search query.
    * @param {string} query - The search query.
@@ -281,6 +281,44 @@ document.addEventListener('DOMContentLoaded', () => {
     closeModal();
   });
  
+  // Function to search for specific tasks from search bar
+  function searchTasks() {
+    const searchQuery = searchInput.value.trim().toLowerCase();
+    const taskLists = document.querySelectorAll('task-list');
+  
+    // Loop through each task list
+    taskLists.forEach(taskList => {
+      const tasks = taskList.shadowRoot.querySelectorAll('.task-item');
+  
+      // Loop through each task in the current task list
+      tasks.forEach(task => {
+        const taskName = task.querySelector('label[for]').textContent.toLowerCase();
+        const taskDesc = task.querySelector('.task-desc').textContent.toLowerCase();
+        const taskLabel = task.querySelector('.task-label').textContent.toLowerCase();
+  
+        // Check if any of the task details match the search query
+        if (taskName.includes(searchQuery) || taskDesc.includes(searchQuery) || taskLabel.includes(searchQuery)) {
+          task.style.display = 'block'; 
+        } else {
+          task.style.display = 'none';
+        }
+      });
+    });
+  }
+
+  // Search tasks from the search bar
+  searchInput.addEventListener('keyup', searchTasks);
+  searchBtn.addEventListener('click', searchTasks);
+
+  // Show or hide the new label input based on the selected value
+  taskLabelSelect.addEventListener('change', () => {
+    if (taskLabelSelect.value === 'createNew') {
+      newLabelInput.style.display = 'inline-block';
+    } else {
+      newLabelInput.style.display = 'none';
+    }
+  });
+
   // Search functionality for the task list
   searchBtn.addEventListener('click', () => {
     const taskList = document.querySelector('.task-list');
