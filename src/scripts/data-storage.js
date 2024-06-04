@@ -248,10 +248,8 @@ function deleteNoteByID(noteID) {
     }
 }
 
-/**
- * Deletes all notes with the given folderID from localStorage
- * @param {string} folderID
- */
+
+/*
 function deleteNoteByID(noteID) {
     // Get the notes from localStorage
     let notes = JSON.parse(localStorage.getItem('notes'));
@@ -273,6 +271,7 @@ function deleteNoteByID(noteID) {
         }
     }
 }
+*/
 
 /**
  * Deletes all notes with the given folderID from localStorage
