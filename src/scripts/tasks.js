@@ -203,7 +203,7 @@ class TaskList extends HTMLElement {
   deleteTask (taskElement) {
     taskElement.remove();
   }
- 
+
   /**
    * Search for tasks based on the search query.
    * @param {string} query - The search query.
