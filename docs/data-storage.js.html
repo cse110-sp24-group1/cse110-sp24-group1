@@ -145,33 +145,31 @@ function saveFolder(folder) {
  * @param {string} folderID: The ID of the folder to delete
  */
 function deleteFolderByID(folderID) {
-   // Get the folders from localStorage
-   let folders = JSON.parse(localStorage.getItem('folders'));
-   // Get the notes from localStorage
-   let notes = JSON.parse(localStorage.getItem('notes'));
-   // If there are no folders in localStorage, return
-   if(!folders) {
-       return;
-   }
-   // Otherwise, search through the folders array in localStorage
-   // and delete the folder with the folderID
-   for(let i = 0; i &lt; folders.length; i++) {
-       if(folders[i].id === folderID) {
-           // Delete the folder from the folders array
-           folders.splice(i, 1);
-           // Save the updated folders array to localStorage
-           localStorage.setItem('folders', JSON.stringify(folders));
-           break;
-       }
-   }
-   // Delete all notes with the folderID
-   deleteNotesByFolderID(folderID);
-   // Recursively delete all children of the folder
-   let children = getFoldersByID(folderID);
-   for(let i = 0; i &lt; children.length; i++) {
-       deleteFolderByID(children[i].id);
-   }
-}
+    // Get the folders from localStorage
+    let folders = JSON.parse(localStorage.getItem('folders'));
+    // If there are no folders in localStorage, return
+    if(!folders) {
+        return;
+    }
+    // Otherwise, search through the folders array in localStorage
+    // and delete the folder with the folderID
+    for(let i = 0; i &lt; folders.length; i++) {
+        if(folders[i].id === folderID) {
+            // Delete the folder from the folders array
+            folders.splice(i, 1);
+            // Save the updated folders array to localStorage
+            localStorage.setItem('folders', JSON.stringify(folders));
+            break;
+        }
+    }
+    // Delete all notes with the folderID
+    deleteNotesByFolderID(folderID);
+    // Recursively delete all children of the folder
+    let children = getFoldersByID(folderID);
+    for(let i = 0; i &lt; children.length; i++) {
+        deleteFolderByID(children[i].id);
+    }
+ }
 
 /**
 * Searches through the note array in localStorage and returns
@@ -277,6 +275,31 @@ function deleteNoteByID(noteID) {
         }
     }
 }
+
+
+/*
+function deleteNoteByID(noteID) {
+    // Get the notes from localStorage
+    let notes = JSON.parse(localStorage.getItem('notes'));
+
+    // If there are no notes in localStorage, return
+    if(!notes) {
+        return;
+    }
+
+    // Otherwise, search through the notes array in localStorage
+    // and delete the note with the noteID
+    for(let i = 0; i &lt; notes.length; i++) {
+        if(notes[i].id === noteID) {
+            // Delete the note from the notes array
+            notes.splice(i, 1);
+            // Save the updated notes array to localStorage
+            localStorage.setItem('notes', JSON.stringify(notes));
+            break;
+        }
+    }
+}
+*/
 
 /**
  * Deletes all notes with the given folderID from localStorage
@@ -386,7 +409,8 @@ function deleteTask(taskID) {
             break;
         }
     }
-}</code></pre>
+}
+</code></pre>
         </article>
     </section>
 
@@ -396,13 +420,13 @@ function deleteTask(taskID) {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="HomeScript.html">HomeScript</a></li></ul><h3>Global</h3><ul><li><a href="global.html#currentTheme">currentTheme</a></li><li><a href="global.html#darkModeToggle">darkModeToggle</a></li><li><a href="global.html#deleteFolderByID">deleteFolderByID</a></li><li><a href="global.html#deleteNoteByID">deleteNoteByID</a></li><li><a href="global.html#deleteNotesByFolderID">deleteNotesByFolderID</a></li><li><a href="global.html#deleteTask">deleteTask</a></li><li><a href="global.html#getFolderByID">getFolderByID</a></li><li><a href="global.html#getFoldersByID">getFoldersByID</a></li><li><a href="global.html#getNotesByFolderID">getNotesByFolderID</a></li><li><a href="global.html#getTaskList">getTaskList</a></li><li><a href="global.html#MAIN_ID">MAIN_ID</a></li><li><a href="global.html#prefersDarkScheme">prefersDarkScheme</a></li><li><a href="global.html#saveFolder">saveFolder</a></li><li><a href="global.html#saveNote">saveNote</a></li><li><a href="global.html#saveTask">saveTask</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="HomeScript.html">HomeScript</a></li><li><a href="TaskList.html">TaskList</a></li></ul><h3>Global</h3><ul><li><a href="global.html#currentTheme">currentTheme</a></li><li><a href="global.html#darkModeToggle">darkModeToggle</a></li><li><a href="global.html#deleteFolderByID">deleteFolderByID</a></li><li><a href="global.html#deleteNoteByID">deleteNoteByID</a></li><li><a href="global.html#deleteNotesByFolderID">deleteNotesByFolderID</a></li><li><a href="global.html#deleteTask">deleteTask</a></li><li><a href="global.html#getFolderByID">getFolderByID</a></li><li><a href="global.html#getFoldersByID">getFoldersByID</a></li><li><a href="global.html#getNotesByFolderID">getNotesByFolderID</a></li><li><a href="global.html#getTaskList">getTaskList</a></li><li><a href="global.html#MAIN_ID">MAIN_ID</a></li><li><a href="global.html#prefersDarkScheme">prefersDarkScheme</a></li><li><a href="global.html#saveFolder">saveFolder</a></li><li><a href="global.html#saveNote">saveNote</a></li><li><a href="global.html#saveTask">saveTask</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Tue Jun 04 2024 04:38:16 GMT+0000 (Coordinated Universal Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Tue Jun 04 2024 20:15:44 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>
