@@ -307,11 +307,9 @@ p {
     background: none;
     margin : 0;
     padding: 0;
-    display:flex;   
-    height: 0px;
-    min-height:0px;
+    /* height: 0px; */
+    /* min-height:0px; */
 }
-
 
 /* Edits for smaller screens (mobile) */
 @media (width <= 700px) {
