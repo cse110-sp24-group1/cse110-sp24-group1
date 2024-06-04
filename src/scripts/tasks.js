@@ -31,14 +31,30 @@ class TaskList extends HTMLElement {
         }
       }
     });
+
+    // Search input event listener
+    const searchInput = document.querySelector('#search-bar');
+    searchInput.addEventListener('input', () => this.searchTasks(searchInput.value.trim().toLowerCase()));
   }
  
   /**
    * Add a new task to the task list from the modal form.
    */
-  // Method to add a new task to the task list
-  addTaskToList (task) {
-    
+  addTaskFromModal () {
+    // Get the necessary elements from the modal form
+    const modalForm = document.querySelector('#modal-form');
+    const taskDescriptionInput = modalForm.querySelector('#task-description');
+    const newTaskText = taskDescriptionInput.value.trim();
+    const taskDueDate = modalForm.querySelector('#task-due-date').value;
+    const newTaskName = document.querySelector('#new-task-input').value;
+    let taskLabel = modalForm.querySelector('#task-label').value;
+    const taskColor = modalForm.querySelector('#task-color').value;
+ 
+    // Validate the new task text
+    if (newTaskText === '') return;
+ 
+    // Generate a unique task ID
+    const taskId = `task${this.taskContainer.children.length + 1}`;
     // Create a new task element
     const newTask = document.createElement('section');
     newTask.classList.add('task-item');
@@ -175,6 +191,8 @@ class TaskList extends HTMLElement {
     const taskDate = taskElement.querySelector('.task-date');
     const taskName = taskElement.querySelector('label[for]');
     const editBtn = taskElement.querySelector('.edit-btn');
+
+    taskElement.classList.toggle("editing-task");
     
     // Create an input element for task description
     const taskDescInput = document.createElement('input');
@@ -185,11 +203,10 @@ class TaskList extends HTMLElement {
     const taskLabelSelect = document.createElement('select');
     taskLabelSelect.id = 'task-label';
     taskLabelSelect.name = 'task-label';
-    const labels = ['Default', 'Work', 'Personal', 'Health and Fitness', 'Finance', 'Social', 'Travel', 'School', 'Create New Label'];
+    const labels = ['Default', 'Work', 'Personal', 'Health and Fitness', 'Finance', 'Social', 'Travel', 'School'];
     for (const label of labels) {
       const option = document.createElement('option');
-      option.value = label === 'Create New Label' ? 'createNew' : label;
-      // HOW TO DO CREATE NEW LABEL?
+      option.value = label;
       option.textContent = label;
       if (label === taskLabel.textContent) {
         option.selected = true;
@@ -233,6 +250,8 @@ class TaskList extends HTMLElement {
         taskDate.classList.remove('no-date');
       }      
       taskName.textContent = taskNameInput.value;
+
+      taskElement.classList.toggle("editing-task");
  
       // Replace the input elements with the original elements
       taskDescInput.replaceWith(taskDesc);
@@ -275,19 +294,20 @@ class TaskList extends HTMLElement {
     // Remove the task element from the task list
     taskElement.remove();
   }
- 
+
   /**
    * Search for tasks based on the search query.
    * @param {string} query - The search query.
    */
-  searchTasks (query) {
-    const tasks = this.shadowRoot.querySelectorAll('.task-item');
+  searchTasks(query) {
+    const tasks = this.taskContainer.querySelectorAll('.task-item');
     tasks.forEach(task => {
       const taskName = task.querySelector('label[for]').textContent.toLowerCase();
       const taskDesc = task.querySelector('.task-desc').textContent.toLowerCase();
       const taskLabel = task.querySelector('.task-label').textContent.toLowerCase();
+
       if (taskName.includes(query) || taskDesc.includes(query) || taskLabel.includes(query)) {
-        task.style.display = 'block';
+        task.style.display = 'block'; 
       } else {
         task.style.display = 'none';
       }
@@ -333,11 +353,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const modal = document.getElementById('modal');
   const modalForm = document.getElementById('modal-form');
   const closeModalBtn = document.querySelector('.close-modal');
-  const taskLabelSelect = document.getElementById('task-label');
-  const newLabelInput = document.getElementById('new-label-input');
   const taskContainer = document.querySelector('.task-container');
-  const searchBtn = document.getElementById('search-btn');
-  const searchInput = document.getElementById('search-bar');
 
   // Open the modal when the task form is submitted
   taskForm.addEventListener('submit', (event) => {
@@ -354,22 +370,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const taskList = document.querySelector('task-list');
     taskList.addTaskFromModal();
     closeModal();
-  });
-
-  // Show or hide the new label input based on the selected value
-  taskLabelSelect.addEventListener('change', () => {
-    if (taskLabelSelect.value === 'createNew') {
-      newLabelInput.style.display = 'inline-block';
-    } else {
-      newLabelInput.style.display = 'none';
-    }
-  });
-
-  // Search functionality for the task list
-  searchBtn.addEventListener('click', () => {
-    const taskList = document.querySelector('.task-list');
-    const searchQuery = searchInput.value.trim().toLowerCase();
-    taskList.searchTasks(searchQuery);
   });
  
   /**

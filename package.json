@@ -20,5 +20,9 @@
   "jest": {
     "preset": "jest-puppeteer",
     "verbose": true
+    "stylelint-config-standard": "^36.0.0"
+  },
+  "dependencies": {
+    "simplemde": "^1.11.2"
   }
 }
