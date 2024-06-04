@@ -147,6 +147,32 @@ function deleteFolderByID(folderID) {
     for(let i = 0; i < children.length; i++) {
         deleteFolderByID(children[i].currFolderID);
     }
+   // Get the folders from localStorage
+   let folders = JSON.parse(localStorage.getItem('folders'));
+   // Get the notes from localStorage
+   let notes = JSON.parse(localStorage.getItem('notes'));
+   // If there are no folders in localStorage, return
+   if(!folders) {
+       return;
+   }
+   // Otherwise, search through the folders array in localStorage
+   // and delete the folder with the folderID
+   for(let i = 0; i < folders.length; i++) {
+       if(folders[i].id === folderID) {
+           // Delete the folder from the folders array
+           folders.splice(i, 1);
+           // Save the updated folders array to localStorage
+           localStorage.setItem('folders', JSON.stringify(folders));
+           break;
+       }
+   }
+   // Delete all notes with the folderID
+   deleteNotesByFolderID(folderID);
+   // Recursively delete all children of the folder
+   let children = getFoldersByID(folderID);
+   for(let i = 0; i < children.length; i++) {
+       deleteFolderByID(children[i].id);
+   }
 }
 
 /**
@@ -231,6 +257,32 @@ function saveNote(note) {
 /**
  * Deletes the note with the given noteID from localStorage
  * @param {string} noteID 
+ */
+function deleteNoteByID(noteID) {
+    // Get the notes from localStorage
+    let notes = JSON.parse(localStorage.getItem('notes'));
+
+    // If there are no notes in localStorage, return
+    if(!notes) {
+        return;
+    }
+
+    // Otherwise, search through the notes array in localStorage
+    // and delete the note with the noteID
+    for(let i = 0; i < notes.length; i++) {
+        if(notes[i].id === noteID) {
+            // Delete the note from the notes array
+            notes.splice(i, 1);
+            // Save the updated notes array to localStorage
+            localStorage.setItem('notes', JSON.stringify(notes));
+            break;
+        }
+    }
+}
+
+/**
+ * Deletes all notes with the given folderID from localStorage
+ * @param {string} folderID
  */
 function deleteNoteByID(noteID) {
     // Get the notes from localStorage

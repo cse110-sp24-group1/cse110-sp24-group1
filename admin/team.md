@@ -10,8 +10,6 @@ We are all aspiring software engineers!
 
 ## Team Brand:
 - **Icon:** <img src="branding/icon.png" width="200">
-- **Color Palette:** <img src="branding/colorpalette.png" width="325">
-- **Vision:** <img src="branding/vision.png" width="375">
 - **Theme:** Modern and Innovative
 
 ## Team Members:
@@ -40,7 +38,7 @@ We are all aspiring software engineers!
   - I'm a third year CS major and I like to gym at RIMAC so you might see me there! I've reached masters in League of Legends once but I've been clean from it for a while now.  
 
 - **[Nam Nguyen](https://github.com/afacade) - Developer**
-  - I 
+  - I'm a fourth year Math-CS major.
 
 - **[Jeremy Abondano](https://github.com/Jabo10) - Developer** 
   - Currently a senior computer science major who wants nothing to do with computer science, if I could go back in time I would major in film. Imagine just watching movies as an assignment instead of proving why my adversary runs in $O(2^k)$. 
