@@ -1,5 +1,10 @@
-// Define a custom element for a task list
+/**
+ * Class representing the TaskList for managing tasks.
+ */
 class TaskList extends HTMLElement {
+  /**
+   * Create a TaskList instance.
+   */
   constructor () {
     super();
    
@@ -36,7 +41,7 @@ class TaskList extends HTMLElement {
     const searchInput = document.querySelector('#search-bar');
     searchInput.addEventListener('input', () => this.searchTasks(searchInput.value.trim().toLowerCase()));
   }
- 
+
   /**
    * Add a new task to the task list from the modal form.
    */
@@ -49,17 +54,51 @@ class TaskList extends HTMLElement {
     const newTaskName = document.querySelector('#new-task-input').value;
     let taskLabel = modalForm.querySelector('#task-label').value;
     const taskColor = modalForm.querySelector('#task-color').value;
- 
+
     // Validate the new task text
     if (newTaskText === '') return;
- 
+
+    // Handle the case where a new label is created
+    if (taskLabel === 'createNew') {
+        const newLabelInput = modalForm.querySelector('#new-label-input');
+        const newLabel = newLabelInput.value.trim();
+
+        // Validate the new label text
+        if (newLabel === '') return;
+        taskLabel = newLabel;
+    }
+
     // Generate a unique task ID
-    const taskId = `task${this.taskContainer.children.length + 1}`;
+    const taskId = `task-${Date.now()}`;
+
+    // Create a new task object
+    const task = {
+        id: taskId,
+        name: newTaskName,
+        checked: false,
+        description: newTaskText,
+        dueDate: taskDueDate,
+        label: taskLabel,
+        color: taskColor
+    };
+
+    // Add the new task to the task list
+    this.addTaskToList(task);
+    // Reset the new task input and modal form
+    document.querySelector('#new-task-input').value = '';
+    modalForm.reset();
+  }
+
+  /**
+   * Add a task to the task list.
+   * @param {Object} task - The task object to be added.
+   */
+  addTaskToList(task) {
     // Create a new task element
     const newTask = document.createElement('section');
     newTask.classList.add('task-item');
     newTask.dataset.label = task.label;
-    // Populate the task element with the new task data which incluudees checkbox, task name, desscription, due date, label, and label color using HTML content
+    // Populate the task element with the new task data
     newTask.innerHTML = `
         <div class="task-main">
         <input type="checkbox" class='check' id="${task.id}" ${task.checked ? `checked`: ''}>
@@ -107,7 +146,7 @@ class TaskList extends HTMLElement {
       taskItem.style.backgroundColor = 'lightgrey';
     }
     
-    // Save the task to local storage using backend API
+    // Save the task to local storage
     saveTask(task);
 
     // Append the new task to the task container
@@ -122,49 +161,6 @@ class TaskList extends HTMLElement {
     for (const task of tasks) {
       this.addTaskToList(task);
     }
-  }
-
-  addTaskFromModal () {
-    // Get the necessary elements from the modal form
-    const modalForm = document.querySelector('#modal-form');
-    const taskDescriptionInput = modalForm.querySelector('#task-description');
-    const newTaskText = taskDescriptionInput.value.trim();
-    const taskDueDate = modalForm.querySelector('#task-due-date').value;
-    const newTaskName = document.querySelector('#new-task-input').value;
-    let taskLabel = modalForm.querySelector('#task-label').value;
-    const taskColor = modalForm.querySelector('#task-color').value;
- 
-    // Validate the new task text
-    if (newTaskText === '') return;
- 
-    // Handle the case where a new label is created
-    if (taskLabel === 'createNew') {
-      const newLabelInput = modalForm.querySelector('#new-label-input');
-      const newLabel = newLabelInput.value.trim();
- 
-      // Validate the new label text
-      if (newLabel === '') return;
-      taskLabel = newLabel;
-    }
-    // Generate a unique task ID
-    const taskId = `task-${Date.now()}`;
-
-    // Create a new task object
-    const task = {
-      id: taskId,
-      name: newTaskName,
-      checked: false,
-      description: newTaskText,
-      dueDate: taskDueDate,
-      label: taskLabel,
-      color: taskColor
-    };
-
-    // Add the new task to the task list
-    this.addTaskToList(task);
-    // Reset the new task input and modal form
-    document.querySelector('#new-task-input').value = '';
-    modalForm.reset();
   }
  
   /**
@@ -375,8 +371,6 @@ document.addEventListener('DOMContentLoaded', () => {
   /**
    * Open the modal for adding a new task.
    */
-
-  // Function to open the modal
   function openModal () {
     modal.style.display = 'block';
     document.body.classList.add('modal-open');
@@ -392,8 +386,6 @@ document.addEventListener('DOMContentLoaded', () => {
   /**
    * Close the modal.
    */
-
-  // Function to close the modal
   function closeModal () {
     modal.style.display = 'none';
     document.body.classList.remove('modal-open');
