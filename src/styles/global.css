@@ -1,5 +1,34 @@
 @import url("vars.css");
 
+/* Bold */
+h1 {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700; 
+}
+
+/* Semi-bold */
+h2, 
+h3,
+.modal-input #note-title {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;  
+}
+
+/* Regular */
+p, 
+select, 
+input, 
+textarea {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;  
+}
+
+/* Light */
+button {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300; 
+} 
+
 /* Nav Bar */
 nav { 
     background-color: var(--light-nav-bar-color);
@@ -44,6 +73,7 @@ nav a {
     border-radius: 10px;
     color: var(--light-text-color);
     transition: background-color 0.3s, transform 0.3s;
+    flex-direction: column;
 }
 
 .dark-mode nav a {
@@ -58,6 +88,52 @@ nav li {
 
 nav a:hover {
     transform: scale(1.05);
+}
+
+/* Apply common properties to all icons */
+nav .home-page-icon,
+nav .task-page-icon {
+    padding: 20px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    margin-bottom: 5px;
+}
+
+/* Light mode icons */
+nav .home-page-icon {
+    background-image: url('../assets/icons/home-light.png');
+}
+
+nav .home-page-icon:hover {
+    background-image: url('../assets/icons/home-hover-light.png');
+}
+
+nav .task-page-icon {
+    background-image: url('../assets/icons/tasklist-light.png');
+}
+
+nav .task-page-icon:hover {
+    background-image: url('../assets/icons/tasklist-hover-light.png');
+}
+
+/* Dark mode icons */
+.dark-mode nav .home-page-icon {
+    background-image: url('../assets/icons/home-dark.png');
+}
+
+.dark-mode nav .home-page-icon:hover {
+    background-image: url('../assets/icons/home-hover-dark.png');
+}
+
+.dark-mode nav .task-page-icon {
+    background-image: url('../assets/icons/tasklist-dark.png');
+}
+
+.dark-mode nav .task-page-icon:hover {
+    background-image: url('../assets/icons/tasklist-hover-dark.png');
 }
 
 .current-page {
@@ -121,6 +197,8 @@ body {
     flex-direction: column;
     min-height: 100vh;
     min-width: 320px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
 }
 
 body.dark-mode  {
@@ -155,28 +233,48 @@ p {
     margin-top: 1em;
 }
 
-.search-container button {
+.search-container button,
+.search-container #folder-back-button {
     margin-left: 10px;
     background-color: var(--light-button-color);
     color: var(--light-text-color);
     padding: 5px 10px;
     border: none;
     border-radius: 5px;
+    box-shadow: 0 1.5px #999;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
-.dark-mode .search-container button {
+.dark-mode .search-container button,
+.dark-mode .search-container #folder-back-button {
     background-color: var(--dark-button-color);
     color: var(--dark-text-color);
+    box-shadow: 0 1.5px #595858;
 }
 
-.search-container button:hover {
+.search-container button:hover,
+.search-container #folder-back-button:hover {
     background-color: var(--light-button-color-hover);
 }
 
-.dark-mode .search-container button:hover {
+.dark-mode .search-container button:hover,
+.dark-mode .search-container #folder-back-button:hover {
     background-color: var(--dark-button-color-hover);
+}
+
+.search-container button:hover:active,
+.search-container #folder-back-button:hover:active {
+    background-color: var(--light-button-color-hover);
+    transform: translateY(1.5px);
+    box-shadow: none;
+}
+
+.dark-mode .search-container button:hover:active,
+.dark-mode .search-container #folder-back-button:hover:active {
+    background-color: var(--dark-button-color-hover);
+    transform: translateY(1.5px);
+    box-shadow: none;
 }
 
 .search-container input[type="text"] {
@@ -185,6 +283,7 @@ p {
     border-radius: 5px;
     background: white;
     margin-left: 1em;
+    width: 25em;
 }
 
 .dark-mode .search-container input[type="text"] {
@@ -197,7 +296,7 @@ p {
 }
 
 /* Edits for smaller screens (mobile) */
-@media (width <= 500px) {
+@media (width <= 700px) {
     nav {
         width: 4rem;
     }
@@ -222,5 +321,4 @@ p {
         margin-top: 1em;
         margin-bottom: 1em;
     }
-
 }
