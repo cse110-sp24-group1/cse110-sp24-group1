@@ -37,6 +37,9 @@ Welcome to **One and Done**, a feature-rich journal app built with HTML, CSS, an
 - We used this [Miro Board](https://miro.com/app/board/uXjVKSW94aI=/) for our brainstorming and wireframing process.
 - We used Figma for [wireframing](https://www.figma.com/design/VSgkp9TLpiEXWHehsFP2Dg/One-and-Done-Journal-App-Wireframing?node-id=0-1&t=y5qAZjXKxdrZl7Rq-1) and [hi-fidelity diagrams](https://www.figma.com/proto/uAhqMx3Dmbe6gv9awADPCt/One-and-Done-Journal-App-Prototype?node-id=2-618&t=U0amyd0JrK52E80l-0&scaling=scale-down&page-id=0%3A1&starting-point-node-id=1%3A2).
 
+## Documentation
+![DOCUMENTATION](https://cse110-sp24-group1.github.io/cse110-sp24-group1/docs/home.js.html)
+
 ## SimpleMDE API
 
 ![Markdown](https://img.shields.io/badge/Markdown-000000?style=for-the-badge&logo=markdown&logoColor=white)
