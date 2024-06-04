@@ -273,7 +273,7 @@ main {
     width: 40%;
     max-width: 65%;
     height: auto;
-    overflow-y: auto;
+    overflow: none;
     position: relative;
 }
 
