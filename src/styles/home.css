@@ -513,9 +513,7 @@ main {
         margin-left: 10px;
     }
 
-    .search-container #folder-back-button,
-    .search-container button
-     {
+    .search-container #folder-back-button {
         margin-right: 10px;
     }
 
