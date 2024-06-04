@@ -43,116 +43,115 @@ class TaskList extends HTMLElement {
   }
 
   /**
- * Add a new task to the task list from the modal form.
- */
-addTaskFromModal () {
-  // Get the necessary elements from the modal form
-  const modalForm = document.querySelector('#modal-form');
-  const taskDescriptionInput = modalForm.querySelector('#task-description');
-  const newTaskText = taskDescriptionInput.value.trim();
-  const taskDueDate = modalForm.querySelector('#task-due-date').value;
-  const newTaskName = document.querySelector('#new-task-input').value;
-  let taskLabel = modalForm.querySelector('#task-label').value;
-  const taskColor = modalForm.querySelector('#task-color').value;
+   * Add a new task to the task list from the modal form.
+   */
+  addTaskFromModal () {
+    // Get the necessary elements from the modal form
+    const modalForm = document.querySelector('#modal-form');
+    const taskDescriptionInput = modalForm.querySelector('#task-description');
+    const newTaskText = taskDescriptionInput.value.trim();
+    const taskDueDate = modalForm.querySelector('#task-due-date').value;
+    const newTaskName = document.querySelector('#new-task-input').value;
+    let taskLabel = modalForm.querySelector('#task-label').value;
+    const taskColor = modalForm.querySelector('#task-color').value;
 
-  // Validate the new task text
-  if (newTaskText === '') return;
+    // Validate the new task text
+    if (newTaskText === '') return;
 
-  // Handle the case where a new label is created
-  if (taskLabel === 'createNew') {
-      const newLabelInput = modalForm.querySelector('#new-label-input');
-      const newLabel = newLabelInput.value.trim();
+    // Handle the case where a new label is created
+    if (taskLabel === 'createNew') {
+        const newLabelInput = modalForm.querySelector('#new-label-input');
+        const newLabel = newLabelInput.value.trim();
 
-      // Validate the new label text
-      if (newLabel === '') return;
-      taskLabel = newLabel;
+        // Validate the new label text
+        if (newLabel === '') return;
+        taskLabel = newLabel;
+    }
+
+    // Generate a unique task ID
+    const taskId = `task-${Date.now()}`;
+
+    // Create a new task object
+    const task = {
+        id: taskId,
+        name: newTaskName,
+        checked: false,
+        description: newTaskText,
+        dueDate: taskDueDate,
+        label: taskLabel,
+        color: taskColor
+    };
+
+    // Add the new task to the task list
+    this.addTaskToList(task);
+    // Reset the new task input and modal form
+    document.querySelector('#new-task-input').value = '';
+    modalForm.reset();
   }
 
-  // Generate a unique task ID
-  const taskId = `task-${Date.now()}`;
+  /**
+   * Add a task to the task list.
+   * @param {Object} task - The task object to be added.
+   */
+  addTaskToList(task) {
+    // Create a new task element
+    const newTask = document.createElement('section');
+    newTask.classList.add('task-item');
+    newTask.dataset.label = task.label;
+    // Populate the task element with the new task data
+    newTask.innerHTML = `
+        <div class="task-main">
+        <input type="checkbox" class='check' id="${task.id}" ${task.checked ? `checked`: ''}>
+        <label for="${task.id}">${task.name}</label>
+        <button class="edit-btn">✏️</button>
+        </div>
+        <label class="task-desc">${task.description}</label>
+        <div class="task-footer">
+        <div class="date-label">
+            <div class="task-label" style="background-color: ${task.color}; ${this.calculateTextColor(task.color)}">
+            ${task.label}
+            </div>
+            ${
+            task.dueDate
+                ? `
+            <div class="task-date">
+                <label>🗓️ ${task.dueDate}</label>
+            </div>
+            ` 
+                : '<div class="task-date no-date"><label></label></div>'
+            }
+        </div>
+        <div class="task-buttons">
+            <button class="delete-btn">🗑️</button>
+        </div>
+        </div>
+    `;
 
-  // Create a new task object
-  const task = {
-      id: taskId,
-      name: newTaskName,
-      checked: false,
-      description: newTaskText,
-      dueDate: taskDueDate,
-      label: taskLabel,
-      color: taskColor
-  };
+    // Add event listeners for the edit and delete buttons
+    const editBtn = newTask.querySelector('.edit-btn');
+    const deleteBtn = newTask.querySelector('.delete-btn');
+    editBtn.addEventListener('click', () => this.editTask(newTask));
+    deleteBtn.addEventListener('click', () => this.deleteTask(newTask));
+    // Add event listener to the checkbox to save the task to local storage
+    const checkbox = newTask.querySelector('.check');
+    checkbox.addEventListener('change', () => {
+      task.checked = checkbox.checked;
+      saveTask(task);
+    });
 
-  // Add the new task to the task list
-  this.addTaskToList(task);
-  // Reset the new task input and modal form
-  document.querySelector('#new-task-input').value = '';
-  modalForm.reset();
-}
-
-/**
- * Add a task to the task list.
- * @param {Object} task - The task object to be added.
- */
-addTaskToList(task) {
-  // Create a new task element
-  const newTask = document.createElement('section');
-  newTask.classList.add('task-item');
-  newTask.dataset.label = task.label;
-  // Populate the task element with the new task data
-  newTask.innerHTML = `
-      <div class="task-main">
-      <input type="checkbox" class='check' id="${task.id}" ${task.checked ? `checked`: ''}>
-      <label for="${task.id}">${task.name}</label>
-      <button class="edit-btn">✏️</button>
-      </div>
-      <label class="task-desc">${task.description}</label>
-      <div class="task-footer">
-      <div class="date-label">
-          <div class="task-label" style="background-color: ${task.color}; ${this.calculateTextColor(task.color)}">
-          ${task.label}
-          </div>
-          ${
-          task.dueDate
-              ? `
-          <div class="task-date">
-              <label>🗓️ ${task.dueDate}</label>
-          </div>
-          ` 
-              : '<div class="task-date no-date"><label></label></div>'
-          }
-      </div>
-      <div class="task-buttons">
-          <button class="delete-btn">🗑️</button>
-      </div>
-      </div>
-  `;
-
-  // Add event listeners for the edit and delete buttons
-  const editBtn = newTask.querySelector('.edit-btn');
-  const deleteBtn = newTask.querySelector('.delete-btn');
-  editBtn.addEventListener('click', () => this.editTask(newTask));
-  deleteBtn.addEventListener('click', () => this.deleteTask(newTask));
-  // Add event listener to the checkbox to save the task to local storage
-  const checkbox = newTask.querySelector('.check');
-  checkbox.addEventListener('change', () => {
-    task.checked = checkbox.checked;
+    // Grey out the task if it is checked
+    const taskItem = checkbox.closest('.task-item');
+    if(task.checked) {
+      taskItem.style.opacity = '0.5';
+      taskItem.style.backgroundColor = 'lightgrey';
+    }
+    
+    // Save the task to local storage
     saveTask(task);
-  });
 
-  // Grey out the task if it is checked
-  const taskItem = checkbox.closest('.task-item');
-  if(task.checked) {
-    taskItem.style.opacity = '0.5';
-    taskItem.style.backgroundColor = 'lightgrey';
+    // Append the new task to the task container
+    this.taskContainer.appendChild(newTask);
   }
-  
-  // Save the task to local storage
-  saveTask(task);
-
-  // Append the new task to the task container
-  this.taskContainer.appendChild(newTask);
-}
-
 
   // Load the tasks from storage and add them to the task list
   loadTasks () {
