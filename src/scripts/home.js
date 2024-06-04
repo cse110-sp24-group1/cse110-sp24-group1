@@ -304,7 +304,23 @@ class HomeScript {
       element: document.getElementById("note-body"),
       forceSync: true,
       hideIcons: ['quote'],
-      toolbar: ['bold', 'italic', 'strikethrough', 'code', 'unordered-list', 'ordered-list', 'link', 'image', '|', 'preview', 'side-by-side', 'fullscreen', '|', 'guide'],
+      renderingConfig: {
+        codeSyntaxHighlighting: true
+      },
+      spellChecker: false,
+      toolbar: [
+        'bold', 'italic', 'strikethrough', 'code', 'unordered-list', 'ordered-list', 'link', {
+            name: "image",
+            action: function customImageHandler(editor) {
+                const cm = editor.codemirror;
+                const doc = cm.getDoc();
+                const cursor = doc.getCursor();
+                doc.replaceRange(`![](https://)`, cursor);
+            },
+            className: "fa fa-picture-o",
+            title: "Insert Image",
+        }, '|', 'preview', 'side-by-side', 'fullscreen', '|', 'guide'
+      ],   
       shortcuts: {
         'toggleBold': 'Cmd-B',
         'toggleItalic': 'Cmd-I',
@@ -399,7 +415,23 @@ class HomeScript {
       element: document.getElementById("edit-note-body"),
       forceSync: true,
       hideIcons: ['quote'],
-      toolbar: ['bold', 'italic', 'strikethrough', 'code', 'unordered-list', 'ordered-list', 'link', 'image', '|', 'preview', 'side-by-side', 'fullscreen', '|', 'guide'],
+      renderingConfig: {
+        codeSyntaxHighlighting: true
+      },
+      spellChecker: false,
+      toolbar: [
+        'bold', 'italic', 'strikethrough', 'code', 'unordered-list', 'ordered-list', 'link', {
+            name: "image",
+            action: function customImageHandler(editor) {
+                const cm = editor.codemirror;
+                const doc = cm.getDoc();
+                const cursor = doc.getCursor();
+                doc.replaceRange(`![](https://)`, cursor);
+            },
+            className: "fa fa-picture-o",
+            title: "Insert Image",
+        }, '|', 'preview', 'side-by-side', 'fullscreen', '|', 'guide'
+      ],  
       shortcuts: {
         'toggleBold': 'Cmd-B',
         'toggleItalic': 'Cmd-I',
