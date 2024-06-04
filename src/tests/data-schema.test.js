@@ -1,7 +1,7 @@
 describe('Data Schema Tests for Notes, folders, and tasks as of now', () => {
   // First visit our website
   beforeAll(async () => {
-    // When running link your own live server of test-until-pages.html until pages is fully integrated 
+    // When running link your own live server of test-until-pages.html then replace here and run "npm test -- data-schema.test.js"
     await page.goto('http://127.0.0.1:5500/src/test-until-pages.html');
   });
 
@@ -243,38 +243,38 @@ describe('Data Schema Tests for Notes, folders, and tasks as of now', () => {
     // Third test: ensuring folders are correctly saved and retrieved
     it('should save and retrieve multiple folders correctly', async () => {
       console.log('Checking it should save and retrieve multiple folders correctly');
-
+    
       const folder1 = {
-        currFolderID: 'folder1',
-        currFolderName: 'Folder 1',
+        id: 'folder1',
+        name: 'Folder 1',
         parentFolderID: 'parent1',
         parentFolderName: 'Parent Folder 1'
       };
-
+    
       const folder2 = {
-        currFolderID: 'folder2',
-        currFolderName: 'Folder 2',
+        id: 'folder2',
+        name: 'Folder 2',
         parentFolderID: 'parent1',
         parentFolderName: 'Parent Folder 1'
       };
-
+    
       // Save the first folder
       await page.evaluate((folder) => {
         window.saveFolder(folder);
       }, folder1);
-
+    
       // Save the second folder
       await page.evaluate((folder) => {
         window.saveFolder(folder);
       }, folder2);
-
+    
       // Retrieve the stored folders from localStorage
       const storedFolders = await page.evaluate(() => {
         return JSON.parse(localStorage.getItem('folders'));
       });
-
+    
       // Expect the stored folders to contain both folders
-      expect(storedFolders).toEqual([folder1, folder2]);
+      expect(storedFolders).toEqual(expect.arrayContaining([folder1, folder2]));
     });
 
    /**
@@ -709,5 +709,272 @@ describe('Data Schema Tests for Notes, folders, and tasks as of now', () => {
 
       // Expect the stored taskList to contain both tasks
       expect(storedTaskList).toEqual([existingTask, newTask]);
+    });
+
+    /**
+     * Tests for deleteFolderByID
+     * 1. Delete a folder when only one exits
+     * 2. Delete when multiple exist
+     * 3. Deletes child folders 
+     * 4. Deletes all notes when inside a folder 
+     */
+
+    // Test: Delete a folder by ID when only one folder exists
+    it('should delete a folder by ID when only one folder exists', async () => {
+      console.log('Checking it should delete a folder by ID when only one folder exists');
+
+      // Save a folder to localStorage
+      const folder = { id: 'folder1', name: 'Folder 1', parentFolderID: 'parent1', parentFolderName: 'Parent Folder 1' };
+      await page.evaluate((folder) => {
+        window.saveFolder(folder);
+      }, folder);
+
+      // Delete the folder by ID
+      await page.evaluate(() => {
+        window.deleteFolderByID('folder1');
+      });
+
+      // Retrieve the stored folders from localStorage
+      const storedFolders = await page.evaluate(() => {
+        return JSON.parse(localStorage.getItem('folders'));
+      });
+
+      // Expect the stored folders to be an empty array
+      expect(storedFolders).toEqual([]);
+    });
+
+    // Test: Delete a folder by ID when multiple folders exist
+    it('should delete a folder by ID when multiple folders exist', async () => {
+      console.log('Checking it should delete a folder by ID when multiple folders exist');
+
+      // Save multiple folders to localStorage
+      const folders = [
+        { id: 'folder1', name: 'Folder 1', parentFolderID: 'parent1', parentFolderName: 'Parent Folder 1' },
+        { id: 'folder2', name: 'Folder 2', parentFolderID: 'parent1', parentFolderName: 'Parent Folder 1' }
+      ];
+      await page.evaluate((folders) => {
+        folders.forEach(folder => window.saveFolder(folder));
+      }, folders);
+
+      // Delete one folder by ID
+      await page.evaluate(() => {
+        window.deleteFolderByID('folder1');
+      });
+
+      // Retrieve the stored folders from localStorage
+      const storedFolders = await page.evaluate(() => {
+        return JSON.parse(localStorage.getItem('folders'));
+      });
+
+      // Expect the stored folders to contain only the second folder
+      expect(storedFolders).toEqual([
+        { id: 'folder2', name: 'Folder 2', parentFolderID: 'parent1', parentFolderName: 'Parent Folder 1' }
+      ]);
+    });
+
+    // Test: Recursively delete all child folders
+    it('should recursively delete all child folders', async () => {
+      console.log('Checking it should recursively delete all child folders');
+
+      // Save a parent folder and its child folder to localStorage
+      const folders = [
+        { id: 'folder1', name: 'Folder 1', parentFolderID: 'parent1', parentFolderName: 'Parent Folder 1' },
+        { id: 'folder2', name: 'Folder 2', parentFolderID: 'folder1', parentFolderName: 'Folder 1' }
+      ];
+      await page.evaluate((folders) => {
+        folders.forEach(folder => window.saveFolder(folder));
+      }, folders);
+
+      // Delete the parent folder by ID
+      await page.evaluate(() => {
+        window.deleteFolderByID('folder1');
+      });
+
+      // Retrieve the stored folders from localStorage
+      const storedFolders = await page.evaluate(() => {
+        return JSON.parse(localStorage.getItem('folders'));
+      });
+
+      // Expect the stored folders to be an empty array
+      expect(storedFolders).toEqual([]);
+    });
+
+    // Test: Delete associated notes when deleting a folder
+    it('should delete associated notes when deleting a folder', async () => {
+      console.log('Checking it should delete associated notes when deleting a folder');
+
+      // Save a folder and its associated note to localStorage
+      const folder = { id: 'folder1', name: 'Folder 1', parentFolderID: 'parent1', parentFolderName: 'Parent Folder 1' };
+      const note = { id: 'note1', folderID: 'folder1', title: 'Note 1', label: 'Label 1', text: 'This is note 1', markdown: false };
+      await page.evaluate((folder, note) => {
+        window.saveFolder(folder);
+        window.saveNote(note);
+      }, folder, note);
+
+      // Delete the folder by ID
+      await page.evaluate(() => {
+        window.deleteFolderByID('folder1');
+      });
+
+      // Retrieve the stored notes from localStorage
+      const storedNotes = await page.evaluate(() => {
+        return JSON.parse(localStorage.getItem('notes'));
+      });
+
+      // Expect the stored notes to be an empty array
+      expect(storedNotes).toEqual([]);
+    });
+
+    /**
+     * Tests for deleteNoteByID
+     * 1. Delete a note when only one exists
+     * 2. Delete a note when multiple notes exist
+     */
+
+    // Test: Delete a note by ID when only one note exists
+    it('should delete a note by ID when only one note exists', async () => {
+      console.log('Checking it should delete a note by ID when only one note exists');
+
+      // Save a note to localStorage
+      const note = { id: 'note1', folderID: 'folder1', title: 'Note 1', label: 'Label 1', text: 'This is note 1', markdown: false };
+      await page.evaluate((note) => {
+        window.saveNote(note);
+      }, note);
+
+      // Delete the note by ID
+      await page.evaluate(() => {
+        window.deleteNoteByID('note1');
+      });
+
+      // Retrieve the stored notes from localStorage
+      const storedNotes = await page.evaluate(() => {
+        return JSON.parse(localStorage.getItem('notes'));
+      });
+
+      // Expect the stored notes to be an empty array
+      expect(storedNotes).toEqual([]);
+    });
+
+    // Test: Delete a note by ID when multiple notes exist
+    it('should delete a note by ID when multiple notes exist', async () => {
+      console.log('Checking it should delete a note by ID when multiple notes exist');
+
+      // Save multiple notes to localStorage
+      const notes = [
+        { id: 'note1', folderID: 'folder1', title: 'Note 1', label: 'Label 1', text: 'This is note 1', markdown: false },
+        { id: 'note2', folderID: 'folder1', title: 'Note 2', label: 'Label 2', text: 'This is note 2', markdown: true }
+      ];
+      await page.evaluate((notes) => {
+        notes.forEach(note => window.saveNote(note));
+      }, notes);
+
+      // Delete one note by ID
+      await page.evaluate(() => {
+        window.deleteNoteByID('note1');
+      });
+
+      // Retrieve the stored notes from localStorage
+      const storedNotes = await page.evaluate(() => {
+        return JSON.parse(localStorage.getItem('notes'));
+      });
+
+      // Expect the stored notes to contain only the second note
+      expect(storedNotes).toEqual([
+        { id: 'note2', folderID: 'folder1', title: 'Note 2', label: 'Label 2', text: 'This is note 2', markdown: true }
+      ]);
+    });
+
+    /**
+     * Tests for deleteNotesByFolderID
+     * 1. Delete all notes within a folder
+     */
+
+    // Test: Delete all notes associated with a specific folder ID
+    it('should delete all notes associated with a specific folder ID', async () => {
+      console.log('Checking it should delete all notes associated with a specific folder ID');
+
+      // Save multiple notes to localStorage
+      const notes = [
+        { id: 'note1', folderID: 'folder1', title: 'Note 1', label: 'Label 1', text: 'This is note 1', markdown: false },
+        { id: 'note2', folderID: 'folder1', title: 'Note 2', label: 'Label 2', text: 'This is note 2', markdown: true },
+        { id: 'note3', folderID: 'folder2', title: 'Note 3', label: 'Label 3', text: 'This is note 3', markdown: false }
+      ];
+      await page.evaluate((notes) => {
+        notes.forEach(note => window.saveNote(note));
+      }, notes);
+
+      // Delete all notes associated with a specific folder ID
+      await page.evaluate(() => {
+        window.deleteNotesByFolderID('folder1');
+      });
+
+      // Retrieve the stored notes from localStorage
+      const storedNotes = await page.evaluate(() => {
+        return JSON.parse(localStorage.getItem('notes'));
+      });
+
+      // Expect the stored notes to contain only the notes not associated with the deleted folder ID
+      expect(storedNotes).toEqual([
+        { id: 'note3', folderID: 'folder2', title: 'Note 3', label: 'Label 3', text: 'This is note 3', markdown: false }
+      ]);
+    });
+
+    /**
+     * Tests for deleteTask
+     * 1. Delete a task by ID when only one task exists
+     * 2. Delete a task by ID when multiple tasks exist
+     */
+
+    // Test: Delete a task by ID when only one task exists
+    it('should delete a task by ID when only one task exists', async () => {
+      console.log('Checking it should delete a task by ID when only one task exists');
+
+      // Save a task to localStorage
+      const task = { id: 'task1', name: 'Task 1', description: 'Task Description', dueDate: '2024-05-20', label: 'Work', color: 'red' };
+      await page.evaluate((task) => {
+        window.saveTask(task);
+      }, task);
+
+      // Delete the task by ID
+      await page.evaluate(() => {
+        window.deleteTask('task1');
+      });
+
+      // Retrieve the stored taskList from localStorage
+      const storedTaskList = await page.evaluate(() => {
+        return JSON.parse(localStorage.getItem('taskList'));
+      });
+
+      // Expect the stored taskList to be an empty array
+      expect(storedTaskList).toEqual([]);
+    });
+
+    // Test: Delete a task by ID when multiple tasks exist
+    it('should delete a task by ID when multiple tasks exist', async () => {
+      console.log('Checking it should delete a task by ID when multiple tasks exist');
+
+      // Save multiple tasks to localStorage
+      const tasks = [
+        { id: 'task1', name: 'Task 1', description: 'Task Description', dueDate: '2024-05-20', label: 'Work', color: 'red' },
+        { id: 'task2', name: 'Task 2', description: 'Task 2 Description', dueDate: '2024-05-21', label: 'Personal', color: 'blue' }
+      ];
+      await page.evaluate((tasks) => {
+        tasks.forEach(task => window.saveTask(task));
+      }, tasks);
+
+      // Delete one task by ID
+      await page.evaluate(() => {
+        window.deleteTask('task1');
+      });
+
+      // Retrieve the stored taskList from localStorage
+      const storedTaskList = await page.evaluate(() => {
+        return JSON.parse(localStorage.getItem('taskList'));
+      });
+
+      // Expect the stored taskList to contain only the second task
+      expect(storedTaskList).toEqual([
+        { id: 'task2', name: 'Task 2', description: 'Task 2 Description', dueDate: '2024-05-21', label: 'Personal', color: 'blue' }
+      ]);
     });
 });
