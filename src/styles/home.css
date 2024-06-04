@@ -273,8 +273,8 @@ main {
     width: 40%;
     max-width: 65%;
     height: auto;
-    overflow: hidden; 
-    position: relative; 
+    overflow-y: auto;
+    position: relative;
 }
 
 .dark-mode .folder-modal {
@@ -595,4 +595,5 @@ main {
     border-radius: 5px;
     transition: background-color 0.3s;
     box-shadow: 0 1.5px #999;
+    margin-bottom: 1em;
 }
