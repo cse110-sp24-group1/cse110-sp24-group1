@@ -1,32 +1,31 @@
 name: Generate JSDoc
 
 on:
-  push:
+  pull_request:
     branches:
       - main
-
+      - PurichV-JSDocs
+permissions:
+        contents: write
 jobs:
   build-docs:
-    permissions:
-      contents: write
-
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build
-        uses: andstor/jsdoc-action@v1
+      - uses: actions/checkout@v4 # using version 4 of Actions
+      - name: Checkout PR
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh pr checkout ${{ github.event.pull_request.number }}
+      - name: JSDoc Generation # Generate the docs for JS info
+        uses: andstor/jsdoc-action@v1.2.1
         with:
           source_dir: ./src
           recurse: true
           output_dir: ./docs
-
-      - name: Commit JSDOCS
-        uses: EndBug/add-and-commit@v9
-        with:
-          message: "Generated JSDocs"
-          add: "./docs"
+          config_file: jsdocs.json
+      - name: Commit JSDoc
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git diff --quiet || (git add . && git commit -m "Documentation Generated")
+          git push
