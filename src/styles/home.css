@@ -128,10 +128,10 @@ main {
 
 /* HOME PAGE */
 .center-image{
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction:row;
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top: 2rem;    
     width: 400px;
     height: 400px;
 }
