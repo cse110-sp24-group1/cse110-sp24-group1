@@ -176,7 +176,6 @@ class HomeScript {
       folderElement.classList.add('folder');
       folderElement.setAttribute('data-folder-id', folder.id);
       folderElement.innerHTML = `
-<<<<<<< kabir-tabbable-buttons
 
         <button class='obj-container'>
           <div class='folder-content' id=${folder.label}>
@@ -187,15 +186,6 @@ class HomeScript {
           </div>
         </button>
         `;
-=======
-        <div class='folder-content' id=${folder.label}>
-          <span class='delete-folder'>&times;</span>
-        </div>
-        <div class='folder-title'>
-          <h3>${folder.name}</h3>
-        </div>
-      `;
->>>>>>> frontend
       
       // Click the x button to delete the folder
       folderElement.querySelector('.delete-folder').addEventListener('click', () => {
@@ -535,12 +525,8 @@ class HomeScript {
                 </form>
             </div>
         `;
-<<<<<<< kabir-tabbable-buttons
     enableModalTabTrap(modal);
     
-=======
-
->>>>>>> frontend
     // Close modal when clicking the close button
     const closeButton = modal.querySelector(':has(.close-modal)');
     closeButton.addEventListener('click', () => {
