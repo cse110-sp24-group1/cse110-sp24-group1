@@ -273,7 +273,9 @@ class HomeScript {
     // Modal content
     modal.innerHTML = `
             <div class='note-modal'>
-                <span class='close-modal'>&times;</span>
+                <button class=obj-container>
+                  <span class='close-modal'>&times;</span>
+                </button>
                 <div class='modal-title'>
                     <h2>New Note</h2>
                 </div>
@@ -495,7 +497,9 @@ class HomeScript {
     // Modal content
     modal.innerHTML = `
             <div class='folder-modal'>
-                <span class='close-modal'>&times;</span>
+              <button class=obj-container>
+                  <span class='close-modal' tabindex='0'>&times;</span>
+              </button>
                 <div class='modal-title'>
                     <h2>New Folder</h2>
                 </div>

@@ -336,3 +336,7 @@ p {
     padding:0;
     line-height:0;
 }
+
+.obj-container:has(.close-modal) {
+    float:right;
+}
