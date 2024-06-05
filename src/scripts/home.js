@@ -343,6 +343,14 @@ class HomeScript {
       }
     });
 
+    document.
+    addEventListener('keydown', 
+      function(event) {
+        if(event.key == 'Escape' && document.activeElement.nodeName == 'TEXTAREA') {
+          document.activeElement.blur();
+        }
+    });
+
     // Close modal when clicking the close button
     const closeButton = modal.querySelector('.close-modal');
     closeButton.addEventListener('click', () => {
