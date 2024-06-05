@@ -511,9 +511,7 @@ class HomeScript {
     // Modal content
     modal.innerHTML = `
             <div class='folder-modal'>
-              <button class='obj-container'>
-                <span class='close-modal'>&times;</span>
-              </button>
+              <button class='obj-container'><span class='close-modal'>&times;</span></button>
                 <div class='modal-title'>
                     <h2>New Folder</h2>
                 </div>
