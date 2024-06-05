@@ -367,6 +367,8 @@ class HomeScript {
             </div>
         `;
 
+    // trap Tab within modal for accesibility
+    enableModalTabTrap(modal);
     // Color of label
     const nLabel = modal.querySelector('.edit-note-label');
     nLabel.style.backgroundColor = noteColor;
@@ -455,7 +457,7 @@ class HomeScript {
     enableModalTabTrap(modal);
     
     // Close modal when clicking the close button
-    const closeButton = modal.querySelector('.close-modal');
+    const closeButton = modal.querySelector(':has(.close-modal)');
     closeButton.addEventListener('click', () => {
       this.closeModal(modal);
     });
@@ -497,8 +499,6 @@ class HomeScript {
     // Hide the top right buttons
     this.topRightButtons.style.display = 'none';
 
-    // trap Tab within modal for accesibility
-    enableModalTabTrap(modal);
     return modal;
   }
 
