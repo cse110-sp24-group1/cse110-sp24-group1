@@ -239,28 +239,42 @@ p {
     margin-top: 1em;
 }
 
-.search-container button {
+.search-container #folder-back-button {
     margin-left: 10px;
     background-color: var(--light-button-color);
     color: var(--light-text-color);
     padding: 5px 10px;
     border: none;
     border-radius: 5px;
+    box-shadow: 0 1.5px #999;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
-.dark-mode .search-container button {
+.dark-mode .search-container #folder-back-button {
     background-color: var(--dark-button-color);
     color: var(--dark-text-color);
+    box-shadow: 0 1.5px #595858;
 }
 
-.search-container button:hover {
+.search-container #folder-back-button:hover {
     background-color: var(--light-button-color-hover);
 }
 
-.dark-mode .search-container button:hover {
+.dark-mode .search-container #folder-back-button:hover {
     background-color: var(--dark-button-color-hover);
+}
+
+.search-container #folder-back-button:hover:active {
+    background-color: var(--light-button-color-hover);
+    transform: translateY(1.5px);
+    box-shadow: none;
+}
+
+.dark-mode .search-container #folder-back-button:hover:active {
+    background-color: var(--dark-button-color-hover);
+    transform: translateY(1.5px);
+    box-shadow: none;
 }
 
 .search-container input[type="text"] {
@@ -287,14 +301,12 @@ p {
     background: none;
     margin : 0;
     padding: 0;
-    display:flex;   
-    height: 0px;
-    min-height:0px;
+    /* height: 0px; */
+    /* min-height:0px; */
 }
 
-
 /* Edits for smaller screens (mobile) */
-@media (width <= 500px) {
+@media (width <= 700px) {
     nav {
         width: 4rem;
     }

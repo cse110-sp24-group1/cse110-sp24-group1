@@ -23,7 +23,7 @@
     - [ ] Back Button
     - [ ] Edit and Delete for Task List Page
     - [ ] Search 
-    - [ ] There is nothing here 
+    - [ ] Folder SVG Icon, Journal Entry (Maybe)
 - [ ] Make Hi-fis (wait for big changes to ui to be done) -- Vedant, Jeff, Moss
     - [ ] Make Hi-fis (colored) for the pages we have
     - [ ] Wait for most features to be done to start adapting as big changes to the UI are still being made

@@ -1,4 +1,32 @@
-/**
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: home.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: home.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
  * Main page folder ID.
  * @constant {string}
  */
@@ -38,8 +66,6 @@ class HomeScript {
     this.currentFolderID = MAIN_ID;
     // A const representing the parent folder
     this.parentFolderID = null;
-
-  
 
     // Add event listener to open the modal on click of the new note button
     this.newNoteButton.addEventListener('click', this.openCreateNoteModal.bind(this));
@@ -146,16 +172,13 @@ class HomeScript {
       noteElement.classList.add('note');
       noteElement.setAttribute('data-note-id', note.id);
       noteElement.innerHTML = `
-        <button class='obj-container'>
-        <div class='note-content' id=${note.label}>
-            <span class='delete'>&times;</span>
-            <p>${note.body}</p>
-        </div>
-        <div class='note-title'>
-            <h3>${note.title}</h3>
-        </div>
-        </button>`;
-
+        &lt;div class='note-content' id=${note.label}>
+            &lt;span class='delete'>&amp;times;&lt;/span>
+            &lt;p>${note.body}&lt;/p>
+        &lt;/div>
+        &lt;div class='note-title'>
+            &lt;h3>${note.title}&lt;/h3>
+        &lt;/div>`;
 
       // Click the x button to delete the note
       noteElement.querySelector('.delete').addEventListener('click', () => {
@@ -176,26 +199,13 @@ class HomeScript {
       folderElement.classList.add('folder');
       folderElement.setAttribute('data-folder-id', folder.id);
       folderElement.innerHTML = `
-<<<<<<< kabir-tabbable-buttons
-
-        <button class='obj-container'>
-          <div class='folder-content' id=${folder.label}>
-            <span class='delete-folder'>&times;</span>
-          </div>
-          <div class='folder-title'>
-            <h3>${folder.name}</h3>
-          </div>
-        </button>
-        `;
-=======
-        <div class='folder-content' id=${folder.label}>
-          <span class='delete-folder'>&times;</span>
-        </div>
-        <div class='folder-title'>
-          <h3>${folder.name}</h3>
-        </div>
+        &lt;div class='folder-content' id=${folder.label}>
+          &lt;span class='delete-folder'>&amp;times;&lt;/span>
+        &lt;/div>
+        &lt;div class='folder-title'>
+          &lt;h3>${folder.name}&lt;/h3>
+        &lt;/div>
       `;
->>>>>>> frontend
       
       // Click the x button to delete the folder
       folderElement.querySelector('.delete-folder').addEventListener('click', () => {
@@ -224,15 +234,15 @@ class HomeScript {
 
     // Modal content
     modal.innerHTML = `
-            <div class='folder-modal'>
-                <div class='modal-title'>
-                    <h3>Are you sure you want to delete this ${type}?</h3>
-                </div>
-                <div class='confirmation-buttons'> 
-                    <button class='no-button' type='submit'>NOPE</button>
-                    <button class='yes-button' type='submit'>YES</button>
-                </div>
-            </div>
+            &lt;div class='folder-modal'>
+                &lt;div class='modal-title'>
+                    &lt;h3>Are you sure you want to delete this ${type}?&lt;/h3>
+                &lt;/div>
+                &lt;div class='confirmation-buttons'> 
+                    &lt;button class='no-button' type='submit'>NOPE&lt;/button>
+                    &lt;button class='yes-button' type='submit'>YES&lt;/button>
+                &lt;/div>
+            &lt;/div>
         `;
     
     // Close modal when clicking the close button or saying no
@@ -286,37 +296,36 @@ class HomeScript {
     const modal = this.openModal();
     // Modal content
     modal.innerHTML = `
-            <div class='note-modal'>
-                <button class='obj-container'><span class='close-modal'>&times;</span></button>
-                <div class='modal-title'>
-                    <h2>New Note</h2>
-                </div>
-                <form id='modal-form'>
-                    <div class='modal-input'>
-                        <input type='text' id='note-title' name='note-title' placeholder='Page Title'>
-                    </div>
-                    <div class='modal-input'>
-                        <select id='note-label' name='note-label'>
-                            <option value='' disabled selected>Select Label</option>
-                            <option value='code-snippets'>Code Snippets</option>
-                            <option value='stand-up'>Stand-Up Notes</option>
-                            <option value='bug-reports'>Bug Reports</option>
-                            <option value='learning-notes'>Learning Notes</option>
-                            <option value='newsletter'>Newsletters</option>
-                            <option value='performance'>Performance Metrics</option>
-                            <option value='feature-ideas'>Feature Ideas</option>
-                        </select>
-                    </div>
-                    <div class='modal-input'>
-                        <textarea id='note-body' name='note-body'></textarea>
-                    </div>
-                    <div class='new-note-foot'> 
-                        <button class='create-button' type='submit'>Create</button>
-                    </div>
-                </form>
-            </div>
+            &lt;div class='note-modal'>
+                &lt;span class='close-modal'>&amp;times;&lt;/span>
+                &lt;div class='modal-title'>
+                    &lt;h2>New Note&lt;/h2>
+                &lt;/div>
+                &lt;form id='modal-form'>
+                    &lt;div class='modal-input'>
+                        &lt;input type='text' id='note-title' name='note-title' placeholder='Page Title'>
+                    &lt;/div>
+                    &lt;div class='modal-input'>
+                        &lt;select id='note-label' name='note-label'>
+                            &lt;option value='' disabled selected>Select Label&lt;/option>
+                            &lt;option value='code-snippets'>Code Snippets&lt;/option>
+                            &lt;option value='stand-up'>Stand-Up Notes&lt;/option>
+                            &lt;option value='bug-reports'>Bug Reports&lt;/option>
+                            &lt;option value='learning-notes'>Learning Notes&lt;/option>
+                            &lt;option value='newsletter'>Newsletters&lt;/option>
+                            &lt;option value='performance'>Performance Metrics&lt;/option>
+                            &lt;option value='feature-ideas'>Feature Ideas&lt;/option>
+                        &lt;/select>
+                    &lt;/div>
+                    &lt;div class='modal-input'>
+                        &lt;textarea id='note-body' name='note-body'>&lt;/textarea>
+                    &lt;/div>
+                    &lt;div class='new-note-foot'> 
+                        &lt;button class='create-button' type='submit'>Create&lt;/button>
+                    &lt;/div>
+                &lt;/form>
+            &lt;/div>
         `;
-    
 
     // Initialize SimpleMDE
     const simplemde = new SimpleMDE({ 
@@ -354,15 +363,6 @@ class HomeScript {
         'toggleSideBySide': 'F9',
         'toggleFullScreen': 'F11'
       }
-    });
-
-    // Enable escape to remove focus from element for accessibility in textAreas
-    document.
-    addEventListener('keydown', 
-      function(event) {
-        if(event.key == 'Escape' && document.activeElement.nodeName == 'TEXTAREA') {
-          document.activeElement.blur();
-        }
     });
 
     // Close modal when clicking the close button
@@ -404,7 +404,7 @@ class HomeScript {
 
     let noteLabel, noteColor;
 
-    for (let i = 0; i < noteIdValues.length; i++ ) {
+    for (let i = 0; i &lt; noteIdValues.length; i++ ) {
       if (noteIdValues[i] === label) {
         noteLabel = noteIdText[i];
         noteColor = noteIdColor[i];
@@ -413,25 +413,23 @@ class HomeScript {
 
     // Modal content
     modal.innerHTML = `
-            <div class='note-modal'>
-                <div class='edit-modal-title'>
-                    <h2 contenteditable='true'>${title}</h2>
-                </div>
-                <form id='note-modal-form'>
-                    <button class='back-button' type='submit'>Back</button>
-                    <div>
-                        <textarea id='edit-note-body' name='note-body'>${body}</textarea>
-                    </div>
-                    <div class='edit-note-footer'> 
-                        <div class='edit-note-label'>${noteLabel}</div>
-                        <button class='save-button' type='submit'>Save</button>
-                    </div>
-                </form>
-            </div>
+            &lt;div class='note-modal'>
+                &lt;div class='edit-modal-title'>
+                    &lt;h2 contenteditable='true'>${title}&lt;/h2>
+                &lt;/div>
+                &lt;form id='note-modal-form'>
+                    &lt;button class='back-button' type='submit'>Back&lt;/button>
+                    &lt;div>
+                        &lt;textarea id='edit-note-body' name='note-body'>${body}&lt;/textarea>
+                    &lt;/div>
+                    &lt;div class='edit-note-footer'> 
+                        &lt;div class='edit-note-label'>${noteLabel}&lt;/div>
+                        &lt;button class='save-button' type='submit'>Save&lt;/button>
+                    &lt;/div>
+                &lt;/form>
+            &lt;/div>
         `;
 
-    // trap Tab within modal for accesibility
-    enableModalTabTrap(modal);
     // Color of label
     const nLabel = modal.querySelector('.edit-note-label');
     nLabel.style.backgroundColor = noteColor;
@@ -520,29 +518,22 @@ class HomeScript {
 
     // Modal content
     modal.innerHTML = `
-            <div class='folder-modal'>
-              <button class='obj-container'>
-                <span class='close-modal'>&times;</span>
-              </button>
-                <div class='modal-title'>
-                    <h2>New Folder</h2>
-                </div>
-                <form id='modal-form'>
-                    <div class='modal-input'>
-                        <input type='text' id='note-title' name='note-title' placeholder='Folder Name'>
-                    </div>
-                    <button class='create-folder-button' type='submit'>Create</button>
-                </form>
-            </div>
+            &lt;div class='folder-modal'>
+                &lt;span class='close-modal'>&amp;times;&lt;/span>
+                &lt;div class='modal-title'>
+                    &lt;h2>New Folder&lt;/h2>
+                &lt;/div>
+                &lt;form id='modal-form'>
+                    &lt;div class='modal-input'>
+                        &lt;input type='text' id='note-title' name='note-title' placeholder='Folder Name'>
+                    &lt;/div>
+                    &lt;button class='create-folder-button' type='submit'>Create&lt;/button>
+                &lt;/form>
+            &lt;/div>
         `;
-<<<<<<< kabir-tabbable-buttons
-    enableModalTabTrap(modal);
-    
-=======
 
->>>>>>> frontend
     // Close modal when clicking the close button
-    const closeButton = modal.querySelector(':has(.close-modal)');
+    const closeButton = modal.querySelector('.close-modal');
     closeButton.addEventListener('click', () => {
       this.closeModal(modal);
     });
@@ -666,13 +657,13 @@ class HomeScript {
       noteElement.classList.add('note');
       noteElement.setAttribute('data-note-id', note.id);
       noteElement.innerHTML = `
-        <div class='note-content' id=${note.label}>
-            <span class='delete'>&times;</span>
-            <p>${note.body}</p>
-        </div>
-        <div class='note-title'>
-            <h3>${note.title}</h3>
-        </div>`;
+        &lt;div class='note-content' id=${note.label}>
+            &lt;span class='delete'>&amp;times;&lt;/span>
+            &lt;p>${note.body}&lt;/p>
+        &lt;/div>
+        &lt;div class='note-title'>
+            &lt;h3>${note.title}&lt;/h3>
+        &lt;/div>`;
 
       // Click the x button to delete the note
       noteElement.querySelector('.delete').addEventListener('click', () => {
@@ -693,12 +684,12 @@ class HomeScript {
       folderElement.classList.add('folder');
       folderElement.setAttribute('data-folder-id', folder.id);
       folderElement.innerHTML = `
-        <div class='folder-content' id=${folder.label}>
-          <span class='delete-folder'>&times;</span>
-        </div>
-        <div class='folder-title'>
-          <h3>${folder.name}</h3>
-        </div>
+        &lt;div class='folder-content' id=${folder.label}>
+          &lt;span class='delete-folder'>&amp;times;&lt;/span>
+        &lt;/div>
+        &lt;div class='folder-title'>
+          &lt;h3>${folder.name}&lt;/h3>
+        &lt;/div>
       `;
       
       // Click the x button to delete the folder
@@ -723,3 +714,26 @@ class HomeScript {
 document.addEventListener('DOMContentLoaded', () => {
   new HomeScript();
 });
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="HomeScript.html">HomeScript</a></li><li><a href="TaskList.html">TaskList</a></li></ul><h3>Global</h3><ul><li><a href="global.html#currentTheme">currentTheme</a></li><li><a href="global.html#darkModeToggle">darkModeToggle</a></li><li><a href="global.html#deleteFolderByID">deleteFolderByID</a></li><li><a href="global.html#deleteNoteByID">deleteNoteByID</a></li><li><a href="global.html#deleteNotesByFolderID">deleteNotesByFolderID</a></li><li><a href="global.html#deleteTask">deleteTask</a></li><li><a href="global.html#getFolderByID">getFolderByID</a></li><li><a href="global.html#getFoldersByID">getFoldersByID</a></li><li><a href="global.html#getNotesByFolderID">getNotesByFolderID</a></li><li><a href="global.html#getTaskList">getTaskList</a></li><li><a href="global.html#MAIN_ID">MAIN_ID</a></li><li><a href="global.html#prefersDarkScheme">prefersDarkScheme</a></li><li><a href="global.html#saveFolder">saveFolder</a></li><li><a href="global.html#saveNote">saveNote</a></li><li><a href="global.html#saveTask">saveTask</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Tue Jun 04 2024 22:26:52 GMT+0000 (Coordinated Universal Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

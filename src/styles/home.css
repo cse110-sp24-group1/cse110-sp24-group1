@@ -271,9 +271,9 @@ main {
     border-radius: 1.4rem;
     box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 30%);
     width: 40%;
-    height: 20%;
     max-width: 65%;
-    overflow-y: auto;
+    height: auto;
+    overflow: none;
     position: relative;
 }
 
@@ -354,31 +354,6 @@ main {
     border-color: var(--accent-color);
 }
 
-.modal-input textarea {
-    height: calc(100vh / 2);  
-    width: 100%;
-    padding: 5px 10px;   
-    border: 1px solid var(--light-border-color); 
-    border-radius: 5px; 
-    box-sizing: border-box;
-    resize: none;
-    overflow-y: auto;
-    max-height: calc(100vh - 20rem);
-}
-
-.dark-mode .modal-input textarea {
-    border: 1px solid var(--dark-border-color);
-}
-
-.modal-input textarea:focus {
-    outline: none;
-    border-color: var(--accent-color);
-}
-
-.textarea-container {
-    position: relative;
-}
-
 /* EDIT MODAL */
 .edit-modal-title h2 {
     text-align: center;
@@ -415,21 +390,18 @@ main {
 .save-button {
     background-color: var(--light-button-color);
     color: var(--light-text-color);
-    position: absolute;
+    position: relative;
     bottom: 1rem;
     right: 1rem;
+    margin-top: 20px;
+    margin-left: 95%;
     padding: 5px 10px;
     cursor: pointer;
     border: none;
     border-radius: 5px;
     margin-right: 1em;
     transition: background-color 0.3s;
-}
-
-.dark-mode .create-button,
-.dark-mode .save-button {
-    background-color: var(--dark-button-color);
-    color: var(--dark-text-color);
+    box-shadow: 0 1.5px #999;
 }
 
 .back-button {
@@ -444,11 +416,21 @@ main {
     border-radius: 5px;
     margin-left: 1em;
     transition: background-color 0.3s;
+    box-shadow: 0 1.5px #999;
+
 }
 
 .dark-mode .back-button {
     background-color: var(--dark-button-color);
     color: var(--dark-text-color);
+    box-shadow: 1.5px #595858;
+}
+
+.dark-mode .create-button,
+.dark-mode .save-button {
+    background-color: var(--dark-button-color);
+    color: var(--dark-text-color);
+    box-shadow: 1.5px #595858;
 }
 
 .create-button:hover, 
@@ -467,20 +449,74 @@ main {
     background-color: var(--dark-button-color-hover);
 }
 
-@media (width <= 500px) {
+.create-button:hover:active, 
+.save-button:hover:active {
+    background-color: var(--light-button-color-hover);
+    box-shadow: none;
+    transform: translateY(1.5px);   
+}
+
+.dark-mode .create-button:hover:active, 
+.dark-mode .save-button:hover:active {
+    background-color: var(--dark-button-color-hover);
+    box-shadow: none;
+    transform: translateY(1.5px);   
+}
+
+.back-button:hover:active {
+    background-color: var(--light-button-color-hover);
+    box-shadow: none;
+    transform: translateY(1.5px);   
+}
+
+.dark-mode .back-button:hover:active {
+    background-color: var(--dark-button-color-hover);
+    box-shadow: none;
+    transform: translateY(1.5px);   
+}
+
+.create-folder-button {
+    background-color: var(--light-button-color);
+    color: var(--light-text-color);
+    position: relative;
+    bottom: 1rem;
+    right: 3.75rem;
+    margin-top: 20px;
+    margin-left: 100%;
+    padding: 5px 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    margin-right: 1em;
+    transition: background-color 0.3s;
+    box-shadow: 1.5px #999;
+}
+
+@media (width <= 700px) {
     /* Add note and add folder button under header */ 
-    header {
-        position: relative;
-        height: 11em;
+    
+    .header-top-main {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 3em;
     }
 
     .top-right-buttons {
-        display: flex;
-        margin-left: 20%;
-        margin-right: 25%;
-        padding-top: 6em;
+        width: 100vw - 4rem;
+        margin: auto;
+        position: relative;
     }
-    
+
+    /* Edit back button for in folder */
+    .search-container {
+        justify-content: left;
+        margin-left: 10px;
+    }
+
+    .search-container #folder-back-button {
+        margin-right: 10px;
+    }
+
     /* Change size of note display */
     .note-content {
         width: 16em;
@@ -491,8 +527,10 @@ main {
         margin-bottom: 10px;
     }
 
-    .note-modal {
-        padding-bottom: 4rem;
+    /* Folder creation modal changes */
+    .folder-modal {
+        padding: 1.5em;
+        padding-bottom: none;
     }
 }
 
@@ -520,8 +558,8 @@ main {
 .edit-note-label {
     color: var(--light-text-color);
     position: absolute;
-    bottom: 1rem;
-    left: 1rem;
+    top: 1rem;
+    right: 2rem;
     padding: 5px 10px;
     border: none;
     border-radius: 5px;
@@ -531,11 +569,29 @@ main {
 .dark-mode .edit-note-label {
     color: var(--dark-text-color);
     position: absolute;
-    bottom: 1rem;
-    left: 1rem;
+    top: 1rem;
+    right: 2rem;
     padding: 5px 10px;
     cursor: pointer;
     border: none;
     border-radius: 5px;
     margin-left: 1em;
+}
+
+.confirmation-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.no-button,
+.yes-button {
+    background-color: var(--light-button-color);
+    color: var(--light-text-color);
+    padding: 5px 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    box-shadow: 0 1.5px #999;
+    margin-bottom: 1em;
 }
