@@ -144,13 +144,15 @@ class HomeScript {
       noteElement.classList.add('note');
       noteElement.setAttribute('data-note-id', note.id);
       noteElement.innerHTML = `
+        <button class=obj-container>
         <div class='note-content' id=${note.label}>
             <span class='delete'>&times;</span>
             <p>${note.body}</p>
         </div>
         <div class='note-title'>
             <h3>${note.title}</h3>
-        </div>`;
+        </div>
+        </button>`;
 
       // Click the x button to delete the note
       noteElement.querySelector('.delete').addEventListener('click', () => {
@@ -171,12 +173,14 @@ class HomeScript {
       folderElement.classList.add('folder');
       folderElement.setAttribute('data-folder-id', folder.id);
       folderElement.innerHTML = `
+      <button class='obj-container'>
         <div class='folder-content' id=${folder.label}>
           <span class='delete-folder'>&times;</span>
         </div>
         <div class='folder-title'>
           <h3>${folder.name}</h3>
         </div>
+      </button>
       `;
       
       // Click the x button to delete the folder

@@ -322,3 +322,12 @@ p {
         margin-bottom: 1em;
     }
 }
+
+/* Class for object container*/
+.obj-container {
+    border:none;
+    background:none;
+    margin:0;
+    padding:0;
+    line-height:0;
+}
