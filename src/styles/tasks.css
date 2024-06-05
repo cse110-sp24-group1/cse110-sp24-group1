@@ -72,7 +72,7 @@ select:focus {
    border: 1px solid var(--dark-border-color);
 }
 
-.task-item:hover {
+.task-item:hover, .task-item:has(input[type="checkbox"]:focus) {
    border: 2px solid var(--light-border-color-hover);
 }
 
