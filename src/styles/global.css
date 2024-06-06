@@ -337,6 +337,13 @@ p {
     line-height:0;
 }
 
-.obj-container:has(.close-modal) {
+.folder-modal .obj-container, .note-modal .obj-container{
     float:right;
+}
+
+.modal-content .obj-container {
+    position: absolute;
+    top: 0;
+    right: 4%;
+    line-height: unset;
 }

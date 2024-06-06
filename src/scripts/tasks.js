@@ -348,7 +348,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const newTaskInput = document.getElementById('new-task-input');
   const modal = document.getElementById('modal');
   const modalForm = document.getElementById('modal-form');
-  const closeModalBtn = document.querySelector('.close-modal');
+  const closeModalBtn = document.querySelector('.obj-container:has(.close-modal)');
   const taskContainer = document.querySelector('.task-container');
 
   // Open the modal when the task form is submitted
@@ -381,6 +381,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       modalTitle.textContent = 'New Task';
     }
+    enableModalTabTrap(modal,true);
   }
  
   /**
@@ -389,6 +390,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function closeModal () {
     modal.style.display = 'none';
     document.body.classList.remove('modal-open');
+    enableModalTabTrap(modal,false);
   }
 
   // Load the tasks from storage

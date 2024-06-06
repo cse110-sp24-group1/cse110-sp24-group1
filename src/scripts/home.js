@@ -305,6 +305,8 @@ class HomeScript {
             </div>
         `;
 
+    enableModalTabTrap(modal, true);
+
     // Initialize SimpleMDE
     const simplemde = new SimpleMDE({ 
       element: document.getElementById("note-body"),
@@ -347,12 +349,12 @@ class HomeScript {
     addEventListener('keydown', 
       function(event) {
         if(event.key == 'Escape' && document.activeElement.nodeName == 'TEXTAREA') {
-          document.activeElement.blur();
+          document.querySelector('.create-button').focus();
         }
     });
 
     // Close modal when clicking the close button
-    const closeButton = modal.querySelector('.close-modal');
+    const closeButton = modal.querySelector('.obj-container:has(.close-modal)');
     closeButton.addEventListener('click', () => {
       this.closeModal(modal);
     });
@@ -462,6 +464,16 @@ class HomeScript {
       }
     });
 
+    document.
+    addEventListener('keydown', 
+      function(event) {
+        if(event.key == 'Escape' && document.activeElement.nodeName == 'TEXTAREA') {
+          document.querySelector('.edit-note-label').focus();
+        }
+    });
+
+    enableModalTabTrap(modal, true);
+
     // Append modal to main body
     document.body.appendChild(modal);
     // Hide the top right buttons
@@ -506,7 +518,7 @@ class HomeScript {
     modal.innerHTML = `
             <div class='folder-modal'>
               <button class=obj-container>
-                  <span class='close-modal' tabindex='0'>&times;</span>
+                  <span class='close-modal'>&times;</span>
               </button>
                 <div class='modal-title'>
                     <h2>New Folder</h2>
@@ -520,8 +532,10 @@ class HomeScript {
             </div>
         `;
 
+    enableModalTabTrap(modal, true);
+    console.log('hi');
     // Close modal when clicking the close button
-    const closeButton = modal.querySelector('.close-modal');
+    const closeButton = modal.querySelector('.obj-container:has(.close-modal)');
     closeButton.addEventListener('click', () => {
       this.closeModal(modal);
     });
@@ -582,6 +596,8 @@ class HomeScript {
     this.mainElement.classList.remove('hide-notes');
     // Unhide the journal header from display
     this.journalHeader.classList.remove('hide-notes');
+
+    enableModalTabTrap(modal, false);
   }  
 
   /**

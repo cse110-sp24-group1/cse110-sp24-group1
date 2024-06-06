@@ -29,13 +29,13 @@
                 <ul>
                     <li>
                         <a href="index.html">
-                            <button class="home-page-icon"></button>
+                            <button class="home-page-icon" tabindex = '-1'></button>
                             <span>Journal</span>
                         </a>
                     </li>
                     <li>
                         <a href="tasks.html" class="current-page">
-                            <button class="task-page-icon"></button>
+                            <button class="task-page-icon" tabindex = '-1'></button>
                             <span>Tasks</span>
                         </a>
                     </li>
@@ -58,7 +58,9 @@
             <!-- Modal for adding tasks with description, label, label color, and due date -->
             <div id="modal" class="modal-content">
                 <!-- Close button for the modal -->
-                <span class="close-modal">&times;</span>
+                <button class='obj-container'>
+                    <span class="close-modal">&times;</span>
+                </button>
                 <!-- Title of the modal which is filled with task name -->
                 <h2 class="modal-title"></h2>
                 <form id="modal-form">
@@ -100,10 +102,10 @@
             <!-- Include scripts for data storage -->
             <script src="./scripts/data-storage.js"></script>
             <!-- Include scripts for task modal form and task list -->
+            <!-- Include scripts for dark/light mode -->
+            <script src="./scripts/global.js" type="text/javascript"></script>
             <script src="./scripts/tasks.js"></script>
             <!-- Include scripts for dark/light mode -->
-            <script src="./scripts/global.js" type="module"></script>
-            <!-- Message for users with JavaScript disabled -->
             <noscript>
                 <style>
                     .search-container, 

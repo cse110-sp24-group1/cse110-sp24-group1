@@ -49,3 +49,46 @@ darkModeToggle.addEventListener("change", function () {
         localStorage.setItem("theme", "light");
     }
 });
+
+// List of elements in modal (initialized upon modal creation)
+focusable = null;
+
+// Tab event handler for within modal
+const handleKey = (e) => {
+    if (e.keyCode === 9) {
+        if (focusable.length) {
+            console.log(e.target);
+            let first = focusable[0];
+            let last = focusable[focusable.length - 1];
+            let shift = e.shiftKey;
+            if(!Array.from(focusable).includes(e.target)) {
+                first.focus();
+                e.preventDefault();
+            }
+            if (shift) {
+                if (e.target === first) { // shift-tab pressed on first input in dialog
+                    last.focus();
+                    e.preventDefault();
+                }
+            } else {
+                if (e.target === last) { // tab pressed on last input in dialog
+                    first.focus();
+                    e.preventDefault();
+                }
+            }
+        }
+    }
+}
+
+/* Modal accessibility method*/
+function enableModalTabTrap(modal, en) {
+    let focusableList = modal.querySelectorAll('input,button,select,textarea');
+    focusable = focusableList;
+    if (en) {
+        window.addEventListener('keydown', handleKey);
+    }
+    else {
+        window.removeEventListener('keydown', handleKey);
+        focusable = null;
+    }   
+}
