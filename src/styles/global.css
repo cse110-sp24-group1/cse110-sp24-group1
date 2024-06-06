@@ -188,7 +188,7 @@ input:checked + .slider::before {
     padding-bottom: 1em; /* Optional: add some padding at the bottom */
 }
 
-/*Focus specific listener for accessibility on custom toggle*/
+/* Focus specific listener for accessibility on custom toggle */
 label:has(input[type="checkbox"]:focus) {
     border:0.1em solid var(--accent-color);
 }
