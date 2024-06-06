@@ -519,7 +519,32 @@ main {
     border-radius: 5px;
     margin-right: 1em;
     transition: background-color 0.3s;
-    box-shadow: 1.5px #999;
+    box-shadow: 0 1.5px #999;
+}
+.dark-mode .create-folder-button {
+    background-color: var(--dark-button-color);
+    color: var(--dark-text-color);
+    box-shadow: 1.5px #595858;
+}
+
+.create-folder-button:hover {
+    background-color: var(--light-button-color-hover);
+}
+
+.dark-mode .create-folder-button:hover {
+    background-color: var(--dark-button-color-hover);
+}
+
+.create-folder-button:hover:active {
+    background-color: var(--light-button-color-hover);
+    box-shadow: none;
+    transform: translateY(1.5px);   
+}
+
+.dark-mode .create-folder-button:hover:active {
+    background-color: var(--dark-button-color-hover);
+    box-shadow: none;
+    transform: translateY(1.5px);   
 }
 
 @media (width <= 700px) {
