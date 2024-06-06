@@ -132,9 +132,10 @@ main {
     margin-left:auto;
     margin-right:auto;
     margin-top: 2rem;    
-    width: 400px;
-    height: 400px;
+    width: 30em;
+    height: 30em;
 }
+
 .top-right-buttons {
     position: absolute;
     top: 20px;
@@ -190,7 +191,7 @@ main {
 }
 
 #folder-back-button {
-    padding: 5px 5px;
+    padding: 5px;
     background-image: url('../assets/icons/back-light.png');
     background-size:cover;
     background-repeat: no-repeat; 
@@ -203,7 +204,7 @@ main {
 }
 
 .dark-mode #folder-back-button {
-    padding: 5px 5px;
+    padding: 5px;
     background-image: url('../assets/icons/back-dark.png');
     background-size:cover;
     background-repeat: no-repeat; 
@@ -216,7 +217,7 @@ main {
 }
 
 #folder-back-button:hover {
-    padding: 5px 5px;
+    padding: 5px;
     background-image: url('../assets/icons/back-hover-light.png');
     background-size:cover;
     background-repeat: no-repeat; 
@@ -229,7 +230,7 @@ main {
 }
 
 .dark-mode #folder-back-button:hover {
-    padding: 5px 5px;
+    padding: 5px;
     background-image: url('../assets/icons/back-hover-dark.png');
     background-size:cover;
     background-repeat: no-repeat; 
@@ -441,7 +442,6 @@ main {
 }
 
 .back-button {
-    /*background-color: var(--light-button-color);*/
     background-image: url('../assets/icons/back-light.png');
     background-repeat: no-repeat;
     background-size: contain;
@@ -450,7 +450,7 @@ main {
     left: 1rem;
     width: 1.5rem;
     height: 1.5rem;
-    padding: 5px 5px;
+    padding: 5px;
     cursor: pointer;
     border: none;
     border-radius: 5px;
@@ -469,7 +469,7 @@ main {
     left: 1rem;
     width: 1.5rem;
     height: 1.5rem;
-    padding: 5px 5px;
+    padding: 5px;
     cursor: pointer;
     border: none;
     border-radius: 5px;
@@ -508,7 +508,7 @@ main {
     left: 1rem;
     width: 1.5rem;
     height: 1.5rem;
-    padding: 5px 5px;
+    padding: 5px;
     cursor: pointer;
     border: none;
     border-radius: 5px;
@@ -526,7 +526,7 @@ main {
     left: 1rem;
     width: 1.5rem;
     height: 1.5rem;
-    padding: 5px 5px;
+    padding: 5px;
     cursor: pointer;
     border: none;
     border-radius: 5px;
