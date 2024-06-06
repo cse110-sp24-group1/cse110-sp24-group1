@@ -127,6 +127,15 @@ main {
 }
 
 /* HOME PAGE */
+.center-image{
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top: 2rem;    
+    width: 30em;
+    height: 30em;
+}
+
 .top-right-buttons {
     position: absolute;
     top: 20px;
@@ -182,27 +191,55 @@ main {
 }
 
 #folder-back-button {
-    padding: 10px 20px;
-    background-color: var(--light-button-color);
-    color: var(--light-text-color);
+    padding: 5px;
+    background-image: url('../assets/icons/back-light.png');
+    background-size:cover;
+    background-repeat: no-repeat; 
+    width: 1.8rem;
+    height: 1.8rem;
     border: none;
-    border-radius: 300%;
     cursor: pointer;
     margin-left: 10px;
     transition: background-color 0.3s;
 }
 
 .dark-mode #folder-back-button {
-    background-color: var(--dark-button-color);
-    color: var(--dark-text-color);
+    padding: 5px;
+    background-image: url('../assets/icons/back-dark.png');
+    background-size:cover;
+    background-repeat: no-repeat; 
+    width: 1.8rem;
+    height: 1.8rem;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: background-color 0.3s;
 }
 
 #folder-back-button:hover {
-    background-color: var(--light-button-color-hover);
+    padding: 5px;
+    background-image: url('../assets/icons/back-hover-light.png');
+    background-size:cover;
+    background-repeat: no-repeat; 
+    width: 1.8rem;
+    height: 1.8rem;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: background-color 0.3s;
 }
 
 .dark-mode #folder-back-button:hover {
-    background-color: var(--dark-button-color-hover);
+    padding: 5px;
+    background-image: url('../assets/icons/back-hover-dark.png');
+    background-size:cover;
+    background-repeat: no-repeat; 
+    width: 1.8rem;
+    height: 1.8rem;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: background-color 0.3s;
 }
 
 /* NEW NOTE MODAL */
@@ -405,12 +442,15 @@ main {
 }
 
 .back-button {
-    background-color: var(--light-button-color);
-    color: var(--light-text-color);
+    background-image: url('../assets/icons/back-light.png');
+    background-repeat: no-repeat;
+    background-size: contain;
     position: absolute;
     top: 1rem;
     left: 1rem;
-    padding: 5px 10px;
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 5px;
     cursor: pointer;
     border: none;
     border-radius: 5px;
@@ -421,8 +461,20 @@ main {
 }
 
 .dark-mode .back-button {
-    background-color: var(--dark-button-color);
-    color: var(--dark-text-color);
+    background-image: url('../assets/icons/back-dark.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 5px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    margin-left: 1em;
+    transition: background-color 0.3s;
     box-shadow: 1.5px #595858;
 }
 
@@ -435,7 +487,6 @@ main {
 
 .create-button:hover, 
 .save-button:hover, 
-.back-button:hover,
 .input-button:hover,
 .exist-input-button:hover {
     background-color: var(--light-button-color-hover);
@@ -443,10 +494,45 @@ main {
 
 .dark-mode .create-button:hover, 
 .dark-mode .save-button:hover, 
-.dark-mode .back-button:hover,
 .dark-mode .input-button:hover,
 .dark-mode .exist-input-button:hover {
     background-color: var(--dark-button-color-hover);
+}
+
+.back-button:hover{
+    background-image: url('../assets/icons/back-hover-light.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 5px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    margin-left: 1em;
+    transition: background-color 0.3s;
+    box-shadow: 0 1.5px #999;
+}
+
+.dark-mode .back-button:hover{
+    background-image: url('../assets/icons/back-hover-dark.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 5px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    margin-left: 1em;
+    transition: background-color 0.3s;
+    box-shadow: 1.5px #595858;
 }
 
 .create-button:hover:active, 
