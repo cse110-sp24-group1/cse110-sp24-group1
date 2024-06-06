@@ -234,7 +234,7 @@ class HomeScript {
 
     // Modal content
     modal.innerHTML = `
-            &lt;div class='folder-modal'>
+            &lt;div class='confirmation-modal'>
                 &lt;div class='modal-title'>
                     &lt;h3>Are you sure you want to delete this ${type}?&lt;/h3>
                 &lt;/div>
@@ -244,7 +244,7 @@ class HomeScript {
                 &lt;/div>
             &lt;/div>
         `;
-    
+
     // Close modal when clicking the close button or saying no
     const noButton = modal.querySelector('.no-button');
     noButton.addEventListener('click', () => {

@@ -136,7 +136,16 @@ class HomeScript {
   render () {
     //console.log(this.currentFolderID + ' ' + this.parentFolderID);
     // Clear main element
-    this.mainElement.innerHTML = '';
+    this.mainElement.innerHTML = "";
+
+    //Render PNG on empty folders and notes
+    if (this.notes.length === 0 && this.folders.length === 0) {
+      const imgElement = document.createElement('img');
+      imgElement.src = '../src/assets/icons/empty-page.png';
+      imgElement.classList.add('center-image');
+      this.mainElement.appendChild(imgElement);
+      return;
+    }
 
     // Render all notes in current folder
     this.notes.forEach(note => {
@@ -206,7 +215,7 @@ class HomeScript {
 
     // Modal content
     modal.innerHTML = `
-            <div class='folder-modal'>
+            <div class='confirmation-modal'>
                 <div class='modal-title'>
                     <h3>Are you sure you want to delete this ${type}?</h3>
                 </div>
@@ -216,7 +225,7 @@ class HomeScript {
                 </div>
             </div>
         `;
-    
+
     // Close modal when clicking the close button or saying no
     const noButton = modal.querySelector('.no-button');
     noButton.addEventListener('click', () => {
@@ -390,7 +399,7 @@ class HomeScript {
                     <h2 contenteditable='true'>${title}</h2>
                 </div>
                 <form id='note-modal-form'>
-                    <button class='back-button' type='submit'>Back</button>
+                    <button class='back-button' type='submit'></button>
                     <div>
                         <textarea id='edit-note-body' name='note-body'>${body}</textarea>
                     </div>

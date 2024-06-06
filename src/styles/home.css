@@ -97,6 +97,37 @@ main {
     color: var(--dark-text-color);
 }
 
+.confirmation-modal::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color:#00000080; 
+    backdrop-filter: blur(1px);
+    z-index: -1; 
+}
+
+.confirmation-modal {
+    background-color: var(--light-background-color);
+    color: var(--light-text-color);
+    padding: 2rem;
+    padding-bottom: 0.1rem;
+    border-radius: 1.4rem;
+    box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 30%);
+    width: 30%;
+    max-width: 15rem;
+    height: auto;
+    overflow: none;
+    position: relative;
+}
+
+.dark-mode .confirmation-modal {
+    background-color: var(--dark-background-color);
+    color: var(--dark-text-color);
+}
+
 /** Change the colors of each entry to its respective label */
 #code-snippets{
     background-color: var(--code-snippets-color);
@@ -127,6 +158,15 @@ main {
 }
 
 /* HOME PAGE */
+.center-image{
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top: 2rem;    
+    width: 30em;
+    height: 30em;
+}
+
 .top-right-buttons {
     position: absolute;
     top: 20px;
@@ -182,27 +222,55 @@ main {
 }
 
 #folder-back-button {
-    padding: 10px 20px;
-    background-color: var(--light-button-color);
-    color: var(--light-text-color);
+    padding: 5px;
+    background-image: url('../assets/icons/back-light.png');
+    background-size:cover;
+    background-repeat: no-repeat; 
+    width: 1.8rem;
+    height: 1.8rem;
     border: none;
-    border-radius: 300%;
     cursor: pointer;
     margin-left: 10px;
     transition: background-color 0.3s;
 }
 
 .dark-mode #folder-back-button {
-    background-color: var(--dark-button-color);
-    color: var(--dark-text-color);
+    padding: 5px;
+    background-image: url('../assets/icons/back-dark.png');
+    background-size:cover;
+    background-repeat: no-repeat; 
+    width: 1.8rem;
+    height: 1.8rem;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: background-color 0.3s;
 }
 
 #folder-back-button:hover {
-    background-color: var(--light-button-color-hover);
+    padding: 5px;
+    background-image: url('../assets/icons/back-hover-light.png');
+    background-size:cover;
+    background-repeat: no-repeat; 
+    width: 1.8rem;
+    height: 1.8rem;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: background-color 0.3s;
 }
 
 .dark-mode #folder-back-button:hover {
-    background-color: var(--dark-button-color-hover);
+    padding: 5px;
+    background-image: url('../assets/icons/back-hover-dark.png');
+    background-size:cover;
+    background-repeat: no-repeat; 
+    width: 1.8rem;
+    height: 1.8rem;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: background-color 0.3s;
 }
 
 /* NEW NOTE MODAL */
@@ -310,34 +378,34 @@ main {
     border: 1px solid var(--light-border-color); 
     border-radius: 5px; 
     box-sizing: border-box;
+}
 
-    option[value="code-snippets"]{
-        color: var(--code-snippets-color);
-    }
+.modal-input select option[value="code-snippets"] {
+    color: var(--code-snippets-color);
+}
 
-    option[value="stand-up"]{
-        color: var(--stand-up-label-color);
-    }
+.modal-input select option[value="stand-up"] {
+    color: var(--stand-up-label-color);
+}
 
-    option[value="bug-reports"]{
-        color: var(--bug-reports-label-color);
-    }
+.modal-input select option[value="bug-reports"] {
+    color: var(--bug-reports-label-color);
+}
 
-    option[value="learning-notes"]{
-        color: var(--learning-notes-label-color);
-    }
+.modal-input select option[value="learning-notes"] {
+    color: var(--learning-notes-label-color);
+}
 
-    option[value="newsletter"]{
-        color: var(--newsletter-label-color);
-    }
+.modal-input select option[value="newsletter"] {
+    color: var(--newsletter-label-color);
+}
 
-    option[value="performance"]{
-        color: var(--performance-label-color);
-    }
+.modal-input select option[value="performance"] {
+    color: var(--performance-label-color);
+}
 
-    option[value="feature-ideas"]{
-        color: var(--feature-ideas-label-color);
-    }
+.modal-input select option[value="feature-ideas"] {
+    color: var(--feature-ideas-label-color);
 }
 
 .dark-mode .modal-input select {
@@ -405,12 +473,15 @@ main {
 }
 
 .back-button {
-    background-color: var(--light-button-color);
-    color: var(--light-text-color);
+    background-image: url('../assets/icons/back-light.png');
+    background-repeat: no-repeat;
+    background-size: contain;
     position: absolute;
     top: 1rem;
     left: 1rem;
-    padding: 5px 10px;
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 5px;
     cursor: pointer;
     border: none;
     border-radius: 5px;
@@ -421,8 +492,20 @@ main {
 }
 
 .dark-mode .back-button {
-    background-color: var(--dark-button-color);
-    color: var(--dark-text-color);
+    background-image: url('../assets/icons/back-dark.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 5px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    margin-left: 1em;
+    transition: background-color 0.3s;
     box-shadow: 1.5px #595858;
 }
 
@@ -435,7 +518,6 @@ main {
 
 .create-button:hover, 
 .save-button:hover, 
-.back-button:hover,
 .input-button:hover,
 .exist-input-button:hover {
     background-color: var(--light-button-color-hover);
@@ -443,10 +525,45 @@ main {
 
 .dark-mode .create-button:hover, 
 .dark-mode .save-button:hover, 
-.dark-mode .back-button:hover,
 .dark-mode .input-button:hover,
 .dark-mode .exist-input-button:hover {
     background-color: var(--dark-button-color-hover);
+}
+
+.back-button:hover{
+    background-image: url('../assets/icons/back-hover-light.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 5px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    margin-left: 1em;
+    transition: background-color 0.3s;
+    box-shadow: 0 1.5px #999;
+}
+
+.dark-mode .back-button:hover{
+    background-image: url('../assets/icons/back-hover-dark.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 5px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    margin-left: 1em;
+    transition: background-color 0.3s;
+    box-shadow: 1.5px #595858;
 }
 
 .create-button:hover:active, 
@@ -489,7 +606,33 @@ main {
     border-radius: 5px;
     margin-right: 1em;
     transition: background-color 0.3s;
-    box-shadow: 1.5px #999;
+    box-shadow: 0 1.5px #999;
+}
+
+.dark-mode .create-folder-button {
+    background-color: var(--dark-button-color);
+    color: var(--dark-text-color);
+    box-shadow: 1.5px #595858;
+}
+
+.create-folder-button:hover {
+    background-color: var(--light-button-color-hover);
+}
+
+.dark-mode .create-folder-button:hover {
+    background-color: var(--dark-button-color-hover);
+}
+
+.create-folder-button:hover:active {
+    background-color: var(--light-button-color-hover);
+    box-shadow: none;
+    transform: translateY(1.5px);   
+}
+
+.dark-mode .create-folder-button:hover:active {
+    background-color: var(--dark-button-color-hover);
+    box-shadow: none;
+    transform: translateY(1.5px);   
 }
 
 @media (width <= 700px) {
@@ -593,5 +736,36 @@ main {
     border-radius: 5px;
     transition: background-color 0.3s;
     box-shadow: 0 1.5px #999;
-    margin-bottom: 1em;
+    margin-bottom: 2em;
+}
+
+.dark-mode .no-button,
+.dark-mode .yes-button {
+    background-color: var(--dark-button-color);
+    color: var(--dark-text-color);
+    box-shadow: 1.5px #595858;
+}
+
+.no-button:hover, 
+.yes-button:hover {
+    background-color: var(--light-button-color-hover);
+}
+
+.dark-mode .no-button:hover, 
+.dark-mode .yes-button:hover {
+    background-color: var(--dark-button-color-hover);
+}
+
+.no-button:hover:active, 
+.yes-button:hover:active {
+    background-color: var(--light-button-color-hover);
+    box-shadow: none;
+    transform: translateY(1.5px);   
+}
+
+.dark-mode .no-button:hover:active, 
+.dark-mode .yes-button:hover:active {
+    background-color: var(--dark-button-color-hover);
+    box-shadow: none;
+    transform: translateY(1.5px);   
 }
