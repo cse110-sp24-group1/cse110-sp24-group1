@@ -10,7 +10,7 @@ Welcome to **One and Done**, a feature-rich journal app built with HTML, CSS, an
 
 ## Learn More About our [Team](./admin/team.md)!
 
-<video src="./admin/videos/team-intro.mp4" width="400">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/zUe_q16AtvY?si=rEqLK_s5D5MyM6L-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Project Links
 
