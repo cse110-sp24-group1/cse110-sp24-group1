@@ -378,34 +378,34 @@ main {
     border: 1px solid var(--light-border-color); 
     border-radius: 5px; 
     box-sizing: border-box;
+}
 
-    option[value="code-snippets"]{
-        color: var(--code-snippets-color);
-    }
+.modal-input select option[value="code-snippets"] {
+    color: var(--code-snippets-color);
+}
 
-    option[value="stand-up"]{
-        color: var(--stand-up-label-color);
-    }
+.modal-input select option[value="stand-up"] {
+    color: var(--stand-up-label-color);
+}
 
-    option[value="bug-reports"]{
-        color: var(--bug-reports-label-color);
-    }
+.modal-input select option[value="bug-reports"] {
+    color: var(--bug-reports-label-color);
+}
 
-    option[value="learning-notes"]{
-        color: var(--learning-notes-label-color);
-    }
+.modal-input select option[value="learning-notes"] {
+    color: var(--learning-notes-label-color);
+}
 
-    option[value="newsletter"]{
-        color: var(--newsletter-label-color);
-    }
+.modal-input select option[value="newsletter"] {
+    color: var(--newsletter-label-color);
+}
 
-    option[value="performance"]{
-        color: var(--performance-label-color);
-    }
+.modal-input select option[value="performance"] {
+    color: var(--performance-label-color);
+}
 
-    option[value="feature-ideas"]{
-        color: var(--feature-ideas-label-color);
-    }
+.modal-input select option[value="feature-ideas"] {
+    color: var(--feature-ideas-label-color);
 }
 
 .dark-mode .modal-input select {
