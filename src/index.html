@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+    
         <meta charset="utf-8">
         <title>My Journal</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,6 +20,11 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/highlight.js/latest/styles/github.min.css">
     </head>
     <body>
+        <script>
+            const theme = localStorage.getItem('theme') || 'light';
+            document.documentElement.dataset.theme = theme;
+          </script>
+        
         <header>
             <div class="header-top-main">
                 <!-- Search bar for filtering notes -->

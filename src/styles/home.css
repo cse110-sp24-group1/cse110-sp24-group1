@@ -97,6 +97,37 @@ main {
     color: var(--dark-text-color);
 }
 
+.confirmation-modal::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color:#00000080; 
+    backdrop-filter: blur(1px);
+    z-index: -1; 
+}
+
+.confirmation-modal {
+    background-color: var(--light-background-color);
+    color: var(--light-text-color);
+    padding: 2rem;
+    padding-bottom: 0.1rem;
+    border-radius: 1.4rem;
+    box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 30%);
+    width: 30%;
+    max-width: 15rem;
+    height: auto;
+    overflow: none;
+    position: relative;
+}
+
+.dark-mode .confirmation-modal {
+    background-color: var(--dark-background-color);
+    color: var(--dark-text-color);
+}
+
 /** Change the colors of each entry to its respective label */
 #code-snippets{
     background-color: var(--code-snippets-color);
@@ -575,7 +606,33 @@ main {
     border-radius: 5px;
     margin-right: 1em;
     transition: background-color 0.3s;
-    box-shadow: 1.5px #999;
+    box-shadow: 0 1.5px #999;
+}
+
+.dark-mode .create-folder-button {
+    background-color: var(--dark-button-color);
+    color: var(--dark-text-color);
+    box-shadow: 1.5px #595858;
+}
+
+.create-folder-button:hover {
+    background-color: var(--light-button-color-hover);
+}
+
+.dark-mode .create-folder-button:hover {
+    background-color: var(--dark-button-color-hover);
+}
+
+.create-folder-button:hover:active {
+    background-color: var(--light-button-color-hover);
+    box-shadow: none;
+    transform: translateY(1.5px);   
+}
+
+.dark-mode .create-folder-button:hover:active {
+    background-color: var(--dark-button-color-hover);
+    box-shadow: none;
+    transform: translateY(1.5px);   
 }
 
 @media (width <= 700px) {
@@ -679,5 +736,36 @@ main {
     border-radius: 5px;
     transition: background-color 0.3s;
     box-shadow: 0 1.5px #999;
-    margin-bottom: 1em;
+    margin-bottom: 2em;
+}
+
+.dark-mode .no-button,
+.dark-mode .yes-button {
+    background-color: var(--dark-button-color);
+    color: var(--dark-text-color);
+    box-shadow: 1.5px #595858;
+}
+
+.no-button:hover, 
+.yes-button:hover {
+    background-color: var(--light-button-color-hover);
+}
+
+.dark-mode .no-button:hover, 
+.dark-mode .yes-button:hover {
+    background-color: var(--dark-button-color-hover);
+}
+
+.no-button:hover:active, 
+.yes-button:hover:active {
+    background-color: var(--light-button-color-hover);
+    box-shadow: none;
+    transform: translateY(1.5px);   
+}
+
+.dark-mode .no-button:hover:active, 
+.dark-mode .yes-button:hover:active {
+    background-color: var(--dark-button-color-hover);
+    box-shadow: none;
+    transform: translateY(1.5px);   
 }
