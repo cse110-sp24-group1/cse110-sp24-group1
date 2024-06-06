@@ -10,14 +10,7 @@ Welcome to **One and Done**, a feature-rich journal app built with HTML, CSS, an
 
 ## Learn More About our [Team](./admin/team.md)!
 
-## Features
-
-- Organized Note and Folder Creation: Easily create and manage your notes and folders to keep your thoughts and tasks well-organized.
-- Markdown Support: Utilize powerful markdown capabilities to format your notes with ease, adding structure and emphasis.
-- Efficient Task List Management: Keep track of your tasks and to-dos effortlessly with a dedicated task list management system.
-- Dual Theme Options: Switch seamlessly between dark mode and light mode to suit your preferences and enhance your writing experience.
-- Persistent Data Management: Rely on local storage to securely manage your data, ensuring your notes and tasks are always saved.
-- Powerful Search Functionality: Quickly find specific notes and tasks with a robust search bar, enhancing productivity and accessibility.
+<video src="./admin/videos/team-intro.mp4" width="400">
 
 ## Project Links
 
@@ -26,6 +19,15 @@ Welcome to **One and Done**, a feature-rich journal app built with HTML, CSS, an
 
 - We used Github for project management. Our [GitHub Repository](https://github.com/cse110-sp24-group1/cse110-sp24-group1) has our source code, meeting notes, brainstorming information, kanban board, and much more.
 - We are hosting our [website](https://cse110-sp24-group1.github.io/cse110-sp24-group1/src/) with GitHub Pages.
+
+## Features
+
+- Organized Note and Folder Creation: Easily create and manage your notes and folders to keep your thoughts and tasks well-organized.
+- Markdown Support: Utilize powerful markdown capabilities to format your notes with ease, adding structure and emphasis.
+- Efficient Task List Management: Keep track of your tasks and to-dos effortlessly with a dedicated task list management system.
+- Dual Theme Options: Switch seamlessly between dark mode and light mode to suit your preferences and enhance your writing experience.
+- Persistent Data Management: Rely on local storage to securely manage your data, ensuring your notes and tasks are always saved.
+- Powerful Search Functionality: Quickly find specific notes and tasks with a robust search bar, enhancing productivity and accessibility.
 
 ## Brainstorming and Design Process
 
@@ -75,7 +77,25 @@ Our project uses GitHub Actions for Continuous Integration and Deployment. The p
 ![Jest](https://img.shields.io/badge/Jest-C21325?style=for-the-badge&logo=jest&logoColor=white)
 
 - For testing purposes.
-- (EXPLAIN HOW TO TEST)
+
+#### How to Test
+
+1. Clone the GitHub repository locally: ```git clone https://github.com/cse110-sp24-group1/cse110-sp24-group1.git```
+2. Start the live server: Ensure the live server is running and the application is accessible.
+3. Run the tests: Execute the test suite using Jest.
+
+##### Folder Functionality
+
+```npm test -- folders.test.js```
+
+##### Note Functionality
+
+```npm test -- notes.test.js```
+
+##### Task Functionality
+
+```npm test -- tasks.test.js```
+
 
 ## Repository Organization
 
