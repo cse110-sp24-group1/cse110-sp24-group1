@@ -328,13 +328,12 @@ p {
     }
 }
 
-/* Class for object container*/
+/* Class for object container */
 .obj-container {
-    border:none;
-    background:none;
-    margin:0;
-    padding:0;
-    line-height:0;
+    border: none;
+    background: none;
+    margin: 0;
+    padding: 0;
 }
 
 .folder-modal .obj-container, .note-modal .obj-container{

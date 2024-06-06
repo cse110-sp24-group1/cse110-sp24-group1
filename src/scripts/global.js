@@ -50,10 +50,16 @@ darkModeToggle.addEventListener("change", function () {
     }
 });
 
-// List of elements in modal (initialized upon modal creation)
-focusable = null;
+/**
+ * List of focusable elements in the modal (initialized upon modal creation).
+ * @type {NodeListOf<HTMLElement>}
+ */
+let focusable = null;
 
-// Tab event handler for within modal
+/**
+ * Tab event handler for navigating within the modal.
+ * @param {KeyboardEvent} e - The keyboard event.
+ */
 const handleKey = (e) => {
     if (e.keyCode === 9) {
         if (focusable.length) {
@@ -61,7 +67,7 @@ const handleKey = (e) => {
             let first = focusable[0];
             let last = focusable[focusable.length - 1];
             let shift = e.shiftKey;
-            if(!Array.from(focusable).includes(e.target)) {
+            if (!Array.from(focusable).includes(e.target)) {
                 first.focus();
                 e.preventDefault();
             }
@@ -80,14 +86,17 @@ const handleKey = (e) => {
     }
 }
 
-/* Modal accessibility method*/
+/**
+ * Enables or disables the tab trap within the modal for accessibility.
+ * @param {HTMLElement} modal - The modal element.
+ * @param {boolean} en - Whether to enable or disable the tab trap.
+ */
 function enableModalTabTrap(modal, en) {
     let focusableList = modal.querySelectorAll('input,button,select,textarea');
     focusable = focusableList;
     if (en) {
         window.addEventListener('keydown', handleKey);
-    }
-    else {
+    } else {
         window.removeEventListener('keydown', handleKey);
         focusable = null;
     }   
