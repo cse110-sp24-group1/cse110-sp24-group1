@@ -28,6 +28,7 @@ Welcome to **One and Done**, a feature-rich journal app built with HTML, CSS, an
 - Dual Theme Options: Switch seamlessly between dark mode and light mode to suit your preferences and enhance your writing experience.
 - Persistent Data Management: Rely on local storage to securely manage your data, ensuring your notes and tasks are always saved.
 - Powerful Search Functionality: Quickly find specific notes and tasks with a robust search bar, enhancing productivity and accessibility.
+- Accessibility: Enjoy a user-friendly UI with full keyboard accessibility, ensuring ease of use for everyone.
 
 ## Brainstorming and Design Process
 
