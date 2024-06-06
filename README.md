@@ -109,3 +109,24 @@ Our project uses GitHub Actions for Continuous Integration and Deployment. The p
 - `/specs/brainstorm`: Contains all of our initial brainstorming from user reasearch to wireframing.
 - `/specs/pitch`: Contains our intial project pitch.
 - `/src`: Contains source code for our project.
+
+## Future Investigation
+
+- **Time Remaining for Task List**
+  - Calculate and display time remaining for each task.
+  - Implement visual representation (countdown clock, progress bar).
+
+- **Calendar Widget**
+  - Design a tab with an interactive calendar widget.
+  - Display notes/tasks due on specific dates.
+  - Allow input of daily work hours, displayed on the calendar.
+
+- **Login/Logout Feature**
+  - Implement user authentication for account creation and login.
+  - Design login and sign-in forms.
+  - Create a profile page for user information.
+  - Ensure security and cross-platform accessibility.
+
+- **Note Entry Templates**
+  - Implement template selection for notes.
+  - Predefined templates: Sprint Review, Standup Meeting, Brainstorming Meeting.
