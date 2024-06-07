@@ -73,9 +73,9 @@ Our project uses GitHub Actions for Continuous Integration and Deployment. The p
 
 - To ensure code quality and adherence to community best practices for [Javascript, HTML, CSS,and Markdown](https://github.com/super-linter/super-linter).
 
-### Calibreapp Image Optimizer
+### [Calibreapp Image Optimizer](https://github.com/calibreapp/image-actions)
 
-- [Optimization](https://github.com/calibreapp/image-actions) of image,icons, and svg storage quality that are stored on the repo without the loss of quality.
+- Optimization of image,icons, and svg storage quality that are stored on the repo without the loss of quality.
 
 ### Jest and Puppeteer
 
@@ -83,32 +83,13 @@ Our project uses GitHub Actions for Continuous Integration and Deployment. The p
 
 - For testing purposes.
 
-### Markdown Link Validator
+### [Markdown Link Validator](https://github.com/marketplace/actions/markdown-link-check)
 
-- [Tests](https://github.com/marketplace/actions/markdown-link-check) all links that are implemented using Markdown to ensure all links are reachable and valid.
+- Tests all links that are implemented using Markdown to ensure all links are reachable and valid.
 
-### File Changed Checker
+### [File Changed Checker](https://github.com/marketplace/actions/changed-files)
 
-- [Lists and logs](https://github.com/marketplace/actions/changed-files) all core files that were changed in a specifc branch such as main.
-
-#### How to Test
-
-1. Clone the GitHub repository locally: ```git clone https://github.com/cse110-sp24-group1/cse110-sp24-group1.git```
-2. Start the live server: Ensure the live server is running and the application is accessible.
-3. Run the tests: Execute the test suite using Jest.
-
-##### Folder Functionality
-
-```npm test -- folders.test.js```
-
-##### Note Functionality
-
-```npm test -- notes.test.js```
-
-##### Task Functionality
-
-```npm test -- tasks.test.js```
-
+- Lists and logs all core files that were changed in a specifc branch such as main.
 
 ## Repository Organization
 
