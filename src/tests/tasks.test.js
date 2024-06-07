@@ -11,7 +11,7 @@ describe('Task List Functionality Tests', () => {
       slowMo: 50, // Slowing down each operation by 50ms for better visibility
     });
     page = await browser.newPage(); // Opening a new page
-    await page.goto('http://127.0.0.1:5500/src/tasks.html'); // Navigating to the specified URL change based on your live server or pages when ready 
+    await page.goto('https://cse110-sp24-group1.github.io/cse110-sp24-group1/src/tasks.html'); // Navigating to the specified URL change based on your live server or pages when ready 
   });
 
   afterAll(async () => {

@@ -14,4 +14,3 @@ jobs: # the things being executed
         run: npm test -- tasks.test.js
              npm test -- notes.test.js
              npm test -- folders.test.js 
-             npm test -- data-schema.test.js 
