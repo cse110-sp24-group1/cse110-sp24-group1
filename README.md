@@ -89,7 +89,7 @@ Our project uses GitHub Actions for Continuous Integration and Deployment. The p
 
 ### File Changed Checker
 
-- [Lists and logs] all core files that were changed in a specifc branch such as main.
+- [Lists and logs](https://github.com/marketplace/actions/changed-files) all core files that were changed in a specifc branch such as main.
 
 #### How to Test
 
