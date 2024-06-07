@@ -111,6 +111,10 @@ Our project uses GitHub Actions for Continuous Integration and Deployment. The p
 - `/specs/pitch`: Contains our intial project pitch.
 - `/src`: Contains source code for our project.
 
+## Wiki
+
+- To learn more about our project and its development, take a look at our [wiki](https://github.com/cse110-sp24-group1/cse110-sp24-group1/wiki).
+  
 ## Future Investigation
 
 - **Time Remaining for Task List**
