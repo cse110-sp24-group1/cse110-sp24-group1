@@ -13,10 +13,6 @@ describe('Task List Functionality Tests', () => {
     page = await browser.newPage(); // Opening a new page
     await page.goto('https://cse110-sp24-group1.github.io/cse110-sp24-group1/src/'); // Navigating to the specified URL change based on your live server or pages when ready 
   });
-
-  afterAll(async () => {
-    await browser.close(); // Closing the browser after all tests
-  });
   
   // Needed for delete test functionality 
   const delay = time => new Promise(res => setTimeout(res, time));

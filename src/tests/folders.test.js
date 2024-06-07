@@ -14,9 +14,6 @@ describe('Task List Functionality Tests', () => {
     await page.goto('https://cse110-sp24-group1.github.io/cse110-sp24-group1/src/'); // Navigating to the specified URL change based on your live server or pages when ready 
   });
 
-  afterAll(async () => {
-    await browser.close(); // Closing the browser after all tests
-  });
   const delay = time => new Promise(res => setTimeout(res, time));
 
   it('should recognize that there are no folders', async () => {

@@ -14,10 +14,6 @@ describe('Task List Functionality Tests', () => {
     await page.goto('https://cse110-sp24-group1.github.io/cse110-sp24-group1/src/tasks.html'); // Navigating to the specified URL change based on your live server or pages when ready 
   });
 
-  afterAll(async () => {
-    await browser.close(); // Closing the browser after all tests
-  });
-
   it('Checking that no tasks are loaded initially', async () => {
     console.log('Checking it should have a length of zero'); // Logging a message to the console
     const tasks = await page.evaluate(() => {
