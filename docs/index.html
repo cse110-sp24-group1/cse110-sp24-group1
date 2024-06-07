@@ -50,6 +50,14 @@
 <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&amp;logo=css3&amp;logoColor=white" alt="CSS3">
 <img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&amp;logo=javascript&amp;logoColor=F7DF1E" alt="JavaScript"></p>
 <h2>Learn More About our <a href="./admin/team.md">Team</a>!</h2>
+<p><a href="http://www.youtube.com/watch?v=zUe_q16AtvY"><img src="https://img.youtube.com/vi/zUe_q16AtvY/hqdefault.jpg" alt="Team Introduction Video"></a></p>
+<h2>Project Links</h2>
+<p><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&amp;logo=github&amp;logoColor=white" alt="Github">
+<img src="https://img.shields.io/badge/GitHub%20Pages-222222?style=for-the-badge&amp;logo=GitHub%20Pages&amp;logoColor=white" alt="GitHub Pages"></p>
+<ul>
+<li>We used Github for project management. Our <a href="https://github.com/cse110-sp24-group1/cse110-sp24-group1">GitHub Repository</a> has our source code, meeting notes, brainstorming information, kanban board, and much more.</li>
+<li>We are hosting our <a href="https://cse110-sp24-group1.github.io/cse110-sp24-group1/src/">website</a> with GitHub Pages.</li>
+</ul>
 <h2>Features</h2>
 <ul>
 <li>Organized Note and Folder Creation: Easily create and manage your notes and folders to keep your thoughts and tasks well-organized.</li>
@@ -58,13 +66,7 @@
 <li>Dual Theme Options: Switch seamlessly between dark mode and light mode to suit your preferences and enhance your writing experience.</li>
 <li>Persistent Data Management: Rely on local storage to securely manage your data, ensuring your notes and tasks are always saved.</li>
 <li>Powerful Search Functionality: Quickly find specific notes and tasks with a robust search bar, enhancing productivity and accessibility.</li>
-</ul>
-<h2>Project Links</h2>
-<p><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&amp;logo=github&amp;logoColor=white" alt="Github">
-<img src="https://img.shields.io/badge/GitHub%20Pages-222222?style=for-the-badge&amp;logo=GitHub%20Pages&amp;logoColor=white" alt="GitHub Pages"></p>
-<ul>
-<li>We used Github for project management. Our <a href="https://github.com/cse110-sp24-group1/cse110-sp24-group1">GitHub Repository</a> has our source code, meeting notes, brainstorming information, kanban board, and much more.</li>
-<li>We are hosting our <a href="https://cse110-sp24-group1.github.io/cse110-sp24-group1/src/">website</a> with GitHub Pages.</li>
+<li>Accessibility: Enjoy a user-friendly UI with full keyboard accessibility, ensuring ease of use for everyone.</li>
 </ul>
 <h2>Brainstorming and Design Process</h2>
 <p><img src="https://img.shields.io/badge/Dribbble-EA4C89?style=for-the-badge&amp;logo=dribbble&amp;logoColor=white" alt="Dribbble">
@@ -110,256 +112,72 @@
 <h3>Jest and Puppeteer</h3>
 <p><img src="https://img.shields.io/badge/Jest-C21325?style=for-the-badge&amp;logo=jest&amp;logoColor=white" alt="Jest"></p>
 <ul>
-  <li>For testing purposes, we use Jest and Puppeteer.</li>
-  <li>Here's how to set up and run the tests:</li>
-  </ul>
-  <h4>Setup</h4>
-  <ul>
-  <li><strong>Install Dependencies</strong>:
-      <pre><code>npm install --save-dev jest babel-jest @babel/core @babel/preset-env puppeteer jest-puppeteer </code></pre>
-  </li>
-  <li><strong>Scripts</strong>: Add the following scripts to your <code>package.json</code>:
-      <pre><code>{
-        "devDependencies": {
-          "@babel/core": "^7.24.5",
-          "@babel/preset-env": "^7.24.5",
-          "babel-jest": "^29.7.0",
-          "jest": "^29.7.0",
-          "jest-puppeteer": "^10.0.0",
-          "puppeteer": "^22.7.1"
-        },
-        "scripts": {
-          "test": "jest --maxWorkers=1"
-        },
-        "jest": {
-          "preset": "jest-puppeteer",
-          "verbose": true
-        }
-      }</code></pre>
-  </li>
-  </ul>
-  <h4>Writing Tests</h4>
-  <p>Here are some example test cases for notes, folders, and tasks functionalities using Jest and Puppeteer, note that we first run live server and place in <code> await page.goto()</code> :</p>
-  <h5>Testing Notes</h5>
-  <pre><code>const puppeteer = require('puppeteer');
-  
-  describe('Notes Functionality Tests', () => {
-    let browser;
-    let page;
-  
-    beforeAll(async () => {
-      browser = await puppeteer.launch({
-        headless: false,
-        slowMo: 50,
-      });
-      page = await browser.newPage();
-      await page.goto('http://127.0.0.1:5500/src/index.html');
-    });
-  
-    afterAll(async () => {
-      await browser.close();
-    });
-  
-    test('should recognize that there are no notes', async () => {
-      await page.waitForSelector('main');
-      const notesCount = await page.$$eval('.note', notes => notes.length);
-      expect(notesCount).toBe(0);
-    });
-  
-    test('should create a new note with a title and label', async () => {
-      await page.waitForSelector('#new-note-button');
-      await page.click('#new-note-button');
-      await page.waitForSelector('#note-title');
-      await page.type('#note-title', 'Hello World Skeleton');
-      await page.select('#note-label', 'code-snippets');
-      await page.click('.create-button');
-      await page.waitForSelector('.note');
-      const noteTitle = await page.$eval('.note-title h3', el => el.innerText);
-      const noteLabel = await page.$eval('.note-content', el => el.id);
-      expect(noteTitle).toBe('Hello World Skeleton');
-      expect(noteLabel).toBe('code-snippets');
-    }, 20000);
-  
-    test('should edit an existing note title', async () => {
-      jest.setTimeout(30000);
-      await page.waitForSelector('.note');
-      await page.click('.note');
-      await page.waitForSelector('.note-modal');
-      const editTitle = await page.$('.edit-modal-title h2');
-      await editTitle.click({ clickCount: 3 });
-      await page.keyboard.press('Backspace');
-      await editTitle.type('Hello World Skeleton C++');
-      await page.evaluate(() => {
-        document.querySelector('.save-button').click();
-      });
-      await page.waitForFunction(
-        () => document.querySelector('.note-title h3').innerText.includes('Hello World Skeleton C++')
-      );
-      const noteTitle = await page.$eval('.note-title h3', el => el.innerText);
-      expect(noteTitle).toBe('Hello World Skeleton C++');
-    }, 30000);
-  
-    test('should delete an existing note', async () => {
-      jest.setTimeout(30000);
-      await page.waitForSelector('.note');
-      const noteElement = await page.$('.note');
-      const boundingBox = await noteElement.boundingBox();
-      const x = boundingBox.x + boundingBox.width / 2;
-      const y = boundingBox.y + boundingBox.height / 2;
-      await page.mouse.move(x, y);
-      await delay(1000);
-      await page.evaluate(() => {
-        const deleteButton = document.querySelector('.note .delete');
-        if (deleteButton) {
-          deleteButton.style.display = 'block';
-        }
-      });
-      const deleteButton = await page.$('.note .delete');
-      await page.mouse.move(deleteButton.boundingBox().x, deleteButton.boundingBox().y);
-      await delay(500);
-      await deleteButton.click();
-      await page.waitForSelector('.yes-button');
-      await page.click('.yes-button');
-      const notesCount = await page.$$eval('.note', notes => notes.length);
-      expect(notesCount).toBe(0);
-    }, 30000);
-  });
-  </code></pre>
-  <h5>Testing Folders</h5>
-  <pre><code>const puppeteer = require('puppeteer');
-  
-  describe('Folders Functionality Tests', () => {
-    let browser;
-    let page;
-  
-    beforeAll(async () => {
-      browser = await puppeteer.launch({
-        headless: false,
-        slowMo: 50,
-      });
-      page = await browser.newPage();
-      await page.goto('http://127.0.0.1:5500/src/index.html');
-    });
-  
-    afterAll(async () => {
-      await browser.close();
-    });
-  
-    test('should recognize that there are no folders', async () => {
-      await page.waitForSelector('main');
-      const foldersCount = await page.$$eval('.folder', folders => folders.length);
-      expect(foldersCount).toBe(0);
-    }, 2000);
-  
-    test('should create a new folder', async () => {
-      await page.waitForSelector('#new-folder-button');
-      await page.click('#new-folder-button');
-      await page.waitForSelector('#note-title');
-      await page.type('#note-title', 'March Journals');
-      await page.click('.create-folder-button');
-      await page.waitForSelector('.folder');
-      const folderName = await page.$eval('.folder-title h3', el => el.innerText);
-      expect(folderName).toBe('March Journals');
-    }, 20000);
-  
-    test('should delete an existing folder', async () => {
-      jest.setTimeout(30000);
-      await page.waitForSelector('.folder');
-      const folderElement = await page.$('.folder');
-      const boundingBox = await folderElement.boundingBox();
-      const x = boundingBox.x + boundingBox.width / 2;
-      const y = boundingBox.y + boundingBox.height / 2;
-      await page.mouse.move(x, y);
-      await delay(1000);
-      await page.evaluate(() => {
-        const deleteButton = document.querySelector('.folder .delete-folder');
-        if (deleteButton) {
-          deleteButton.style.display = 'block';
-        }
-      });
-      const deleteButton = await page.$('.folder .delete-folder');
-      await page.mouse.move(deleteButton.boundingBox().x, deleteButton.boundingBox().y);
-      await delay(500);
-      await deleteButton.click();
-      await page.waitForSelector('.yes-button');
-      await page.click('.yes-button');
-      const foldersCount = await page.$$eval('.folder', folders => folders.length);
-      expect(foldersCount).toBe(0);
-    }, 30000);
-  });
-  </code></pre>
-  <h5>Testing Tasks</h5>
-  <pre><code>const puppeteer = require('puppeteer');
-  
-  describe('Task List Functionality Tests', () => {
-    let browser;
-    let page;
-  
-    beforeAll(async () => {
-      browser = await puppeteer.launch({
-        headless: false,
-        slowMo: 50,
-      });
-      page = await browser.newPage();
-      await page.goto('http://127.0.0.1:5500/src/tasks.html');
-    });
-  
-    afterAll(async () => {
-      await browser.close();
-    });
-  
-    test('Checking that no tasks are loaded initially', async () => {
-      const tasks = await page.evaluate(() => {
-        const taskListElement = document.querySelector('task-list');
-        const shadowRoot = taskListElement.shadowRoot;
-        const taskContainer = shadowRoot.querySelector('.task-container');
-        return Array.from(taskContainer.querySelectorAll('.task-item'));
-      });
-      expect(tasks.length).toBe(0);
-    });
-  
-    test('Checking that user can add a new task', async () => {
-      await page.type('#new-task-input', 'Groceries');
-      await page.click('#task-form button[type="submit"]');
-      await page.waitForSelector('#modal', { visible: true });
-      await page.type('#task-description', 'Fruits and veggies');
-      await page.evaluate(() => {
-        document.querySelector('#task-due-date').value = '2024-05-20';
-      });
-      await page.select('#task-label', 'Personal');
-      await page.click('.sub-button');
-      await page.waitForSelector('#modal', { hidden: true });
-      const taskExists = await page.evaluate(() => {
-        const taskListElement = document.querySelector('task-list');
-        const shadowRoot = taskListElement.shadowRoot;
-        const taskContainer = shadowRoot.querySelector('.task-container');
-        return taskContainer.querySelectorAll('.task-item').length === 1;
-      });
-      expect(taskExists).toBeTruthy();
-    }, 20000);
-  });
-  </code></pre>
-  <h4>Running the Tests</h4>
-  <p>To run the tests, simply use the following command in your terminal:</p>
-  <pre><code>npm test</code></pre>
-  <p>This command will execute all test files with the <code>.test.js</code> extension and report the results in the terminal. If you would like to test a file individually you can just do</p>
-  <pre></pre><code> npm test -- (filename).test.js</code></pre>
-  <h4>Summary</h4>
-  <p>This guide provides an overview for setting up Jest and Puppeteer for our project, writing tests for notes, folders, and tasks functionalities, and running these tests. These provided examples cover common operations such as creating, editing, and deleting entries, ensuring we have a solid foundation for further test development.</p>
-  <h2>Repository Organization</h2>
-  <ul>
-  <li><code>/admin/meetings</code>: Contains our meeting notes.</li>
-  <li><code>/admin/cipipline</code>: Contains pipeline diagrams.</li>
-  <li><code>/admin/branding</code>: Continas branding information.</li>
-  <li><code>/admin/videos</code>: Contains progress videos and final demo video.</li>
-  <li><code>/admin/guidelines</code>: Contains code style, version control, and CSS style guidelines</li>
-  <li><code>/docs</code>: Contains JSDoc information.</li>
-  <li><code>/specs/adrs</code>: Contains Architectural Design Records for any major decisions made in our project.</li>
-  <li><code>/specs/brainstorm</code>: Contains all of our initial brainstorming from user reasearch to wireframing.</li>
-  <li><code>/specs/pitch</code>: Contains our intial project pitch.</li>
-  <li><code>/src</code>: Contains source code for our project.</li>
-  </ul></article>
-      </section>
+<li>For testing purposes.</li>
+</ul>
+<h4>How to Test</h4>
+<ol>
+<li>Clone the GitHub repository locally: <code>git clone https://github.com/cse110-sp24-group1/cse110-sp24-group1.git</code></li>
+<li>Start the live server: Ensure the live server is running and the application is accessible.</li>
+<li>Run the tests: Execute the test suite using Jest.</li>
+</ol>
+<h5>Folder Functionality</h5>
+<p><code>npm test -- folders.test.js</code></p>
+<h5>Note Functionality</h5>
+<p><code>npm test -- notes.test.js</code></p>
+<h5>Task Functionality</h5>
+<p><code>npm test -- tasks.test.js</code></p>
+<h2>Repository Organization</h2>
+<ul>
+<li><code>/admin/meetings</code>: Contains our meeting notes.</li>
+<li><code>/admin/cipipline</code>: Contains pipeline diagrams.</li>
+<li><code>/admin/branding</code>: Continas branding information.</li>
+<li><code>/admin/videos</code>: Contains progress videos and final demo video.</li>
+<li><code>/admin/guidelines</code>: Contains code style, version control, and CSS style guidelines</li>
+<li><code>/docs</code>: Contains JSDoc information.</li>
+<li><code>/specs/adrs</code>: Contains Architectural Design Records for any major decisions made in our project.</li>
+<li><code>/specs/brainstorm</code>: Contains all of our initial brainstorming from user reasearch to wireframing.</li>
+<li><code>/specs/pitch</code>: Contains our intial project pitch.</li>
+<li><code>/src</code>: Contains source code for our project.</li>
+</ul>
+<h2>Wiki</h2>
+<ul>
+<li>To learn more about our project and its development, take a look at our <a href="https://github.com/cse110-sp24-group1/cse110-sp24-group1/wiki">wiki</a>.</li>
+</ul>
+<h2>Future Investigation</h2>
+<ul>
+<li>
+<p><strong>Time Remaining for Task List</strong></p>
+<ul>
+<li>Calculate and display time remaining for each task.</li>
+<li>Implement visual representation (countdown clock, progress bar).</li>
+</ul>
+</li>
+<li>
+<p><strong>Calendar Widget</strong></p>
+<ul>
+<li>Design a tab with an interactive calendar widget.</li>
+<li>Display notes/tasks due on specific dates.</li>
+<li>Allow input of daily work hours, displayed on the calendar.</li>
+</ul>
+</li>
+<li>
+<p><strong>Login/Logout Feature</strong></p>
+<ul>
+<li>Implement user authentication for account creation and login.</li>
+<li>Design login and sign-in forms.</li>
+<li>Create a profile page for user information.</li>
+<li>Ensure security and cross-platform accessibility.</li>
+</ul>
+</li>
+<li>
+<p><strong>Note Entry Templates</strong></p>
+<ul>
+<li>Implement template selection for notes.</li>
+<li>Predefined templates: Sprint Review, Standup Meeting, Brainstorming Meeting.</li>
+</ul>
+</li>
+</ul></article>
+    </section>
 
 
 
@@ -375,7 +193,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Thu Jun 06 2024 10:02:17 GMT+0000 (Coordinated Universal Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Fri Jun 07 2024 04:50:06 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>
