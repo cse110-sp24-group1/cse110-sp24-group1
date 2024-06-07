@@ -6,7 +6,9 @@ describe('Task List Functionality Tests', () => {
 
   beforeAll(async () => {
     // Launching the browser before all tests
-    browser = await puppeteer.launch({
+    const browser = await puppeteer.launch({
+      executablePath: '/usr/bin/chromium-browser',
+      ignoreDefaultArgs: ['disable-extensions'],
       headless: false, // Running the browser in headless mode
       slowMo: 50, // Slowing down each operation by 50ms for better visibility
     });
