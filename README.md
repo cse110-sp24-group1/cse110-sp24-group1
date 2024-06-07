@@ -90,7 +90,7 @@ Our project uses GitHub Actions for Continuous Integration and Deployment. The p
 ### File Changed Checker
 
 - [Lists and logs] all core files that were changed in a specifc branch such as main.
-- 
+
 #### How to Test
 
 1. Clone the GitHub repository locally: ```git clone https://github.com/cse110-sp24-group1/cse110-sp24-group1.git```
