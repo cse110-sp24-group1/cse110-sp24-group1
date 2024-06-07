@@ -152,6 +152,7 @@ class HomeScript {
       const noteElement = document.createElement('div');
       noteElement.classList.add('note');
       noteElement.setAttribute('data-note-id', note.id);
+      noteElement.setAttribute('title', this.getLabelText(note.label)); // Set title attribute for tooltip
       noteElement.setAttribute('tabindex', '0'); // Make the note focusable
       noteElement.innerHTML = `
           <div class='note-content' id=${note.label}>
@@ -218,6 +219,24 @@ class HomeScript {
       this.mainElement.prepend(folderElement);
     });
   };
+
+  /**
+   * Get label text based on label ID.
+   * @param {string} labelId - The label ID.
+   * @returns {string} - The label text.
+   */
+  getLabelText(labelId) {
+    const labelMap = {
+      'code-snippets': 'Code Snippets',
+      'stand-up': 'Stand-Up Notes',
+      'bug-reports': 'Bug Reports',
+      'learning-notes': 'Learning Notes',
+      'newsletter': 'Newsletters',
+      'performance': 'Performance Metrics',
+      'feature-ideas': 'Feature Ideas'
+    };
+    return labelMap[labelId] || 'Note';
+  }
 
   /**
    * Open the modal to reassure with the user that they want to delete this note.
@@ -295,7 +314,7 @@ class HomeScript {
     modal.innerHTML = `
             <div class='note-modal'>
                 <button class=obj-container>
-                  <span class='close-modal'>&times;</span>
+                  <span class='close-modal' title='Close'>&times;</span>
                 </button>
                 <div class='modal-title'>
                     <h2>New Note</h2>
@@ -320,7 +339,7 @@ class HomeScript {
                         <textarea id='note-body' name='note-body'></textarea>
                     </div>
                     <div class='new-note-foot'> 
-                        <button class='create-button' type='submit'>Create</button>
+                        <button class='create-button' type='submit' title='Create'>Create</button>
                     </div>
                 </form>
             </div>
@@ -436,13 +455,13 @@ class HomeScript {
                     <h2 contenteditable='true'>${title}</h2>
                 </div>
                 <form id='note-modal-form'>
-                    <button class='back-button' type='submit'></button>
+                    <button class='back-button' type='submit' title='Back'></button>
                     <div>
                         <textarea id='edit-note-body' name='note-body'>${body}</textarea>
                     </div>
                     <div class='edit-note-footer'> 
                         <div class='edit-note-label'>${noteLabel}</div>
-                        <button class='save-button' type='submit'>Save</button>
+                        <button class='save-button' type='submit' title='Save'>Save</button>
                     </div>
                 </form>
             </div>
@@ -557,7 +576,7 @@ class HomeScript {
     modal.innerHTML = `
             <div class='folder-modal'>
               <button class=obj-container>
-                <span class='close-modal'>&times;</span>
+                <span class='close-modal' title='Close'>&times;</span>
               </button>
                 <div class='modal-title'>
                     <h2>New Folder</h2>
@@ -566,7 +585,7 @@ class HomeScript {
                     <div class='modal-input'>
                         <input type='text' id='note-title' name='note-title' placeholder='Folder Name'>
                     </div>
-                    <button class='create-folder-button' type='submit'>Create</button>
+                    <button class='create-folder-button' type='submit' title='Create'>Create</button>
                 </form>
             </div>
         `;
@@ -699,6 +718,7 @@ class HomeScript {
       const noteElement = document.createElement('div');
       noteElement.classList.add('note');
       noteElement.setAttribute('data-note-id', note.id);
+      noteElement.setAttribute('title', this.getLabelText(note.label)); // Set title attribute for tooltip
       noteElement.setAttribute('tabindex', '0'); // Make the note focusable
       noteElement.innerHTML = `
         <div class='note-content' id=${note.label}>

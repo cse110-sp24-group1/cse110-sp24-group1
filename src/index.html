@@ -29,15 +29,15 @@
             <div class="header-top-main">
                 <!-- Search bar for filtering notes -->
                 <div class="search-container">
-                    <button id="folder-back-button"></button>
+                    <button id="folder-back-button" title="Back"></button>
                     <input type="text" id="search-bar" placeholder="&#128269; Search">
                 </div>
                 <!-- Title of the notes page -->
                 <h1 class="journal-header">My Journal</h1>
                 <!-- New note/folder buttons -->
                 <div class="top-right-buttons">
-                    <button id="new-note-button"></button>
-                    <button id="new-folder-button"></button>
+                    <button id="new-note-button" title="New Note"></button>
+                    <button id="new-folder-button" title="New Folder"></button>
                 </div>
             </div>
             <nav>
@@ -45,13 +45,13 @@
                 <ul>
                     <li>
                         <a href="index.html" class="current-page">
-                            <button class="home-page-icon" tabindex="-1"></button>
+                            <button class="home-page-icon" tabindex="-1" title="Home Page"></button>
                             <span>Journal</span>
                         </a>
                     </li>
                     <li>
                         <a href="tasks.html">
-                            <button class="task-page-icon" tabindex="-1"></button>
+                            <button class="task-page-icon" tabindex="-1" title="Task List"></button>
                             <span>Tasks</span>
                         </a>
                     </li>
@@ -59,7 +59,7 @@
                     <li class="toggle-container">
                         <label class="switch">
                             <input type="checkbox" id="dark-mode-toggle">
-                            <span class="slider"></span>
+                            <span class="slider" title="Toggle Dark/Light Mode"></span>
                         </label>
                     </li>
                 </ul>  

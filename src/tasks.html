@@ -28,13 +28,13 @@
                 <ul>
                     <li>
                         <a href="index.html">
-                            <button class="home-page-icon" tabindex = "-1"></button>
+                            <button class="home-page-icon" tabindex="-1" title="Home Page"></button>
                             <span>Journal</span>
                         </a>
                     </li>
                     <li>
                         <a href="tasks.html" class="current-page">
-                            <button class="task-page-icon" tabindex = "-1"></button>
+                            <button class="task-page-icon" tabindex="-1" title="Task List"></button>
                             <span>Tasks</span>
                         </a>
                     </li>
@@ -42,7 +42,7 @@
                     <li class="toggle-container">
                         <label class="switch">
                             <input type="checkbox" id="dark-mode-toggle">
-                            <span class="slider"></span>
+                            <span class="slider" title="Toggle Dark/Light Mode"></span>
                         </label>
                     </li>
                 </ul>  
@@ -52,13 +52,13 @@
             <!-- Form to add a new task -->
             <form id="task-form" action="https://httpbin.org/post" method="POST">
                 <input type="text" id="new-task-input" placeholder="Add a new task...">
-                <button type="submit">Add Task</button>
+                <button type="submit" title="Add Task">Add Task</button>
             </form>
             <!-- Modal for adding tasks with description, label, label color, and due date -->
             <div id="modal" class="modal-content">
                 <!-- Close button for the modal -->
                 <button class="obj-container">
-                    <span class="close-modal">&times;</span>
+                    <span class="close-modal" title="Close">&times;</span>
                 </button>
                 <!-- Title of the modal which is filled with task name -->
                 <h2 class="modal-title"></h2>
@@ -93,7 +93,7 @@
                         <input type="color" id="task-color" name="task-color">
                     </div>
                     <!-- Submit button for the modal form -->
-                    <button class="sub-button" type="submit">Submit</button>
+                    <button class="sub-button" type="submit" title="Submit">Submit</button>
                 </form>
             </div>
             <!-- Container for displaying tasks -->
