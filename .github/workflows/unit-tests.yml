@@ -11,6 +11,6 @@ jobs: # the things being executed
       - name: Install Dependencies
         run: npm install
       - name: Unit Test
-        run: npm test --tasks.test.js
-             npm test --notes.test.js
-             npm test --folders.test.js 
+        run: npm test -- tasks.test.js
+             npm test -- notes.test.js
+             npm test -- folders.test.js 
