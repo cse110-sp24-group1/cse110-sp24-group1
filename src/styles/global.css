@@ -185,7 +185,7 @@ input:checked + .slider::before {
 
 .toggle-container {
     margin-top: auto; /* Pushes the toggle to the bottom */
-    padding-bottom: 1em; /* Optional: add some padding at the bottom */
+    padding-bottom: 1em; 
 }
 
 /* Focus specific listener for accessibility on custom toggle */
