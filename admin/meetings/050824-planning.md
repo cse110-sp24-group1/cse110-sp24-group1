@@ -67,7 +67,7 @@
       - Could use gradients (grays)
       - Canvas style nav bar
           - On side/vertical
-      - https://coolors.co/palettes/trending
+      - [https://coolors.co/palettes/trending](https://coolors.co/)
       - https://dribbble.com/
       - Use relative (not absolute) measurements for formatting
       - Want a logo (could just be used as favicon)
