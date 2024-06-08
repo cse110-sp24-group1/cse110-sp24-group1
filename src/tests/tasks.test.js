@@ -9,27 +9,14 @@ describe('Task List Functionality Tests', () => {
     console.log('Checking it should have a length of zero'); // Logging a message to the console
     const tasks = await page.evaluate(() => {
       const taskListElement = document.querySelector('task-list'); // Finding the task-list custom element
-      if (!taskListElement) {
-        console.log('task-list element not found');
-        return [];
-      }
+      if (!taskListElement) return []; // Returning an empty array if the element is not found
       const shadowRoot = taskListElement.shadowRoot; // Accessing the shadow DOM of the task-list element
-      if (!shadowRoot) {
-        console.log('shadow root not found');
-        return [];
-      }
+      if (!shadowRoot) return []; // Returning an empty array if the shadow root is not found
       const taskContainer = shadowRoot.querySelector('.task-container'); // Finding the task container within the shadow root
-      if (!taskContainer) {
-        console.log('task container not found');
-        return [];
-      }
-      const tasks = Array.from(taskContainer.querySelectorAll('.task-item')); // Returning the list of task items within the task container
-      console.log('Tasks found:', tasks.length);
-      return tasks;
+      if (!taskContainer) return []; // Returning an empty array if the task container is not found
+      return Array.from(taskContainer.querySelectorAll('.task-item')); // Returning the list of task items within the task container
     });
-    console.log('Number of tasks:', tasks.length);
-    console.log(tasks);
-    expect(tasks.length).toBe(1); // Asserting that the task list is initially empty
+    expect(tasks.length).toBe(0); // Asserting that the task list is initially empty
   });
 
   it('Checking that user can add a new task', async () => {
@@ -64,7 +51,7 @@ describe('Task List Functionality Tests', () => {
       }
       const taskItems = taskContainer.querySelectorAll('.task-item'); // Finding the task items
       console.log(`Task items found after modal submission: ${taskItems.length}`);
-      return taskItems.length === 2; // Returning true if one task item is found
+      return taskItems.length === 1; // Returning true if one task item is found
     });
     console.log('Task added to DOM:', taskExists); // Logging whether the task was added to the DOM
     expect(taskExists).toBeTruthy(); // Asserting that the task was added successfully
@@ -112,7 +99,7 @@ describe('Task List Functionality Tests', () => {
       const taskItems = taskContainer.querySelectorAll('.task-item'); // Finding the task items
       return taskItems.length; // Returning the number of task items
     });
-    expect(taskCount).toBe(3); // Asserting that there are two task items
+    expect(taskCount).toBe(2); // Asserting that there are two task items
   }, 20000); // Setting a timeout of 20000ms for this test
 
   it('Check to make sure tasks are being deleted', async () => {
@@ -132,7 +119,7 @@ describe('Task List Functionality Tests', () => {
       return taskItems.length; // Returning the number of task items
     });
 
-    expect(taskCountAfterDeletion).toBe(2); // Asserting that there is one task item left
+    expect(taskCountAfterDeletion).toBe(1); // Asserting that there is one task item left
 
     await page.evaluate(() => {
       const taskListElement = document.querySelector('task-list'); // Finding the task-list element
@@ -148,7 +135,7 @@ describe('Task List Functionality Tests', () => {
       const taskItems = taskContainer.querySelectorAll('.task-item'); // Finding the task items
       return taskItems.length; // Returning the number of task items
     });
-    expect(taskCountAfterDeletion2).toBe(1); // Asserting that there are no task items left
+    expect(taskCountAfterDeletion2).toBe(0); // Asserting that there are no task items left
   });
 
   it('should add multiple tasks through with local storage', async () => {
@@ -160,7 +147,7 @@ describe('Task List Functionality Tests', () => {
     });
 
     // Expect the initial taskList to be empty
-    expect(initialStoredTaskList.length).toBe(1); // Asserting that the initial task list is empty
+    expect(initialStoredTaskList.length).toBe(0); // Asserting that the initial task list is empty
 
     // Fill out the first task form and submit
     await page.type('#new-task-input', 'School reunion'); // Typing the task name into the input field
@@ -184,7 +171,7 @@ describe('Task List Functionality Tests', () => {
     });
 
     // Expect the stored taskList to contain one task
-    expect(storedTaskList.length).toBe(2); // Asserting that the task list contains one task
+    expect(storedTaskList.length).toBe(1); // Asserting that the task list contains one task
 
     // Expect the stored taskList to contain the first task
     expect(storedTaskList).toEqual([
@@ -256,7 +243,7 @@ describe('Task List Functionality Tests', () => {
       return JSON.parse(tasks) || [];
     });
     console.log('Stored task list before deletion:', storedTaskList);
-    expect(storedTaskList.length).toBe(3); // Asserting that the task list contains two tasks
+    expect(storedTaskList.length).toBe(2); // Asserting that the task list contains two tasks
 
     // Delete the first task
     await page.evaluate(() => {
@@ -316,7 +303,7 @@ describe('Task List Functionality Tests', () => {
       const shadowRoot = taskListElement.shadowRoot; // Accessing the shadow DOM
       const taskContainer = shadowRoot.querySelector('.task-container'); // Finding the task container
       const taskItems = taskContainer.querySelectorAll('.task-item'); // Finding the task items
-      return taskItems.length === 2; // Returning true if one task item is found
+      return taskItems.length === 1; // Returning true if one task item is found
     });
     expect(taskExists).toBeTruthy(); // Asserting that the task was added successfully
 
@@ -380,7 +367,7 @@ describe('Task List Functionality Tests', () => {
       return JSON.parse(localStorage.getItem('taskList')) || []; // Getting the task list from local storage
     });
     // Expect the initial taskList to be empty
-    expect(initialStoredTaskList.length).toBe(2); // Asserting that the initial task list contains one task
+    expect(initialStoredTaskList.length).toBe(1); // Asserting that the initial task list contains one task
     await page.reload(); // Reloading the page
 
     let reloadedStoredTaskList = await page.evaluate(() => {
