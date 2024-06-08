@@ -1,21 +1,8 @@
-const puppeteer = require('puppeteer'); // Importing the Puppeteer library for browser automation
-
 describe('Task List Functionality Tests', () => {
-  let browser;
-  let page;
-
+  
   beforeAll(async () => {
-    // Launching the browser before all tests
-    browser = await puppeteer.launch({
-      headless: false, // Running the browser in headless mode
-      slowMo: 50, // Slowing down each operation by 50ms for better visibility
-    });
-    page = await browser.newPage(); // Opening a new page
-    await page.goto('http://127.0.0.1:5500/src/tasks.html'); // Navigating to the specified URL change based on your live server or pages when ready 
-  });
-
-  afterAll(async () => {
-    await browser.close(); // Closing the browser after all tests
+    await page.goto('https://cse110-sp24-group1.github.io/cse110-sp24-group1/src/tasks.html');
+    await page.evaluate(() => localStorage.clear());
   });
 
   it('Checking that no tasks are loaded initially', async () => {

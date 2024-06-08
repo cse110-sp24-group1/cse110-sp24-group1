@@ -2,7 +2,7 @@ describe('Data Schema Tests for Notes, folders, and tasks as of now', () => {
   // First visit our website
   beforeAll(async () => {
     // When running link your own live server of test-until-pages.html then replace here and run "npm test -- data-schema.test.js"
-    await page.goto('http://127.0.0.1:5500/src/test-until-pages.html');
+    await page.goto('https://cse110-sp24-group1.github.io/cse110-sp24-group1/src/');
   });
 
   beforeEach(async () => {

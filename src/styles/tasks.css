@@ -93,6 +93,10 @@ select:focus {
    border-color: var(--accent-color);
 }
 
+.task-item:has(input[type="checkbox"]:focus) {
+   border: 2px solid var(--light-border-color-hover);
+}
+
 .task-item label {
    flex-grow: 1;
 }

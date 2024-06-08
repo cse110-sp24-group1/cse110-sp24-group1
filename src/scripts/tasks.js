@@ -56,7 +56,9 @@ class TaskList extends HTMLElement {
     const taskColor = modalForm.querySelector('#task-color').value;
 
     // Validate the new task text
-    if (newTaskText === '') return;
+    if (newTaskText === '') {
+      alert('Description is required');
+    }
 
     // Handle the case where a new label is created
     if (taskLabel === 'createNew') {
@@ -101,29 +103,29 @@ class TaskList extends HTMLElement {
     // Populate the task element with the new task data
     newTask.innerHTML = `
         <div class="task-main">
-        <input type="checkbox" class='check' id="${task.id}" ${task.checked ? `checked`: ''}>
-        <label for="${task.id}">${task.name}</label>
-        <button class="edit-btn">✏️</button>
+          <input type="checkbox" class='check' id="${task.id}" ${task.checked ? `checked`: ''} title="Check">
+          <label for="${task.id}">${task.name}</label>
+          <button class="edit-btn" title="Edit">✏️</button>
         </div>
         <label class="task-desc">${task.description}</label>
         <div class="task-footer">
-        <div class="date-label">
-            <div class="task-label" style="background-color: ${task.color}; ${this.calculateTextColor(task.color)}">
-            ${task.label}
-            </div>
-            ${
-            task.dueDate
-                ? `
-            <div class="task-date">
-                <label>🗓️ ${task.dueDate}</label>
-            </div>
-            ` 
-                : '<div class="task-date no-date"><label></label></div>'
-            }
-        </div>
-        <div class="task-buttons">
-            <button class="delete-btn">🗑️</button>
-        </div>
+          <div class="date-label">
+              <div class="task-label" style="background-color: ${task.color}; ${this.calculateTextColor(task.color)}">
+              ${task.label}
+              </div>
+              ${
+              task.dueDate
+                  ? `
+              <div class="task-date">
+                  <label>🗓️ ${task.dueDate}</label>
+              </div>
+              ` 
+                  : '<div class="task-date no-date"><label></label></div>'
+              }
+          </div>
+          <div class="task-buttons">
+              <button class="delete-btn" title="Delete">🗑️</button>
+          </div>
         </div>
     `;
 
@@ -348,7 +350,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const newTaskInput = document.getElementById('new-task-input');
   const modal = document.getElementById('modal');
   const modalForm = document.getElementById('modal-form');
-  const closeModalBtn = document.querySelector('.close-modal');
+  const closeModalBtn = document.querySelector('.obj-container:has(.close-modal)');
   const taskContainer = document.querySelector('.task-container');
 
   // Open the modal when the task form is submitted
@@ -381,6 +383,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       modalTitle.textContent = 'New Task';
     }
+    enableModalTabTrap(modal,true);
   }
  
   /**
@@ -389,6 +392,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function closeModal () {
     modal.style.display = 'none';
     document.body.classList.remove('modal-open');
+    enableModalTabTrap(modal,false);
   }
 
   // Load the tasks from storage

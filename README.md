@@ -10,14 +10,7 @@ Welcome to **One and Done**, a feature-rich journal app built with HTML, CSS, an
 
 ## Learn More About our [Team](./admin/team.md)!
 
-## Features
-
-- Organized Note and Folder Creation: Easily create and manage your notes and folders to keep your thoughts and tasks well-organized.
-- Markdown Support: Utilize powerful markdown capabilities to format your notes with ease, adding structure and emphasis.
-- Efficient Task List Management: Keep track of your tasks and to-dos effortlessly with a dedicated task list management system.
-- Dual Theme Options: Switch seamlessly between dark mode and light mode to suit your preferences and enhance your writing experience.
-- Persistent Data Management: Rely on local storage to securely manage your data, ensuring your notes and tasks are always saved.
-- Powerful Search Functionality: Quickly find specific notes and tasks with a robust search bar, enhancing productivity and accessibility.
+[![Team Introduction Video](https://img.youtube.com/vi/zUe_q16AtvY/hqdefault.jpg)](http://www.youtube.com/watch?v=zUe_q16AtvY)
 
 ## Project Links
 
@@ -26,6 +19,16 @@ Welcome to **One and Done**, a feature-rich journal app built with HTML, CSS, an
 
 - We used Github for project management. Our [GitHub Repository](https://github.com/cse110-sp24-group1/cse110-sp24-group1) has our source code, meeting notes, brainstorming information, kanban board, and much more.
 - We are hosting our [website](https://cse110-sp24-group1.github.io/cse110-sp24-group1/src/) with GitHub Pages.
+
+## Features
+
+- Organized Note and Folder Creation: Easily create and manage your notes and folders to keep your thoughts and tasks well-organized.
+- Markdown Support: Utilize powerful markdown capabilities to format your notes with ease, adding structure and emphasis.
+- Efficient Task List Management: Keep track of your tasks and to-dos effortlessly with a dedicated task list management system.
+- Dual Theme Options: Switch seamlessly between dark mode and light mode to suit your preferences and enhance your writing experience.
+- Persistent Data Management: Rely on local storage to securely manage your data, ensuring your notes and tasks are always saved.
+- Powerful Search Functionality: Quickly find specific notes and tasks with a robust search bar, enhancing productivity and accessibility.
+- Accessibility: Enjoy a user-friendly UI with full keyboard accessibility, ensuring ease of use for everyone.
 
 ## Brainstorming and Design Process
 
@@ -68,14 +71,25 @@ Our project uses GitHub Actions for Continuous Integration and Deployment. The p
 
 ### Superlinter
 
-- To ensure code quality and adherence to best practices.
+- To ensure code quality and adherence to community best practices for [Javascript, HTML, CSS,and Markdown](https://github.com/super-linter/super-linter).
+
+### [Calibreapp Image Optimizer](https://github.com/calibreapp/image-actions)
+
+- Optimization of image,icons, and svg storage quality that are stored on the repo without the loss of quality.
 
 ### Jest and Puppeteer
 
 ![Jest](https://img.shields.io/badge/Jest-C21325?style=for-the-badge&logo=jest&logoColor=white)
 
 - For testing purposes.
-- (EXPLAIN HOW TO TEST)
+
+### [Markdown Link Validator](https://github.com/marketplace/actions/markdown-link-check)
+
+- Tests all links that are implemented using Markdown to ensure all links are reachable and valid.
+
+### [File Changed Checker](https://github.com/marketplace/actions/changed-files)
+
+- Lists and logs all core files that were changed in a specifc branch such as main.
 
 ## Repository Organization
 
@@ -89,3 +103,28 @@ Our project uses GitHub Actions for Continuous Integration and Deployment. The p
 - `/specs/brainstorm`: Contains all of our initial brainstorming from user reasearch to wireframing.
 - `/specs/pitch`: Contains our intial project pitch.
 - `/src`: Contains source code for our project.
+
+## Wiki
+
+- To learn more about our project and its development, take a look at our [wiki](https://github.com/cse110-sp24-group1/cse110-sp24-group1/wiki).
+  
+## Future Investigation
+
+- **Time Remaining for Task List**
+  - Calculate and display time remaining for each task.
+  - Implement visual representation (countdown clock, progress bar).
+
+- **Calendar Widget**
+  - Design a tab with an interactive calendar widget.
+  - Display notes/tasks due on specific dates.
+  - Allow input of daily work hours, displayed on the calendar.
+
+- **Login/Logout Feature**
+  - Implement user authentication for account creation and login.
+  - Design login and sign-in forms.
+  - Create a profile page for user information.
+  - Ensure security and cross-platform accessibility.
+
+- **Note Entry Templates**
+  - Implement template selection for notes.
+  - Predefined templates: Sprint Review, Standup Meeting, Brainstorming Meeting.
