@@ -2,6 +2,7 @@ describe('Task List Functionality Tests', () => {
   
   beforeAll(async () => {
     await page.goto('https://cse110-sp24-group1.github.io/cse110-sp24-group1/src/tasks.html');
+    await page.evaluate(() => localStorage.clear());
   });
 
   it('Checking that no tasks are loaded initially', async () => {
