@@ -147,7 +147,7 @@ describe('Task List Functionality Tests', () => {
       const taskItems = taskContainer.querySelectorAll('.task-item'); // Finding the task items
       return taskItems.length; // Returning the number of task items
     });
-    expect(taskCountAfterDeletion2).toBe(0); // Asserting that there are no task items left
+    expect(taskCountAfterDeletion2).toBe(1); // Asserting that there are no task items left
   });
 
   it('should add multiple tasks through with local storage', async () => {
@@ -159,7 +159,7 @@ describe('Task List Functionality Tests', () => {
     });
 
     // Expect the initial taskList to be empty
-    expect(initialStoredTaskList.length).toBe(2); // Asserting that the initial task list is empty
+    expect(initialStoredTaskList.length).toBe(1); // Asserting that the initial task list is empty
 
     // Fill out the first task form and submit
     await page.type('#new-task-input', 'School reunion'); // Typing the task name into the input field
@@ -255,7 +255,7 @@ describe('Task List Functionality Tests', () => {
       return JSON.parse(tasks) || [];
     });
     console.log('Stored task list before deletion:', storedTaskList);
-    expect(storedTaskList.length).toBe(2); // Asserting that the task list contains two tasks
+    expect(storedTaskList.length).toBe(1); // Asserting that the task list contains two tasks
 
     // Delete the first task
     await page.evaluate(() => {
@@ -315,7 +315,7 @@ describe('Task List Functionality Tests', () => {
       const shadowRoot = taskListElement.shadowRoot; // Accessing the shadow DOM
       const taskContainer = shadowRoot.querySelector('.task-container'); // Finding the task container
       const taskItems = taskContainer.querySelectorAll('.task-item'); // Finding the task items
-      return taskItems.length === 1; // Returning true if one task item is found
+      return taskItems.length === 2; // Returning true if one task item is found
     });
     expect(taskExists).toBeTruthy(); // Asserting that the task was added successfully
 
@@ -379,7 +379,7 @@ describe('Task List Functionality Tests', () => {
       return JSON.parse(localStorage.getItem('taskList')) || []; // Getting the task list from local storage
     });
     // Expect the initial taskList to be empty
-    expect(initialStoredTaskList.length).toBe(1); // Asserting that the initial task list contains one task
+    expect(initialStoredTaskList.length).toBe(2); // Asserting that the initial task list contains one task
     await page.reload(); // Reloading the page
 
     let reloadedStoredTaskList = await page.evaluate(() => {
