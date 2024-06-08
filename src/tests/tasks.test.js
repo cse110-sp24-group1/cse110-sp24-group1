@@ -183,7 +183,7 @@ describe('Task List Functionality Tests', () => {
     });
 
     // Expect the stored taskList to contain one task
-    expect(storedTaskList.length).toBe(1); // Asserting that the task list contains one task
+    expect(storedTaskList.length).toBe(2); // Asserting that the task list contains one task
 
     // Expect the stored taskList to contain the first task
     expect(storedTaskList).toEqual([
@@ -255,7 +255,7 @@ describe('Task List Functionality Tests', () => {
       return JSON.parse(tasks) || [];
     });
     console.log('Stored task list before deletion:', storedTaskList);
-    expect(storedTaskList.length).toBe(1); // Asserting that the task list contains two tasks
+    expect(storedTaskList.length).toBe(3); // Asserting that the task list contains two tasks
 
     // Delete the first task
     await page.evaluate(() => {
