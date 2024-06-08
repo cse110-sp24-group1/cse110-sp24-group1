@@ -27,6 +27,7 @@ describe('Task List Functionality Tests', () => {
       return tasks;
     });
     console.log('Number of tasks:', tasks.length);
+    console.log(tasks);
     expect(tasks.length).toBe(0); // Asserting that the task list is initially empty
   });
 
