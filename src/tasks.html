@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <script>
+            let currentTheme = localStorage.getItem("theme");
+            const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+            if (!currentTheme) {
+                currentTheme = prefersDarkScheme.matches ? "dark" : "light";
+                localStorage.setItem("theme", currentTheme);
+            }
+            if (currentTheme === "dark") {
+                document.documentElement.classList.add("dark-mode");
+                document.documentElement.style.colorScheme = 'dark';
+            } else {
+                document.documentElement.classList.remove("dark-mode");
+                document.documentElement.style.colorScheme = 'light';
+            }
+        </script>
         <meta charset="utf-8">
         <title>My Tasks</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -100,8 +115,7 @@
             <script src="./scripts/data-storage.js"></script>
             <!-- Include scripts for task modal form and task list -->
             <script src="./scripts/tasks.js"></script>
-            <!-- Include scripts for dark/light mode -->
-            <script src="./scripts/global.js" type="module"></script>
+            
             <!-- Message for users with JavaScript disabled -->
             <noscript>
                 <style>
@@ -113,5 +127,7 @@
                 <p>JavaScript is disabled in your browser. Please enable it to use this application.</p>
             </noscript>
         </main>
+        <!-- Include scripts for dark/light mode -->
+        <script src="./scripts/global.js" type="module"></script>
     </body>
 </html>

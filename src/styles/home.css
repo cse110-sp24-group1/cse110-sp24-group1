@@ -692,7 +692,7 @@ main {
     color: var(--dark-text-color) !important;
 }
 
-.editor-toolbar .fa:hover .dark-mode {
+.dark-mode .editor-toolbar .fa:hover {
     background-color: var(--light-button-color-hover) !important;
     color: var(--light-text-color) !important;
 }

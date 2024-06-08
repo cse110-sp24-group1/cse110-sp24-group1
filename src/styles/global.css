@@ -201,7 +201,7 @@ body {
     font-weight: 400;
 }
 
-body.dark-mode  {
+.dark-mode body {
     background-color: var(--dark-background-color);
 }   
 

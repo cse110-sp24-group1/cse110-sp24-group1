@@ -189,32 +189,32 @@ select:focus {
 }
 
 /* Editing a task */
-.task-item.editing-task {
+.task-item .editing-task {
    display: flex;
    row-gap: 10px;
 }
 
-.task-item.editing-task .task-main{
+.task-item .editing-task .task-main{
    display: flex;
    justify-content: space-between;
 }
 
-.task-item.editing-task .task-main input[type="text"]{
+.task-item .editing-task .task-main input[type="text"]{
    width: 85%;
 }
 
-.task-item.editing-task .task-footer {
+.task-item .editing-task .task-footer {
    display: flex;
    justify-content: space-between;
    margin-top: 0;
 }
 
-.task-item.editing-task .task-footer .date-label {
+.task-item .editing-task .task-footer .date-label {
    display: flex; 
    gap: 20px;
 }
 
-.task-item.editing-task .task-main button {
+.task-item .editing-task .task-main button {
    padding: 5px 10px;
    cursor: pointer;
    border: none;
@@ -223,7 +223,7 @@ select:focus {
    color: var(--light-text-color);
 }
 
-.task-item.editing-task .task-main button:hover {
+.task-item .editing-task .task-main button:hover {
    background-color: var(--light-button-color-hover);
 }
 
