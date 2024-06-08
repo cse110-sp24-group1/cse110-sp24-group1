@@ -8,13 +8,25 @@ describe('Task List Functionality Tests', () => {
     console.log('Checking it should have a length of zero'); // Logging a message to the console
     const tasks = await page.evaluate(() => {
       const taskListElement = document.querySelector('task-list'); // Finding the task-list custom element
-      if (!taskListElement) return []; // Returning an empty array if the element is not found
+      if (!taskListElement) {
+        console.log('task-list element not found');
+        return [];
+      }
       const shadowRoot = taskListElement.shadowRoot; // Accessing the shadow DOM of the task-list element
-      if (!shadowRoot) return []; // Returning an empty array if the shadow root is not found
+      if (!shadowRoot) {
+        console.log('shadow root not found');
+        return [];
+      }
       const taskContainer = shadowRoot.querySelector('.task-container'); // Finding the task container within the shadow root
-      if (!taskContainer) return []; // Returning an empty array if the task container is not found
-      return Array.from(taskContainer.querySelectorAll('.task-item')); // Returning the list of task items within the task container
+      if (!taskContainer) {
+        console.log('task container not found');
+        return [];
+      }
+      const tasks = Array.from(taskContainer.querySelectorAll('.task-item')); // Returning the list of task items within the task container
+      console.log('Tasks found:', tasks.length);
+      return tasks;
     });
+    console.log('Number of tasks:', tasks.length);
     expect(tasks.length).toBe(0); // Asserting that the task list is initially empty
   });
 
