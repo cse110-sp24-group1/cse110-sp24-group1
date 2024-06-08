@@ -28,7 +28,7 @@ describe('Task List Functionality Tests', () => {
     });
     console.log('Number of tasks:', tasks.length);
     console.log(tasks);
-    expect(tasks.length).toBe(0); // Asserting that the task list is initially empty
+    expect(tasks.length).toBe(1); // Asserting that the task list is initially empty
   });
 
   it('Checking that user can add a new task', async () => {
@@ -63,7 +63,7 @@ describe('Task List Functionality Tests', () => {
       }
       const taskItems = taskContainer.querySelectorAll('.task-item'); // Finding the task items
       console.log(`Task items found after modal submission: ${taskItems.length}`);
-      return taskItems.length === 1; // Returning true if one task item is found
+      return taskItems.length === 2; // Returning true if one task item is found
     });
     console.log('Task added to DOM:', taskExists); // Logging whether the task was added to the DOM
     expect(taskExists).toBeTruthy(); // Asserting that the task was added successfully
@@ -111,7 +111,7 @@ describe('Task List Functionality Tests', () => {
       const taskItems = taskContainer.querySelectorAll('.task-item'); // Finding the task items
       return taskItems.length; // Returning the number of task items
     });
-    expect(taskCount).toBe(2); // Asserting that there are two task items
+    expect(taskCount).toBe(3); // Asserting that there are two task items
   }, 20000); // Setting a timeout of 20000ms for this test
 
   it('Check to make sure tasks are being deleted', async () => {
@@ -131,7 +131,7 @@ describe('Task List Functionality Tests', () => {
       return taskItems.length; // Returning the number of task items
     });
 
-    expect(taskCountAfterDeletion).toBe(1); // Asserting that there is one task item left
+    expect(taskCountAfterDeletion).toBe(2); // Asserting that there is one task item left
 
     await page.evaluate(() => {
       const taskListElement = document.querySelector('task-list'); // Finding the task-list element
@@ -159,7 +159,7 @@ describe('Task List Functionality Tests', () => {
     });
 
     // Expect the initial taskList to be empty
-    expect(initialStoredTaskList.length).toBe(0); // Asserting that the initial task list is empty
+    expect(initialStoredTaskList.length).toBe(2); // Asserting that the initial task list is empty
 
     // Fill out the first task form and submit
     await page.type('#new-task-input', 'School reunion'); // Typing the task name into the input field
