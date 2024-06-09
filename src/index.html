@@ -17,6 +17,22 @@
         <!-- SimpleMDE CSS -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/highlight.js/latest/styles/github.min.css">
+        <!-- Starts by changing the color schemes of all elements by preference using local storage -->
+        <script>
+            let currentTheme = localStorage.getItem("theme");
+            const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+            if (!currentTheme) {
+                currentTheme = prefersDarkScheme.matches ? "dark" : "light";
+                localStorage.setItem("theme", currentTheme);
+            }
+            if (currentTheme === "dark") {
+                document.documentElement.classList.add("dark-mode");
+                document.documentElement.style.colorScheme = 'dark';
+            } else {
+                document.documentElement.classList.remove("dark-mode");
+                document.documentElement.style.colorScheme = 'light';
+            }
+        </script>
     </head>
     <body>
         <header>
@@ -80,22 +96,6 @@
                 </style>
                 <p>JavaScript is disabled in your browser. Please enable it to use this application.</p>
             </noscript>
-            <!-- Starts by changing the color schemes of all elements by preference using local storage -->
-            <script>
-                let currentTheme = localStorage.getItem("theme");
-                const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
-                if (!currentTheme) {
-                    currentTheme = prefersDarkScheme.matches ? "dark" : "light";
-                    localStorage.setItem("theme", currentTheme);
-                }
-                if (currentTheme === "dark") {
-                    document.documentElement.classList.add("dark-mode");
-                    document.documentElement.style.colorScheme = 'dark';
-                } else {
-                    document.documentElement.classList.remove("dark-mode");
-                    document.documentElement.style.colorScheme = 'light';
-                }
-            </script>
             <!-- Include scripts for dark/light mode -->
             <script src="./scripts/global.js" type="module"></script>
         </main>
