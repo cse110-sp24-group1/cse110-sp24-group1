@@ -159,6 +159,20 @@ class TaskList extends HTMLElement {
   loadTasks () {
     // Get the tasks from local storage
     const tasks = getTaskList();
+    // Acessing main
+    this.mainElement = document.querySelector('main');
+    // Nothing here background if no tasks
+    if (tasks.length === 0) {
+      const box = document.createElement('div');
+      box.classList.add('center-image');
+      this.mainElement.appendChild(box);
+  
+      const imgElement = document.createElement('div');
+      imgElement.classList.add('bkg-image');
+      box.appendChild(imgElement);
+
+      return;
+    }
     // Add each task to the task list
     for (const task of tasks) {
       this.addTaskToList(task);

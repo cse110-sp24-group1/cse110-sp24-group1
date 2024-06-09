@@ -140,10 +140,14 @@ class HomeScript {
 
     //Render PNG on empty folders and notes
     if (this.notes.length === 0 && this.folders.length === 0) {
-      const imgElement = document.createElement('img');
-      imgElement.src = '../src/assets/icons/empty-page.png';
-      imgElement.classList.add('center-image');
-      this.mainElement.appendChild(imgElement);
+      const box = document.createElement('div');
+      box.classList.add('center-image');
+      this.mainElement.appendChild(box);
+
+      const imgElement = document.createElement('div');
+      imgElement.classList.add('bkg-image');
+      box.appendChild(imgElement);
+
       return;
     }
 

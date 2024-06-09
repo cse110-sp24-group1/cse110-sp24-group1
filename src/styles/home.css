@@ -158,13 +158,24 @@ main {
 }
 
 /* HOME PAGE */
-.center-image{
-    display:block;
-    margin-left:auto;
-    margin-right:auto;
-    margin-top: 2rem;    
-    width: 30em;
+.center-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 20vh;
+}
+
+.bkg-image {
+    background-image: url('../assets/icons/nothing-here-light.svg');
+    background-size: cover;
+    width: 15em;
     height: 30em;
+    transform: scale(2.5);
+}
+
+.dark-mode .bkg-image {
+    background-image: url('../assets/icons/nothing-here-dark.svg');
 }
 
 .top-right-buttons {
@@ -674,6 +685,10 @@ main {
     .folder-modal {
         padding: 1.5em;
         padding-bottom: none;
+    }
+
+    .bkg-image {
+        transform: scale(1.5);
     }
 }
 
