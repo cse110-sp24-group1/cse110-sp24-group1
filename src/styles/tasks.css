@@ -2,33 +2,20 @@
 
 /* Edit Task Input Form */
 #task-description,
-.modal-label-input input[type="date"],
-select {
+#task-due-date,
+select,
+#task-color {
    padding: 5px 10px;
    border-radius: 5px;
    background: var(--light-background-color);
    border: 1px solid var(--light-border-color);
+   color: var(--light-text-color);
 }
 
-input[type="text"]:focus,
-input[type="date"]:focus,
-select:focus {
-   outline: none;
-   border-color: var(--accent-color);
-}
-
-.dark-mode #task-description,
-.dark-mode .modal-label-input input[type="date"],
-.dark-mode select {
-   padding: 5px 10px;
-   border-radius: 5px;
-   background: var(--dark-button-color-hover);
-   border: 1px solid var(--light-border-color);
-}
-
-.dark-mode input[type="text"]:focus,
-.dark-mode input[type="date"]:focus,
-.dark-mode select:focus {
+#task-description:focus,
+#task-due-date:focus,
+select:focus,
+#task-color:focus {
    outline: none;
    border-color: var(--accent-color);
 }
