@@ -4,7 +4,9 @@ document.addEventListener("DOMContentLoaded", function() {
      * @type {HTMLElement}
      */
     const darkModeToggle = document.getElementById("dark-mode-toggle");
-
+    /**
+     * Function applyTheme to set the colorSchemes of the elements.
+     */
     const applyTheme = (theme) => {
         if (theme === "dark") {
             document.documentElement.classList.add("dark-mode");
