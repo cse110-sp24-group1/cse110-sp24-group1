@@ -159,10 +159,19 @@ main {
 
 /* HOME PAGE */
 .center-image {
-    display: block;
-    margin: auto;
-    width: 30em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 20vh;
+}
+
+.bkg-image {
+    background-image: url('../assets/icons/nothing-here-light.svg');
+    background-size: cover;
+    width: 15em;
     height: 30em;
+    transform: scale(2.5);
 }
 
 .top-right-buttons {
