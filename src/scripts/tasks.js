@@ -333,7 +333,11 @@ class TaskList extends HTMLElement {
   animateConfetti (target) {
     const confettiCount = 100;
     const fragment = document.createDocumentFragment();
- 
+    // Create a container for the confetti animation
+    const confettiContainer = document.createElement('div');
+    confettiContainer.classList.add('confetti-container');
+    target.appendChild(confettiContainer);
+
     for (let i = 0; i < confettiCount; i++) {
       const confetti = document.createElement('i');
       confetti.classList.add('confetti');
@@ -350,7 +354,11 @@ class TaskList extends HTMLElement {
       fragment.appendChild(confetti);
     }
  
-    target.appendChild(fragment);
+    confettiContainer.appendChild(fragment);
+    // Remove the confetti animation after 1 second
+    setTimeout(() => {
+      confettiContainer.remove();
+    }, 1000);
   }
 }
  
