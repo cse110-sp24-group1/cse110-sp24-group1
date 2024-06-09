@@ -18,7 +18,10 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/highlight.js/latest/styles/github.min.css">
         <!-- Starts by changing the color schemes of all elements by preference using local storage -->
-        <script>
+    </head>
+    <body>
+        <!-- Script to Prevent Flickering Between Tab Change -->
+        <script async>
             let currentTheme = localStorage.getItem("theme");
             const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
             if (!currentTheme) {
@@ -33,8 +36,6 @@
                 document.documentElement.style.colorScheme = 'light';
             }
         </script>
-    </head>
-    <body>
         <header>
             <div class="header-top-main">
                 <!-- Search bar for filtering notes -->
@@ -99,6 +100,5 @@
             <!-- Include scripts for dark/light mode -->
             <script src="./scripts/global.js" type="module"></script>
         </main>
-        
     </body>
 </html>
