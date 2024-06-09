@@ -9,7 +9,7 @@ select {
    padding: 5px 10px;
    border-radius: 5px;
    border: 1px solid var(--light-border-color);
-   background: var(--light-background-color);
+   background: white;
    color: var(--light-text-color);
 }
 
