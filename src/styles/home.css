@@ -158,13 +158,24 @@ main {
 }
 
 /* HOME PAGE */
-.center-image{
-    display:block;
-    margin-left:auto;
-    margin-right:auto;
-    margin-top: 2rem;    
-    width: 30em;
+.center-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 20vh;
+}
+
+.bkg-image {
+    background-image: url('../assets/icons/nothing-here-light.svg');
+    background-size: cover;
+    width: 15em;
     height: 30em;
+    transform: scale(2.5);
+}
+
+.dark-mode .bkg-image {
+    background-image: url('../assets/icons/nothing-here-dark.svg');
 }
 
 .top-right-buttons {
@@ -658,7 +669,6 @@ main {
 
     /* Edit back button for in folder */
     .search-container {
-        justify-content: left;
         margin-left: 10px;
     }
 
@@ -681,6 +691,10 @@ main {
         padding: 1.5em;
         padding-bottom: none;
     }
+
+    .bkg-image {
+        transform: scale(1.5);
+    }
 }
 
 /* SimpleMDE toolbar */
@@ -698,9 +712,13 @@ main {
     color: var(--dark-text-color) !important;
 }
 
-.dark-mode .editor-toolbar .fa:hover {
-    background-color: var(--light-button-color-hover) !important;
+.editor-toolbar.fullscreen .fa {
     color: var(--light-text-color) !important;
+}
+
+.editor-toolbar.fullscreen .fa:hover {
+    background-color: var(--dark-button-color-hover) !important;
+    color: var(--dark-text-color) !important;
 }
 
 /* Note label appears when editing */

@@ -11,7 +11,7 @@ class HomeScript {
   /**
    * Create a HomeScript instance.
    */
-  constructor () {
+  constructor() {
     // Selects the new note button
     this.newNoteButton = document.getElementById('new-note-button');
     // Selects the new folder button
@@ -31,7 +31,7 @@ class HomeScript {
     // Select the main element of the html file where the notes will be displayed
     this.mainElement = document.querySelector('main');
     // A list of all of the notes in main home
-    this.notes = getNotesByFolderID(MAIN_ID); 
+    this.notes = getNotesByFolderID(MAIN_ID);
     // A list of all of the folders in main home
     this.folders = getFoldersByID(MAIN_ID);
     // A const representing the current folder
@@ -45,16 +45,16 @@ class HomeScript {
     // Add event listener to search the note and folder from the text input
     this.searchInput.addEventListener('input', this.searchNotesFolders.bind(this));
     // Add event listener to return to parent folder on click of back button
-    this.folderBackButton.addEventListener('click', () => {this.visitFolder(this.parentFolderID);});
-    
+    this.folderBackButton.addEventListener('click', () => { this.visitFolder(this.parentFolderID); });
+
     // Within main folder hide back button, otherwise show it
-    if(this.currentFolderID === MAIN_ID) {
+    if (this.currentFolderID === MAIN_ID) {
       this.folderBackButton.classList.add('hide-notes');
     }
     else {
       this.folderBackButton.classList.remove('hide-notes');
     }
-    
+
     // Render everything on main page
     this.render();
   }
@@ -65,7 +65,7 @@ class HomeScript {
    * @param {string} body - The body content of the note.
    * @param {string} labelId - The label ID of the note.
    */
-  createNote (title, body, labelId) {
+  createNote(title, body, labelId) {
     const defaultNoteTitle = 'New Note'; // Default note title
 
     if (!title) {
@@ -93,7 +93,7 @@ class HomeScript {
    * Create a new folder.
    * @param {string} folderName - The name of the folder.
    */
-  createFolder (folderName) {
+  createFolder(folderName) {
     const defaultFolderName = 'New Folder'; // Default folder name
 
     if (folderName.length !== 0) {
@@ -108,11 +108,11 @@ class HomeScript {
 
       // Save to local storage
       saveFolder(folder);
-  
+
       // Render the folders to the homepage
-      this.render();  
+      this.render();
     }
-    else{
+    else {
       const folder = {
         name: defaultFolderName,
         id: `folder-${Date.now()}`, // unique id for the folder
@@ -124,26 +124,30 @@ class HomeScript {
 
       // Save to local storage
       saveFolder(folder);
-  
+
       // Render the folders to the homepage
-      this.render();  
+      this.render();
     };
   }
 
   /**
    * Render notes and folders to the homepage.
    */
-  render () {
+  render() {
     //console.log(this.currentFolderID + ' ' + this.parentFolderID);
     // Clear main element
     this.mainElement.innerHTML = "";
 
     //Render PNG on empty folders and notes
     if (this.notes.length === 0 && this.folders.length === 0) {
-      const imgElement = document.createElement('img');
-      imgElement.src = '../src/assets/icons/empty-page.png';
-      imgElement.classList.add('center-image');
-      this.mainElement.appendChild(imgElement);
+      const box = document.createElement('div');
+      box.classList.add('center-image');
+      this.mainElement.appendChild(box);
+
+      const imgElement = document.createElement('div');
+      imgElement.classList.add('bkg-image');
+      box.appendChild(imgElement);
+
       return;
     }
 
@@ -152,17 +156,19 @@ class HomeScript {
       const noteElement = document.createElement('div');
       noteElement.classList.add('note');
       noteElement.setAttribute('data-note-id', note.id);
+      noteElement.setAttribute('title', this.getLabelText(note.label)); // Set title attribute for tooltip
+      noteElement.setAttribute('tabindex', '0'); // Make the note focusable
       noteElement.innerHTML = `
-        <div class='note-content' id=${note.label}>
-            <span class='delete'>&times;</span>
-            <p>${note.body}</p>
-        </div>
-        <div class='note-title'>
-            <h3>${note.title}</h3>
-        </div>`;
+          <div class='note-content' id=${note.label}>
+              <span class='delete'>&times;</span>
+              <p>${note.body}</p>
+          </div>
+          <div class='note-title'>
+              <h3>${note.title}</h3>
+          </div>`;
 
       // Click the x button to delete the note
-      noteElement.querySelector('.delete').addEventListener('click', () => {
+      noteElement.querySelector('.delete').addEventListener('click', (event) => {
         event.stopPropagation();
         this.openConfirmationDeleteModal(note.id, 'note');
       });
@@ -171,6 +177,14 @@ class HomeScript {
       noteElement.addEventListener('click', () => {
         this.openEditNoteModal(this.notes.indexOf(note), note.title, note.body, note.label);
       });
+
+      // Handle Enter key press for opening the edit modal
+      noteElement.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+          this.openEditNoteModal(this.notes.indexOf(note), note.title, note.body, note.label);
+        }
+      });
+
       this.mainElement.prepend(noteElement);
     });
 
@@ -179,17 +193,17 @@ class HomeScript {
       const folderElement = document.createElement('div');
       folderElement.classList.add('folder');
       folderElement.setAttribute('data-folder-id', folder.id);
+      folderElement.setAttribute('tabindex', '0'); 
       folderElement.innerHTML = `
         <div class='folder-content' id=${folder.label}>
           <span class='delete-folder'>&times;</span>
         </div>
         <div class='folder-title'>
           <h3>${folder.name}</h3>
-        </div>
-      `;
-      
+        </div>`;
+
       // Click the x button to delete the folder
-      folderElement.querySelector('.delete-folder').addEventListener('click', () => {
+      folderElement.querySelector('.delete-folder').addEventListener('click', (event) => {
         event.stopPropagation();
         this.openConfirmationDeleteModal(folder.id, 'folder');
       });
@@ -199,14 +213,39 @@ class HomeScript {
         this.visitFolder(folder.id);
       });
 
+      // Handle Enter key press for opening the folder
+      folderElement.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+          this.visitFolder(folder.id);
+        }
+      });
+
       this.mainElement.prepend(folderElement);
     });
   };
 
   /**
+   * Get label text based on label ID.
+   * @param {string} labelId - The label ID.
+   * @returns {string} - The label text.
+   */
+  getLabelText(labelId) {
+    const labelMap = {
+      'code-snippets': 'Code Snippets',
+      'stand-up': 'Stand-Up Notes',
+      'bug-reports': 'Bug Reports',
+      'learning-notes': 'Learning Notes',
+      'newsletter': 'Newsletters',
+      'performance': 'Performance Metrics',
+      'feature-ideas': 'Feature Ideas'
+    };
+    return labelMap[labelId] || 'Note';
+  }
+
+  /**
    * Open the modal to reassure with the user that they want to delete this note.
    */
-   openConfirmationDeleteModal(Id, type) {
+  openConfirmationDeleteModal(Id, type) {
     const modal = document.createElement('div');
     // Modal class for css design
     modal.classList.add('modal');
@@ -256,7 +295,7 @@ class HomeScript {
   getChildFolders(parentFolderID) {
     let childFolders = this.folders.filter(folder => folder.parentFolderID === parentFolderID);
     childFolders.forEach(childFolder => {
-        childFolders = childFolders.concat(this.getChildFolders(childFolder.id));
+      childFolders = childFolders.concat(this.getChildFolders(childFolder.id));
     });
     return childFolders;
   }
@@ -273,12 +312,14 @@ class HomeScript {
   /**
    * Open the modal to create a new note.
    */
-  openCreateNoteModal () {
+  openCreateNoteModal() {
     const modal = this.openModal();
     // Modal content
     modal.innerHTML = `
             <div class='note-modal'>
-                <span class='close-modal'>&times;</span>
+                <button class=obj-container>
+                  <span class='close-modal' title='Close'>&times;</span>
+                </button>
                 <div class='modal-title'>
                     <h2>New Note</h2>
                 </div>
@@ -302,14 +343,16 @@ class HomeScript {
                         <textarea id='note-body' name='note-body'></textarea>
                     </div>
                     <div class='new-note-foot'> 
-                        <button class='create-button' type='submit'>Create</button>
+                        <button class='create-button' type='submit' title='Create'>Create</button>
                     </div>
                 </form>
             </div>
         `;
 
+    enableModalTabTrap(modal, true);
+
     // Initialize SimpleMDE
-    const simplemde = new SimpleMDE({ 
+    const simplemde = new SimpleMDE({
       element: document.getElementById("note-body"),
       forceSync: true,
       hideIcons: ['quote'],
@@ -319,17 +362,17 @@ class HomeScript {
       spellChecker: false,
       toolbar: [
         'bold', 'italic', 'strikethrough', 'code', 'unordered-list', 'ordered-list', 'link', {
-            name: "image",
-            action: function customImageHandler(editor) {
-                const cm = editor.codemirror;
-                const doc = cm.getDoc();
-                const cursor = doc.getCursor();
-                doc.replaceRange(`![](https://)`, cursor);
-            },
-            className: "fa fa-picture-o",
-            title: "Insert Image",
+          name: "image",
+          action: function customImageHandler(editor) {
+            const cm = editor.codemirror;
+            const doc = cm.getDoc();
+            const cursor = doc.getCursor();
+            doc.replaceRange(`![](https://)`, cursor);
+          },
+          className: "fa fa-picture-o",
+          title: "Insert Image",
         }, '|', 'preview', 'side-by-side', 'fullscreen', '|', 'guide'
-      ],   
+      ],
       shortcuts: {
         'toggleBold': 'Cmd-B',
         'toggleItalic': 'Cmd-I',
@@ -346,8 +389,25 @@ class HomeScript {
       }
     });
 
+    // Override tab behavior to move focus out of SimpleMDE
+    simplemde.codemirror.options.extraKeys.Tab = false;
+    simplemde.codemirror.on('keydown', (cm, event) => {
+      if (event.key === 'Tab') {
+        event.preventDefault();
+        const formElements = Array.from(modal.querySelectorAll('input, textarea, button, select, [contenteditable="true"]'));
+        const currentIndex = formElements.indexOf(document.activeElement);
+        if (event.shiftKey) {
+          const prevIndex = (currentIndex - 1 + formElements.length) % formElements.length;
+          formElements[prevIndex].focus();
+        } else {
+          const nextIndex = (currentIndex + 1) % formElements.length;
+          formElements[nextIndex].focus();
+        }
+      }
+    });
+
     // Close modal when clicking the close button
-    const closeButton = modal.querySelector('.close-modal');
+    const closeButton = modal.querySelector('.obj-container:has(.close-modal)');
     closeButton.addEventListener('click', () => {
       this.closeModal(modal);
     });
@@ -376,16 +436,16 @@ class HomeScript {
    * @param {string} body - The body content of the note.
    * @param {string} label - The label ID of the note category.
    */
-  openEditNoteModal (index, title, body, label) {
+  openEditNoteModal(index, title, body, label) {
     const modal = this.openModal();
 
-    const noteIdValues = ['', 'code-snippets','stand-up', 'bug-reports', 'learning-notes', 'newsletter', 'performance', 'feature-ideas'];
-    const noteIdText = ['', 'Code Snippets', 'Stand-Up Notes', 'Bug Reports', 'Learning Notes', 'Newsletters', 'Performance Metrics',  'Feature Ideas'];
+    const noteIdValues = ['', 'code-snippets', 'stand-up', 'bug-reports', 'learning-notes', 'newsletter', 'performance', 'feature-ideas'];
+    const noteIdText = ['', 'Code Snippets', 'Stand-Up Notes', 'Bug Reports', 'Learning Notes', 'Newsletters', 'Performance Metrics', 'Feature Ideas'];
     const noteIdColor = ['', '#e1322f', '#e14083', '#b351e0', '#6661e0', '#459de0', '#53e091', '#e07e37'];
 
     let noteLabel, noteColor;
 
-    for (let i = 0; i < noteIdValues.length; i++ ) {
+    for (let i = 0; i < noteIdValues.length; i++) {
       if (noteIdValues[i] === label) {
         noteLabel = noteIdText[i];
         noteColor = noteIdColor[i];
@@ -399,13 +459,13 @@ class HomeScript {
                     <h2 contenteditable='true'>${title}</h2>
                 </div>
                 <form id='note-modal-form'>
-                    <button class='back-button' type='submit'></button>
+                    <button class='back-button' type='submit' title='Back'></button>
                     <div>
                         <textarea id='edit-note-body' name='note-body'>${body}</textarea>
                     </div>
                     <div class='edit-note-footer'> 
                         <div class='edit-note-label'>${noteLabel}</div>
-                        <button class='save-button' type='submit'>Save</button>
+                        <button class='save-button' type='submit' title='Save'>Save</button>
                     </div>
                 </form>
             </div>
@@ -420,7 +480,7 @@ class HomeScript {
     }
 
     // Initialize SimpleMDE
-    const simplemde = new SimpleMDE({ 
+    const simplemde = new SimpleMDE({
       element: document.getElementById("edit-note-body"),
       forceSync: true,
       hideIcons: ['quote'],
@@ -430,17 +490,17 @@ class HomeScript {
       spellChecker: false,
       toolbar: [
         'bold', 'italic', 'strikethrough', 'code', 'unordered-list', 'ordered-list', 'link', {
-            name: "image",
-            action: function customImageHandler(editor) {
-                const cm = editor.codemirror;
-                const doc = cm.getDoc();
-                const cursor = doc.getCursor();
-                doc.replaceRange(`![](https://)`, cursor);
-            },
-            className: "fa fa-picture-o",
-            title: "Insert Image",
+          name: "image",
+          action: function customImageHandler(editor) {
+            const cm = editor.codemirror;
+            const doc = cm.getDoc();
+            const cursor = doc.getCursor();
+            doc.replaceRange(`![](https://)`, cursor);
+          },
+          className: "fa fa-picture-o",
+          title: "Insert Image",
         }, '|', 'preview', 'side-by-side', 'fullscreen', '|', 'guide'
-      ],  
+      ],
       shortcuts: {
         'toggleBold': 'Cmd-B',
         'toggleItalic': 'Cmd-I',
@@ -456,6 +516,25 @@ class HomeScript {
         'toggleFullScreen': 'F11'
       }
     });
+
+    // Override tab behavior to move focus out of SimpleMDE
+    simplemde.codemirror.options.extraKeys.Tab = false;
+    simplemde.codemirror.on('keydown', (cm, event) => {
+      if (event.key === 'Tab') {
+        event.preventDefault();
+        const formElements = Array.from(modal.querySelectorAll('input, textarea, button, select, [contenteditable="true"]'));
+        const currentIndex = formElements.indexOf(document.activeElement);
+        if (event.shiftKey) {
+          const prevIndex = (currentIndex - 1 + formElements.length) % formElements.length;
+          formElements[prevIndex].focus();
+        } else {
+          const nextIndex = (currentIndex + 1) % formElements.length;
+          formElements[nextIndex].focus();
+        }
+      }
+    });
+
+    enableModalTabTrap(modal, true);
 
     // Append modal to main body
     document.body.appendChild(modal);
@@ -490,7 +569,7 @@ class HomeScript {
   /**
    * Open the modal to create a new folder.
    */
-  openCreateFolderModal () {
+  openCreateFolderModal() {
     const modal = document.createElement('div');
     // Modal class for css design
     modal.classList.add('modal');
@@ -500,7 +579,9 @@ class HomeScript {
     // Modal content
     modal.innerHTML = `
             <div class='folder-modal'>
-                <span class='close-modal'>&times;</span>
+              <button class=obj-container>
+                <span class='close-modal' title='Close'>&times;</span>
+              </button>
                 <div class='modal-title'>
                     <h2>New Folder</h2>
                 </div>
@@ -508,13 +589,15 @@ class HomeScript {
                     <div class='modal-input'>
                         <input type='text' id='note-title' name='note-title' placeholder='Folder Name'>
                     </div>
-                    <button class='create-folder-button' type='submit'>Create</button>
+                    <button class='create-folder-button' type='submit' title='Create'>Create</button>
                 </form>
             </div>
         `;
 
+    enableModalTabTrap(modal, true);
+    console.log('hi');
     // Close modal when clicking the close button
-    const closeButton = modal.querySelector('.close-modal');
+    const closeButton = modal.querySelector('.obj-container:has(.close-modal)');
     closeButton.addEventListener('click', () => {
       this.closeModal(modal);
     });
@@ -575,7 +658,9 @@ class HomeScript {
     this.mainElement.classList.remove('hide-notes');
     // Unhide the journal header from display
     this.journalHeader.classList.remove('hide-notes');
-  }  
+
+    enableModalTabTrap(modal, false);
+  }
 
   /**
    * Visit a folder.
@@ -586,7 +671,7 @@ class HomeScript {
     let newFolder = getFolderByID(newFolderId);
 
     // if folder not found, must be main
-    if(!newFolder) {
+    if (!newFolder) {
       this.currentFolderID = MAIN_ID;
       this.parentFolderID = null;
     }
@@ -600,7 +685,7 @@ class HomeScript {
     this.notes = getNotesByFolderID(this.currentFolderID);
 
     // If within main folder hide back button, otherwise show it
-    if(this.currentFolderID === MAIN_ID) {
+    if (this.currentFolderID === MAIN_ID) {
       this.folderBackButton.classList.add('hide-notes');
       this.journalHeader.innerText = 'My Journal';
     }
@@ -623,13 +708,13 @@ class HomeScript {
     const filteredFolders = this.folders.filter(folder => folder.name.toLowerCase().includes(searchQuery));
     this.renderNotesFolders(filteredNotes, filteredFolders);
   }
-  
+
   /**
    * Render notes and folders to the homepage.
    * @param {Array} [filteredNotes=this.notes] - The notes to render.
    * @param {Array} [filteredFolders=this.folders] - The folders to render.
    */
-  renderNotesFolders (filteredNotes = this.notes, filteredFolders = this.folders) {
+  renderNotesFolders(filteredNotes = this.notes, filteredFolders = this.folders) {
     this.mainElement.innerHTML = '';
 
     // Render all notes in current folder
@@ -637,6 +722,8 @@ class HomeScript {
       const noteElement = document.createElement('div');
       noteElement.classList.add('note');
       noteElement.setAttribute('data-note-id', note.id);
+      noteElement.setAttribute('title', this.getLabelText(note.label)); // Set title attribute for tooltip
+      noteElement.setAttribute('tabindex', '0'); // Make the note focusable
       noteElement.innerHTML = `
         <div class='note-content' id=${note.label}>
             <span class='delete'>&times;</span>
@@ -647,7 +734,7 @@ class HomeScript {
         </div>`;
 
       // Click the x button to delete the note
-      noteElement.querySelector('.delete').addEventListener('click', () => {
+      noteElement.querySelector('.delete').addEventListener('click', (event) => {
         event.stopPropagation();
         this.openConfirmationDeleteModal(note.id, 'note');
       });
@@ -656,6 +743,14 @@ class HomeScript {
       noteElement.addEventListener('click', () => {
         this.openEditNoteModal(this.notes.indexOf(note), note.title, note.body, note.label);
       });
+
+      // Handle Enter key press for opening the edit modal
+      noteElement.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+          this.openEditNoteModal(this.notes.indexOf(note), note.title, note.body, note.label);
+        }
+      });
+
       this.mainElement.prepend(noteElement);
     });
 
@@ -664,6 +759,7 @@ class HomeScript {
       const folderElement = document.createElement('div');
       folderElement.classList.add('folder');
       folderElement.setAttribute('data-folder-id', folder.id);
+      folderElement.setAttribute('tabindex', '0'); // Make the folder focusable
       folderElement.innerHTML = `
         <div class='folder-content' id=${folder.label}>
           <span class='delete-folder'>&times;</span>
@@ -672,9 +768,9 @@ class HomeScript {
           <h3>${folder.name}</h3>
         </div>
       `;
-      
+
       // Click the x button to delete the folder
-      folderElement.querySelector('.delete-folder').addEventListener('click', () => {
+      folderElement.querySelector('.delete-folder').addEventListener('click', (event) => {
         event.stopPropagation();
         this.openConfirmationDeleteModal(folder.id, 'folder');
       });
@@ -682,6 +778,13 @@ class HomeScript {
       // Click to open folder
       folderElement.addEventListener('click', () => {
         this.visitFolder(folder.id);
+      });
+
+      // Handle Enter key press for opening the folder
+      folderElement.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+          this.visitFolder(folder.id);
+        }
       });
 
       this.mainElement.prepend(folderElement);

@@ -56,7 +56,19 @@ class TaskList extends HTMLElement {
     const taskColor = modalForm.querySelector('#task-color').value;
 
     // Validate the new task text
-    if (newTaskText === '') return;
+    if (newTaskText === '') {
+      alert('Description is required');
+    }
+
+    // Handle the case where a new label is created
+    if (taskLabel === 'createNew') {
+        const newLabelInput = modalForm.querySelector('#new-label-input');
+        const newLabel = newLabelInput.value.trim();
+
+        // Validate the new label text
+        if (newLabel === '') return;
+        taskLabel = newLabel;
+    }
 
     // Generate a unique task ID
     const taskId = `task-${Date.now()}`;
@@ -91,7 +103,7 @@ class TaskList extends HTMLElement {
     // Populate the task element with the new task data
     newTask.innerHTML = `
         <div class="task-main">
-        <input type="checkbox" class='check' id="${task.id}" style="background-color = var(--light-background-color);" ${task.checked ? `checked`: ''}>
+        <input type="checkbox" class='check' id="${task.id}" ${task.checked ? `checked`: ''}>
         <label for="${task.id}">${task.name}</label>
         <button class="edit-btn">✏️</button>
         </div>
@@ -105,7 +117,7 @@ class TaskList extends HTMLElement {
             task.dueDate
                 ? `
             <div class="task-date">
-                <label style="color: var(--light-text-color);">🗓️ ${task.dueDate}</label>
+                <label>🗓️ ${task.dueDate}</label>
             </div>
             ` 
                 : '<div class="task-date no-date"><label></label></div>'
@@ -147,6 +159,20 @@ class TaskList extends HTMLElement {
   loadTasks () {
     // Get the tasks from local storage
     const tasks = getTaskList();
+    // Acessing main
+    this.mainElement = document.querySelector('main');
+    // Nothing here background if no tasks
+    if (tasks.length === 0) {
+      const box = document.createElement('div');
+      box.classList.add('center-image');
+      this.mainElement.appendChild(box);
+  
+      const imgElement = document.createElement('div');
+      imgElement.classList.add('bkg-image');
+      box.appendChild(imgElement);
+
+      return;
+    }
     // Add each task to the task list
     for (const task of tasks) {
       this.addTaskToList(task);
@@ -307,7 +333,11 @@ class TaskList extends HTMLElement {
   animateConfetti (target) {
     const confettiCount = 100;
     const fragment = document.createDocumentFragment();
- 
+    // Create a container for the confetti animation
+    const confettiContainer = document.createElement('div');
+    confettiContainer.classList.add('confetti-container');
+    target.appendChild(confettiContainer);
+
     for (let i = 0; i < confettiCount; i++) {
       const confetti = document.createElement('i');
       confetti.classList.add('confetti');
@@ -324,7 +354,11 @@ class TaskList extends HTMLElement {
       fragment.appendChild(confetti);
     }
  
-    target.appendChild(fragment);
+    confettiContainer.appendChild(fragment);
+    // Remove the confetti animation after 1 second
+    setTimeout(() => {
+      confettiContainer.remove();
+    }, 1000);
   }
 }
  
@@ -338,7 +372,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const newTaskInput = document.getElementById('new-task-input');
   const modal = document.getElementById('modal');
   const modalForm = document.getElementById('modal-form');
-  const closeModalBtn = document.querySelector('.close-modal');
+  const closeModalBtn = document.querySelector('.obj-container:has(.close-modal)');
   const taskContainer = document.querySelector('.task-container');
 
   // Open the modal when the task form is submitted
@@ -371,6 +405,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       modalTitle.textContent = 'New Task';
     }
+    enableModalTabTrap(modal,true);
   }
  
   /**
@@ -379,6 +414,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function closeModal () {
     modal.style.display = 'none';
     document.body.classList.remove('modal-open');
+    enableModalTabTrap(modal,false);
   }
 
   // Load the tasks from storage
