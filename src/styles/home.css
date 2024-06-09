@@ -663,7 +663,6 @@ main {
 
     /* Edit back button for in folder */
     .search-container {
-        justify-content: left;
         margin-left: 10px;
     }
 
