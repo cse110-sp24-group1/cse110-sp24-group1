@@ -278,10 +278,12 @@ p {
     background: white;
     margin-left: 1em;
     width: 25em;
+    color: var(--light-text-color);
 }
 
 .dark-mode .search-container input[type="text"] {
     border: 1px solid var(--dark-border-color);
+    color: var(--light-text-color);
 }
 
 .search-container input[type="text"]:focus {

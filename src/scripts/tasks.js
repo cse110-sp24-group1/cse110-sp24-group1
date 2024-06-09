@@ -91,7 +91,7 @@ class TaskList extends HTMLElement {
     // Populate the task element with the new task data
     newTask.innerHTML = `
         <div class="task-main">
-        <input type="checkbox" class='check' id="${task.id}" ${task.checked ? `checked`: ''}>
+        <input type="checkbox" class='check' id="${task.id}" style="background-color = var(--light-background-color);" ${task.checked ? `checked`: ''}>
         <label for="${task.id}">${task.name}</label>
         <button class="edit-btn">✏️</button>
         </div>
@@ -105,7 +105,7 @@ class TaskList extends HTMLElement {
             task.dueDate
                 ? `
             <div class="task-date">
-                <label>🗓️ ${task.dueDate}</label>
+                <label style="color: var(--light-text-color);">🗓️ ${task.dueDate}</label>
             </div>
             ` 
                 : '<div class="task-date no-date"><label></label></div>'
