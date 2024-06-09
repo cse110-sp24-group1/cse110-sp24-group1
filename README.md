@@ -107,6 +107,11 @@ Our project uses GitHub Actions for Continuous Integration and Deployment. The p
 ## Wiki
 
 - To learn more about our project and its development, take a look at our [wiki](https://github.com/cse110-sp24-group1/cse110-sp24-group1/wiki).
+
+## Known Bugs
+- Markdown plain text centers when previewed
+- Markdown image tag only accepts base64 encodings or any urls without photo classifiers (e.g. jpg, png)
+- Copy and paste for links with photo classifiers does not work, but everything else is valid.
   
 ## Future Investigation
 
