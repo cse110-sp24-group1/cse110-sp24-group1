@@ -26,56 +26,47 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/**
- * Element representing the dark mode toggle switch.
- * @type {HTMLElement}
- */
-const darkModeToggle = document.getElementById("dark-mode-toggle");
-
-/**
- * MediaQueryList object representing the user's preferred color scheme.
- * @type {MediaQueryList}
- */
-const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
-
-/**
- * The current theme, either 'dark' or 'light', stored in localStorage.
- * @type {string|null}
- */
-let currentTheme = localStorage.getItem("theme");
-
-/**
- * Set the initial theme based on localStorage or user's preferred color scheme.
- */
-if (!currentTheme) {
-    currentTheme = prefersDarkScheme.matches ? "dark" : "light";
-    localStorage.setItem("theme", currentTheme);
-}
-
-/**
- * Apply the initial theme to the document body and toggle switch.
- */
-if (currentTheme === "dark") {
-    document.body.classList.add("dark-mode");
-    darkModeToggle.checked = true;
-} else {
-    document.body.classList.add("light-mode");
-    darkModeToggle.checked = false;
-}
-
-/**
- * Toggle the theme between dark mode and light mode when the toggle switch is clicked.
- */
-darkModeToggle.addEventListener("change", function () {
-    if (darkModeToggle.checked) {
-        document.body.classList.remove("light-mode");
-        document.body.classList.add("dark-mode");
-        localStorage.setItem("theme", "dark");
-    } else {
-        document.body.classList.remove("dark-mode");
-        document.body.classList.add("light-mode");
-        localStorage.setItem("theme", "light");
+            <pre class="prettyprint source linenums"><code>document.addEventListener("DOMContentLoaded", function() {
+    /**
+     * Element representing the dark mode toggle switch.
+     * @type {HTMLElement}
+     */
+    const darkModeToggle = document.getElementById("dark-mode-toggle");
+    /**
+     * Function applyTheme to set the colorSchemes of the elements.
+     */
+    const applyTheme = (theme) => {
+        if (theme === "dark") {
+            document.documentElement.classList.add("dark-mode");
+            document.documentElement.style.colorScheme = 'dark';
+        } else {
+            document.documentElement.classList.remove("dark-mode");
+            document.documentElement.style.colorScheme = 'light';
+        }
+    };
+    /**
+     * The current theme, either 'dark' or 'light', stored in localStorage.
+     * @type {string|null}
+     */
+    let currentTheme = localStorage.getItem("theme");
+    /**
+     * Set the initial theme based on localStorage or user's preferred color scheme.
+     */
+    if (currentTheme) {
+        applyTheme(currentTheme);
+        darkModeToggle.checked = (currentTheme === "dark");
     }
+    /**
+     * Toggle the theme between dark mode and light mode when the toggle switch is clicked.
+     */
+    darkModeToggle.addEventListener("change", function () {
+        let theme = "light";
+        if (darkModeToggle.checked) {
+            theme = "dark";
+        }
+        localStorage.setItem("theme", theme);
+        applyTheme(theme);
+    });
 });
 
 /**
@@ -139,13 +130,13 @@ function enableModalTabTrap(modal, en) {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="HomeScript.html">HomeScript</a></li><li><a href="TaskList.html">TaskList</a></li></ul><h3>Global</h3><ul><li><a href="global.html#currentTheme">currentTheme</a></li><li><a href="global.html#darkModeToggle">darkModeToggle</a></li><li><a href="global.html#deleteFolderByID">deleteFolderByID</a></li><li><a href="global.html#deleteNoteByID">deleteNoteByID</a></li><li><a href="global.html#deleteNotesByFolderID">deleteNotesByFolderID</a></li><li><a href="global.html#deleteTask">deleteTask</a></li><li><a href="global.html#enableModalTabTrap">enableModalTabTrap</a></li><li><a href="global.html#focusable">focusable</a></li><li><a href="global.html#getFolderByID">getFolderByID</a></li><li><a href="global.html#getFoldersByID">getFoldersByID</a></li><li><a href="global.html#getNotesByFolderID">getNotesByFolderID</a></li><li><a href="global.html#getTaskList">getTaskList</a></li><li><a href="global.html#handleKey">handleKey</a></li><li><a href="global.html#MAIN_ID">MAIN_ID</a></li><li><a href="global.html#prefersDarkScheme">prefersDarkScheme</a></li><li><a href="global.html#saveFolder">saveFolder</a></li><li><a href="global.html#saveNote">saveNote</a></li><li><a href="global.html#saveTask">saveTask</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="HomeScript.html">HomeScript</a></li><li><a href="TaskList.html">TaskList</a></li></ul><h3>Global</h3><ul><li><a href="global.html#deleteFolderByID">deleteFolderByID</a></li><li><a href="global.html#deleteNoteByID">deleteNoteByID</a></li><li><a href="global.html#deleteNotesByFolderID">deleteNotesByFolderID</a></li><li><a href="global.html#deleteTask">deleteTask</a></li><li><a href="global.html#enableModalTabTrap">enableModalTabTrap</a></li><li><a href="global.html#focusable">focusable</a></li><li><a href="global.html#getFolderByID">getFolderByID</a></li><li><a href="global.html#getFoldersByID">getFoldersByID</a></li><li><a href="global.html#getNotesByFolderID">getNotesByFolderID</a></li><li><a href="global.html#getTaskList">getTaskList</a></li><li><a href="global.html#handleKey">handleKey</a></li><li><a href="global.html#MAIN_ID">MAIN_ID</a></li><li><a href="global.html#saveFolder">saveFolder</a></li><li><a href="global.html#saveNote">saveNote</a></li><li><a href="global.html#saveTask">saveTask</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Sun Jun 09 2024 03:29:57 GMT+0000 (Coordinated Universal Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Sun Jun 09 2024 07:07:53 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>

@@ -1,6 +1,8 @@
 @import url("vars.css");
 
 /* Edit Task Input Form */
+.new-task-input,
+#task-description,
 input[type="text"],
 input[type="date"],
 select {
@@ -8,11 +10,28 @@ select {
    border-radius: 5px;
    background: white;
    border: 1px solid var(--light-border-color);
+   background: var(--light-background-color);
+   color: var(--light-text-color);
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+   filter: invert(100%);
+}
+
+#task-color {
+   background: var(--light-background-color);
+   border: 1px solid var(--light-border-color);
+   border-radius: 5px;
 }
 
 input[type="text"]:focus,
 input[type="date"]:focus,
 select:focus {
+   outline: none;
+   border-color: var(--accent-color);
+}
+
+#task-color:focus {
    outline: none;
    border-color: var(--accent-color);
 }
