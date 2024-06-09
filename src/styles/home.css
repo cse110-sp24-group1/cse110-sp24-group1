@@ -686,6 +686,10 @@ main {
         padding: 1.5em;
         padding-bottom: none;
     }
+
+    .bkg-image {
+        transform: scale(1.5);
+    }
 }
 
 /* SimpleMDE toolbar */
