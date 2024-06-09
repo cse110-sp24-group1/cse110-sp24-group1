@@ -58,6 +58,7 @@ class TaskList extends HTMLElement {
     // Validate the new task text
     if (newTaskText === '') {
       alert('Description is required');
+      return;
     }
 
     // Handle the case where a new label is created
@@ -153,6 +154,9 @@ class TaskList extends HTMLElement {
 
     // Append the new task to the task container
     this.taskContainer.appendChild(newTask);
+
+    // Hide the empty state SVG if it's visible
+    this.hideEmptyState();
   }
 
   // Load the tasks from storage and add them to the task list
@@ -161,21 +165,44 @@ class TaskList extends HTMLElement {
     const tasks = getTaskList();
     // Acessing main
     this.mainElement = document.querySelector('main');
-    // Nothing here background if no tasks
+    
+    // If there are no tasks, show the empty state
     if (tasks.length === 0) {
+      this.showEmptyState();
+    } else {
+      // Add each task to the task list
+      for (const task of tasks) {
+        this.addTaskToList(task);
+      }
+    }
+  }
+
+  /**
+   * Show the empty state SVG.
+   */
+  showEmptyState() {
+    // Check if the empty state box already exists
+    let box = this.mainElement.querySelector('.center-image');
+    if (!box) {
       const box = document.createElement('div');
       box.classList.add('center-image');
+      box.style.pointerEvents = 'none';
       this.mainElement.appendChild(box);
-  
+
       const imgElement = document.createElement('div');
       imgElement.classList.add('bkg-image');
       box.appendChild(imgElement);
-
-      return;
     }
-    // Add each task to the task list
-    for (const task of tasks) {
-      this.addTaskToList(task);
+    box.style.display = 'flex';
+  }
+
+  /**
+   * Hide the empty state SVG.
+   */
+  hideEmptyState() {
+    const box = this.mainElement.querySelector('.center-image');
+    if (box) {
+      box.style.display = 'none';
     }
   }
  
@@ -305,6 +332,11 @@ class TaskList extends HTMLElement {
     deleteTask(taskElement.querySelector('input').id);
     // Remove the task element from the task list
     taskElement.remove();
+
+    // Show the empty state if there are no tasks left
+    if (this.taskContainer.children.length === 0) {
+      this.showEmptyState();
+    }
   }
 
   /**
