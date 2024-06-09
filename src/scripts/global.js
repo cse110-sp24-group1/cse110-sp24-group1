@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function() {
      */
     darkModeToggle.addEventListener("change", function () {
         let theme = "light";
-        if (toggleSwitch.checked) {
+        if (darkModeToggle.checked) {
             theme = "dark";
         }
         localStorage.setItem("theme", theme);
