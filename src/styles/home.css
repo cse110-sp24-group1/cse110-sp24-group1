@@ -158,11 +158,9 @@ main {
 }
 
 /* HOME PAGE */
-.center-image{
-    display:block;
-    margin-left:auto;
-    margin-right:auto;
-    margin-top: 2rem;    
+.center-image {
+    display: block;
+    margin: auto;
     width: 30em;
     height: 30em;
 }
