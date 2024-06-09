@@ -389,6 +389,8 @@ main {
     border: 1px solid var(--light-border-color); 
     border-radius: 5px; 
     box-sizing: border-box;
+    background-color: var(--light-background-color);
+    color: var(--light-text-color);
 }
 
 .modal-input select option[value="code-snippets"] {
@@ -421,10 +423,14 @@ main {
 
 .dark-mode .modal-input select {
     color: var(--dark-button-color-hover);
+    background-color: var(--light-background-color);
+    color: var(--light-text-color);
 }
 
 .dark-mode .modal-input input,
 .dark-mode .modal-input select {
+    background-color: var(--light-background-color);
+    color: var(--light-text-color);
     border: 1px solid var(--dark-border-color);
 }
 
