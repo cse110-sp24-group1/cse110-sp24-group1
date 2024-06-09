@@ -377,7 +377,7 @@ main {
     border: 1px solid var(--light-border-color); 
     border-radius: 5px; 
     box-sizing: border-box;
-    background-color: var(--light-background-color);
+    background-color: white;
     color: var(--light-text-color);
 }
 
