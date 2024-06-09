@@ -142,6 +142,7 @@ class HomeScript {
     if (this.notes.length === 0 && this.folders.length === 0) {
       const box = document.createElement('div');
       box.classList.add('center-image');
+      box.style.pointerEvents = 'none';
       this.mainElement.appendChild(box);
 
       const imgElement = document.createElement('div');
