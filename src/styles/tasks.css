@@ -440,21 +440,3 @@ select:focus {
     align-items: center;
     height: 17vh;
 }
-
-.bkg-image {
-    background-image: url('../assets/icons/nothing-here-light.svg');
-    background-size: cover;
-    width: 15em;
-    height: 30em;
-    transform: scale(2.3);
-}
-
-.dark-mode .bkg-image {
-    background-image: url('../assets/icons/nothing-here-dark.svg');
-}
-
-@media (width <= 700px) {
-   .bkg-image {
-      transform: scale(1.3);
-   }
-}

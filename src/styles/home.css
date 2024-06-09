@@ -166,18 +166,6 @@ main {
     height: 20vh;
 }
 
-.bkg-image {
-    background-image: url('../assets/icons/nothing-here-light.svg');
-    background-size: cover;
-    width: 15em;
-    height: 30em;
-    transform: scale(2.5);
-}
-
-.dark-mode .bkg-image {
-    background-image: url('../assets/icons/nothing-here-dark.svg');
-}
-
 .top-right-buttons {
     position: absolute;
     top: 20px;
@@ -684,10 +672,6 @@ main {
     .folder-modal {
         padding: 1.5em;
         padding-bottom: none;
-    }
-
-    .bkg-image {
-        transform: scale(1.5);
     }
 }
 
