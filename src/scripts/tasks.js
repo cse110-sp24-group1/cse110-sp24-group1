@@ -58,16 +58,6 @@ class TaskList extends HTMLElement {
     // Validate the new task text
     if (newTaskText === '') return;
 
-    // Handle the case where a new label is created
-    if (taskLabel === 'createNew') {
-        const newLabelInput = modalForm.querySelector('#new-label-input');
-        const newLabel = newLabelInput.value.trim();
-
-        // Validate the new label text
-        if (newLabel === '') return;
-        taskLabel = newLabel;
-    }
-
     // Generate a unique task ID
     const taskId = `task-${Date.now()}`;
 
