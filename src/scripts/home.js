@@ -134,7 +134,6 @@ class HomeScript {
    * Render notes and folders to the homepage.
    */
   render() {
-    //console.log(this.currentFolderID + ' ' + this.parentFolderID);
     // Clear main element
     this.mainElement.innerHTML = "";
 
@@ -596,7 +595,6 @@ class HomeScript {
         `;
 
     enableModalTabTrap(modal, true);
-    console.log('hi');
     // Close modal when clicking the close button
     const closeButton = modal.querySelector('.obj-container:has(.close-modal)');
     closeButton.addEventListener('click', () => {
