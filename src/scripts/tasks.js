@@ -103,29 +103,29 @@ class TaskList extends HTMLElement {
     // Populate the task element with the new task data
     newTask.innerHTML = `
         <div class="task-main">
-        <input type="checkbox" class='check' id="${task.id}" ${task.checked ? `checked`: ''}>
-        <label for="${task.id}">${task.name}</label>
-        <button class="edit-btn">✏️</button>
+          <input type="checkbox" class='check' id="${task.id}" ${task.checked ? `checked`: ''} title="Check">
+          <label for="${task.id}">${task.name}</label>
+          <button class="edit-btn" title="Edit">✏️</button>
         </div>
         <label class="task-desc">${task.description}</label>
         <div class="task-footer">
-        <div class="date-label">
-            <div class="task-label" style="background-color: ${task.color}; ${this.calculateTextColor(task.color)}">
-            ${task.label}
-            </div>
-            ${
-            task.dueDate
-                ? `
-            <div class="task-date">
-                <label>🗓️ ${task.dueDate}</label>
-            </div>
-            ` 
-                : '<div class="task-date no-date"><label></label></div>'
-            }
-        </div>
-        <div class="task-buttons">
-            <button class="delete-btn">🗑️</button>
-        </div>
+          <div class="date-label">
+              <div class="task-label" style="background-color: ${task.color}; ${this.calculateTextColor(task.color)}">
+              ${task.label}
+              </div>
+              ${
+              task.dueDate
+                  ? `
+              <div class="task-date">
+                  <label>🗓️ ${task.dueDate}</label>
+              </div>
+              ` 
+                  : '<div class="task-date no-date"><label></label></div>'
+              }
+          </div>
+          <div class="task-buttons">
+              <button class="delete-btn" title="Delete">🗑️</button>
+          </div>
         </div>
     `;
 
