@@ -692,6 +692,15 @@ main {
     color: var(--dark-text-color) !important;
 }
 
+.editor-toolbar.fullscreen .fa {
+    color: var(--light-text-color) !important;
+}
+
+.editor-toolbar.fullscreen .fa:hover {
+    background-color: var(--dark-button-color-hover) !important;
+    color: var(--dark-text-color) !important;
+}
+
 /* Note label appears when editing */
 .edit-note-label {
     color: var(--light-text-color);
