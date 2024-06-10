@@ -704,6 +704,26 @@ main {
     color: var(--dark-text-color) !important;
 }
 
+.editor-preview-side p {
+    color: var(--light-text-color);
+}
+
+.editor-toolbar a.fa.fa-bold.active,
+.editor-toolbar a.fa.fa-italic.active, 
+.editor-toolbar a.fa.fa-strikethrough.active, 
+.editor-toolbar a.fa.fa-code.active, 
+.editor-toolbar a.fa.fa-list-ul.active, 
+.editor-toolbar a.fa.fa-list-ol.active, 
+.editor-toolbar a.fa.fa-link.active, 
+.editor-toolbar a.fa.fa-picture-o.active,
+.editor-toolbar a.fa.fa-eye.no-disable.active  {
+    background-color: transparent;
+}
+
+.editor-toolbar.disabled-for-preview a:not(.no-disable) {
+    background: lightgrey !important;
+}
+
 /* Note label appears when editing */
 .edit-note-label {
     color: var(--light-text-color);

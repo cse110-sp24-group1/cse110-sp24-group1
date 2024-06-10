@@ -173,6 +173,7 @@ select:focus {
    padding: 2px 5px;
    display: inline-block;
    border: 1px solid var(--light-border-color);
+   color: var(--light-text-color);
 }
 
 .dark-mode .task-item .task-date {
