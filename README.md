@@ -108,6 +108,14 @@ Our project uses GitHub Actions for Continuous Integration and Deployment. The p
 
 - To learn more about our project and its development, take a look at our [wiki](https://github.com/cse110-sp24-group1/cse110-sp24-group1/wiki).
 
+## Final Project Walkthrough
+
+### Project Development Process and Agile Methods
+[![Private Video](https://img.youtube.com/vi/5OWocxIp6Mo/maxresdefault.jpg)](https://www.youtube.com/watch?v=5OWocxIp6Mo&ab_channel=GwendolynWong)
+
+### Demo Video
+[![Public Video](https://img.youtube.com/vi/7AvkU47gFOc/maxresdefault.jpg)](https://www.youtube.com/watch?v=7AvkU47gFOc&ab_channel=GwendolynWong)
+
 ## Known Bugs
 - Markdown plain text centers when previewed
 - Markdown image tag only accepts base64 encodings or any urls without photo classifiers (e.g. jpg, png)
